@@ -8,6 +8,10 @@ import scrapy
 
 class TendersraperItem(scrapy.Item):
     # define the fields for your item here like:
-    # 
+    # add categoris
     # name = scrapy.Field()
     pass
+# change again 
+
+
+
