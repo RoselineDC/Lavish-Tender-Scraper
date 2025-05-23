@@ -29,6 +29,13 @@ if [ $? -ne 0 ]; then
 fi
 
 branch=$(git symbolic-ref --short HEAD)
-git push origin "$branch"
+
+# Check if the remote branch exists before pushing
+if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+  git push origin "$branch"
+else
+  echo "❌ Remote branch '$branch' does not exist. Run:"
+  echo "   git push --set-upstream origin $branch"
+fi
 
 echo "🌟 git-auto.sh completed at $(date)"
