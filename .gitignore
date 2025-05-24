@@ -1,2 +1,46 @@
 .venv/
 node_modules
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+
+# Logs and runtime
+*.log
+*.out
+*.pid
+
+# Scrapy output
+.scrapy/          # Local Scrapy cache (like HTTP cache)
+*.db              # If you're using SQLite or CrawlSpider logs
+*.sqlite3
+*.json            # Optional: scraped data exports
+*.csv
+*.xml
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# PyCharm or VS Code IDE settings (optional)
+.vscode/
+.idea/
+
+# Python environment and dependency management
+Pipfile.lock
+poetry.lock
+
+# Compiled Cython files (if any)
+*.c
+*.cpp
+
+# Secrets or credentials (if you store locally)
+.env
+*.env
