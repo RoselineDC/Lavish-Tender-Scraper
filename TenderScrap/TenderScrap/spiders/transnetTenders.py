@@ -40,4 +40,4 @@ class TransnetTendersSpider(scrapy.Spider):
     #         self.logger.error(f"Failed to parse JSON: {e}")
     #         self.logger.debug(response.text)
     def parse(self, response):
-    self.logger.info(f"Response text: {response.text[:1000]}")  # Print first 1000 chars
+        self.logger.info(f"Response text: {response.text[:1000]}")  # Print first 1000 chars
