@@ -23,21 +23,19 @@ class TransnetTendersSpider(scrapy.Spider):
             callback=self.parse,
         )
 
-    # def parse(self, response):
-    #     try:
-    #         data = json.loads(response.text)
-    #         for tender in data:
-    #             yield {
-    #                 "Tender Number": tender.get("tenderNumber"),
-    #                 "Description": tender.get("tenderDescription"),
-    #                 "Closing Date": tender.get("closingDate"),
-    #                 "Location": tender.get("location"),
-    #                 "Published Date": tender.get("publishedDate"),
-    #                 "CIDB Grade": tender.get("cidbGrade"),
-    #                 # Add or adjust fields as needed
-    #             }
-    #     except Exception as e:
-    #         self.logger.error(f"Failed to parse JSON: {e}")
-    #         self.logger.debug(response.text)
     def parse(self, response):
-        self.logger.info(f"Response text: {response.text[:1000]}")  # Print first 1000 chars
+        try:
+            data = json.loads(response.text)
+            tenders = data.get("result", [])
+            for tender in tenders:
+                yield {
+                    "Tender Number": tender.get("tenderNumber"),
+                    "Description": tender.get("descriptionOfTender"),
+                    "Closing Date": tender.get("closingDate"),
+                    "Location": tender.get("locationOfService"),
+                    "Published Date": tender.get("publishedDate"),
+                    "CIDB Grade": tender.get("cidbGrade"),  # This might be None if key missing
+                }
+    except Exception as e:
+        self.logger.error(f"Failed to parse JSON: {e}")
+        self.logger.debug(response.text)
