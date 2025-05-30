@@ -32,7 +32,7 @@ class TransnettendersSpider(scrapy.Spider):
 
 
     def parse(self, response):
-        url = ['https://transnetetenders.azurewebsites.net/Home/GetAdvertisedTenders']
+        url = 'https://transnetetenders.azurewebsites.net/Home/GetAdvertisedTenders'
         
         # create a new request
         request = scrapy.Request(url,
