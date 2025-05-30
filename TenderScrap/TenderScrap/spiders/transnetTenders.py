@@ -82,6 +82,39 @@ import json
 #             'Selected Suppliers': data['selectedSuppliers']
 #     }
 
+class TransnettendersSpider(scrapy.Spider):
+    name = "transnetTenders"
+    allowed_domains = ["transnetetenders.azurewebsites.net"]
+    start_urls = ["https://transnetetenders.azurewebsites.net/Home/AdvertisedTenders"]
 
-    
+    custom_headers = {
+        # keep only necessary headers
+        "accept": "application/json",
+        "user-agent": "Mozilla/5.0 ...",
+        "x-requested-with": "XMLHttpRequest",
+        "referer": "https://transnetetenders.azurewebsites.net/Home/AdvertisedTenders"
+    }
 
+    def parse(self, response):
+        url = 'https://transnetetenders.azurewebsites.net/Home/GetAdvertisedTenders'
+        yield scrapy.Request(url, callback=self.parse_api, headers=self.custom_headers)
+
+    def parse_api(self, response):
+        base_url = 'https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id='
+        data = json.loads(response.body)
+        for tender in data:
+            tender_code = tender['rowKey']
+            tender_url = base_url + tender_code
+            yield scrapy.Request(tender_url, callback=self.parse_tender, headers=self.custom_headers)
+
+    def parse_tender(self, response):
+        data = json.loads(response.body)
+        yield {
+            'Name': data.get('nameOfTender'),
+            'Description': data.get('descriptionOfTender'),
+            'Tender Number': data.get('tenderNumber'),
+            'Briefing Date': data.get('briefingDate'),
+            'Briefing Details': data.get('briefingDetails'),
+            'Closing Date': data.get('closingDate'),
+            'Contact Email': data.get('contactEmail', 'N/A')
+        }
