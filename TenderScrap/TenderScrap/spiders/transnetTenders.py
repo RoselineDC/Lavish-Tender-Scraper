@@ -57,7 +57,7 @@ class TransnettendersSpider(scrapy.Spider):
             
             yield request
     
-    def parse_school(self, response):
+    def parse_schoo(self, response):
         raw_data = response.body
         data = data.loads(raw_data)
         yield {
