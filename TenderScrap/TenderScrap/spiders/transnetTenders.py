@@ -45,7 +45,7 @@ class TransnettendersSpider(scrapy.Spider):
     def parse_api(self, response):
         base_url = 'https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id='
         raw_data = response.body
-        data = data.loads(raw_data)
+        data = json.loads(raw_data)
         #  get data  in loop
         for tender in data:
             tender_code = data['rowKey']
