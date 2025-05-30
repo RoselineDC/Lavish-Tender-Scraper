@@ -5,6 +5,7 @@ import json
 class TransnettendersSpider(scrapy.Spider):
     name = "transnetTenders"
     # allowed_domains = ["Advert"]
+    allowed_domains = ["transnetetenders.azurewebsites.net"]
     start_urls = ["https://transnetetenders.azurewebsites.net/Home/AdvertisedTenders"]
     
     headers = {
@@ -57,7 +58,7 @@ class TransnettendersSpider(scrapy.Spider):
             
             yield request
     
-    def parse_t(self, response):
+    def parse_tender(self, response):
         raw_data = response.body
         data = data.loads(raw_data)
         yield {
