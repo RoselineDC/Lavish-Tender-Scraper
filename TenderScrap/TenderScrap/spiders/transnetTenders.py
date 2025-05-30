@@ -48,7 +48,7 @@ class TransnettendersSpider(scrapy.Spider):
         data = json.loads(raw_data)
         #  get data  in loop
         for tender in data:
-            tender_code = dat['rowKey']
+            tender_code = tender['rowKey']
             tender_url = base_url+tender_code
             request = scrapy.Request(tender_url,
                                       callback=self.parse_tender,
