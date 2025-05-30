@@ -5,6 +5,7 @@ import json
 class TransnettendersSpider(scrapy.Spider):
     name = "transnetTenders"
     # allowed_domains = ["Advert"]
+    allowed_domains = ["transnetetenders.azurewebsites.net"]
     start_urls = ["https://transnetetenders.azurewebsites.net/Home/AdvertisedTenders"]
     
     headers = {
