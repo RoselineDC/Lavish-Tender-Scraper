@@ -31,7 +31,13 @@ class TransnettendersSpider(scrapy.Spider):
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
         "x-requested-with": "XMLHttpRequest"
     }
-        
+        yield scrapy.Request(
+            url=self.start_urls[0],
+            method="POST",
+            headers=headers,
+            body="",  # No data payload required
+            callback=self.parse,
+        )
 
 
     def parse(self, response):
