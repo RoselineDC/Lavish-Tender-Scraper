@@ -8,6 +8,7 @@ class TransnettendersSpider(scrapy.Spider):
     allowed_domains = ["transnetetenders.azurewebsites.net"]
     start_urls = ["https://transnetetenders.azurewebsites.net/Home/AdvertisedTenders"]
     
+    def start_requests(self):
     headers = {
     "accept": "application/json, text/javascript, */*; q=0.01",
     "accept-encoding": "gzip, deflate, br, zstd",
