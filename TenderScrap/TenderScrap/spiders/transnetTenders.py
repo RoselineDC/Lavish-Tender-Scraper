@@ -23,29 +23,29 @@ class TransnetTendersSpider(scrapy.Spider):
             callback=self.parse,
         )
 
-   def parse(self, response):
-    try:
-        data = json.loads(response.text)
-        self.logger.info(f"JSON keys: {list(data.keys())}")  # Log top-level keys
+    def parse(self, response):
+        try:
+            data = json.loads(response.text)
+            self.logger.info(f"JSON keys: {list(data.keys())}")  # Log top-level keys
 
-        tenders = data.get("tenders") or data.get("records") or data.get("data")  # Try common keys
+            tenders = data.get("tenders") or data.get("records") or data.get("data")  # Try common keys
 
-        if tenders is None:
-            self.logger.error("Could not find list of tenders in JSON data")
+            if tenders is None:
+                self.logger.error("Could not find list of tenders in JSON data")
+                self.logger.debug(response.text)
+                return
+
+            for tender in tenders:
+                yield {
+                    "Tender Number": tender.get("tenderNumber"),
+                    "Description": tender.get("tenderDescription"),
+                    "Closing Date": tender.get("closingDate"),
+                    "Location": tender.get("location"),
+                    "Published Date": tender.get("publishedDate"),
+                    "CIDB Grade": tender.get("cidbGrade"),
+                }
+
+        except Exception as e:
+            self.logger.error(f"Failed to parse JSON: {e}")
             self.logger.debug(response.text)
-            return
-
-        for tender in tenders:
-            yield {
-                "Tender Number": tender.get("tenderNumber"),
-                "Description": tender.get("tenderDescription"),
-                "Closing Date": tender.get("closingDate"),
-                "Location": tender.get("location"),
-                "Published Date": tender.get("publishedDate"),
-                "CIDB Grade": tender.get("cidbGrade"),
-            }
-
-    except Exception as e:
-        self.logger.error(f"Failed to parse JSON: {e}")
-        self.logger.debug(response.text)
 
