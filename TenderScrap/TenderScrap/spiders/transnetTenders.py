@@ -36,6 +36,6 @@ class TransnetTendersSpider(scrapy.Spider):
                     "Published Date": tender.get("publishedDate"),
                     "CIDB Grade": tender.get("cidbGrade"),  # This might be None if key missing
                 }
-    except Exception as e:
+        except Exception as e:
         self.logger.error(f"Failed to parse JSON: {e}")
         self.logger.debug(response.text)
