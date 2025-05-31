@@ -35,6 +35,7 @@ class TransnetTendersSpider(scrapy.Spider):
                     "Closing Date": tender.get("closingDate"),
                     "Briefing Date": tender.get("briefingDate"),
                     "Location": tender.get("locationOfService"),
+                    
                     "Contact Person": tender.get("contactPersonName"),
                     "Contact Email": tender.get("contactPersonEmailAddress"),
                 }
