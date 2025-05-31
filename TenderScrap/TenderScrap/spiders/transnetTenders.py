@@ -21,9 +21,7 @@ class TransnetTendersSpider(scrapy.Spider):
             headers=headers,
             body="",
             callback=self.parse,
-        )
-
-    def parse(self, response):
+        )    def parse(self, response):
         try:
             data = json.loads(response.text)
             tenders = data.get("result", [])
