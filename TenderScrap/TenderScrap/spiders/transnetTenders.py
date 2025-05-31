@@ -33,7 +33,7 @@ class TransnetTendersSpider(scrapy.Spider):
                     "Description": tender.get("descriptionOfTender"),
                      "Published Date": tender.get("publishedDate"),
                     "Closing Date": tender.get("closingDate"),
-                    "Brief"
+                    "Briefing Date": tender.get("briefingDate"),
                     "Location": tender.get("locationOfService"),
                     "Published Date": tender.get("publishedDate"),
                     "CIDB Grade": tender.get("cidbGrade"), 
