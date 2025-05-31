@@ -19,7 +19,7 @@ class TransnetTendersSpider(scrapy.Spider):
             url=self.start_urls[0],
             method="POST",
             headers=headers,
-            body="", 
+            body="",
             callback=self.parse,
         )
 
