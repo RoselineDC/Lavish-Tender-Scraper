@@ -31,7 +31,7 @@ class TransnetTendersSpider(scrapy.Spider):
                 yield {
                     "Tender Number": tender.get("tenderNumber"),
                     "Description": tender.get("descriptionOfTender"),
-                    
+                     "Published Date": tender.get("publishedDate"),
                     "Closing Date": tender.get("closingDate"),
                     "Location": tender.get("locationOfService"),
                     "Published Date": tender.get("publishedDate"),
