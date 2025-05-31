@@ -24,7 +24,8 @@ class TransnetTendersSpider(scrapy.Spider):
         )
 
     def parse(self, response):
-        
+        row_key = tender.get("rowKey")
+tender_url = f"https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id={row_key}"
         try:
             data = json.loads(response.text)
             tenders = data.get("result", [])
