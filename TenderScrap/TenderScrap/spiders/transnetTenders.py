@@ -19,9 +19,11 @@ class TransnetTendersSpider(scrapy.Spider):
             url=self.start_urls[0],
             method="POST",
             headers=headers,
-            body="",
+            body="",  # No data payload required
             callback=self.parse,
-        )    def parse(self, response):
+        )
+
+    def parse(self, response):
         try:
             data = json.loads(response.text)
             tenders = data.get("result", [])
@@ -32,7 +34,7 @@ class TransnetTendersSpider(scrapy.Spider):
                     "Closing Date": tender.get("closingDate"),
                     "Location": tender.get("locationOfService"),
                     "Published Date": tender.get("publishedDate"),
-                    "CIDB Grade": tender.get("cidbGrade"),
+                    "CIDB Grade": tender.get("cidbGrade"), 
                 }
         except Exception as e:
             self.logger.error(f"Failed to parse JSON: {e}")
