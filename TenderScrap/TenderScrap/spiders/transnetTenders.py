@@ -28,6 +28,8 @@ class TransnetTendersSpider(scrapy.Spider):
             data = json.loads(response.text)
             tenders = data.get("result", [])
             for tender in tenders:
+                row_key = tender.get("rowKey")
+        tender_url = f"https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id={row_key}"
                 yield {
                     "Tender Number": tender.get("tenderNumber"),
                     "Description": tender.get("descriptionOfTender"),
