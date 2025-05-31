@@ -37,7 +37,8 @@ class TransnetTendersSpider(scrapy.Spider):
                     "Location": tender.get("locationOfService"),
                     "Tender Document URL": tender.get("attachment"),
                     "Tender Category": tender.get("tenderCategory"),
-                    'Tender Type': tender.get("tenderType"),T               
+                    'Tender Type': tender.get("tenderType"),
+                    "Tender Status": tender.get("tenderStatus"),               
                     "Contact Person": tender.get("contactPersonName"),
                     "Contact Email": tender.get("contactPersonEmailAddress"),
                 }
