@@ -17,4 +17,8 @@ def clean_and_sort_csv(file_path='advert.csv'):
     # save cleaned and sorted DataFrame to a new CSV file
     df.to_csv(file_path, index=False)
     print("CSV cleaned, deduplicated and sorted.") 
-    
+
+
+if __name__ == "__main__":
+    clean_and_sort_csv()
+    print("Script executed successfully.")
