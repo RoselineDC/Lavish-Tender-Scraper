@@ -43,4 +43,6 @@ def main():
     cursor = conn.cursor()
 
     # Create the table
-    create_table(cur)
+    create_table(cursor)
+
+    
