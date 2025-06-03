@@ -37,4 +37,4 @@ def create_table():
     ))
 
 # Connect to the SQLite database (or create it if it doesn't exist)
-de
+def main()
