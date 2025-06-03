@@ -3,7 +3,7 @@ import csv
 
 
 # create table
-def create_table():
+def create_table(cursor):
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS tenders (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
