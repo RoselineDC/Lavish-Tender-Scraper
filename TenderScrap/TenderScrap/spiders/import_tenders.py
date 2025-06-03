@@ -45,4 +45,5 @@ def main():
     # Create the table
     create_table(cursor)
 
+    # Read the CSV file and insert data into the database
     
