@@ -5,10 +5,10 @@ def clean_and_sort_csv(file_path='advert.csv'):
 
     df.columns = df.columns.str.strip()  # Clean column names
 
-    for col in ["Published Date", "Closing Date"]:
-        if col in df.columns:
-            # You can specify format to avoid warnings
-            df[col] = pd.to_datetime(df[col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce')
+    # for col in ["Published Date", "Closing Date"]:
+    #     if col in df.columns:
+    #         # You can specify format to avoid warnings
+    #         df[col] = pd.to_datetime(df[col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce')
 
     if "Tender Number" in df.columns:
         df = df.drop_duplicates(subset=["Tender Number"], keep='last')
