@@ -12,3 +12,4 @@ def clean_and_sort_csv(file_path='advert.csv'):
     df = df.drop_duplicates(subset=["Tender Number"], keep='last')
 
     #sort by published date decending
+    df = df.sort_values(by="published Date", ascending=False)
