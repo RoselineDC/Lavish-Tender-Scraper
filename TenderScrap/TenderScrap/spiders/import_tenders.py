@@ -38,4 +38,4 @@ def create_table():
 
 # Connect to the SQLite database (or create it if it doesn't exist)
 def main():
-    ?
+    # Connect to the SQLite database (or create it if it doesn't exist)
