@@ -46,4 +46,15 @@ def main():
     create_table(cursor)
 
     # Read the CSV file and insert data into the database
-    
+    with open('advert.csv', newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            insert_tender(cursor, row)
+
+    # Commit changes and close connection
+    conn.commit()
+    conn.close()
+    print("✅ Data imported successfully into tenders.db")
+
+if __name__ == "__main__":
+    main()
