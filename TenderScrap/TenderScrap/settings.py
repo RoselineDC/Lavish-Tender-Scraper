@@ -15,6 +15,18 @@ NEWSPIDER_MODULE = "TenderScrap.spiders"
 ADDONS = {}
 
 # set headers 
+FEEDS = {
+    'advert.csv': {
+        'format': 'csv',
+        'fields': [
+            "Tender Number", "Description", "Published Date", "Closing Date", "Briefing Date",
+            "Location", "Tender Document URL", "Tender Category", "Tender Type",
+            "Tender Status", "Contact Person", "Contact Email"
+        ],
+        'overwrite': True,
+    },
+}
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
