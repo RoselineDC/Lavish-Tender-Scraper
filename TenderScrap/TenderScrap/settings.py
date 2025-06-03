@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = "TenderScrap.spiders"
 
 ADDONS = {}
 
-# set
+# set headers 
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
