@@ -42,4 +42,5 @@ def main():
     conn = sqlite3.connect('tenders.db')
     cursor = conn.cursor()
 
-    # 
+    # Create the table
+    create_table()
