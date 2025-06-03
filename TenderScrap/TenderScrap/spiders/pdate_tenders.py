@@ -6,7 +6,7 @@ def clean_and_sort_csv(file_path='advert.csv'):
 
     # convert date columns to datetime 
    for col in ["Published Date", "Closing Date"]:
-    df[col] = pd.to_datetime(df[col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce')
+  df[col] = pd.to_datetime(df[col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce')
 
 
     # drop rows with NaT in 'published Date' or 'Closing Date'
