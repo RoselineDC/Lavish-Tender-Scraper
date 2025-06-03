@@ -30,20 +30,20 @@ class TransnetTendersSpider(scrapy.Spider):
             for tender in tenders:
                 row_key = tender.get("rowKey")
                 tender_url = f"https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id={row_key}"
-                yield {
-                    "Tender Number": tender.get("tenderNumber"),
-                    "Description": tender.get("descriptionOfTender"),
-                     "Published Date": tender.get("publishedDate"),
-                    "Closing Date": tender.get("closingDate"),
-                    "Briefing Date": tender.get("briefingDate"),
-                    "Location": tender.get("locationOfService"),
-                    "Tender Document URL": tender_url,
-                    "Tender Category": tender.get("tenderCategory"),
-                    'Tender Type': tender.get("tenderType"),
-                    "Tender Status": tender.get("tenderStatus"),               
-                    "Contact Person": tender.get("contactPersonName"),
-                    "Contact Email": tender.get("contactPersonEmailAddress"),
-                }
+                 yield {
+                "Tender Number": tender.get("tenderNumber", ""),
+                "Description": tender.get("descriptionOfTender", ""),
+                "Published Date": tender.get("publishedDate", ""),
+                "Closing Date": tender.get("closingDate", ""),
+                "Briefing Date": tender.get("briefingDate", ""),
+                "Location": tender.get("locationOfService", ""),
+                "Tender Document URL": tender.get("attachment", ""),
+                "Tender Category": tender.get("tenderCategory", ""),
+                "Tender Type": tender.get("tenderType", ""),
+                "Tender Status": tender.get("tenderStatus", ""),
+                "Contact Person": tender.get("contactPersonName", ""),
+                "Contact Email": tender.get("contactPersonEmailAddress", ""),
+            }
         except Exception as e:
             self.logger.error(f"Failed to parse JSON: {e}")
             self.logger.debug(response.text)
