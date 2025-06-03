@@ -36,3 +36,5 @@ def create_table():
         row['Tender Type'], row['Tender Status'], row['Contact Person'], row['Contact Email']
     ))
 
+# Connect to the SQLite database (or create it if it doesn't exist)
+de
