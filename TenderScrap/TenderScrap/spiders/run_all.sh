@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /projects/Lavish-Tender-Scraper/TenderScrap/TenderScrap/spiders
-s
+scrapy 
