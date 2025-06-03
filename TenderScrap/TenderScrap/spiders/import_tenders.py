@@ -4,4 +4,4 @@ import csv
 
 # create table
 def create_table():
-    
+    curso
