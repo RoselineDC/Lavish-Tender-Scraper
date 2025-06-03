@@ -22,4 +22,4 @@ def create_table():
     )
     ''')
 
-    # i
+    # inssert data from csv file
