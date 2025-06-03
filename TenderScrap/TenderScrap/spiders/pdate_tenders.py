@@ -8,7 +8,7 @@ def clean_and_sort_csv(file_path='advert.csv'):
     for col in ["Published Date", "Closing Date"]:
         if col in df.columns:
             # You can specify format to avoid warnings
-            df[col] = pd.to_datetime(df[col], format="%m/%d/%Y %I:%M:%S %p, errors='coerce')
+            df[col] = pd.to_datetime(df[col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce')
 
     if "Tender Number" in df.columns:
         df = df.drop_duplicates(subset=["Tender Number"], keep='last')
@@ -22,6 +22,7 @@ def clean_and_sort_csv(file_path='advert.csv'):
 
     # Save to XLS
     try:
+        import xlwt  # for .xls format
         df.to_excel("advert.xlsx", index=False, header=True)
         print("✅ Also saved as advert.xls")
     except ImportError:
