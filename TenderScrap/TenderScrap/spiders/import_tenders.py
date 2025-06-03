@@ -35,4 +35,4 @@ def create_table():
         row['Briefing Date'], row['Location'], row['Tender Document URL'], row['Tender Category'],
         row['Tender Type'], row['Tender Status'], row['Contact Person'], row['Contact Email']
     ))
-        
+
