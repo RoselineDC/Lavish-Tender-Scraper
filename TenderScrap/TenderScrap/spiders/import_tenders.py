@@ -23,7 +23,7 @@ def create_table(cursor):
     ''')
 
     # inssert data from csv file
-    def inert_tender(cursor, row):
+    def insert_tender(cursor, row):
         cursor.execute('''
         INSERT OR IGNORE INTO tenders (
             tender_number, description, published_date, closing_date,
