@@ -9,4 +9,4 @@ def clean_and_sort_csv(file_path='advert.csv'):
         df[col] = pd.to_datetime(df[col], errors='coerce')
 
     # drop rows with NaT in 'published Date' or 'Closing Date'
-    df = df.dro
+    df = df.drop_duplicates
