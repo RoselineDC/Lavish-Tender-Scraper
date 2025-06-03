@@ -41,4 +41,5 @@ def main():
     # Connect to the SQLite database (or create it if it doesn't exist)
     conn = sqlite3.connect('tenders.db')
     cursor = conn.cursor()
-    
+
+    # 
