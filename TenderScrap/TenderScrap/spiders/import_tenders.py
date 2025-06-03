@@ -1,8 +1,6 @@
 import sqlite3
 import csv
 
-
-# create table
 def create_table(cursor):
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS tenders (
@@ -22,9 +20,8 @@ def create_table(cursor):
     )
     ''')
 
-    # inssert data from csv file
-    def insert_tender(cursor, row):
-        cursor.execute('''
+def insert_tender(cursor, row):
+    cursor.execute('''
         INSERT OR IGNORE INTO tenders (
             tender_number, description, published_date, closing_date,
             briefing_date, location, tender_document_url, tender_category,
@@ -36,16 +33,15 @@ def create_table(cursor):
         row['Tender Type'], row['Tender Status'], row['Contact Person'], row['Contact Email']
     ))
 
-# Connect to the SQLite database (or create it if it doesn't exist)
 def main():
-    # Connect to the SQLite database (or create it if it doesn't exist)
+    # Connect or create database file
     conn = sqlite3.connect('tenders.db')
     cursor = conn.cursor()
 
-    # Create the table
+    # Create the tenders table
     create_table(cursor)
 
-    # Read the CSV file and insert data into the database
+    # Open CSV file and read data
     with open('advert.csv', newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
