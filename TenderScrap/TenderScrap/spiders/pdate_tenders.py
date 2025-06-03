@@ -15,5 +15,6 @@ def clean_and_sort_csv(file_path='advert.csv'):
     df = df.sort_values(by="published Date", ascending=False)
 
     # save cleaned and sorted DataFrame to a new CSV file
-    df.to_csv(file_path,)
+    df.to_csv(file_path, index=False)
     print("CSV cleaned, deduplicated and sorted.") 
+    
