@@ -3,4 +3,5 @@ import csv
 
 
 # create table
-def create_table
+def create_table():
+    
