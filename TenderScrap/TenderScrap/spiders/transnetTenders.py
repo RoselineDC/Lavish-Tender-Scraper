@@ -30,7 +30,7 @@ class TransnetTendersSpider(scrapy.Spider):
             for tender in tenders:
                 row_key = tender.get("rowKey")
                 tender_url = f"https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id={row_key}"
-                 yield {
+                yield {
                     "Tender Number": tender.get("tenderNumber", ""),
                     "Description": tender.get("descriptionOfTender", ""),
                     "Published Date": tender.get("publishedDate", ""),
