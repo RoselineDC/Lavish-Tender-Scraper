@@ -22,7 +22,6 @@ def clean_and_sort_csv(file_path='advert.csv'):
 
     # Save to XLS
     try:
-        import xlwt  # for .xls format
         df.to_excel("advert.xlsx", index=False, header=True)
         print("✅ Also saved as advert.xls")
     except ImportError:
