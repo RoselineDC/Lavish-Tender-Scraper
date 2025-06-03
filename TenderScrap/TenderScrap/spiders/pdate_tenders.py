@@ -13,4 +13,6 @@ def clean_and_sort_csv(file_path='advert.csv'):
 
     #sort by published date decending
     df = df.sort_values(by="published Date", ascending=False)
-    
+
+    # save cleaned and sorted DataFrame to a new CSV file
+    cleaned_file_path = 'cleaned_advert.csv'
