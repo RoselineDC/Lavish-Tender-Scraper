@@ -21,3 +21,5 @@ def create_table():
         contact_email TEXT
     )
     ''')
+
+    
