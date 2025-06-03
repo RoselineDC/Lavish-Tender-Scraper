@@ -10,7 +10,6 @@ def clean_and_sort_csv(file_path='advert.csv'):
             # You can specify format to avoid warnings
             df[col] = pd.to_datetime(df[col], errors='coerce')
 
-
     if "Tender Number" in df.columns:
         df = df.drop_duplicates(subset=["Tender Number"], keep='last')
 
