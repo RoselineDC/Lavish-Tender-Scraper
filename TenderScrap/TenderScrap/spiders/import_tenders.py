@@ -23,3 +23,4 @@ def create_table():
     ''')
 
     # inssert data from csv file
+    def inser
