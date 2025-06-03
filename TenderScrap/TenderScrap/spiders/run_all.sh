@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /projects/Lavish-Tender-Scraper/TenderScrap/TenderScrap/spiders
-scrapy runspider transnetTenders.py -o transfer.jso
+scrapy runspider transnetTenders.py -o advert.csv
