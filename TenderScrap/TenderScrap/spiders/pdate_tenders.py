@@ -2,11 +2,11 @@ import pandas as pd
 
 def clean_and_sort_csv(file_path='advert.csv'):
     df = pd.read_csv(file_path)
-    df.columns = df.columns.str.strip()  # Clean column names
+    df.columns = df.columns.str.strip()
 
     for col in ["Published Date", "Closing Date"]:
         if col in df.columns:
-            df[col] = pd.to_datetime(df[col], errors='coerce')  # ← FIXED HERE
+            df[col] = pd.to_datetime(df[col], errors='coerce')
 
     if "Tender Number" in df.columns:
         df = df.drop_duplicates(subset=["Tender Number"], keep='last')
@@ -18,11 +18,10 @@ def clean_and_sort_csv(file_path='advert.csv'):
     print("✅ CSV cleaned, deduplicated and sorted.")
 
     try:
-        import xlwt
-        df.to_excel("advert.xls", index=False, header=True)
-        print("✅ Also saved as advert.xls")
-    except ImportError:
-        print("⚠️ 'xlwt' not installed. Run: pip install xlwt")
+        df.to_excel("advert.xlsx", index=False, header=True)  # ← .xlsx!
+        print("✅ Also saved as advert.xlsx")
+    except Exception as e:
+        print(f"⚠️ Excel export failed: {e}")
 
 if __name__ == "__main__":
     clean_and_sort_csv()
