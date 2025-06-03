@@ -23,4 +23,10 @@ def create_table():
     ''')
 
     # inssert data from csv file
-    def insert_tender(cur)
+    def insert_tender(cursor, ro):
+        cursor.execute('''
+        INSERT OR IGNORE INTO tenders (
+            tender_number, description, published_date, closing_date,
+            briefing_date, location, tender_document_url, tender_category,
+            tender_type, tender_status, contact_person, contact_email
+        ) VALUES (?,
