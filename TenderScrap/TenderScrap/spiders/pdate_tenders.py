@@ -23,7 +23,8 @@ def clean_and_sort_csv(file_path='advert.csv'):
     # Save to XLS
     try:
         import xlwt  # for .xls format
-        df.to_excel("advert.xls", index=False, engine='xlwt')
+       df.to_excel("advert.xlsx", index=False)
+
         print("✅ Also saved as advert.xls")
     except ImportError:
         print("⚠️ 'xlwt' not installed. Run: pip install xlwt")
