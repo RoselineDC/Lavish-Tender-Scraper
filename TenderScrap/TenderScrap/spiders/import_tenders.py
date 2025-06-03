@@ -23,4 +23,4 @@ def create_table():
     ''')
 
     # inssert data from csv file
-    def insert_tw
+    def insert_te
