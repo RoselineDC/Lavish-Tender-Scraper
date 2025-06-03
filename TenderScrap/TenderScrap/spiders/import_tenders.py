@@ -5,7 +5,7 @@ import csv
 # create table
 def create_table():
     cursor.execute('''
-     CREATE TABLE IF NOT EXISTS tenders (
+    CREATE TABLE IF NOT EXISTS tenders (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         tender_number TEXT UNIQUE,
         description TEXT,
