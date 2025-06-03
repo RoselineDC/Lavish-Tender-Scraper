@@ -14,6 +14,8 @@ NEWSPIDER_MODULE = "TenderScrap.spiders"
 
 ADDONS = {}
 
+# set
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "TenderScrap (+http://www.yourdomain.com)"
