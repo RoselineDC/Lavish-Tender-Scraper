@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd 
+cd /projects/Lavish-Tender-Scraper/TenderScrap/TenderScrap/spiders
