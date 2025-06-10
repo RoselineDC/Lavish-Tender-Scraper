@@ -12,4 +12,7 @@ const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
     };
 // create Navbar component
-const Navbar = () 
+const Navbar = () => {
+    
+
+}
