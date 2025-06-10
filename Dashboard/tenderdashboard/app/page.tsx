@@ -6,8 +6,7 @@ import { use } from "react";
 export default function Home() {
   return (
     <div>
-      WELCOME TO HIN GROUP TENDER SCRAPER
-      // nav bar
+     
     <Navbar />
     </div>
     
