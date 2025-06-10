@@ -1,4 +1,4 @@
-""use client";
+"se client";
 import Image from "next/image";
 import Navbar from "./Navbar";
 import { use } from "react";
