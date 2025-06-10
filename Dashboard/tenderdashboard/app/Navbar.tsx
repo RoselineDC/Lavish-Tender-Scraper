@@ -1,5 +1,5 @@
 import Link from 'next/link'
-IMPORT
+import global.
 import Image from 'next/image'
 
 const navIcons = [
@@ -27,4 +27,4 @@ const Navbar = () => {
 
 // saved 
 
-export default N
+export default Navbar
