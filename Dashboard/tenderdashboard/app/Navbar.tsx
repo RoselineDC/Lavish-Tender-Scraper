@@ -31,9 +31,7 @@ const Navbar = () => {
           <li className="text-xl hover:text-blue-900 hover:font-semibold">
             <Link href="/">Others</Link>
           </li>
-          <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">Home</Link>
-          </li>
+          
           {/* Add other navigation links */}
         </ul>
       </nav>
