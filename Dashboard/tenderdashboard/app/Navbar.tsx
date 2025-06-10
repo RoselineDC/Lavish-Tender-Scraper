@@ -4,13 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 
-// create dropdown
-const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-//handle drawer toggle
-const handleDrawerToggle = () => {
-  setIsDrawerOpen(!isDrawerOpen);
-};
 // create Navbar component
 const Navbar = () => {
   return (
