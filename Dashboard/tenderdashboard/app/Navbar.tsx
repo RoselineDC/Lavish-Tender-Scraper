@@ -8,4 +8,6 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
  //handle drawer toggle
- 
+    const handleDrawerToggle = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+    };
