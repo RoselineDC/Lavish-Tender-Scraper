@@ -16,9 +16,8 @@ const Navbar = () => {
     return (
         <div>
             <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
-                
+                <ul 
                 </nav>
         </div>
     )
 
-}
