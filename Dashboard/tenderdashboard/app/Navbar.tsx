@@ -14,5 +14,10 @@ const handleDrawerToggle = () => {
 // create Navbar component
 const Navbar = () => {
     return (
-        <div></div>
-   
+        <div>
+            
+
+        </div>
+    )
+
+}
