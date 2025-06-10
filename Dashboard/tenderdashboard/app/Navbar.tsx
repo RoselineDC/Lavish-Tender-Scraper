@@ -38,4 +38,5 @@ const Navbar = () => {
     </div>
   );
 };
-4
+
+export default Navbar;
