@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
         <ul className="absolute right-0 flex flex-row space-x-6">
           <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">Home</Link>
+            <Link href="/">Hoe</Link>
           </li>
           <li className="text-xl hover:text-blue-900 hover:font-semibold">
             <Link href="/">Home</Link>
