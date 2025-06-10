@@ -14,7 +14,7 @@ const Navbar = () => {
         <header className="w-full">
             <nav className='nav'>
                 <Link href="/" className='flex items-center gap-1'>
-                    <p className='nav-logo'>
+                    <p className='nav-logo'>    TENDE
                        <span className='text-primary'></span> 
                     </p>
                
