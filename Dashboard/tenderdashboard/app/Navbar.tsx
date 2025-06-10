@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import "global.css"
+
 import Image from 'next/image'
 
 const navIcons = [
