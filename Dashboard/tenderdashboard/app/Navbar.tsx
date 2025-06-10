@@ -15,7 +15,7 @@ const handleDrawerToggle = () => {
 const Navbar = () => {
     return (
         <div>
-            <nav class
+            <nav className=''
 
         </div>
     )
