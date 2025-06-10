@@ -17,6 +17,7 @@ def create_table(cursor):
         tender_status TEXT,
         contact_person TEXT,
         contact_email TEXT
+        
     )
     ''')
 
