@@ -25,11 +25,6 @@ const Navbar = () => {
                     </p>
                
                 </Link>
-                <div className='flex items-center gap-5'>
-
-
-                    </div>
-
         </nav>
         </header >
     )
