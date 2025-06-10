@@ -11,4 +11,4 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 const handleDrawerToggle = () => {
     setIsDrawerOpen(!isDrawerOpen);
     };
-    
+// create Navbar component
