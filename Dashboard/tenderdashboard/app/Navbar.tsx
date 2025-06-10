@@ -4,9 +4,15 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 
-
 // create Navbar component
 const Navbar = () => {
+    // create dropdown
+const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+//handle drawer toggle
+const handleDrawerToggle = () => {
+  setIsDrawerOpen(!isDrawerOpen);
+};
   return (
     <div>
       <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
