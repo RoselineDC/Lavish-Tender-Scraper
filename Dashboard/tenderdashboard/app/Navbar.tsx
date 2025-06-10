@@ -6,4 +6,6 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 // create dropdown
  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+
+ //handle drawer toggle
+ 
