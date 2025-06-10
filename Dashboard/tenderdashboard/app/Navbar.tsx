@@ -1,43 +1,50 @@
-"use client"
+import Link from 'next/link'
+import Image from 'next/image'
 
-import Link from "next/link";
-import React, { useState } from "react";
+const navIcons = [
+    { src: "/assets/icons/search.svg", alt: "search" },
+    { src: "/assets/icons/black-heart.svg", alt: "heart" },   
+    { src: "/assets/icons/user.svg", alt: "user" },  
 
+   
+]
 
-// create Navbar component
 const Navbar = () => {
-    // create dropdown
-const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    return (
+        <header className="w-full">
+            <nav className='nav'>
+                <Link href="/" className='flex items-center gap-1'>
+                    <Image
+                        src="/assets/icons/logo.svg"
+                        alt="Logo"
+                         width={27}
+                          height={27}
+                    />
+                    <p className='nav-logo'>
+                       PRICE 
+                       <span className='text-primary'>DROP</span> 
+                    </p>
+               
+                </Link>
+                <div className='flex items-center gap-5'>
+                    {navIcons.map((icon) => (
+                        <Image
+                            key={icon.alt}
+                            src={icon.src}
+                            alt={icon.alt}
+                            width={28}
+                            height={28}
+                            className='object.container'
+                            />
+                    ))}
 
-//handle drawer toggle
-const handleDrawerToggle = () => {
-  setIsDrawerOpen(!isDrawerOpen);
-};
-  return (
-    <div>
-      <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
-        <ul className="absolute right-0 flex flex-row space-x-6">
-          <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">Tenders</Link>
-          </li>
-          <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">Transnet</Link>
-          </li>
-          <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">CSIR</Link>
-          </li>
-          <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">eTENDERS</Link>
-          </li>
-          <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">Others</Link>
-          </li>
-          
-          {/* Add other navigation links */}
-        </ul>
-      </nav>
-    </div>
-  );
-};
+                    </div>
 
-export default Navbar;
+        </nav>
+        </header >
+    )
+}
+
+// saved 
+
+export default Navbar
