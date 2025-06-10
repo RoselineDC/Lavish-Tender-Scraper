@@ -16,8 +16,14 @@ const Navbar = () => {
     return (
         <div>
             <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">
-                <ul 
+                 <ul className="absolute right-0 flex flex-row space-x-6">
+      <li className="text-xl hover:text-blue-900 hover:font-semibold">
+        <Link href="/">Home</Link>
+      </li>
+      {/* Add other navigation links */}
+    </ul>
                 </nav>
         </div>
     )
 
+}
