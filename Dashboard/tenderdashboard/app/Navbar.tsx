@@ -21,7 +21,6 @@ const Navbar = () => {
                           height={27}
                     />
                     <p className='nav-logo'>
-                       PRICE 
                        <span className='text-primary'>DROP</span> 
                     </p>
                
