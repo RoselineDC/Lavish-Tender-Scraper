@@ -1,4 +1,4 @@
-use clients;
+use clientsever;
 import Image from "next/image";
 import Navbar from "./Navbar";
 import { use } from "react";
