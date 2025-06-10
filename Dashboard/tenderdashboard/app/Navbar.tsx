@@ -26,10 +26,10 @@ const Navbar = () => {
             <Link href="/">CSIR</Link>
           </li>
           <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">e</Link>
+            <Link href="/">eTENDERS</Link>
           </li>
           <li className="text-xl hover:text-blue-900 hover:font-semibold">
-            <Link href="/">Home</Link>
+            <Link href="/">oTHERS</Link>
           </li>
           <li className="text-xl hover:text-blue-900 hover:font-semibold">
             <Link href="/">Home</Link>
