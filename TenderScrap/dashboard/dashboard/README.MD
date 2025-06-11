@@ -44,7 +44,6 @@ To learn more about **Refine**, please check out the [Documentation](https://ref
 - **React Router** [Docs](https://refine.dev/docs/core/providers/router-provider/)
 - **Custom Auth Provider** [Docs](https://refine.dev/docs/core/providers/auth-provider/)
 
-
 ## License
 
 MIT
