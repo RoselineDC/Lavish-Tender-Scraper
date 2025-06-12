@@ -26,7 +26,7 @@ Error |null => {
     if (!body) {
         return {
             message: "Unknown error",
-            statusCode: 500,
+            statusCode: ,
         };
     }
     return null;
