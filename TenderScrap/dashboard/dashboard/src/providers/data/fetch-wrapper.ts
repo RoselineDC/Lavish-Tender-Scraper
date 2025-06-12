@@ -29,6 +29,8 @@ Error |null => {
             statusCode: "INTERNAL_SERVER_ERROR",
         };
     }
-    if("errors" in body){}
+    if("errors" in body){
+        const
+    }
     return null;
 }
