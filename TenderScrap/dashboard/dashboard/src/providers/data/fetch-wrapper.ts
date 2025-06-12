@@ -24,7 +24,8 @@ const getGraphErrors = (body: Record<"errors", GraphQLFormattedError[] | undefin
 Error |null => {
     if (!body) {
         return {
-            message: 
+            message: "Unknown error",
+            
         };
     }
     return null;
