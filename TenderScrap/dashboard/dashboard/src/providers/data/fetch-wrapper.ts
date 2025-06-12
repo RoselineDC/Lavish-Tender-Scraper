@@ -1,6 +1,6 @@
 
 
 
-const customFetch = async (url: string, options: RequestInit = {
-    
+const customFetch = async (url: string, options: RequestInit) => {
+
 }): Promise<Response> => {
