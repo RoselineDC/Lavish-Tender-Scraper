@@ -7,7 +7,7 @@ export const client = new GraphQLClient( API_URL, {
         try{
 
         } catch (error) {
-            console.error('Error in fetch:', error);
+           return Pro
         }
 
     }
