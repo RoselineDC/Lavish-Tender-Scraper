@@ -21,3 +21,4 @@ const customFetch = async (url: string, options: RequestInit) => {
 }
 
 const getGraphErrors = (body: Record<"errors", GraphQLFormattedError[] | undefined>):
+ERR
