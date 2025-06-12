@@ -10,6 +10,11 @@ const customFetch = async (url: string, options: RequestInit) => {
 
     return await fetch(url, {
         ...options,
-        
+        headers: {
+            ...headers,
+            "Content-Type": "application/json",
+            Authorization: accessToken ? `Bearer ${accessToken}` : "",
+        },
+    });
 
 }
