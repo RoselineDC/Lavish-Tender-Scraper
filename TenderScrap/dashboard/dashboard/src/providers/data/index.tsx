@@ -1,1 +1,1 @@
-export const client = new GraphQL
+export const client = new GraphQLC
