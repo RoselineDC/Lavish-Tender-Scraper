@@ -31,9 +31,7 @@ Error |null => {
     }
     if("errors" in body){
         const errors = body.errors;
-        if (errors && errors.length > 0) {
-            return new Error(errors[0].message);
-        }
+       co
     }
     return null;
 }
