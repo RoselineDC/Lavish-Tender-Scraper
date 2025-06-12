@@ -1,1 +1,1 @@
-export const client = new GraphQLClient( AP{})
+export const client = new GraphQLClient( API_URL{})
