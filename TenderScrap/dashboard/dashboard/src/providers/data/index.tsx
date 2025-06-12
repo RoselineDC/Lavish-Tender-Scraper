@@ -7,7 +7,7 @@ export const client = new GraphQLClient( API_URL, {
         try{
 
         } catch (error) {
-           return Promise.reject(error);
+           return Promise.reject(error as);
         }
 
     }
