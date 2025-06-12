@@ -26,7 +26,7 @@ Error |null => {
     if (!body) {
         return {
             message: "Unknown error",
-            statusCode: "IN"
+            statusCode: "INTERNAL_SERVER_ERROR",
         };
     }
     return null;
