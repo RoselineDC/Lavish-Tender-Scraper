@@ -25,7 +25,7 @@ Error |null => {
     if (!body) {
         return {
             message: "Unknown error",
-            
+            statusG=
         };
     }
     return null;
