@@ -20,4 +20,4 @@ const customFetch = async (url: string, options: RequestInit) => {
 
 }
 
-const getGraphErrors = (body: Recod<"errors">) => {
+const getGraphErrors = (body: Record<"errors">) => {
