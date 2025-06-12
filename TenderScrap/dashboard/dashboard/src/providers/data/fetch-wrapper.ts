@@ -13,7 +13,7 @@ const customFetch = async (url: string, options: RequestInit) => {
         headers: {
             ...headers,
             "Content-Type": "application/json",
-            Authorization: headers?.Authorization || `Bearer ${accessToken}` :"",
+            Authorization: headers?.Authorization || `Bearer ${accessToken}`,
         },
     });
 
