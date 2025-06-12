@@ -32,7 +32,7 @@ Error |null => {
     if("errors" in body){
         const errors = body.errors;
 
-        const message
+        const messages
     }
     return null;
 }
