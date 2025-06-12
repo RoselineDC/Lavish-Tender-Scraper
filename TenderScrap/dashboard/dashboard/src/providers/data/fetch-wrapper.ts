@@ -29,5 +29,6 @@ Error |null => {
             statusCode: "INTERNAL_SERVER_ERROR",
         };
     }
+    
     return null;
 }
