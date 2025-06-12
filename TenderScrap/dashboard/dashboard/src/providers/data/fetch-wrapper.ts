@@ -1,1 +1,1 @@
-const customFetch 
+const customFetch = async (url: string, options: RequestInit = {}): Promise<Response> => {
