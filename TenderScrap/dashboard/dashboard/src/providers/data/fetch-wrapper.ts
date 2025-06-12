@@ -6,6 +6,6 @@ const customFetch = async (url: string, options: RequestInit) => {
     const accessToken = localStorage.getItem("access_token");
 
     // get headers
-    const headers = options.headersa
+    const headers = options.headers as Headers || new Headers();r
 
 }
