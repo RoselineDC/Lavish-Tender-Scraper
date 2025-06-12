@@ -8,6 +8,8 @@ const customFetch = async (url: string, options: RequestInit) => {
     // get headers
     const headers = options.headers as Record<string, string>;
 
-    return await 
+    return await fetch(url, {
+        ...options,
+        
 
 }
