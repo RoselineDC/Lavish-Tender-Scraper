@@ -32,7 +32,7 @@ Error |null => {
     if("errors" in body){
         const errors = body.errors;
 
-        const messages = errors?
+        const messages = errors?>map
     }
     return null;
 }
