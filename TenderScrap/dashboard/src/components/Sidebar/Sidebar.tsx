@@ -6,6 +6,7 @@ const Sidebar = () => {
         <div>
             {/* main side content */}
         </div>
+        {/*  */}
     </div>
   )
 }
