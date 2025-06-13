@@ -2,7 +2,7 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div className='bg-green-400 rounded-lg shadow'></div>
+   <div className="bg-white rounded-lg pb-4 shadow">
   )
 }
 
