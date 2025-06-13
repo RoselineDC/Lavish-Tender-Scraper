@@ -6,7 +6,7 @@ const Sidebar = () => {
         <div>
             {/* main side content */}
         </div>
-        {/*  */}
+        {/* pan to */}
     </div>
   )
 }
