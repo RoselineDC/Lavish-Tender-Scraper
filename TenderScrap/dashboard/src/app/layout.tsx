@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} text-sto`}
+        className={`${inter.className} text-stone-`}
       >
         {children}
       </body>
