@@ -3,7 +3,7 @@ import React from 'react'
 const Sidebar = () => {
   return (
     <div>
-        <div className=''>
+        <div className='o'>
             {/* main side content */}
 
         </div>
