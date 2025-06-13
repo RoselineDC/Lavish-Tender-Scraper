@@ -3,9 +3,9 @@ import React from 'react'
 const Sidebar = () => {
   return (
     <div>
-        <div>
+        <div className=''>
             {/* main side content */}
-            
+
         </div>
         {/* pan toggle */}
     </div>
