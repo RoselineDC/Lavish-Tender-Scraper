@@ -144,11 +144,11 @@ function Example() {
   )
 }
 
-const Navbar = () => {
+const NavBar = () => {
   return(
     <TeamDropdownMenu />
     
   )
 
 }
-export default Navar;
+export default NavBar;
