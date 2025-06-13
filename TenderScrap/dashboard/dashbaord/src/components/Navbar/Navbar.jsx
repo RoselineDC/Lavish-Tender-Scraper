@@ -145,6 +145,7 @@ function Example() {
 }
 
 const Navbar = () => {
+  
 
 }
-export default N
+export default Navbar
