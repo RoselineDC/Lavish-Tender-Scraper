@@ -145,5 +145,5 @@ function Example() {
 }
 
 const Navbar = () => {
-  
+
 }
