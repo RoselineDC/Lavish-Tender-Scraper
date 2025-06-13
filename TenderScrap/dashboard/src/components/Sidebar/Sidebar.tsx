@@ -3,7 +3,7 @@ import React from 'react'
 const Sidebar = () => {
   return (
     <div>
-        <div className='overflow-y-scroll sticky h-screen bg-white shadow-lg rounded-lg p4'>
+        <div className='overflow-y-scroll sticky '>
             {/* main side content */}
 
         </div>
