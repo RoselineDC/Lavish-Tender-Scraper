@@ -5,7 +5,7 @@ const Sidebar = () => {
     <div>
         <div className="overflow-y-scroll sticky top-4 h-[calc(100vh-32px-48px)]">
             {/* main side content */}
-            
+            sidebar
 
         </div>
         {/* pan toggle */}
