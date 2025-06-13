@@ -147,7 +147,7 @@ function Example() {
 const Navbar = () => {
   return(
     </Example>
-    </\
+    </\\\
   )
 
 }
