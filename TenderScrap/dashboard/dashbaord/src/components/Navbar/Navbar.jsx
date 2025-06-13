@@ -146,8 +146,8 @@ function Example() {
 
 const Navbar = () => {
   return(
-    <t
-     <Navbar />
+    <TeamDropdownMenu />
+    
   )
 
 }
