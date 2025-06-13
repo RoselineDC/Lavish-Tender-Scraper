@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
 import Navbar
 
-
 const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700'] });
 const geistSans = Geist({
