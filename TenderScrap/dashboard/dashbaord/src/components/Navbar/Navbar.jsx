@@ -147,3 +147,4 @@ function Example() {
 const Navbar = () => {
 
 }
+export default N
