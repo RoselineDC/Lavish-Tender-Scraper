@@ -143,8 +143,3 @@ function Example() {
     </StackedLayout>
   )
 }
-The Navbar component itself isn't opinionated about how it should be rendered at different breakpoints, which gives you total control over how it should adapt to different viewport sizes.
-
-Hiding items on mobile
-Use utility classes like max-lg:hidden to hide certain navbar items at different screen sizes:
-
