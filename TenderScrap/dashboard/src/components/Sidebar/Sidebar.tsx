@@ -5,6 +5,7 @@ const Sidebar = () => {
     <div>
         <div>
             {/* main side content */}
+            
         </div>
         {/* pan toggle */}
     </div>
