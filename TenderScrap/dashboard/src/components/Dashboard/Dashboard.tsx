@@ -2,7 +2,7 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div className='bg-white rounded-lg shadow h-[200'>Dashboard</div>
+    <div className='bg-white rounded-lg shadow h-[200vh]'>Dashboard</div>
   )
 }
 
