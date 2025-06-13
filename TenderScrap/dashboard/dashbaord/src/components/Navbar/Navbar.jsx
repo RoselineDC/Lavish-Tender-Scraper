@@ -147,6 +147,7 @@ function Example() {
 const Navbar = () => {
   return(
     
+     <Navbar />
   )
 
 }
