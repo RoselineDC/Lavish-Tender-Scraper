@@ -1,4 +1,4 @@
-import { Avatar } from '@/components/avatar'
+import { Avatar  from '@/components/avatar'
 import {
   Dropdown,
   DropdownButton,
@@ -54,7 +54,17 @@ function TeamDropdownMenu() {
   )
 }
 
-import {        <Navbar>
+import { ReactNode } from 'react'
+
+type ExampleProps = {
+  children?: ReactNode
+}
+
+function Example({ children }: ExampleProps) {
+  return (
+    <StackedLayout
+      navbar={
+        <Navbar>
           <Dropdown>
             <DropdownButton as={NavbarItem} className="max-lg:hidden">
               <Avatar src="/tailwind-logo.svg" />
