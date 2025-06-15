@@ -25,7 +25,7 @@ export default function Page() {
 
       <div className="flex-1 flex flex-col h-screen">
         <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
-        <main className="p-4">
+        <main className="flex-1 overflow-y-auto">
           <h1 className="text-xl">Welcome to e-Tenders</h1>
         </main>
       </div>
