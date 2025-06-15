@@ -4,13 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
 import UpNavBar from "../components/Navbar/Navbar";
-import {
-  Sidebar,
-  SidebarHeader,
-  SidebarBody,
-  SidebarLabel,
-  SidebarItem,
-} from "../components/Navbar/sidebar";
+
 
 const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({
