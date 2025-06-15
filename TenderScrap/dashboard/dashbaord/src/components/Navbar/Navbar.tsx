@@ -8,6 +8,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
 
   return (
     <div>
+      
       {/* Sidebar */}
       {showSidebar && (
         <aside className="w-64 h-screen overflow-y-auto bg-gray-900 text-white fixed top-0 left-0 z-50">
