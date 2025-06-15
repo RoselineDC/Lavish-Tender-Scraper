@@ -4,8 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
 import UpNavBar from '../components/Navbar/Navbar';
-import {sidebar} from "@/components/Navbar/sidebar";
-
+import
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -41,8 +40,4 @@ export default function RootLayout({
           
 
         </main>
-        {children}
-      </body>
-    </html>
-  );
-}
+        {
