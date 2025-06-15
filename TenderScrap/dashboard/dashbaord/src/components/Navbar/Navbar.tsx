@@ -8,6 +8,8 @@ import {
   MenuItems,
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Cog8ToothIcon } from "@heroicons/react/24/solid";
+
 
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
