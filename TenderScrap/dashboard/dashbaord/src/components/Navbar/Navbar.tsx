@@ -54,11 +54,7 @@ function TeamDropdownMenu() {
   )
 }
 
-function Example() {
-  return (
-    <StackedLayout
-      navbar={
-        <Navbar>
+import {        <Navbar>
           <Dropdown>
             <DropdownButton as={NavbarItem} className="max-lg:hidden">
               <Avatar src="/tailwind-logo.svg" />
