@@ -8,12 +8,9 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
 
   return (
     <>
-      <div>
-      {/* Sidebar */}
-     
-       <p>WEEEEO</p>
- 
-    </div>
+       <div className="text-white font-semibold text-lg">
+        e<span className="font-normal">-Tenders</span>
+      </div>
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
       
       {/* Left menu icon */}
