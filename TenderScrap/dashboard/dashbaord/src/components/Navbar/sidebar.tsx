@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 export const Sidebar = ({ children }: { children: React.ReactNode }) => (
-  <aside className="w-64 h-screen overflow-y-auto bg-gray-900 text-white">{children}</aside>
+  <aside className="w-64 h-scree overflow-y-auto bg-gray-900 text-white">{children}</aside>
 )
 
 export const SidebarHeader = ({ children }: { children: React.ReactNode }) => (
