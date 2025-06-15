@@ -7,10 +7,11 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <><
+    <><div className="bg-gray-700 px-4 py-2 flex items-center justify-center">
        <div className="text-white font-semibold text-lg">
         e<span className="font-normal">-Tenders</span>
       </div>
+    </div>
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
       
       {/* Left menu icon */}
