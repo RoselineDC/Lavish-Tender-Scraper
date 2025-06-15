@@ -11,7 +11,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
       <div>
       {/* Sidebar */}
       {showSidebar && (
-       
+       <
        
       )}
     </div>
