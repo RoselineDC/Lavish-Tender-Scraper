@@ -21,3 +21,4 @@ export const SidebarItem = ({ children, href = '#' }: { children: React.ReactNod
 export const SidebarSection = ({ children }: { children: React.ReactNode }) => <div className="mb-4">{children}</div>;
 export const SidebarLabel = ({ children }: { children: React.ReactNode }) => <span className="ml-2">{children}</span>;
 
+
