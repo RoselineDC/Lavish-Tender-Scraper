@@ -1,18 +1,33 @@
-import React, { useState } from 'react'
-// Make sure the file exists at ../components/Navbar.tsx or ../components/Navbar/index.tsx
-import Navbar from '../components/Navbar/Navbar'
-import { Sidebar } from "@/components/Navbar/sidebar";
+'use client'
 
-export default function Home() {
+import React, { useState } from 'react'
+import UpNavBar from '@/components/UpNavBar'
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarBody,
+  SidebarItem,
+} from '@/components/Sidebar'
+
+export default function Page() {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
     <div className="flex">
-      {showSidebar && <Sidebar />}
+      {showSidebar && (
+        <Sidebar>
+          <SidebarHeader>Menu</SidebarHeader>
+          <SidebarBody>
+            <SidebarItem label="Dashboard" />
+            <SidebarItem label="Settings" />
+          </SidebarBody>
+        </Sidebar>
+      )}
+
       <div className="flex-1">
-        <Navbar onToggle={() => setShowSidebar(!showSidebar)} />
+        <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
         <main className="p-4">
-          <h2>Welcome to the homepage!</h2>
+          <h1 className="text-xl">Welcome to e-Tenders</h1>
         </main>
       </div>
     </div>
