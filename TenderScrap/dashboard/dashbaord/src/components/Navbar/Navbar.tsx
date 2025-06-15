@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Navbar = () => {
-  const t
+  const 
 
   return (
     <nav className="bg-white shadow-md">
