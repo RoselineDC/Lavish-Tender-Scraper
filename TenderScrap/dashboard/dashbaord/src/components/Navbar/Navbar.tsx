@@ -22,9 +22,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
       </div>
 
       {/* Center title */}
-      <div className="text-white font-semibold text-lg">
-        e<span className="font-normal">-Tenders</span>
-      </div>
+     
 
       {/* Right section */}
       <div className="flex items-center space-x-4">
