@@ -35,8 +35,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        
         <main className="max-w-10xl mx-auto">
-          <UpNavBar />
           <div className="flex">
       {showSidebar && <Sidebar>{/* Add Sidebar content here */}</Sidebar>}
       <div className="flex-1 flex flex-col">
