@@ -7,7 +7,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <div>
+    <>
       <div>
       {/* Sidebar */}
       {showSidebar && (
