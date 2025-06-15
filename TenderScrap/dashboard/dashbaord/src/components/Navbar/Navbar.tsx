@@ -7,8 +7,7 @@ export default function UpNavBar() {
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
       {/* Left menu icon */}
       <div  onClick={() => {
-        // Handle menu toggle logic here
-        console.log('Menu icon clicked');
+        
       }} className="text-white text-xl">
         <FaBars />
       </div>
