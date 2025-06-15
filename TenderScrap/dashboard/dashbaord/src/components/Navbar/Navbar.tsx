@@ -4,7 +4,7 @@ import { FaBars, FaEnvelope, FaBell, FaFlag, FaCog } from 'react-icons/fa';
 
 export default function UpNavBar() {
   return (
-    <header className="bg-blue-600 px-4 py-2 flex justify-between items-center">
+    <header className="bg-lue-600 px-4 py-2 flex justify-between items-center">
       {/* Left menu icon */}
       <div className="text-white text-xl">
         <FaBars />
@@ -12,7 +12,7 @@ export default function UpNavBar() {
 
       {/* Center title */}
       <div className="text-white font-semibold text-lg">
-        e<span className="font-normal">-Tender</span>
+        e<span className="font-normal">-Tenders</span>
       </div>
 
       {/* Right section */}
