@@ -2,7 +2,7 @@
 
 import { FaBars, FaEnvelope, FaBell, FaFlag, FaCog } from 'react-icons/fa';
 
-export default function () {
+export default function UpNavBar() {
   return (
     <header className="bg-blue-600 px-4 py-2 flex justify-between items-center">
       {/* Left menu icon */}
