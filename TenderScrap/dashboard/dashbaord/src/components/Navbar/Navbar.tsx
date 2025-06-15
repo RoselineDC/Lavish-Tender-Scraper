@@ -5,5 +5,4 @@ const Navbar = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default Navbar;
-\
 
