@@ -7,9 +7,7 @@ import {
   SidebarHeader,
   SidebarBody,
   SidebarItem,
-} from '@/components/Navbar/sidebaridebar'
-
-export default function Page() {
+} from '@/components/Navbar/sidebar/t default function Page() {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
