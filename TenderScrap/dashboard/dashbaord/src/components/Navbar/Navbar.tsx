@@ -144,6 +144,8 @@ export default function UpNavBar() {
                 </MenuItem>
               </MenuItems>
             </Menu>
+            
+
           </div>
         </div>
       </div>
