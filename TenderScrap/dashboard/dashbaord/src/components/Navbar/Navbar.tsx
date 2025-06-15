@@ -1,7 +1,7 @@
 'use client';
 
 import { FaBars, FaEnvelope, FaBell, FaFlag, FaCog } from 'react-icons/fa';
-
+import React, { useState } from 'react';
 
 export default function UpNavBar() {
   const [showSidebar, setShowSidebar] = useState(false)
