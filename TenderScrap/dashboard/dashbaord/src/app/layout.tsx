@@ -6,6 +6,7 @@ import { Space_Grotesk } from "next/font/google";
 import UpNavBar from "../components/Navbar/Navbar";
 import { Sidebar } from "@/components/Navbar/sidebar";
 
+
 const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -31,7 +32,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+  const [showSidebar, setShowSidebar] = useState(false)
   return (
     <html lang="en">
       <body
