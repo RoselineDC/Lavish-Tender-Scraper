@@ -22,7 +22,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
             </ul>
           </div>
         </aside>
-        
+       
       )}
     </div>
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
