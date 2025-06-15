@@ -37,7 +37,13 @@ export default function RootLayout({
       >
         <main className="max-w-10xl mx-auto">
           <UpNavBar />
-          <Sidebar />
+          <div className="flex">
+      {showSidebar && <Sidebar>{/* Add Sidebar content here */}</Sidebar>}
+      <div className="flex-1 flex flex-col">
+        <Navbar setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
+        <main>{children}</main>
+      </div>
+    </div>
           
 
         </main>
