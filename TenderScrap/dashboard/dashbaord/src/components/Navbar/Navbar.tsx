@@ -8,7 +8,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
 
   return (
     <div>
-      <div></div>
+      <div>
       {/* Sidebar */}
       {showSidebar && (
         <aside className="w-64 h-screen overflow-y-auto bg-gray-900 text-white fixed top-0 left-0 z-50">
@@ -22,6 +22,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
             </ul>
           </div>
         </aside>
+        
       )}
     </div>
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
