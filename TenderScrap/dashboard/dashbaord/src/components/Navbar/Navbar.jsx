@@ -54,7 +54,7 @@ function TeamDropdownMenu() {
   )
 }
 
-function ({ children }) {
+function Navbar({ children }) {
   return (
     <StackedLayout
       navbar={
