@@ -35,7 +35,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className="max-w-10xl      </body>
+        <main className="max-w-10xl mx-auto">
+          <UpNavBar toggleSidebar={() => { /* TODO: implement sidebar toggle logic */ }} />            
+
+        </main>
+        {children}
+      </body>
     </html>
   );
 }
