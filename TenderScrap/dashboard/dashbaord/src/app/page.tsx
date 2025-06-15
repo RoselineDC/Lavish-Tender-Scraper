@@ -1,14 +1,19 @@
-import Image from "next/image";
-import Navbar from "../components/Navbar/Navbar";
+import React, { useState } from 'react'
+import Navbar from '../components/Navbar'
+import Sidebar from '../components/Sidebar'
 
 export default function Home() {
+  const [showSidebar, setShowSidebar] = useState(false)
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        {/* <Navbar /> */}
-        
-      </main>
-     
+    <div className="flex">
+      {showSidebar && <Sidebar />}
+      <div className="flex-1">
+        <Navbar onToggle={() => setShowSidebar(!showSidebar)} />
+        <main className="p-4">
+          <h2>Welcome to the homepage!</h2>
+        </main>
+      </div>
     </div>
-  );
+  )
 }
