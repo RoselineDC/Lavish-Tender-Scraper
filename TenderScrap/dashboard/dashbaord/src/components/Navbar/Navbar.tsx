@@ -7,7 +7,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <>
+    <><
        <div className="text-white font-semibold text-lg">
         e<span className="font-normal">-Tenders</span>
       </div>
