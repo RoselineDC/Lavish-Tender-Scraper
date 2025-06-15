@@ -12,7 +12,7 @@ export default function UpNavBar() {
 
       {/* Center title */}
       <div className="text-white font-semibold text-lg">
-        Ad<span className="font-normal">LTE</span>
+        e<span className="font-normal">LTE</span>
       </div>
 
       {/* Right section */}
