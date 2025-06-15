@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
 import UpNavBar from '../components/Navbar/Navbar';
+import { Sidebar } from "@/components/Navbar/sidebar";
 
 
 
@@ -36,7 +37,7 @@ export default function RootLayout({
       >
         <main className="max-w-10xl mx-auto">
           <UpNavBar />
-          <sid
+          <Sidebar />
           
 
         </main>
