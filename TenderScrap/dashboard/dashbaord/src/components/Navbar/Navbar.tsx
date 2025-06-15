@@ -7,9 +7,9 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
+    
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
-      <div className="flex items-center space-x-4">
-        
+      
       {/* Left menu icon */}
       <div className="text-white text-xl" onClick={toggleSidebar}>
         <FaBars />
