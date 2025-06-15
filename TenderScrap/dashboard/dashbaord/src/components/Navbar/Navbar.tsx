@@ -7,7 +7,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <DIV></DIV>
+    <div
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
       
       {/* Left menu icon */}
