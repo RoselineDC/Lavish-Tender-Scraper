@@ -83,6 +83,7 @@ export default function UpNavBar() {
               <span className="sr-only">View notifications</span>
               <BellIcon aria-hidden="true" className="size-6" />
             </button>
+            
 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
