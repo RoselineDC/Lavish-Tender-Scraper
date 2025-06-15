@@ -10,10 +10,9 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
     <>
       <div>
       {/* Sidebar */}
-      {showSidebar && (
+     
        <p>WEEEEO</p>
-       
-      )}
+ 
     </div>
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
       
