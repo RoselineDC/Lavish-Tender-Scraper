@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // Make sure the file exists at ../components/Navbar.tsx or ../components/Navbar/index.tsx
-import Navbar from '../components/'
+import Navbar from '../components/Navbar/Navbar'
 import Sidebar from '../components/Navbar/sidebar'
 
 export default function Home() {
