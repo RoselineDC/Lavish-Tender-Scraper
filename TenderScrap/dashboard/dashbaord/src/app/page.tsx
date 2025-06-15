@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import UpNavBar from '@/components/UpNavBar'
+import UpNavBar from '@/components/UNavBar'
 import {
   Sidebar,
   SidebarHeader,
