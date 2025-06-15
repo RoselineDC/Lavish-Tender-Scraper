@@ -4,7 +4,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
 import UpNavBar from '../components/Navbar/Navbar';
-import Sidebar from "@/components/Navbar/sidebar";
+import {Sidebar from "@/components/Navbar/sidebar";
 
 
 
