@@ -143,3 +143,4 @@ function Navbar({ children }) {
     </StackedLayout>
   )
 }
+Navbar.TeamDropdownMenu = TeamDropdownMen
