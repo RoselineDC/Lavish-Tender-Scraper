@@ -5,9 +5,7 @@ export default function Home() {
   return (
     <main>
       <Navbar>
-        {/* Add navbar content here or leave empty if not needed */}
-      </Navbar>
-      
+        {/* Add navbar content here or leave empty if not needed */}      
     </main>
    
   );
