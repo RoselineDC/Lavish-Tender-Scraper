@@ -12,7 +12,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
         e<span className="font-normal">-Tenders</span>
       </div>
     </div>
-    <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
+    <header className="bg-gray-00 px-4 py-2 flex justify-between items-center">
       
       {/* Left menu icon */}
       <div className="text-white text-xl" onClick={toggleSidebar}>
