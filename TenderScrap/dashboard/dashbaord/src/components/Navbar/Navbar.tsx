@@ -7,7 +7,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <><div className="bg-grey-900 px-4 py-2 flex items-center justify-center">
+    <><div className="bg-gray-900 px-4 py-2 flex items-center justify-center">
        <div className="text-white font-semibold text-lg">
         e<span className="font-normal">-Tenders</span>
       </div>
