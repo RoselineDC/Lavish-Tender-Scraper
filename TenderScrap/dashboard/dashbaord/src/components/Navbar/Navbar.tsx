@@ -2,8 +2,10 @@
 
 import { FaBars, FaEnvelope, FaBell, FaFlag, FaCog } from 'react-icons/fa';
 
+
 export default function UpNavBar() {
-  
+  const [showSidebar, setShowSidebar] = useState(false)
+
   return (
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
       {/* Left menu icon */}
