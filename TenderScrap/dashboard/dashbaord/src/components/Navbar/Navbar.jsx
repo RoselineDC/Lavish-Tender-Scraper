@@ -144,4 +144,4 @@ function NavBar({ children }) {
   )
 }
 
-export { Navar, TeamDropdownMenu }
+export { NavBar, TeamDropdownMenu }
