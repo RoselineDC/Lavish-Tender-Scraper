@@ -8,7 +8,7 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ]
 
-function classNames(...classes) {
+interface NavigationItem
   return classes.filter(Boolean).join(' ')
 }
 
