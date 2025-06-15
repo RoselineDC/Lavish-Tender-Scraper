@@ -1,8 +1,9 @@
 import React from 'react';
 
-econst Navbar = ({ children }: { children: React.ReactNode }) => (
+const Navbar = ({ children }: { children: React.ReactNode }) => (
   <nav className="flex items-center justify-between px-4 py-2 bg-gray-100 border-b">{children}</nav>
 );
+
 
 export const NavbarItem = ({ children, href = '#', className = '', ...props }: any) => (
   <a href={href} className={`mx-2 flex items-center space-x-1 ${className}`} {...props}>
