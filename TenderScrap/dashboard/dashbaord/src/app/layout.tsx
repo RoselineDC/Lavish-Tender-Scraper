@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { Space_Grotesk } from "next/font/google";
 import UpNavBar from "../components/Navbar/Navbar";
 
+
 const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
