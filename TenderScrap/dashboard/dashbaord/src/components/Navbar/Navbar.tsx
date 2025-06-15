@@ -8,8 +8,14 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
 ]
 
-interface NavigationItem
-  return classes.filter(Boolean).join(' ')
+interface NavigationItem {
+  name: string;
+  href: string;
+  current: boolean;
+}
+
+function classNames(...classes: (string | false | null | undefined)[]): string {
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Example() {
