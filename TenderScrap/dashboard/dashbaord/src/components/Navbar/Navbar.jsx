@@ -54,7 +54,7 @@ function TeamDropdownMenu() {
   )
 }
 
-function Navbar({ children }) {
+function NavBar({ children }) {
   return (
     <StackedLayout
       navbar={
@@ -144,4 +144,4 @@ function Navbar({ children }) {
   )
 }
 
-export { Navbar, TeamDropdownMenu }
+export { Navar, TeamDropdownMenu }
