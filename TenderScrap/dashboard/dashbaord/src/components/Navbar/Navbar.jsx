@@ -7,22 +7,8 @@ import {
   DropdownLabel,
   DropdownMenu,
 } from '@/components/dropdown'
-import {
-  Navbar,
-  NavbarDivider,
-  NavbarItem,
-  NavbarLabel,
-  NavbarSection,
-  NavbarSpacer,
-} from '@/components/navbar'
-import {
-  Sidebar,
-  SidebarBody,
-  SidebarHeader,
-  SidebarItem,
-  SidebarLabel,
-  SidebarSection,
-} from '@/components/sidebar'
+import { Navbar, NavbarDivider, NavbarItem, NavbarLabel, NavbarSection, NavbarSpacer } from '@/components/navbar'
+import { Sidebar, SidebarBody, SidebarHeader, SidebarItem, SidebarLabel, SidebarSection } from '@/components/sidebar'
 import { StackedLayout } from '@/components/stacked-layout'
 import {
   ArrowRightStartOnRectangleIcon,
@@ -68,7 +54,7 @@ function TeamDropdownMenu() {
   )
 }
 
-function Example({ children }) {
+function Example() {
   return (
     <StackedLayout
       navbar={
@@ -157,5 +143,3 @@ function Example({ children }) {
     </StackedLayout>
   )
 }
-
-export default Example;
