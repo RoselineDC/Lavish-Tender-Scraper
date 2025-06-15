@@ -7,7 +7,22 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <div
+    <div>
+      {/* Sidebar */}
+      {showSidebar && (
+        <aside className="w-64 h-screen overflow-y-auto bg-gray-900 text-white fixed top-0 left-0 z-50">
+          <div className="p-4 border-b border-gray-700">
+            <h2 className="text-lg font-semibold">Menu</h2>
+          </div>
+          <div className="px-2">
+            <ul>
+              <li className="py-2 px-4 hover:bg-gray-800 cursor-pointer">Dashboard</li>
+              <li className="py-2 px-4 hover:bg-gray-800 cursor-pointer">Settings</li>
+            </ul>
+          </div>
+        </aside>
+      )}
+    </div>
     <header className="bg-gray-500 px-4 py-2 flex justify-between items-center">
       
       {/* Left menu icon */}
