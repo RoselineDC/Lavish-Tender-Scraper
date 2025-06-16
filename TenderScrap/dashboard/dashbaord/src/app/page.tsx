@@ -63,6 +63,7 @@ export default function Page() {
               <SidebarItem label="Tables" />
               <SidebarItem label="Forms" />
               <SidebarItem label="Mailbox" />
+              
               <SidebarItem label="Calender" />
               <SidebarItem label="Settings" />   
     
