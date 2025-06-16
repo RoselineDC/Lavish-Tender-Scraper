@@ -1,5 +1,5 @@
 import React from 'react'
-import newIntents from '@/enders'
+import newIntents from '@/app/tenders'
 
 const Tenders = () => {
   return (
