@@ -55,6 +55,7 @@ export default function Page() {
                   </div>
                 </div>
                 
+                
             <SidebarBody>
               <SidebarItem label="Profile">
                 <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
