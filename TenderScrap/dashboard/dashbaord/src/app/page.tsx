@@ -67,7 +67,7 @@ export default function Page() {
                     <Table className="w-4 h-4 mr-2" />
                     <span className="font-small text-white">Tables</span>
                   </div>
-                  <div className="ml-6 space-y-2 text">
+                  <div className="ml-6 space-y-2 text-fuchsia-400">
                     <div className="hover:text-white cursor-pointer">
                       ● Simple tables
                     </div>
