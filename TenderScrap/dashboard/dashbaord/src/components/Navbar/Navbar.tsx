@@ -2,7 +2,7 @@
 
 import { FaBars, FaEnvelope, FaBell, FaFlag, FaCog } from 'react-icons/fa';
 import React, { useState } from 'react';
-
+i
 export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void }) {
   const [showSidebar, setShowSidebar] = useState(false)
 
