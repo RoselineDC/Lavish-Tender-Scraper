@@ -36,6 +36,7 @@ const Dashboard: React.FC = () => {
       <div className="mt-2 text-xs bg-blue-500 text-white rounded p-1 text-center">
         10% changes on profit
       </div>
+      
   <Card color="orange" title="Tenders" subtitle="All Tenders" footer="10% changes on profit" />
   </Link>
 
