@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
       {/* Top Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card  
-        Link="/tenders"
+        
           color="orange"
           title="Tenders"
           subtitle="All  Tenders "
