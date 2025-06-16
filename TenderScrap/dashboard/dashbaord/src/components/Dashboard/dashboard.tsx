@@ -161,6 +161,7 @@ const Card = ({
   );
 
   return link ? <Link href={link}>{content}</Link> : content;
+  
 };
 
 export default Dashboard;
