@@ -37,7 +37,7 @@ export default function Page() {
                     />
                     <div>
                       <h3 className="font-semibold text-sm">
-                        Alexander Pierce
+                        l
                       </h3>
                       <p className="flex items-center text-green-400 text-xs">
                         <span className="h-2 w-2 rounded-full bg-green-500 mr-1" />
