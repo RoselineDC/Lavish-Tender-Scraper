@@ -3,7 +3,10 @@
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
-// Update the path below
+// Update the path below to the correct relative path based on your project structure.
+// For example, if NewIntents.tsx is in src/components/tenders/NewIntents.tsx:
+import NewIntents from "../tenders/NewIntents";
+
 
 const pieData = [
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
