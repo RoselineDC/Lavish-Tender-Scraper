@@ -116,7 +116,7 @@ export default function Page() {
               <SidebarItem label="Mailbox"  icon={<Mail className="w-5 h-5" />}/>
               <SidebarItem label="Documents" icon={<Files className="w-5 h-5" />} />
               <SidebarItem label="Calender" icon={<CalendarDays className="w-5 h-5" />} />
-              <SidebarItem label="Settings"  icon={<Cog6Tooth className="w-5 h-5" />}/>
+              <SidebarItem label="Settings"  icon={<S className="w-5 h-5" />}/>
             </SidebarBody>
           </Sidebar>
         )}
