@@ -39,7 +39,7 @@ const mockTenders: Tender[] = [
   },
 ];
 const filters = {
-  institutionName: ['Samsung', 'Apple', 'Huawei'],
+  institutionName: ['T', 'Apple', 'Huawei'],
   price: ['$0-100', '$101-500', '$501+'],
   device: ['PC', 'Tablet', 'Phone'],
   color: ['Purple', 'Black', 'White'],
