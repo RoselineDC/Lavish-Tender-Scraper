@@ -26,7 +26,7 @@ export default function Page() {
           <Sidebar>
             <SidebarHeader>Menu</SidebarHeader>
             <SidebarBody>
-              <SidebarItem label="">
+              <SidebarItem label="Profile">
                 <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
                   {/* Profile Section */}
                   <div className="flex items-center space-x-4 mb-4">
@@ -37,7 +37,7 @@ export default function Page() {
                     />
                     <div>
                       <h3 className="font-semibold text-sm">
-                        Lynne Dangazela
+                        Lynne
                       </h3>
                       <p className="flex items-center text-green-400 text-xs">
                         <span className="h-2 w-2 rounded-full bg-green-500 mr-1" />
