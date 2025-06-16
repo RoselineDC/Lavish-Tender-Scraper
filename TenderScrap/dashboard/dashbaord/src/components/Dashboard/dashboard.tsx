@@ -5,7 +5,7 @@ import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
 // Update the path below to the correct relative path based on your project structure.
 // For example, if NewIntents.tsx is in src/components/tenders/NewIntents.tsx:
-import NewIntents from "../tenders/NewIntents";
+// import NewIntents from "../tenders/NewIntents";
 
 
 const pieData = [
@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
   return (
      <div className="p-6 bg-gray-100 min-h-screen space-y-6">
         <h1 className="text-3xl font-bold text-center mb-6">Scrapped Tenders @ 10am</h1>
-        <NewIntents />
+        {/* <NewIntents /> */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
       <Card
         link="/tenders"
