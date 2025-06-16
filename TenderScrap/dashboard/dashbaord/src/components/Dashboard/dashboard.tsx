@@ -3,6 +3,7 @@
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
+import NewIntents from "@/app/tenders/NewIntents";
 // Update the path below to the correct relative path based on your project structure.
 // For example, if NewIntents.tsx is in src/components/tenders/NewIntents.tsx:
 // import NewIntents from "../tenders/NewIntents";
