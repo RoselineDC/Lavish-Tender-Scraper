@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700'] });
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-import Dashboard from "../components/Dashboard/dashboard";
 import Page from "./page";
 
 export const metadata: Metadata = {
