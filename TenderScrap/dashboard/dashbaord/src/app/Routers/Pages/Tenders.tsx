@@ -1,5 +1,5 @@
 'use client';
-import Tenders from '../../components/Pages/Tenders';
+import Tenders from './Tenders';
 
 export default function TendersPage() {
   return <Tenders />;
