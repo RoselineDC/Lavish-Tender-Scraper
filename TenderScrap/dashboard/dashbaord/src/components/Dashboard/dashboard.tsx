@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
         footer="10% changes on profit"
       />
       <Card
-        link="uppliers"
+        link="suppliers"
         color="blue"
         title="145"
         subtitle="Tasks"
