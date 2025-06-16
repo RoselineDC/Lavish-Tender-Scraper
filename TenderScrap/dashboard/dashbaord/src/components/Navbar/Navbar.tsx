@@ -44,7 +44,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
 
         {/* User Avatar */}
         <img
-          src="/profil.jpg" 
+          src="/profilr.jpg" 
           alt="Profile"
           className="w-8 h-8 rounded-full border border-white"
         />
