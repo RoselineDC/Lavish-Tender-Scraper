@@ -390,6 +390,7 @@ export default function FilterBar() {
                   </tr>                
                  
                 </tbody>
+                
               </table>
             </div>
             <nav
