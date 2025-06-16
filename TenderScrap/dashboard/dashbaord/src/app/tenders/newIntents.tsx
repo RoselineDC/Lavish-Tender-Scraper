@@ -38,6 +38,12 @@ const mockTenders: Tender[] = [
     contact_email: "john@example.com",
   },
 ];
+const filters = {
+  brand: ['Samsung', 'Apple', 'Huawei'],
+  price: ['$0-100', '$101-500', '$501+'],
+  device: ['PC', 'Tablet', 'Phone'],
+  color: ['Purple', 'Black', 'White'],
+};
 
 
 const TenderTable: React.FC = () => {
