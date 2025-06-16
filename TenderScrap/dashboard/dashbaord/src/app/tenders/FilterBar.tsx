@@ -71,7 +71,7 @@ export default function FilterBar() {
         </form>
         </div>
     </div>
-    =
+    
 
       {/* Actions Button */}
       <button className="flex items-center gap-2 px-4 py-2 border rounded-md hover:bg-gray-100 text-sm font-medium">
