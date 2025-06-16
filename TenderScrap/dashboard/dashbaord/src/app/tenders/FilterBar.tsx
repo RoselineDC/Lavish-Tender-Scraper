@@ -4,10 +4,26 @@ import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
 const filters = {
-  brand: ['Samsung', 'Apple', 'Huawei'],
-  price: ['$0-100', '$101-500', '$501+'],
-  device: ['PC', 'Tablet', 'Phone'],
-  color: ['Purple', 'Black', 'White'],
+  institutionName: ["Transnet", "CSIR", "OTHERS"],
+  tender_category: [
+    "Goods",
+    "Services",
+    "Goods & Services",
+    "Siding Lease",
+    "Port Slot / Terminal Concession",
+    "RFQ (Request for Quotation)",
+    "RFP (Request for Proposal)",
+  ],
+  published_date_filter: [
+    "Today",
+    "Yesterday",
+    "Last 7 Days",
+    "Last 14 Days",
+    "This Month",
+    "Last Month",
+    "Last 3 Months",
+    "Custom Range",
+  ],
 };
 
 export default function FilterBar() {
