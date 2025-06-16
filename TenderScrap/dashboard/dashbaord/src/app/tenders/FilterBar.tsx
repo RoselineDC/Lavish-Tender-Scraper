@@ -297,9 +297,9 @@ export default function FilterBar() {
                     {/* <th scope="col" className="px-4 py-3">
                       Tender Type
                     </th> */}
-                    <th scope="col" className="px-4 py-3">
+                    {/* <th scope="col" className="px-4 py-3">
                       Tender Status
-                    </th>
+                    </th> */}
                     <th scope="col" className="px-4 py-3">
                       Contact Person
                     </th>
