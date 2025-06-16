@@ -61,8 +61,8 @@ export default function Page() {
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Charts" />
               <SidebarItem label="Settings" />
-            
-              <SidebarItem label="Notifications" />
+      
+           
             </SidebarBody>
           </Sidebar>
         )}
