@@ -27,6 +27,9 @@ export default function Page() {
                <SidebarItem label="Profile"
                <img
                 src="/profile.jpg"
+                alt="Profile"
+                className="w-8 h-8 rounded-full border border-white mb-2"
+              />
                />
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Settings" />
