@@ -53,7 +53,7 @@ export default function Page() {
               </div>
             </div>
             <SidebarHeader>
-              <div className="text-gray-400 font- text-lg">Main Menu</div>
+              <div className="text-gray-400 font-s text-lg">Main Menu</div>
             </SidebarHeader>
 
             <SidebarBody>
