@@ -10,9 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700'] });
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-import dashboard from "<div styleName={} />
-<components />
-<Dashboar></Dashboar>/dashboard";
+import dashboard from "../components/Dashboar/dashboard";
 
 export const metadata: Metadata = {
   title: "Lavish DEALS",
