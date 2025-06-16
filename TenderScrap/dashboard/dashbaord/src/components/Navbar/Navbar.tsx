@@ -47,7 +47,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
           src="/profilr.jpg" 
           alt="Profile"
           className="w-8 h-8 rounded-full border border-white"
-        />
+        />R
 
         {/* Settings Icon */}
         <FaCog className="text-white" />
