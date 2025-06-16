@@ -75,7 +75,7 @@ export default function Page() {
                      csir
                     </div>
                       <div className="hover:text-white cursor-pointer">
-                     othe
+                     others
                     </div>
                   </div>
                 </div>
