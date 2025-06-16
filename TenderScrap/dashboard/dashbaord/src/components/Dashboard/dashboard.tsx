@@ -5,7 +5,7 @@ import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 const pieData = [
   { name: "Submited", value: 16.85, color: "#ff4d4d" },
   { name: "s", value: 45.36, color: "#4CAF50" },
-  { name: "Not Submited", value: 50.69, color: "#2196F3" },
+  { name: "New Intent", value: 50.69, color: "#2196F3" },
 //    { name: "Cancelled", value: 50.69, color: "#FFC107" },
 //   { name: "Schedulled", value: 50.69, color: "#9C27B0" },
 //   {name: "Awaiting", value: 50.69, color: "#F44336" },
