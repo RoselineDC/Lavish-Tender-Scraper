@@ -59,7 +59,7 @@ export default function Page() {
             <SidebarBody>
              
               <SidebarItem label="Dashboard" />
-              <SidebarItem label="Tender" />
+              <SidebarItem label="" />
               <SidebarItem label="Settings" />
               <SidebarItem label="Profile" />
               <SidebarItem label="Notifications" />
