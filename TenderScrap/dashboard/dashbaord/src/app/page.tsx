@@ -25,7 +25,41 @@ export default function Page() {
             <SidebarHeader>Menu</SidebarHeader>
             <SidebarBody>
               <SidebarItem label="Profile">
-   
+   import React from 'react';
+import { Search } from 'lucide-react'; // Optional: for search icon
+
+export const SidebarUserPanel = () => {
+  return (
+    <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
+      {/* Profile Section */}
+      <div className="flex items-center space-x-4 mb-4">
+        <img
+          src="/profile.jpg" // Update path as needed
+          alt="Profile"
+          className="w-12 h-12 rounded-full border border-white"
+        />
+        <div>
+          <h3 className="font-semibold text-sm">Alexander Pierce</h3>
+          <p className="flex items-center text-green-400 text-xs">
+            <span className="h-2 w-2 rounded-full bg-green-500 mr-1" />
+            Online
+          </p>
+        </div>
+      </div>
+
+      {/* Search Box */}
+      <div className="relative">
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full px-3 py-2 pl-10 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <Search className="absolute top-2.5 left-3 h-4 w-4 text-gray-400" />
+      </div>
+    </div>
+  );
+};
+
   </SidebarItem>
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Settings" />
