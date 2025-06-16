@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card
           color="orange"
-          title="ADVERTISED "
+          title="T"
           subtitle="All Advertised Tenders"
           footer="10% changes on profit"
         />
