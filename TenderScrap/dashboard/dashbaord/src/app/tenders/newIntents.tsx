@@ -50,7 +50,17 @@ const filters = {
   'RFP (Request for Proposal)'
 ]
 ,
-  device: ['PC', 'Tablet', 'Phone'],
+published_date_filter: [
+  'Today',
+  'Yesterday',
+  'Last 7 Days',
+  'Last 14 Days',
+  'This Month',
+  'Last Month',
+  'Last 3 Months',
+  'Custom Range'
+],
+
   color: ['Purple', 'Black', 'White'],
 };
 
