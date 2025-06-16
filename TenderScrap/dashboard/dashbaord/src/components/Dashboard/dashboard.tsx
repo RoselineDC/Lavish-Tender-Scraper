@@ -28,8 +28,8 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card
           color="orange"
-          title="ADVERTISED"
-          subtitle="All Earnings"
+          title="ADVERTISED "
+          subtitle="All"
           footer="10% changes on profit"
         />
         <Card
