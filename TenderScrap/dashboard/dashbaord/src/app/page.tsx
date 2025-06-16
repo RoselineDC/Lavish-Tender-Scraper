@@ -34,6 +34,7 @@ export default function Page() {
         <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
        
       </div>
+      
       <div className="flex  overflow-hidden">
         {showSidebar && (
           <Sidebar>
