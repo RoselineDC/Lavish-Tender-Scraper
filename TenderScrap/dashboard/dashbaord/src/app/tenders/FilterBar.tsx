@@ -1034,5 +1034,6 @@ export default function FilterBar() {
   </div>
 </section>
 
+
   );
 }
