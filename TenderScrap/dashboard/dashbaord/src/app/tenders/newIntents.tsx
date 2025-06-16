@@ -119,4 +119,4 @@ const TenderTable: React.FC = () => {
   );
 };
 
-export default newIntents;
+export default NewIntents;
