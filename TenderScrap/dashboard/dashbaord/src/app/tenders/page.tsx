@@ -1,10 +1,8 @@
 import React from 'react';
-import NewIntents from './NewIntents';
+import NewIntents from './NewIntents'; // ✅ This now correctly refers to the component
 
 const Tenders = () => {
-  return (
-    <NewIntents />  
-  );
+  return <NewIntents />;
 };
 
 export default Tenders;
