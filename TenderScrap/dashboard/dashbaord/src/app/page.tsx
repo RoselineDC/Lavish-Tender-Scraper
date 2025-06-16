@@ -21,9 +21,12 @@ export default function Page() {
     <>
       <div className="flex-1 flex flex-col">
         <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
-        <main className="flex-1 overflow-y-auto">
-          {/* <h1 className="text-xl">Welcome to e-Tenders</h1> */}
-        </main>
+        <main className="flex-1 overflow-y-auto p-6 bg-white">
+  <h1 className="text-3xl font-bold text-gray-800 mb-4">Welcome to e-Tenders</h1>
+  <p className="text-gray-600">
+    This is your dashboard. Use the menu on the left to navigate through Charts, Tenders, Forms, and more.
+  </p>
+</main>
       </div>
       <div className="flex  overflow-hidden">
         {showSidebar && (
