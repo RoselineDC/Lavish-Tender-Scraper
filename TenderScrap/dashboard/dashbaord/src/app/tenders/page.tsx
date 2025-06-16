@@ -1,7 +1,7 @@
 import React from 'react';
 import NewIntents from './NewIntents';
 
-const
+const Tenders = () => {
   return (
     <NewIntents />  
   );
