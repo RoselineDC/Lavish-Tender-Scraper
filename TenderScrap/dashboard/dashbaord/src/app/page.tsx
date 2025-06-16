@@ -20,16 +20,6 @@ export default function Page() {
   icon?: React.ElementType; // icon component
 };
 
-const SidebarItem = ({ label, icon: Icon }: SidebarItemProps) => {
-  return (
-    <div className="flex items-center space-x-2 p-2 hover:bg-gray-100 rounded">
-      {Icon && <Icon className="w-5 h-5 text-gray-600" />}
-      <span className="text-sm font-medium">{label}</span>
-    </div>
-  );
-};
-
-export default SidebarItem;
 
 
   return (
