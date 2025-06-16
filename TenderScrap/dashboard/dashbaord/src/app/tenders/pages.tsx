@@ -1,6 +1,6 @@
 import React from 'react'
 
-const page = () => {
+const Tender = () => {
   return (
     <div>Documents</div>
   )
