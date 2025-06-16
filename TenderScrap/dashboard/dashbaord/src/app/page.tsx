@@ -24,6 +24,7 @@ export default function Page() {
           <Sidebar>
             <SidebarHeader>Menu</SidebarHeader>
             <SidebarBody>
+              
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Settings" />
               <SidebarItem label="Profile" />
