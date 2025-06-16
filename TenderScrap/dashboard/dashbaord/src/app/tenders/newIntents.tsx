@@ -18,7 +18,7 @@ interface Tender {
   contact_email: string;
 }
 
-const newIntender: Tender[] = [
+const newIntenT: Tender[] = [
   {
     id: 1,
     institutionName: 'Dept of Education',
