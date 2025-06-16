@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from "../components/Dashboard/dashboard";
 import Tenders from '../components/Pages/Tenders';
-import Tasks from '../components/Pages/s';
+import Tasks from '../components/Pages/Suppliers';
 import Analytics from './pages/Analytics';
 import Downloads from './pages/Downloads';
 
