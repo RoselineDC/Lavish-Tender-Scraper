@@ -132,6 +132,7 @@ const TenderTable: React.FC = () => {
         </tbody>
       </table>
     </div>
+    </div>
   );
 };
 
