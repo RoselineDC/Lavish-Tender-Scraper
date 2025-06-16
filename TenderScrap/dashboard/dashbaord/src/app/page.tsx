@@ -61,7 +61,7 @@ export default function Page() {
 
             <SidebarBody>
              <SidebarItem label="Dashboard" icon={<LayoutDashboard className="w-5 h-5" />} />
-             
+              <SidebarItem label="Tenders" icon={<Table className="w-5 h-5" />} />
               <SidebarItem label="Charts">  
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
