@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700'] });
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-import dashboard from "../components/Dashboard/dashboard";
+import Dashboard from "../components/Dashboard/dashboard";
 
 export const metadata: Metadata = {
   title: "Lavish DEALS",
@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <main className="max-w-10xl mx-auto">        
           {children}
-          <dashboard/>
+          <Dashboard />
         </main>
       </body>
     </html>
