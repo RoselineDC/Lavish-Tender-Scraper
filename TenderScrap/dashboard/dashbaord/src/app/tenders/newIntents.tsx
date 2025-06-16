@@ -121,4 +121,4 @@ const TenderTable: React.FC = () => {
   );
 };
 
-export default ;
+export default TenderTable;
