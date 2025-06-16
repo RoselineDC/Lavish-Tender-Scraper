@@ -1220,7 +1220,7 @@ export default function FilterBar() {
               id="category"
               className="ttxtqsLWp2pFRX8yUvWd _gKcj49wZgnwx1LpcJi6 psGSaoX3vEaTuVjCVZ1M jCISvWkW5oStPH6Wrb_H MxG1ClE4KPrIvlL5_Q5x K1PPCJwslha8GUIvV_Cr bHPiH67mBn1_jgR3TrvW cMZ6g1VlTxVbLLDgApBS DdH0nfuxX7trZkxwQjEs pxHuWvF853ck68OLN6ef rSfGuZzTLmhPzNHMO1jb eCx_6PNzncAD5yo7Qcic JeVit_1klYopnNwu_8oy qHIOIw8TObHgD3VvKa5x W83fbcqTDAidAC5iVTZ9 R9wivzcaVXAMWcTVd6_t peer"
             >
-              <option selected="">Category</option>
+              <option selected>Category</option>
               <option value="pc">PC</option>
               <option value="phone">Phone</option>
               <option value="tablet">Tablet</option>
