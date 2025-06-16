@@ -29,7 +29,7 @@ export default function Page() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <di>
+    <div className="flex h-screen bg-gray-100">
       <div className="flex-1 flex flex-col">
         <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
         <main className="flex-1 overflow-y-auto p-6 bg-white">
