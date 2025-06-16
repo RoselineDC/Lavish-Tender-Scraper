@@ -44,7 +44,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
 
         {/* User Avatar */}
         <img
-          src="../../../public/" 
+          src="Lavish-Tender-Scraper\TenderScrap\dashboard\dashbaord\public\profilr.jpg" 
           alt="User"
           className="w-8 h-8 rounded-full border border-white"
         />
