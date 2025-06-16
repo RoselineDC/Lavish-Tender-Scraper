@@ -12,7 +12,7 @@ export default function Page() {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    
+    <
 
       <div className="flex-1 flex flex-col h-screen">
         <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
