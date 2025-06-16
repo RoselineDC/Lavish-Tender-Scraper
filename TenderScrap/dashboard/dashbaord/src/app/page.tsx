@@ -2,7 +2,18 @@
 
 import React, { useState } from "react";
 import UpNavBar from "@/components/Navbar/Navbar";
-import { Search, LayoutDashboard, Table, ChartSpline, BookType, SquarePen, Mail, Files, Wrench, CalendarDays} from "lucide-react";
+import {
+  Search,
+  LayoutDashboard,
+  Table,
+  ChartSpline,
+  BookType,
+  SquarePen,
+  Mail,
+  Files,
+  Wrench,
+  CalendarDays,
+} from "lucide-react";
 
 // import { Table } from "lucide-react";
 // import Dashboard from "../components/Dashboard/dashboard";
@@ -22,11 +33,14 @@ export default function Page() {
       <div className="flex-1 flex flex-col">
         <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
         <main className="flex-1 overflow-y-auto p-6 bg-white">
-  <h1 className="text-3xl font-bold text-gray-800 mb-4">Welcome to e-Tenders</h1>
-  <p className="text-gray-600">
-    This is your dashboard. Use the menu on the left to navigate through Charts, Tenders, Forms, and more.
-  </p>
-</main>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            Welcome to e-Tenders
+          </h1>
+          <p className="text-gray-600">
+            This is your dashboard. Use the menu on the left to navigate through
+            Charts, Tenders, Forms, and more.
+          </p>
+        </main>
       </div>
       <div className="flex  overflow-hidden">
         {showSidebar && (
@@ -67,7 +81,10 @@ export default function Page() {
                 label="Dashboard"
                 icon={<LayoutDashboard className="w-5 h-5" />}
               />
-              <SidebarItem label="Charts" icon={<ChartSpline className="w-5 h-5" />}>
+              <SidebarItem
+                label="Charts"
+                icon={<ChartSpline className="w-5 h-5" />}
+              >
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
                     <div
@@ -91,7 +108,10 @@ export default function Page() {
                   </div>
                 </div>
               </SidebarItem>
-              <SidebarItem label="TENDERS" icon={<BookType className="w-5 h-5" />}>
+              <SidebarItem
+                label="TENDERS"
+                icon={<BookType className="w-5 h-5" />}
+              >
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
                     <div
@@ -115,11 +135,26 @@ export default function Page() {
                   </div>
                 </div>
               </SidebarItem>
-              <SidebarItem label="Forms"  icon={<SquarePen className="w-5 h-5" />}/>
-              <SidebarItem label="Mailbox"  icon={<Mail className="w-5 h-5" />}/>
-              <SidebarItem label="Documents" icon={<Files className="w-5 h-5" />} />
-              <SidebarItem label="Calender" icon={<CalendarDays className="w-5 h-5" />} />
-              <SidebarItem label="Settings"  icon={<Wrench className="w-5 h-5" />}/>
+              <SidebarItem
+                label="Forms"
+                icon={<SquarePen className="w-5 h-5" />}
+              />
+              <SidebarItem
+                label="Mailbox"
+                icon={<Mail className="w-5 h-5" />}
+              />
+              <SidebarItem
+                label="Documents"
+                icon={<Files className="w-5 h-5" />}
+              />
+              <SidebarItem
+                label="Calender"
+                icon={<CalendarDays className="w-5 h-5" />}
+              />
+              <SidebarItem
+                label="Settings"
+                icon={<Wrench className="w-5 h-5" />}
+              />
             </SidebarBody>
           </Sidebar>
         )}
