@@ -60,7 +60,8 @@ export default function Page() {
              
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Charts" />
-              <SidebarItem label="Tenders" />
+              <SidebarItem label="Tables" />
+              
               <SidebarItem label="Settings" />    
     
             </SidebarBody>
