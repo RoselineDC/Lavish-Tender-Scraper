@@ -6,7 +6,7 @@ const Tenders = () => {
   return (
     <duv>
       <NewIntents />
-    </duv>
+    </div>
    <NewIntents />
   )
 }
