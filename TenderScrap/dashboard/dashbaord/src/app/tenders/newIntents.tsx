@@ -38,7 +38,7 @@ const mockTenders: NewIntents[] = [
 ];
 
 const TenderTable: React.FC = () => {
-  const [tenders, setTenders] = useState<ewIntents[]>(mockTenders);
+  const [tenders, setTenders] = useState<NewIntents[]>(mockTenders);
 
   const handleApprove = (id: number) => {
     alert(`Tender ID ${id} approved.`);
