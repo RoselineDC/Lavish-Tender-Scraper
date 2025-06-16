@@ -6,4 +6,4 @@ const Documents = () => {
   )
 }
 
-export default Document
+export default 
