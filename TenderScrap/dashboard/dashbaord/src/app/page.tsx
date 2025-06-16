@@ -26,7 +26,7 @@ export default function Page() {
           <Sidebar>
             <SidebarHeader>Menu</SidebarHeader>
             <SidebarBody>
-              <SidebarItem label="Profil">
+              <SidebarItem label="">
                 <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
                   {/* Profile Section */}
                   <div className="flex items-center space-x-4 mb-4">
