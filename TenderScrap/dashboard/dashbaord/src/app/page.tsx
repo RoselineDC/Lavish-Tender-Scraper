@@ -15,11 +15,6 @@ import {
 } from "@/components/Navbar/sidebar";
 export default function Page() {
   const [showSidebar, setShowSidebar] = useState(false);
-  type SidebarItemProps = {
-  label: string;
-  icon?: React.ElementType; /
-};
-
 
   return (
     <>
@@ -64,7 +59,7 @@ export default function Page() {
             </SidebarHeader>
 
             <SidebarBody>
-              <SidebarItem label="Dashboard" icon={LayoutDashboard} />
+              <SidebarItem label="Dashboard" />
               <SidebarItem label="Charts">  
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
