@@ -18,7 +18,7 @@ interface Tender {
   contact_email: string;
 }
 
-const newIntents: Tender[] = [
+const moenders: Tender[] = [
   {
     id: 1,
     institutionName: 'Dept of Education',
@@ -37,7 +37,7 @@ const newIntents: Tender[] = [
   },
 ];
 
-const mockTenders: React.FC = () => {
+const TenderTable: React.FC = () => {
   const [tenders, setTenders] = useState<Tender[]>(mockTenders);
 
   const handleApprove = (id: number) => {
