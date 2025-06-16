@@ -20,7 +20,7 @@ interface Tender {
   contact_email: string;
 }
 
-const mockTenders: NewIntents[] = [
+const mockTenders: Tender[] = [
   {
     id: 1,
     institutionName: 'Dept of Education',
