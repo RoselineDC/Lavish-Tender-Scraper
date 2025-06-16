@@ -70,7 +70,7 @@ export default function Page() {
                      Monthly progress
                     </div>
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Pie Chart")}>
-                      Pie Char
+                      P
                     </div>
                   </div>
                 </div>
