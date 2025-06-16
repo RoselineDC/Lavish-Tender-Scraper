@@ -56,7 +56,7 @@ export default function Page() {
                 </div>
             <SidebarHeader>
               <div className="text-white font-semibold text-lg">
-                e<span className="font-normal">-Tenders</span>
+                
               </div>
             </SidebarHeader>
                 
