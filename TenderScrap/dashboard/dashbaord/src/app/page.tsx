@@ -63,7 +63,6 @@ export default function Page() {
               <SidebarItem label="Charts" />
               <SidebarItem label="Tables">
                 <div>
-                  
                   <div className="ml-6 space-y-2 text-fuchsia-400">
                     <div className="hover:text-white cursor-pointer">
                      transnet
