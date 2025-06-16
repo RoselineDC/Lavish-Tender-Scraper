@@ -35,7 +35,19 @@ export const SidebarItem = ({
   children?: React.ReactNode
 }) => {
   const [open, setOpen] = useState(false)
-  const hasChildren = !!children
+  const hasChildren = !!children;
+  const content = (
+    <div
+      className="flex items-center justify-between px-4 py-2 text-white hover:bg-gray-700 cursor-pointer"
+      onClick={() => hasChildren && setOpen(!open)}
+    >
+      <div className="flex items-center space-x-2">
+        {icon && <span className="w-5 h-5">{icon}</span>}
+        <span className="text-sm">{label}</span>
+      </div>
+      {badge && <span>{badge}</span>}
+    </div>
+  );
 
   return (
     <div>
