@@ -148,7 +148,7 @@ const Dashboard: React.FC = () => {
           {/* Add another box if needed */}
         </div>
       </div>
-      <NewIntents />
+    
     </div>
   );
 };
