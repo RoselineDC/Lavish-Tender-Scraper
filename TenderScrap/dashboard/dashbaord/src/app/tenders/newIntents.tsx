@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Tender {
   id: number;
@@ -23,19 +23,19 @@ interface Tender {
 const mockTenders: Tender[] = [
   {
     id: 1,
-    institutionName: 'Dept of Education',
-    tender_number: 'DOE123',
-    description: 'Supply of Stationery',
-    published_date: '2025-06-01',
-    closing_date: '2025-06-30',
-    briefing_date: '2025-06-10',
-    location: 'Pretoria',
-    tender_document_url: 'http://example.com/doc.pdf',
-    tender_category: 'Supplies',
-    tender_type: 'Open',
-    tender_status: 'Open',
-    contact_person: 'John Doe',
-    contact_email: 'john@example.com',
+    institutionName: "Dept of Education",
+    tender_number: "DOE123",
+    description: "Supply of Stationery",
+    published_date: "2025-06-01",
+    closing_date: "2025-06-30",
+    briefing_date: "2025-06-10",
+    location: "Pretoria",
+    tender_document_url: "http://example.com/doc.pdf",
+    tender_category: "Supplies",
+    tender_type: "Open",
+    tender_status: "Open",
+    contact_person: "John Doe",
+    contact_email: "john@example.com",
   },
 ];
 
@@ -47,14 +47,16 @@ const TenderTable: React.FC = () => {
   };
 
   const handleDelete = (id: number) => {
-    const confirmDelete = confirm('Are you sure you want to delete this tender?');
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this tender?"
+    );
     if (confirmDelete) {
-      setTenders(prev => prev.filter(t => t.id !== id));
+      setTenders((prev) => prev.filter((t) => t.id !== id));
     }
   };
 
   return (
-<div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+    <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
       <table className="min-w-full border text-sm text-left">
         <thead className="bg-gray-100">
           <tr>
@@ -75,7 +77,7 @@ const TenderTable: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {tenders.map(tender => (
+          {tenders.map((tender) => (
             <tr key={tender.id} className="hover:bg-gray-50">
               <td className="border px-3 py-2">{tender.institutionName}</td>
               <td className="border px-3 py-2">{tender.tender_number}</td>
