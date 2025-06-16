@@ -1,0 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Tenders from './pages/Tenders';
+import Tasks from './pages/Tasks';
+import Analytics from './pages/Analytics';
+import Downloads from './pages/Downloads';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/tenders" element={<Tenders />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/downloads" element={<Downloads />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
