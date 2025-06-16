@@ -64,10 +64,10 @@ export default function Page() {
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Bar Chart")}>
-                     Weekly progress Bar 
+                     Weekly progress Bar Chart
                     </div>
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Line Chart")}>
-                      Line Chart
+                      
                     </div>
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Pie Chart")}>
                       Pie Chart
