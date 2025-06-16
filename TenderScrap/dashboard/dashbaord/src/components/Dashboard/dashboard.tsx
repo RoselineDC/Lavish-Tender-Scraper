@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
         <Card
           color="orange"
           title="ADVERTISED "
-          subtitle="All ADVERTISED TENDERS"
+          subtitle="All "
           footer="10% changes on profit"
         />
         <Card
