@@ -1205,7 +1205,7 @@ export default function FilterBar() {
               id="price"
               className="ttxtqsLWp2pFRX8yUvWd _gKcj49wZgnwx1LpcJi6 psGSaoX3vEaTuVjCVZ1M jCISvWkW5oStPH6Wrb_H MxG1ClE4KPrIvlL5_Q5x K1PPCJwslha8GUIvV_Cr bHPiH67mBn1_jgR3TrvW cMZ6g1VlTxVbLLDgApBS DdH0nfuxX7trZkxwQjEs pxHuWvF853ck68OLN6ef rSfGuZzTLmhPzNHMO1jb eCx_6PNzncAD5yo7Qcic JeVit_1klYopnNwu_8oy qHIOIw8TObHgD3VvKa5x W83fbcqTDAidAC5iVTZ9 R9wivzcaVXAMWcTVd6_t peer"
             >
-              <option selected="">Price</option>
+              <option selected>Price</option>
               <option value="below-100">$ 1-100</option>
               <option value="below-500">$ 101-500</option>
               <option value="below-1000">$ 501-1000</option>
