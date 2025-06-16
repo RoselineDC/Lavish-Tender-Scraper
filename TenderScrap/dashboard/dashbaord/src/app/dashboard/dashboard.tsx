@@ -67,7 +67,7 @@ const Dashboard: React.FC = () => {
         footer="11k download in App store"
       />
     </div>   
-    <h1 className="text-3xl font-bold text-center mb-6">Scrapped Tenders @ 10am</h1>
+    <
         <NewIntents />  
       {/* Charts & Graphs */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
