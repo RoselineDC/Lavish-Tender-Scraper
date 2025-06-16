@@ -1,7 +1,7 @@
 import React from 'react';
-import NewIntents from './NewIntents'; // ✅ const Tenders = () => {
+import NewIntents from './NewIntents'; // 
   return (
-    <NewIntents /> // ✅ use capitalized component name
+    <NewIntents /> // 
   );
 };
 
