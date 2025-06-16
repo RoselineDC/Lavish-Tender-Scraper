@@ -3,7 +3,7 @@
 import { FaBars, FaEnvelope, FaBell, FaFlag, FaCog } from 'react-icons/fa';
 import React, { useState } from 'react';
 import Image from 'next/image'; 
-import Dashboard from '../Dashboard/dashboard'; // Adjust the import path as necessary
+import Dashboard from '../../app/analytics/dashboard'; // Adjust the import path as necessary
 export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void }) {
   const [showSidebar, setShowSidebar] = useState(false)
 
