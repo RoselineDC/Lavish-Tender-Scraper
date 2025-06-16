@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
         footer="28% task performance"
       />
       <Card
-        link="nalytics"
+        link="snalytics"
         color="green"
         title="290+"
         subtitle="Page Views"
