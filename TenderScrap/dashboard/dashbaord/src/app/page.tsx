@@ -70,7 +70,7 @@ export default function Page() {
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on CSIR")}>
                      csir
                     </div>
-                      <div className="hover:text-white cursor-pointer" >
+                      <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on o")}>
                      others
                     </div>
                   </div>
