@@ -22,7 +22,7 @@ const lineData = [
 const Dashboard: React.FC = () => {
   return (
      <div className="p-6 bg-gray-100 min-h-screen space-y-6">
-        <h1 className="text-3xl font-bold text-center mb-6">Scrapped T</h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Scrapped Tenders </h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
       <Card
         link="/tenders"
