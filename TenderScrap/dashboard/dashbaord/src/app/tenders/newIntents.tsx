@@ -62,7 +62,7 @@ const TenderTable: React.FC = () => {
     <div className="p-6 bg-gray-100 min-h-screen space-y-6">
       <h1 className="text-2xl font-semibold mb-4">Tenders</h1>
       <Link
-        to="/tenders/new"
+    "/tenders/new"
         className="inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mb-4"
       >
         Add New Tender
