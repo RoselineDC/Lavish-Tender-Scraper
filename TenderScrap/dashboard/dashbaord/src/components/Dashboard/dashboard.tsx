@@ -1,8 +1,7 @@
 // src/components/Dashboard.tsx
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
-import { FaEnvelope, FaBell, FaFlag, FaCog, FaBars } from "react-icons/fa";
-import Image from "next/image"; // Adjust the import path as necessary
+import { useRouter } from 'next/navigation'
 import { Link } from "react-router-dom"; // Ensure you have react-router-dom installed
 
 
