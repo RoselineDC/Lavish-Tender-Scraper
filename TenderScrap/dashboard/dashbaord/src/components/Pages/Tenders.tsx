@@ -1,9 +1,6 @@
-import React from 'react'
+'use client';
+import Tenders from '../../components/Pages/Tenders';
 
-const Tenders = () => {
-  return (
-    <div>Tenders</div>
-  )
+export default function TendersPage() {
+  return <Tenders />;
 }
-
-export default Tenders
