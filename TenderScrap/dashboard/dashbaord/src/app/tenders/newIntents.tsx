@@ -1054,71 +1054,71 @@ const TenderTable: React.FC = () => {
           </div>
         </div>
       </section>  
-    <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-      <table className="w-full text-left table-auto min-w-max">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="border px-3 py-2">Institution Name</th>
-            <th className="border px-3 py-2">Tender #</th>
-            <th className="border px-3 py-2">Description</th>
-            <th className="border px-3 py-2">Published</th>
-            <th className="border px-3 py-2">Closing</th>
-            <th className="border px-3 py-2">Briefing</th>
-            <th className="border px-3 py-2">Location</th>
-            <th className="border px-3 py-2">Document</th>
-            <th className="border px-3 py-2">Category</th>
-            <th className="border px-3 py-2">Type</th>
-            <th className="border px-3 py-2">Status</th>
-            <th className="border px-3 py-2">Contact</th>
-            <th className="border px-3 py-2">Email</th>
-            <th className="border px-3 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tenders.map((tender) => (
-            <tr key={tender.id} className="hover:bg-gray-50">
-              <td className="border px-3 py-2">{tender.institutionName}</td>
-              <td className="border px-3 py-2">{tender.tender_number}</td>
-              <td className="border px-3 py-2">{tender.description}</td>
-              <td className="border px-3 py-2">{tender.published_date}</td>
-              <td className="border px-3 py-2">{tender.closing_date}</td>
-              <td className="border px-3 py-2">{tender.briefing_date}</td>
-              <td className="border px-3 py-2">{tender.location}</td>
-              <td className="border px-3 py-2">
-                <a
-                  href={tender.tender_document_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  View
-                </a>
-              </td>
-              <td className="border px-3 py-2">{tender.tender_category}</td>
-              <td className="border px-3 py-2">{tender.tender_type}</td>
-              <td className="border px-3 py-2">{tender.tender_status}</td>
-              <td className="border px-3 py-2">{tender.contact_person}</td>
-              <td className="border px-3 py-2">{tender.contact_email}</td>
-              <td className="border px-3 py-2 space-x-2">
-                <button
-                  onClick={() => handleApprove(tender.id)}
-                  className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600"
-                >
-                  Approve
-                </button>
-                <button
-                  onClick={() => handleDelete(tender.id)}
-                  className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    </div>
+    // <div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+    //   <table className="w-full text-left table-auto min-w-max">
+    //     <thead className="bg-gray-100">
+    //       <tr>
+    //         <th className="border px-3 py-2">Institution Name</th>
+    //         <th className="border px-3 py-2">Tender #</th>
+    //         <th className="border px-3 py-2">Description</th>
+    //         <th className="border px-3 py-2">Published</th>
+    //         <th className="border px-3 py-2">Closing</th>
+    //         <th className="border px-3 py-2">Briefing</th>
+    //         <th className="border px-3 py-2">Location</th>
+    //         <th className="border px-3 py-2">Document</th>
+    //         <th className="border px-3 py-2">Category</th>
+    //         <th className="border px-3 py-2">Type</th>
+    //         <th className="border px-3 py-2">Status</th>
+    //         <th className="border px-3 py-2">Contact</th>
+    //         <th className="border px-3 py-2">Email</th>
+    //         <th className="border px-3 py-2">Actions</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {tenders.map((tender) => (
+    //         <tr key={tender.id} className="hover:bg-gray-50">
+    //           <td className="border px-3 py-2">{tender.institutionName}</td>
+    //           <td className="border px-3 py-2">{tender.tender_number}</td>
+    //           <td className="border px-3 py-2">{tender.description}</td>
+    //           <td className="border px-3 py-2">{tender.published_date}</td>
+    //           <td className="border px-3 py-2">{tender.closing_date}</td>
+    //           <td className="border px-3 py-2">{tender.briefing_date}</td>
+    //           <td className="border px-3 py-2">{tender.location}</td>
+    //           <td className="border px-3 py-2">
+    //             <a
+    //               href={tender.tender_document_url}
+    //               target="_blank"
+    //               rel="noopener noreferrer"
+    //               className="text-blue-600 hover:underline"
+    //             >
+    //               View
+    //             </a>
+    //           </td>
+    //           <td className="border px-3 py-2">{tender.tender_category}</td>
+    //           <td className="border px-3 py-2">{tender.tender_type}</td>
+    //           <td className="border px-3 py-2">{tender.tender_status}</td>
+    //           <td className="border px-3 py-2">{tender.contact_person}</td>
+    //           <td className="border px-3 py-2">{tender.contact_email}</td>
+    //           <td className="border px-3 py-2 space-x-2">
+    //             <button
+    //               onClick={() => handleApprove(tender.id)}
+    //               className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600"
+    //             >
+    //               Approve
+    //             </button>
+    //             <button
+    //               onClick={() => handleDelete(tender.id)}
+    //               className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+    //             >
+    //               Delete
+    //             </button>
+    //           </td>
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </table>
+    // </div>
+    // </div>
   );
 };
 
