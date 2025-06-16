@@ -6,7 +6,7 @@ import {
 
 const pieData = [
   { name: 'Submited', value: 16.85, color: '#ff4d4d' },
-  { name: 'Facebo', value: 45.36, color: '#4CAF50' },
+  { name: 'New ', value: 45.36, color: '#4CAF50' },
   { name: 'Twitter', value: 50.69, color: '#2196F3' },
 ];
 
