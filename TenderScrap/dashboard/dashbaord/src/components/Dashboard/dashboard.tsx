@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
         footer="10k daily views"
       />
       <Card
-        link="/Pages/Documents"
+        link="/pages/Documents"
         color="blue"
         title="500"
         subtitle="Downloads"
