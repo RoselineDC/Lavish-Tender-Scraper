@@ -38,7 +38,7 @@ export default function FilterBar() {
   };
 
   return (
-    <div className="flex flex-wrap gap-4 items-center px-4 py-2 bg-white border rounded-md shadow-sm">
+
       {/* Actions Button */}
       <button className="flex items-center gap-2 px-4 py-2 border rounded-md hover:bg-gray-100 text-sm font-medium">
         <FaChevronDown className="text-xs" />
