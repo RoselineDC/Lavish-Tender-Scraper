@@ -39,30 +39,27 @@ const mockTenders: Tender[] = [
   },
 ];
 const filters = {
-  institutionName: ['Transnet', 'CSIR', 'OTHERS'],
+  institutionName: ["Transnet", "CSIR", "OTHERS"],
   tender_category: [
-  'Goods',
-  'Services',
-  'Goods & Services',
-  'Siding Lease',
-  'Port Slot / Terminal Concession',
-  'RFQ (Request for Quotation)',
-  'RFP (Request for Proposal)'
-]
-,
-published_date_filter: [
-  'Today',
-  'Yesterday',
-  'Last 7 Days',
-  'Last 14 Days',
-  'This Month',
-  'Last Month',
-  'Last 3 Months',
-  'Custom Range'
-],
-
+    "Goods",
+    "Services",
+    "Goods & Services",
+    "Siding Lease",
+    "Port Slot / Terminal Concession",
+    "RFQ (Request for Quotation)",
+    "RFP (Request for Proposal)",
+  ],
+  published_date_filter: [
+    "Today",
+    "Yesterday",
+    "Last 7 Days",
+    "Last 14 Days",
+    "This Month",
+    "Last Month",
+    "Last 3 Months",
+    "Custom Range",
+  ],
 };
-
 
 const TenderTable: React.FC = () => {
   const [tenders, setTenders] = useState<Tender[]>(mockTenders);
