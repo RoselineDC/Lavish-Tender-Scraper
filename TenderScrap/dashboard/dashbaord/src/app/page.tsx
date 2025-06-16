@@ -65,7 +65,7 @@ export default function Page() {
                 <div>
                   <div className="flex items-center mb-2 cursor-pointer">
                     <Table className="w-4 h-4 mr-2" />
-                    <span className="font-semibol text-white">Tables</span>
+                    <span className="font-small text-white">Tables</span>
                   </div>
                   <div className="ml-6 space-y-2">
                     <div className="hover:text-white cursor-pointer">
