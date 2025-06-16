@@ -21,6 +21,14 @@ const lineData = [
 
 const Dashboard: React.FC = () => {
   return (
+     <div className="p-6 bg-gray-100 min-h-screen space-y-6">
+      {/* Top Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <Card color="orange" title="$30200" subtitle="All Earnings" footer="10% changes on profit" />
+        <Card color="red" title="145" subtitle="Tasks" footer="28% task performance" />
+        <Card color="green" title="290+" subtitle="Page Views" footer="10k daily views" />
+        <Card color="blue" title="500" subtitle="Downloads" footer="11k download in App store" />
+      </div>
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
       <Card
         link="/tenders"
