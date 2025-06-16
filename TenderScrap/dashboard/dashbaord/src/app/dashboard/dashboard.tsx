@@ -67,7 +67,7 @@ const Dashboard: React.FC = () => {
         footer="11k download in App store"
       />
     </div>   
-        
+      {/* New Intents Section */}
         <NewIntents />  
       {/* Charts & Graphs */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -140,6 +140,7 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="bg-white p-3 shadow rounded text-sm"> {/* Add another box if needed */}</div>
       </div>
+      
     </div>
   );
 };
