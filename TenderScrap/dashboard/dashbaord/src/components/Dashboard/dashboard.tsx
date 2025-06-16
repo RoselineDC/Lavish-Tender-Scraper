@@ -3,7 +3,7 @@ import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import { FaEnvelope, FaBell, FaFlag, FaCog, FaBars } from "react-icons/fa";
 import Image from "next/image"; // Adjust the import path as necessary
-import { Link } from "next/link"; // Ensure you have next/link installed
+import { Link } from "next/link"; 
 
 const pieData = [
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
