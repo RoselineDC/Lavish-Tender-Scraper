@@ -61,7 +61,8 @@ export default function Page() {
             <SidebarBody>
               <SidebarItem label="Dashboard">
                 <div className="bg-gray-800 p-2 rounded-md w-full">
-                  <div className="ml-6 space-y-2 text-fuchsia-400">                    
+                  <div className="ml-6 space-y-2 text-fuchsia-400">
+                    <LayoutDashboard />                  
                    
                   </div>
                 </div>
