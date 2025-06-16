@@ -95,7 +95,7 @@ const Card = ({
     </div>
   );
 
-  return link ? <Link to={link}>{content}</Link> : content;
+   return link ? <Link href={link}>{content}</Link> : content;
 };
 
 
