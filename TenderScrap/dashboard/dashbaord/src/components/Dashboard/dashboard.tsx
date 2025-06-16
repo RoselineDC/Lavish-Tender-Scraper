@@ -1,6 +1,7 @@
 // src/components/Dashboard.tsx
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
+import { FaEnvelope, FaBell, FaFlag, FaCog, FaBars } from "react-icons/fa";
 
 const pieData = [
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
