@@ -1,5 +1,9 @@
-'use client';
+import React from 'react'
 
-import Link from 'next/link';
+const Documents = () => {
+  return (
+    <div>Documents</div>
+  )
+}
 
-<Link href="/Pages/Tenders">Go to Tenders</Link>
+export default Documents
