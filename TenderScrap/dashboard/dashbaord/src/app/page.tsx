@@ -25,11 +25,7 @@ export default function Page() {
             <SidebarHeader>Menu</SidebarHeader>
             <SidebarBody>
               <SidebarItem label="Profile">
-   import React from 'react';
-import { Search } from 'lucide-react'; // Optional: for search icon
-
-export const SidebarUserPanel = () => {
-  return (
+   i
     <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
       {/* Profile Section */}
       <div className="flex items-center space-x-4 mb-4">
@@ -57,7 +53,6 @@ export const SidebarUserPanel = () => {
         <Search className="absolute top-2.5 left-3 h-4 w-4 text-gray-400" />
       </div>
     </div>
-
 
   </SidebarItem>
               <SidebarItem label="Dashboard" />
