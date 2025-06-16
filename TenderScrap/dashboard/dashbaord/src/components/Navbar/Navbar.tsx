@@ -55,7 +55,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
         <FaCog className="text-white" />
       </div>
     </header>
-    <das
+    <dashboard />
     </>
   );
 }
