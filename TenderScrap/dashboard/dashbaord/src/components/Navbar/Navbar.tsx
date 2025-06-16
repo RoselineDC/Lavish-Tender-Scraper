@@ -44,7 +44,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
 
         {/* User Avatar */}
         <img
-          src="/" // Replace with your image path
+          src="/p" // Replace with your image path
           alt="User"
           className="w-8 h-8 rounded-full border border-white"
         />
