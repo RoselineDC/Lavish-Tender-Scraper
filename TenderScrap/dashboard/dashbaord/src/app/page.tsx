@@ -67,10 +67,10 @@ export default function Page() {
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Transnet")}>
                      transnet
                     </div>
-                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Es")}>
+                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on CSIR")}>
                      csir
                     </div>
-                      <div className="hover:text-white cursor-pointer">
+                      <div className="hover:text-white cursor-pointer" >
                      others
                     </div>
                   </div>
