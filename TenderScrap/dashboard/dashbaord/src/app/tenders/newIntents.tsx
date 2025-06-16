@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-interface NewIntents {
+interface NewInten {
   id: number;
   institutionName: string;
   tender_number: string;
