@@ -88,7 +88,7 @@ export default function Page() {
                   </div>
                 </div>
               </SidebarItem>
-              <SidebarItem label="TENDERS" icon={<Table className="w-5 h-5" />}>
+              <SidebarItem label="TENDERS" icon={<BookType className="w-5 h-5" />}>
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
                     <div
