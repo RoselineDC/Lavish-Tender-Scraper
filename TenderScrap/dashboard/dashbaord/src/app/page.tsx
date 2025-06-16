@@ -17,9 +17,8 @@ export default function Page() {
   const [showSidebar, setShowSidebar] = useState(false);
   type SidebarItemProps = {
   label: string;
-  icon?: React.ElementType; // icon component
+  icon?: React.ElementType;
 };
-
 
 
   return (
