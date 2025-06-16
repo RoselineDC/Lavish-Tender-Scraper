@@ -54,7 +54,7 @@ export default function Page() {
                     <Search className="absolute top-2.5 left-3 h-4 w-4 text-gray-400" />
                   </div>
                 </div>
-                  <SidebarHeader className="bg-blue-800 text-white p-4 rounded-b-md shadow-sm" >Menu</SidebarHeader>
+                
             <SidebarBody>
               <SidebarItem label="Profile">
                 <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
