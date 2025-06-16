@@ -7,7 +7,7 @@ const pieData = [
   { name: "New Intents", value: 45.36, color: "#4CAF50" },
   { name: "Not Submited", value: 50.69, color: "#2196F3" },
   { name: "Cancelled", value: 50.69, color: "#FFC107" },
-  { name: "Schelled", value: 50.69, color: "#9C27B0" },
+  { name: "Scelled", value: 50.69, color: "#9C27B0" },
   { name: "Approved", value: 50.69, color: "#FF9800" },
 ];
 
