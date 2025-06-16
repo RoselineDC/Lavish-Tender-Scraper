@@ -40,7 +40,7 @@ const mockTenders: Tender[] = [
 ];
 const filters = {
   institutionName: ['Transnet', 'CSIR', 'OTHERS'],
-  price: ['$0-100', '$101-500', '$501+'],
+  tender_category: ['$0-100', '$101-500', '$501+'],
   device: ['PC', 'Tablet', 'Phone'],
   color: ['Purple', 'Black', 'White'],
 };
