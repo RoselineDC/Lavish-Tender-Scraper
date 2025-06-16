@@ -3,7 +3,7 @@
 // src/components/Dashboard.tsx
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
-import Link from "next/link"
+import Link from "next/link";
 
 
 const pieData = [
