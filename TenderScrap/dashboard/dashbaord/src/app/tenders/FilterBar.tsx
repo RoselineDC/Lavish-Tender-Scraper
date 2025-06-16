@@ -300,12 +300,12 @@ export default function FilterBar() {
                     {/* <th scope="col" className="px-4 py-3">
                       Tender Status
                     </th> */}
-                    <th scope="col" className="px-4 py-3">
+                    {/* <th scope="col" className="px-4 py-3">
                       Contact Person
                     </th>
                     <th scope="col" className="px-4 py-3">
                       Contact Email
-                    </th>
+                    </th> */}
                     <th scope="col" className="px-4 py-3">
                       Actions
                     </th>
