@@ -36,13 +36,13 @@ const Dashboard: React.FC = () => {
         subtitle="Tasks"
         footer="28% task performance"
       />
-      <Card
+      {/* <Card
         link="/pages/Suppliers"
         color="red"
         title="145"
         subtitle="Tasks"
         footer="28% task performance"
-      />
+      /> */}
       <Card
         link="snalytics"
         color="green"
