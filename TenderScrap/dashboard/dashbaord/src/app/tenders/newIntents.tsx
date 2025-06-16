@@ -61,7 +61,6 @@ published_date_filter: [
   'Custom Range'
 ],
 
-  color: ['Purple', 'Black', 'White'],
 };
 
 
