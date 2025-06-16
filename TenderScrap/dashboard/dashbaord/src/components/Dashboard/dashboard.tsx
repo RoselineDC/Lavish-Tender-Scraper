@@ -66,6 +66,7 @@ const Dashboard: React.FC = () => {
         footer="11k download in App store"
       />
     </div>
+    </div>
   );
 };
 
