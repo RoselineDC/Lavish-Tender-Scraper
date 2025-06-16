@@ -65,11 +65,12 @@ export default function Page() {
                 <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
                   {/* Profile Section */}
                   <div className="flex items-center space-x-4 mb-4">
-                    <img
-                      src="/profilr.jpg" 
-                      alt="Profile"
-                      className="w-12 h-12 rounded-full border border-white"
-                    />
+                   {/* User Avatar */}
+        <img
+          src="/profilr.jpg" 
+          alt="Profile"
+          className="w-8 h-8 rounded-full border border-white"
+        />
                     <div>
                       <h3 className="font-semibold text-sm">
                         Lynne Dangazela
