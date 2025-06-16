@@ -6,4 +6,4 @@ const Tenders = () => {
   )
 }
 
-export default t
+export default T
