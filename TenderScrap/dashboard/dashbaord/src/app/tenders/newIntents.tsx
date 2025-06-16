@@ -59,7 +59,8 @@ const TenderTable: React.FC = () => {
   };
 
   return (
-    
+    <>
+    </>
     //  <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
     //     <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
     //       {/* Start coding here */}
