@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import UpNavBar from "@/components/Navbar/Navbar";
-import { Search, LayoutDashboard, Table, ChartSpline, BookType, SquarePen, Mail, Files, Settings, Cablel} from "lucide-react";
+import { Search, LayoutDashboard, Table, ChartSpline, BookType, SquarePen, Mail, Files, Settings, Calendar} from "lucide-react";
 
 // import { Table } from "lucide-react";
 // import Dashboard from "../components/Dashboard/dashboard";
