@@ -39,6 +39,7 @@ const mockTenders: Tender[] = [
   },
 ];
 
+
 const TenderTable: React.FC = () => {
   const [tenders, setTenders] = useState<Tender[]>(mockTenders);
 
