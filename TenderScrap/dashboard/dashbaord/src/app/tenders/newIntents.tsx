@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import FilterBar from "./FilterBar";
+import FilterBar from ./FilterBar";
 
 interface Tender {
   id: number;
