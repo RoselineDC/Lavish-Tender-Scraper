@@ -28,7 +28,7 @@ export default function RootLayout({
         <main className="max-w-10xl mx-auto">  
         
           {children}
-          <pag
+          <page />
           <Dashboard />
         </main>
       </body>
