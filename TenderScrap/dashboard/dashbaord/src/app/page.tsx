@@ -16,7 +16,7 @@ export default function Page() {
       <div className="flex-1 flex flex-col">
         <UpNavBar toggleSidebar={() => setShowSidebar(!showSidebar)} />
         <main className="flex-1 overflow-y-auto">
-          <h1 className="text-xl">Welcome to e-Tenders</h1>
+          {/* <h1 className="text-xl">Welcome to e-Tenders</h1> */}
         </main>
       </div>
       <div className="flex  overflow-hidden">
