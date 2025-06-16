@@ -9,7 +9,7 @@ const pieData = [
   { name: "Cancelled", value: 50.69, color: "#FFC107" },
   { name: "Schedulled", value: 50.69, color: "#9C27B0" },
   {name: "Awaiting", value: 50.69, color: "#F44336" },
-  { name: "Und", value: 50.69, color: "#FF9800" },
+  { name: "Undetermined", value: 50.69, color: "#FF9800" },
 ];
 
 const lineData = [
