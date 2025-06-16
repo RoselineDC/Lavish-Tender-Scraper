@@ -1,7 +1,5 @@
 import React from 'react';
-import NewIntents from './newIntents'; // ✅ component names should be PascalCase
-
-const Tenders = () => {
+import NewIntents from './ewIntents'; // ✅ const Tenders = () => {
   return (
     <NewIntents /> // ✅ use capitalized component name
   );
