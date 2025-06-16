@@ -40,7 +40,16 @@ const mockTenders: Tender[] = [
 ];
 const filters = {
   institutionName: ['Transnet', 'CSIR', 'OTHERS'],
-  tender_category: ['$0-100', '$101-500', '$501+'],
+  tender_category: [
+  'Goods',
+  'Services',
+  'Goods & Services',
+  'Siding Lease',
+  'Port Slot / Terminal Concession',
+  'RFQ (Request for Quotation)',
+  'RFP (Request for Proposal)'
+]
+,
   device: ['PC', 'Tablet', 'Phone'],
   color: ['Purple', 'Black', 'White'],
 };
