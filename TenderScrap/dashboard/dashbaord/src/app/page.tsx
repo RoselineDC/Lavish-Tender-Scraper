@@ -23,46 +23,46 @@ export default function Page() {
       </div>
       <div className="flex  overflow-hidden">
         {showSidebar && (
-  <Sidebar>
-    {/* Profile */}
-    <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
-      <div className="flex items-center space-x-4 mb-4">
-        <img
-          src="/profile.jpg"
-          alt="Profile"
-          className="w-12 h-12 rounded-full border border-white"
-        />
-        <div>
-          <h3 className="font-semibold text-sm">Lynne Dangazela</h3>
-          <p className="flex items-center text-green-400 text-xs">
-            <span className="h-2 w-2 rounded-full bg-green-500 mr-1" />
-            Online
-          </p>
-        </div>
-      </div>
-      <div className="relative">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="w-full px-3 py-2 pl-10 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <Search className="absolute top-2.5 left-3 h-4 w-4 text-gray-400" />
-      </div>
-    </div>
+          <Sidebar>
+            {/* Profile */}
+            <div className="bg-gray-800 text-white p-4 rounded-b-md shadow-sm">
+              <div className="flex items-center space-x-4 mb-4">
+                <img
+                  src="/profile.jpg"
+                  alt="Profile"
+                  className="w-12 h-12 rounded-full border border-white"
+                />
+                <div>
+                  <h3 className="font-semibold text-sm">Lynne Dangazela</h3>
+                  <p className="flex items-center text-green-400 text-xs">
+                    <span className="h-2 w-2 rounded-full bg-green-500 mr-1" />
+                    Online
+                  </p>
+                </div>
+              </div>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="w-full px-3 py-2 pl-10 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <Search className="absolute top-2.5 left-3 h-4 w-4 text-gray-400" />
+              </div>
+            </div>
 
-    {/* Menu */}
-    <SidebarHeader className="bg-blue-800 text-white p-4 rounded-b-md shadow-sm">
-      Menu
-    </SidebarHeader>
+            {/* Menu */}
+            <SidebarHeader className="bg-blue-800 text-white p-4 rounded-b-md shadow-sm">
+              Menu
+            </SidebarHeader>
 
-    <SidebarBody>
-      <SidebarItem label="Dashboard" />
-      <SidebarItem label="Settings" />
-      <SidebarItem label="Profile" />
-      <SidebarItem label="Notifications" />
-    </SidebarBody>
-  </Sidebar>
-)}
+            <SidebarBody>
+              <SidebarItem label="Dashboard" />
+              <SidebarItem label="Settings" />
+              <SidebarItem label="Profile" />
+              <SidebarItem label="Notifications" />
+            </SidebarBody>
+          </Sidebar>
+        )}
       </div>
     </>
   );
