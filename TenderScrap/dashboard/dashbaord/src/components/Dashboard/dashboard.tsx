@@ -8,7 +8,10 @@ import NewIntents from "@/app/tenders/NewIntents";
 // For example, if NewIntents.tsx is in src/components/tenders/NewIntents.tsx:
 // import NewIntents from "../tenders/NewIntents";
 /*
-    If you are getting "Cannot
+    If you are getting "Cannot find module '../tenders/NewIntents'" error,
+    make sure the import path is correct. Based on your file structure, try:
+*/
+ // import NewIntents from "../../app/tenders/NewIntents";
 
 const pieData = [
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
