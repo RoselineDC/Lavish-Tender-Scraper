@@ -456,9 +456,7 @@ export default function FilterBar() {
                         </div>
                       </div>
                     </td>
-                  </tr>
-
-                  
+                  </tr>                
                  
                 </tbody>
               </table>
