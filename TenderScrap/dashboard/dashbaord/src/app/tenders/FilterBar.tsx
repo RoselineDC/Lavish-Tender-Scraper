@@ -266,7 +266,50 @@ export default function FilterBar() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                
+                  <tr>
+                    <th scope="col" className="px-4 py-3">
+                      Institution Name
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Tender Number
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Tender Description
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Published Date
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Closing Date
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Briefing Date
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Location
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Tender Document
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Tender Category
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Tender Type
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Tender Status
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Contact Person
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Contact Email
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Actions
+                    </th>
+                  </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b dark:border-gray-700">
@@ -1014,7 +1057,7 @@ export default function FilterBar() {
             </nav>
           </div>
         </div>
-      </section>    
+      </section>
     </>
   );
 }
