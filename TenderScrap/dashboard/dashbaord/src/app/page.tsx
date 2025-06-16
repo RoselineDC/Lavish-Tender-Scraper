@@ -29,7 +29,7 @@ export default function Page() {
               {/* Profile Section */}
               <div className="flex items-center space-x-4 mb-4">
                 <img
-                  src="/profie.jpg" // Update path as needed
+                  src="/profi.jpg" // Update path as needed
                   alt="Profile"
                   className="w-12 h-12 rounded-full border border-white"
                 />
