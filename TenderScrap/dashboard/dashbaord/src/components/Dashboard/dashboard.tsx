@@ -31,12 +31,13 @@ const Dashboard: React.FC = () => {
           title="Tenders"
           subtitle="All  Tenders "
           footer="10% changes on profit"
+          Lin
         />
         <Card
           color="blue"
           title="145"
           subtitle="Tasks"
-          footer="28% task performance"l
+          footer="28% task performance"
         />
         <Card
           color="red"
