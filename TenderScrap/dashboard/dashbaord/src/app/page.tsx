@@ -112,7 +112,7 @@ export default function Page() {
                   </div>
                 </div>
               </SidebarItem>
-              <SidebarItem label="Forms"  />
+              <SidebarItem label="Forms"  i/>
               <SidebarItem label="Mailbox" />
               <SidebarItem label="Documents" />
               <SidebarItem label="Calender" />
