@@ -3778,7 +3778,7 @@ export default function FilterBar() {
                   <input
                     id="checkbox-table-search-1"
                     type="checkbox"
-                    onClick ={() => {
+                    onClick ={() => {}}
                     onClick="event.stopPropagation()"
                     className="kbeH5ty3CtPKxXm5TXph eVNhx7m5tjSVbfYQzDdT text-primary-600 _iRPzRRWy2UNkvZFG8iO YPSoR6AXtPgkmylUmcbT T_tFENbpK8DMDNjQRyQa focus:ring-primary-500 dark:focus:ring-primary-600 apRlbPZRJ4JWA5RVdURT X3ifvK6lzvLzkZabaIQd _t2wg7hRcyKsNN8CSSeU _BIVSYBXQUqEf_ltPrSk"
                   />
