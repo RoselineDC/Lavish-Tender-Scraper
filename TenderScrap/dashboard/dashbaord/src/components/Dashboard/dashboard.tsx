@@ -3,7 +3,7 @@
 // src/components/Dashboard.tsx
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation
 import { Link } from "react-router-dom"; // Ensure you have react-router-dom installed
 
 
