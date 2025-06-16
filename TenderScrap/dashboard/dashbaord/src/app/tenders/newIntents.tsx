@@ -37,7 +37,7 @@ const newIntents: Tender[] = [
   },
 ];
 
-const TenderTable: React.FC = () => {
+const mockTenders: React.FC = () => {
   const [tenders, setTenders] = useState<Tender[]>(mockTenders);
 
   const handleApprove = (id: number) => {
