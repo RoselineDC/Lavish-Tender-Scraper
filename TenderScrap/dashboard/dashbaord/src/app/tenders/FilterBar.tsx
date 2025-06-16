@@ -334,10 +334,7 @@ export default function FilterBar() {
                       </a>
                     </td>
                     <td className="px-4 py-3">Supplies</td>
-                    <td className="px-4 py-3">Open</td>
-                    <td className="px-4 py-3">Open</td>
-                    <td className="px-4 py-3">John Doe</td>
-                    <td className="px-4 py-3">john@example.com</td>
+                    
                     <td className="px-4 py-3 flex items-center justify-end">
                       <button
                         id="tender-actions-dropdown-button"
