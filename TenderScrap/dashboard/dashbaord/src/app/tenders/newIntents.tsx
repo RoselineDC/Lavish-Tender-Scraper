@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-interface Tender {
+interface newIntents {
   id: number;
   institutionName: string;
   tender_number: string;
@@ -18,7 +18,7 @@ interface Tender {
   contact_email: string;
 }
 
-const mockTenders: Tender[] = [
+const mockTenders: newIntents[] = [
   {
     id: 1,
     institutionName: 'Dept of Education',
