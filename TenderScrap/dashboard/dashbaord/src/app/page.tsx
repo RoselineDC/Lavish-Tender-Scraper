@@ -72,7 +72,7 @@ export default function Page() {
                      transnet
                     </div>
                     <div className="hover:text-white cursor-pointer">
-                      ● Data tables
+                     csir
                     </div>
                   </div>
                 </div>
