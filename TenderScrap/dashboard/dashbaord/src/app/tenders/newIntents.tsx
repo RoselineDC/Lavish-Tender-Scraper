@@ -54,7 +54,7 @@ const TenderTable: React.FC = () => {
   };
 
   return (
-    <div className="overflow-x-auto p-4">
+<div className="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
       <table className="min-w-full border text-sm text-left">
         <thead className="bg-gray-100">
           <tr>
