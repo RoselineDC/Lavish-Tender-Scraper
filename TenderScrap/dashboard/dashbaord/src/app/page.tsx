@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import UpNavBar from "@/components/Navbar/Navbar";
-import { Search, LayoutDashboard, Table } from "lucide-react";
-// import { Table } from "lucide-react";
-// import Dashboard from "../components/Dashboard/dashboard";
-// import Image from "next/image";
+import { Search, LayoutDashboard,  } from "lucide-react";
+import { Table } from "lucide-react";
+import Dashboard from "../components/Dashboard/dashboard";
+import Image from "next/image";
 
 import {
   Sidebar,
@@ -59,14 +59,7 @@ export default function Page() {
             </SidebarHeader>
 
             <SidebarBody>
-              <SidebarItem label="Dashboard" >
-                <div className="bg-gray-800 p-2 rounded-md w-full">
-                  <div className="ml-6 space-y-2 text-fuchsia-400">
-                    <LayoutDashboard />                  
-                   
-                  </div>
-                </div>
-              </SidebarItem>
+              <SidebarItem label="Dashboard" />
               <SidebarItem label="Charts">  
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
