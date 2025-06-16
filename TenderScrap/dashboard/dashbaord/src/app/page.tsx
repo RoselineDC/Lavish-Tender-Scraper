@@ -60,18 +60,29 @@ export default function Page() {
             </SidebarHeader>
 
             <SidebarBody>
-             <SidebarItem label="Dashboard" icon={<LayoutDashboard className="w-5 h-5" />} />
-            
-              <SidebarItem label="Charts">  
+              <SidebarItem
+                label="Dashboard"
+                icon={<LayoutDashboard className="w-5 h-5" />}
+              />
+              <SidebarItem label="Charts">
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
-                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Bar Chart")}>
-                     Weekly progress
+                    <div
+                      className="hover:text-white cursor-pointer"
+                      onClick={() => alert("Clicked on Bar Chart")}
+                    >
+                      Weekly progress
                     </div>
-                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Line Chart")}>
-                     Monthly progress
+                    <div
+                      className="hover:text-white cursor-pointer"
+                      onClick={() => alert("Clicked on Line Chart")}
+                    >
+                      Monthly progress
                     </div>
-                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Pie Chart")}>
+                    <div
+                      className="hover:text-white cursor-pointer"
+                      onClick={() => alert("Clicked on Pie Chart")}
+                    >
                       Progress Report
                     </div>
                   </div>
@@ -80,14 +91,23 @@ export default function Page() {
               <SidebarItem label="TENDERS">
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
-                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Transnet")}>
-                     transnet
+                    <div
+                      className="hover:text-white cursor-pointer"
+                      onClick={() => alert("Clicked on Transnet")}
+                    >
+                      transnet
                     </div>
-                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on CSIR")}>
-                     csir
+                    <div
+                      className="hover:text-white cursor-pointer"
+                      onClick={() => alert("Clicked on CSIR")}
+                    >
+                      csir
                     </div>
-                      <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on oTHERS")}>
-                     others
+                    <div
+                      className="hover:text-white cursor-pointer"
+                      onClick={() => alert("Clicked on oTHERS")}
+                    >
+                      others
                     </div>
                   </div>
                 </div>
