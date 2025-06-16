@@ -3,7 +3,7 @@
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
-import NewIntents from "/app/tenders/NewIntents";
+import NewIntents from "/tenders/NewIntents";
 
 
 const pieData = [
