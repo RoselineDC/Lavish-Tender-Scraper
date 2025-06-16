@@ -1,3 +1,4 @@
+'use client';
 
 // src/components/Dashboard.tsx
 import React from "react";
