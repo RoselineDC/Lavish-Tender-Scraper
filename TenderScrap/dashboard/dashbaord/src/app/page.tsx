@@ -69,7 +69,7 @@ export default function Page() {
                   </div>
                   <div className="ml-6 space-y-2 text-fuchsia-400">
                     <div className="hover:text-white cursor-pointer">
-                      ● Simple tables
+                     T
                     </div>
                     <div className="hover:text-white cursor-pointer">
                       ● Data tables
