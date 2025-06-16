@@ -140,7 +140,8 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="bg-white p-3 shadow rounded text-sm"> {/* Add another box if needed */}</div>
       </div>
-      
+              <NewIntents />  
+
     </div>
   );
 };
