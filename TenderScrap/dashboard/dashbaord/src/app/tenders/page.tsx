@@ -1,14 +1,10 @@
 import React from 'react';
-import NewIntents from './newIntents';
-
+import NewIntents from './newIntents'; // ✅ component names should be PascalCase
 
 const Tenders = () => {
   return (
-    <div>
-      <NewIntents />
-    </div>
-  
-  )
-}
+    <NewIntents /> // ✅ use capitalized component name
+  );
+};
 
-export default Tenders
+export default Tenders;
