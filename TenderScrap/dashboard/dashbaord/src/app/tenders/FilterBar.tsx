@@ -4079,7 +4079,7 @@ export default function FilterBar() {
     </div>
   </div>
 </section>
-
+</>
 
 
   );
