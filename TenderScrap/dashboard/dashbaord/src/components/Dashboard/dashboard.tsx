@@ -3,8 +3,7 @@
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
-import NewIntents from "/tenders/NewIntents";
-
+// Update the path below
 
 const pieData = [
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
