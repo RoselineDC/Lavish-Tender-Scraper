@@ -67,7 +67,7 @@ export default function Page() {
                      Weekly progress Bar Chart
                     </div>
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Line Chart")}>
-                      
+                      m
                     </div>
                     <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Pie Chart")}>
                       Pie Chart
