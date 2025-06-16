@@ -38,7 +38,7 @@ const mockTenders: Tender[] = [
     contact_email: "john@example.com",
   },
 ];
-td
+
 
 const TenderTable: React.FC = () => {
   const [tenders, setTenders] = useState<Tender[]>(mockTenders);
