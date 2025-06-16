@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import UpNavBar from "@/components/Navbar/Navbar";
-import { Search, LayoutDashboard, Table, ChartSpline, BookType, SquarePen, Mail, Files, Settings, Calendar} from "lucide-react";
+import { Search, LayoutDashboard, Table, ChartSpline, BookType, SquarePen, Mail, Files, Settings, CalendarDays} from "lucide-react";
 
 // import { Table } from "lucide-react";
 // import Dashboard from "../components/Dashboard/dashboard";
@@ -115,7 +115,7 @@ export default function Page() {
               <SidebarItem label="Forms"  icon={<SquarePen className="w-5 h-5" />}/>
               <SidebarItem label="Mailbox"  icon={<Mail className="w-5 h-5" />}/>
               <SidebarItem label="Documents" icon={<Files className="w-5 h-5" />} />
-              <SidebarItem label="Calender" icon={<Calendar className="w-5 h-5" />} />
+              <SidebarItem label="Calender" icon={<CalendarDays className="w-5 h-5" />} />
               <SidebarItem label="Settings" />
             </SidebarBody>
           </Sidebar>
