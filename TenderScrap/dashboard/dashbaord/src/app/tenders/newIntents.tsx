@@ -18,8 +18,7 @@ interface Tender {
   contact_email: string;
 }
 
-const mockTenders: Tender[] = [
-  {
+const mockTenders:  {
     id: 1,
     institutionName: 'Dept of Education',
     tender_number: 'DOE123',
