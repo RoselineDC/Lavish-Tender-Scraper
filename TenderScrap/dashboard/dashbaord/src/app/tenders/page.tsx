@@ -4,7 +4,8 @@ import NewIntents from './newIntents';
 
 const Tenders = () => {
   return (
-   <NewIntents />
+   <import NewIntents from './newIntents';
+ />
   )
 }
 
