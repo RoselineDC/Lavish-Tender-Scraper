@@ -48,7 +48,7 @@ export default function UpNavBar({ toggleSidebar }: { toggleSidebar: () => void 
           alt="Profile"
           className="w-8 h-8 rounded-full border border-white"
         /><p>
-        <span className="text-white font-semibold">Ly</span>
+        <span className="text-white font-semibold">Lynne</span>
         </p>
 
         {/* Settings Icon */}
