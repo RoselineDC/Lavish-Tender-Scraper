@@ -26,6 +26,7 @@ export default function Page() {
             <SidebarBody>
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Settings" />
+              
             </SidebarBody>
           </Sidebar>
         )}
