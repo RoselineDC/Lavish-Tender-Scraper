@@ -74,7 +74,9 @@ export default function Page() {
                     <div className="hover:text-white cursor-pointer">
                      csir
                     </div>
-                    
+                      <div className="hover:text-white cursor-pointer">
+                     othe
+                    </div>
                   </div>
                 </div>
               </SidebarItem>
