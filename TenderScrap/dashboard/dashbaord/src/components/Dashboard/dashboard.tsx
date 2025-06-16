@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
   return (
    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
   <Card
-    link="../tend"
+    link="../"
     color="orange"
     title="Tenders"
     subtitle="All Tenders"
