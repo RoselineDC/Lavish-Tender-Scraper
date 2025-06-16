@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from "../../components/Dashboard/dashboard";
-import Tenders from '../Pages/Tenders';
-import Tasks from '../Pages/Suppliers';
-import Analytics from '../Pages/Analytics';
-import Downloads from '../Pages/Documents';
+import Tenders from '../pages/Tenders';
+import Tasks from '../pages/Suppliers';
+import Analytics from '../pages/Analytics';
+import Downloads from '../pages/Documents';
 
 function App() {
   return (
