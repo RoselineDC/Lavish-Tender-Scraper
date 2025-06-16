@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
   return (
    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
   <Card
-    link="import Ten../../app/Pages/Tenders';
+    link="../../app/Pages/Tenders"
 "
     color="orange"
     title="Tenders"
