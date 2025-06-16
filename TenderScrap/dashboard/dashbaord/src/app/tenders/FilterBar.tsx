@@ -28,10 +28,9 @@ const filters = {
 
 export default function FilterBar() {
   const [selected, setSelected] = useState({
-    brand: 'Samsung',
-    price: '$101-500',
-    device: 'PC',
-    color: 'Purple',
+    institutionName: filters.institutionName[0],
+    tender_category: filters.tender_category[0],
+    published_date_filter: filters.published_date_filter[0],
   });
 
   const handleChange = (key: string, value: string) => {
