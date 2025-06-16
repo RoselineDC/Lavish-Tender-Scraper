@@ -54,7 +54,11 @@ export default function Page() {
                     <Search className="absolute top-2.5 left-3 h-4 w-4 text-gray-400" />
                   </div>
                 </div>
-                
+            <SidebarHeader>
+              <div className="text-white font-semibold text-lg">
+                e<span className="font-normal">-Tenders</span>
+              </div>
+            </SidebarHeader>
                 
             <SidebarBody>
               <SidebarItem label="Profile">
