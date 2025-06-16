@@ -58,14 +58,7 @@ const Dashboard: React.FC = () => {
         subtitle="Downloads"
         footer="11k download in App store"
       />
-    </div>
-      {/* Top Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card color="orange" title="$30200" subtitle="All Earnings" footer="10% changes on profit" />
-        <Card color="red" title="145" subtitle="Tasks" footer="28% task performance" />
-        <Card color="green" title="290+" subtitle="Page Views" footer="10k daily views" />
-        <Card color="blue" title="500" subtitle="Downloads" footer="11k download in App store" />
-      </div>
+    </div>     
       {/* Charts & Graphs */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
