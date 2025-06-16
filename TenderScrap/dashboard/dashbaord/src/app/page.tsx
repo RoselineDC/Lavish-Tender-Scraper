@@ -12,7 +12,7 @@ export default function Page() {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <div className="flex fle  overflow-hidden">
+    <div className="flex flex-row  overflow-hidden">
       {showSidebar && (
         <Sidebar>
           <SidebarHeader>Menu</SidebarHeader>
