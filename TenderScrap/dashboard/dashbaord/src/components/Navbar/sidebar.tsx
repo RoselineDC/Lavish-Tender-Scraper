@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 export const Sidebar = ({ children }: { children: React.ReactNode }) => (
-  <aside className="w-64 h-[calc(100vh-64px)] md:h-[calc(-100vh+80px)] lg:h-[100vh] overflow-y-auto bg-gray-00 text-white">{children}</aside>
+  <aside className="w-64 h-[calc(100vh-64px)] md:h-[calc(-100vh+80px)] lg:h-[100vh] overflow-y-auto bg-gray-500 text-white">{children}</aside>
 )
 
 export const SidebarHeader = ({ children }: { children: React.ReactNode }) => (
