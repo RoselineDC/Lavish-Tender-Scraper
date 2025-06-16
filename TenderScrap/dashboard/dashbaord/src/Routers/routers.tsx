@@ -3,7 +3,7 @@ import Dashboard from "../components/Dashboard/dashboard";
 import Tenders from '../components/Pages/Tenders';
 import Tasks from '../components/Pages/Suppliers';
 import Analytics from '../components/Pages/Analytics';
-import Downloads from './pages/Downloads';
+import Downloads from '../components/Pages/';
 
 function App() {
   return (
