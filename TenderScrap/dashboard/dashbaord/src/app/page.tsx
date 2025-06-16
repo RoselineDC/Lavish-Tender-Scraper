@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import UpNavBar from "@/components/Navbar/Navbar";
-import { Search, LayoutDashboard, Table, ChartSp } from "lucide-react";
-import { ChartSpline } from 'lucide-react';
+import { Search, LayoutDashboard, Table, ChartSpline } from "lucide-react";
 
 // import { Table } from "lucide-react";
 // import Dashboard from "../components/Dashboard/dashboard";
