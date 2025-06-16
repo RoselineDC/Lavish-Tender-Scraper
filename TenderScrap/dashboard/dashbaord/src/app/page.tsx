@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import UpNavBar from "@/components/Navbar/Navbar";
 import { Search } from "lucide-react";
-import Image from 'next/image';
+import Image from "next/image";
 
 import {
   Sidebar,
@@ -57,16 +57,29 @@ export default function Page() {
             </SidebarHeader>
 
             <SidebarBody>
-             
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Charts" />
-              <SidebarItem label="Tables" />
+              <SidebarItem label="Tables">
+                <div>
+                  <div className="flex items-center mb-2 cursor-pointer">
+                    <Table className="w-4 h-4 mr-2" />
+                    <span className="font-semibold text-white">Tables</span>
+                  </div>
+                  <div className="ml-6 space-y-2">
+                    <div className="hover:text-white cursor-pointer">
+                      ● Simple tables
+                    </div>
+                    <div className="hover:text-white cursor-pointer">
+                      ● Data tables
+                    </div>
+                  </div>
+                </div>
+              </SidebarItem>
               <SidebarItem label="Forms" />
               <SidebarItem label="Mailbox" />
               <SidebarItem label="Documents" />
               <SidebarItem label="Calender" />
-              <SidebarItem label="Settings" />   
-    
+              <SidebarItem label="Settings" />
             </SidebarBody>
           </Sidebar>
         )}
