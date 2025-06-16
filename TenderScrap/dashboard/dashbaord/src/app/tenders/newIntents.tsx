@@ -63,7 +63,7 @@ const filters = {
 
 const TenderTable: React.FC = () => {
   const [tenders, setTenders] = useState<Tender[]>(mockTenders);
-  const filteredTenders
+  const filteredTenders() => {
 
   const handleApprove = (id: number) => {
     alert(`Tender ID ${id} approved.`);
