@@ -103,13 +103,6 @@ const Dashboard: React.FC = () => {
     </div>
   );
 };
-
-
-    
-    </div>
-  );
-};
-
 const Card = ({
   color,
   title,
