@@ -61,6 +61,19 @@ export default function Page() {
             <SidebarBody>
               <SidebarItem label="Dashboard">
                 <div className="bg-gray-800 p-2 rounded-md w-full">
+                  <div className="ml-6 space-y-2 text-fuchsia-400">
+                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Dashboard")}>
+                      Overview
+                    </div>
+                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Statistics")}>
+                      Statistics
+                    </div>
+                    <div className="hover:text-white cursor-pointer" onClick={() => alert("Clicked on Reports")}>
+                      Reports
+                    </div>
+                  </div>
+                </div>
+              </SidebarItem>
               <SidebarItem label="Charts">  
                 <div className="bg-gray-800 p-2 rounded-md w-full">
                   <div className="ml-6 space-y-2 text-fuchsia-400">
