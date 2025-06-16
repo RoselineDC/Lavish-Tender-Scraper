@@ -323,7 +323,6 @@ export default function FilterBar() {
                     <td className="px-4 py-3">Supply of Stationery</td>
                     <td className="px-4 py-3">2025-06-01</td>
                     
-                    <td className="px-4 py-3">2025-06-10</td>
                     <td className="px-4 py-3">Pretoria</td>
                     <td className="px-4 py-3">
                       <a
