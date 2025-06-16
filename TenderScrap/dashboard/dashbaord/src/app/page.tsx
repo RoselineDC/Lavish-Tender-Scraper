@@ -24,7 +24,7 @@ export default function Page() {
           <Sidebar>
             <SidebarHeader>Menu</SidebarHeader>
             <SidebarBody>
-              <SidebarItem label="Profile"
+              <SidebarItem label="Profile">
                 <img
                   src="/profile.jpg"
                   alt="Profile"
