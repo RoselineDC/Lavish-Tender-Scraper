@@ -25,12 +25,12 @@ export default function Page() {
             <SidebarHeader>Menu</SidebarHeader>
             <SidebarBody>
               <SidebarItem label="Profile">
-    <img
-      src="/profile.jpg"
-      alt="Profile"
-      className="w-8 h-8 rounded-full border border-white mb-2"
-    />
-  </SidebarItem>
+                <img
+                  src="/profile.jpg"
+                  alt="Profile"
+                  className="w-8 h-8 rounded-full border border-white mb-2"
+                />
+              </SidebarItem>
               <SidebarItem label="Dashboard" />
               <SidebarItem label="Settings" />
               <SidebarItem label="Profile" />
