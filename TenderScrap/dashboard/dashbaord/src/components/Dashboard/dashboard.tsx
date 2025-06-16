@@ -29,7 +29,7 @@ const lineData = [
 const Dashboard: React.FC = () => {
   return (
    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <Link href="//Tenders">
+    <Link href="/A/Tenders">
     <div className="bg-white rounded-xl shadow-md p-4 border-t-4 border-blue-500 hover:shadow-lg transition">
       <h2 className="text-2xl font-bold">Tenders</h2>
       <p className="text-sm text-gray-500">All Tenders</p>
