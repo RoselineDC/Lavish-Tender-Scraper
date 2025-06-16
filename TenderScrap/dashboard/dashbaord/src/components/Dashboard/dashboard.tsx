@@ -29,7 +29,13 @@ const lineData = [
 const Dashboard: React.FC = () => {
   return (
    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <Link
+    <Link href="/tenders">
+    <div className="bg-white rounded-xl shadow-md p-4 border-t-4 border-blue-500 hover:shadow-lg transition">
+      <h2 className="text-2xl font-bold">Tenders</h2>
+      <p className="text-sm text-gray-500">All Tenders</p>
+      <div className="mt-2 text-xs bg-blue-500 text-white rounded p-1 text-center">
+        10% changes on profit
+      </div>
   <Card link href="/Pages/Tenders" color="orange" title="Tenders" subtitle="All Tenders" footer="10% changes on profit" />
 
   <Card
