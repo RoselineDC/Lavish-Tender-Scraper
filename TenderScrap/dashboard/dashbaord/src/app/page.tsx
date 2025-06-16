@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 // import { Table } from "lucide-react";
-// import Dashboard from "../components/Dashboard/dashboard";
+import Dashboard from "../components/Dashboard/dashboard";
 // import Image from "next/image";
 
 import {
