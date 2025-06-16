@@ -2,6 +2,8 @@
 import React from "react";
 import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import { FaEnvelope, FaBell, FaFlag, FaCog, FaBars } from "react-icons/fa";
+import Image from "next/image"; // Adjust the import path as necessary
+import 
 
 const pieData = [
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
