@@ -63,3 +63,7 @@ export default function Page() {
     </SidebarBody>
   </Sidebar>
 )}
+      </div>
+    </>
+  );
+}
