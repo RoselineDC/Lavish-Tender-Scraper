@@ -90,6 +90,19 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
       
+      {/* Bottom Boxes */}
+      <div className="grid grid-cols-3 gap-4 text-center">
+        <div className="bg-white p-3 shadow rounded text-sm">
+          REALTY <span className="text-red-600 ml-2">-0.99</span>
+        </div>
+        <div className="bg-white p-3 shadow rounded text-sm">
+          INFRA <span className="text-green-600 ml-2">+7.66</span>
+        </div>
+        <div className="bg-white p-3 shadow rounded text-sm"> {/* Add another box if needed */}</div>
+      </div>
+    </div>
+  );
+};
 
 
     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
