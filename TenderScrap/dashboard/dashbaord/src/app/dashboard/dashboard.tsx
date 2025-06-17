@@ -67,12 +67,8 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
         <div className="lg:col-span-2">
-              <MonthlyRecapChart />
-            
-          
+          <MonthlyRecapChart />
         </div>
-
-        
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md ">
@@ -80,7 +76,11 @@ const Dashboard: React.FC = () => {
             <h3 className="text-lg font-bold mb-2 flex flex-col items-center">
               Total Revenue
             </h3>
-            <PieChart width={300} height={230} className="mt-7 flex flex-col items-center">
+            <PieChart
+              width={300}
+              height={230}
+              className="mt-7 flex flex-col items-center"
+            >
               <Pie
                 data={pieData}
                 dataKey="value"
@@ -92,13 +92,15 @@ const Dashboard: React.FC = () => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-            
             </PieChart>
           </div>
-         
+
           <div className="flex justify-around text-xs mt-4">
             {pieData.map((item, index) => (
-              <div key={index} className="text-center flex flex-col items-center">
+              <div
+                key={index}
+                className="text-center flex flex-col items-center"
+              >
                 <p style={{ color: item.color }}>{item.name}</p>
                 <p className="font-semibold">{item.value}%</p>
               </div>
