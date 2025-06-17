@@ -66,6 +66,7 @@ const Dashboard: React.FC = () => {
         {/* Sales Per Day */}
         
         <MonthlyRecapChart />
+        </div>
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md">
