@@ -74,7 +74,7 @@ const Dashboard: React.FC = () => {
         <div className="bg-white rounded-xl p-4 shadow-md ">
           <h3 className="text-lg font-bold mb-2 flex flex-col items-center">Total Revenue</h3>
           <PieChart width={300} height={230} className="flex flex-col items-center">
-            <Pie data={pieData} dataKey="value" outerRadius={80} label className="">
+            <Pie data={pieData} dataKey="value" outerRadius={80} label className="items-center">
               {pieData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
