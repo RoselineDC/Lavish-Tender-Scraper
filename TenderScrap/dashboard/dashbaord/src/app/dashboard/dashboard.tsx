@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
 import NewIntents from "@/app/tenders/NewIntents";
 import MonthlyRecapChart from "@/app/analytics/piechart";
-import {BarClick from "../analytics/barchart";
+import  BarClick } from "../analytics/barchart";
 // Update the path below to the correct relative path based on your project structure.
 // For example, if NewIntents.tsx is in src/components/tenders/NewIntents.tsx:
 // import NewIntents from "../tenders/NewIntents";
