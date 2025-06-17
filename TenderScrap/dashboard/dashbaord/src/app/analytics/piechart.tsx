@@ -59,7 +59,7 @@ const MonthlyRecapChart = () => {
         text: "Monthly Recap Report",
         color: "#333",
         font: {
-          size: 18,
+          size: 1,
           weight: "bold",
         },
         align: "start",
@@ -78,7 +78,7 @@ const MonthlyRecapChart = () => {
     scales: {
       y: {
         min: 0,
-        max: 90,
+        max: 9,
         ticks: {
           stepSize: 10,
         },
