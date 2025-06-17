@@ -31,7 +31,7 @@ const MonthlyRecapChart = () => {
     datasets: [
       {
         label: "This Year",
-        data: [30, 50, 40, 20, 80, 30, 90],
+        data: [3, 50, 40, 20, 80, 30, 90],
         fill: true,
         backgroundColor: "rgba(33, 150, 243, 0.6)", // Blue area
         borderColor: "rgba(33, 150, 243, 1)",
@@ -40,7 +40,7 @@ const MonthlyRecapChart = () => {
       },
       {
         label: "Last Year",
-        data: [7, 6, 8, 5, 0, 3, 50],
+        data: [7, 6, 8, 5, 0, 3, 5],
         fill: true,
         backgroundColor: "rgba(200, 200, 200, 0.4)", // Grey area
         borderColor: "rgba(200, 200, 200, 1)",
