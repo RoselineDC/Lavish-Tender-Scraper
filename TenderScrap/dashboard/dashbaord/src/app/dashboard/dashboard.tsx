@@ -17,7 +17,7 @@ import MonthlyRecapChart from "@/app/analytics/piechart";
 const pieData = [
   
   { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
-  { name: "Submitted", value: 45.36, color: "#4CAF50" },
+  
   { name: "New Intents", value: 50.69, color: "#2196F3" },
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
 ];
