@@ -19,14 +19,6 @@ const pieData = [
   { name: "New Intents", value: 50.69, color: "#2196F3" },
 ];
 
-const lineData = [
-  { name: "Mon", sales: 400 },
-  { name: "Tue", sales: 600 },
-  { name: "Wed", sales: 550 },
-  { name: "Thu", sales: 700 },
-  { name: "Fri", sales: 630 },
-];
-
 const Dashboard: React.FC = () => {
   return (
     <div className="p-6 bg-gray-100 min-h-screen space-y-6">
