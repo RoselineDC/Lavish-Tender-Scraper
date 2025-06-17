@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
         <Card
           link="suppliers"
           color="blue"
-          title="D"
+          title="Daily Task progress"
           subtitle="Tasks"
           footer="28% task performance"
         />
