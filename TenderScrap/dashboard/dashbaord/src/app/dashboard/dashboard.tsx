@@ -31,13 +31,15 @@ const pieData = [
 
 ];
 
-const lineData = [
-  { name: "Mon", sales: 400 },
-  { name: "Tue", sales: 600 },
-  { name: "Wed", sales: 550 },
-  { name: "Thu", sales: 700 },
-  { name: "Fri", sales: 630 },
-];
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Filler,
+  Tooltip,
+  Legend
+);
 
 const Dashboard: React.FC = () => {
   return (
