@@ -77,7 +77,7 @@ const MonthlyRecapChart = () => {
     },
     scales: {
       y: {
-        min: 10,
+        min: 1,
         max: 90,
         ticks: {
           stepSize: 10,
