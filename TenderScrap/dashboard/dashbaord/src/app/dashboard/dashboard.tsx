@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
           color="blue"
           title="ESSENTIAL GUIDES"
           subtitle="Downloads"
-          footer="11k download"
+          footer="11k downloads"
         />
       </div>
       {/* New Intents Section */}
