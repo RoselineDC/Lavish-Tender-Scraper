@@ -89,6 +89,7 @@ const Dashboard: React.FC = () => {
             <p className="text-sm">Today Sales</p>
           </div>
         </div>
+        
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md">
