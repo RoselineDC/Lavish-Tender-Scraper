@@ -31,7 +31,7 @@ const barChartsParams = {
     {
       id: 'series-2',
       data: [4, 3, 1, 5, 8],
-      label: 'B',
+      label: '',
       stack: 'total',
       highlightScope: {
         highlight: 'item',
