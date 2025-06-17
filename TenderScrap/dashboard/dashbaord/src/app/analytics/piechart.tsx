@@ -1,4 +1,26 @@
+"use client";
+import React from "react";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Filler,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
+ChartJS.register(
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Filler,
+  Tooltip,
+  Legend
+);
 
 const MonthlyRecapChart = () => {
   const labels = ["January", "February", "March", "April", "May", "June", "July"];
