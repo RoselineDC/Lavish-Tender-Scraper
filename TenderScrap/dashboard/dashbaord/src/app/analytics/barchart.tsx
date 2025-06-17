@@ -12,7 +12,7 @@ import { BarItemIdentifier, ChartsAxisData } from '@mui/x-charts/models';
 // Optional: If you don't have HighlightedCode or it's just for debugging
 // You can replace it or build your own pretty-printer
 const HighlightedCode = ({ code }: { code: string }) => (
-  <pre style={{ whiteSpace: 'pre-wrap', backgroundColor: '', padding: '10px', borderRadius: '4px' }}>
+  <pre style={{ whiteSpace: 'pre-wrap', backgroundColor: '#5', padding: '10px', borderRadius: '4px' }}>
     {code}
   </pre>
 );
