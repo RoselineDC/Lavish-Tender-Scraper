@@ -59,7 +59,7 @@ const MonthlyRecapChart = () => {
         text: "Monthly Recap Report",
         color: "#333",
         font: {
-          size: 1,
+          size: 18,
           weight: "bold",
         },
         align: "start",
