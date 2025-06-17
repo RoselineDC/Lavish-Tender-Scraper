@@ -87,7 +87,7 @@ const Dashboard: React.FC = () => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <
+            
             </PieChart>
          
           <div className="flex justify-around text-xs mt-4">
