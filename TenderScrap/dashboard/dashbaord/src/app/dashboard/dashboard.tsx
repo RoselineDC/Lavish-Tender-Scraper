@@ -67,7 +67,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
         <div className="lg:col-span-2">
-          <MonthlyRecapChart />
+          <BarClick />
         </div>
 
         {/* Pie Chart */}
