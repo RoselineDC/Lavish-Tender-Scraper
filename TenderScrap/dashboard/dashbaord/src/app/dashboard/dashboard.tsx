@@ -67,7 +67,12 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
         <div>
-
+          <div className="bg-white rounded-xl p-4 shadow-md">
+            <h3 className="text-lg font-bold mb-2">Sales Per Day</h3>
+            <div className="h-64">
+              <MonthlyRecapChart />
+            </div>
+          </div>
 
         <MonthlyRecapChart />
 
