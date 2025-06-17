@@ -94,7 +94,7 @@ const Dashboard: React.FC = () => {
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md">
-          <h3 className="text-lg font-bold mb-2">Total Revenue</h3>
+          <h3 className="text-lg font-bold mb-2">Dai</h3>
           <PieChart width={300} height={200}>
             <Pie data={pieData} dataKey="value" outerRadius={80} label>
               {pieData.map((entry, index) => (
