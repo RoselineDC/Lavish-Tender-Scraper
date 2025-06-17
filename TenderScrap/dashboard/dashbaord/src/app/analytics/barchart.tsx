@@ -34,7 +34,7 @@ const barChartsParams = {
       data: [4, 3, 1, 5, 8],
       label: 'ADDED',
       stack: 'total',
-      
+      color: "#2196F3",
       highlightScope: {
         highlight: 'item',
       },
