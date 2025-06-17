@@ -24,7 +24,7 @@ ChartJS.register(
 );
 
 const MonthlyRecapChart = () => {
-  const labels = ["Januar", "February", "March", "April", "May", "June", "July"];
+  const labels = ["January", "February", "March", "April", "May", "June", "July"];
 
   const data = {
     labels,
