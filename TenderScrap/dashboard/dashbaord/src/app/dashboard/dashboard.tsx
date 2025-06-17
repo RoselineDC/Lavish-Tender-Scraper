@@ -56,7 +56,7 @@ const Dashboard: React.FC = () => {
           link="analytics"
           color="green"
           title="ANALYTICS"
-          subtitle=""
+          subtitle="Views"
           footer="10k daily views"
         />
         <Card
