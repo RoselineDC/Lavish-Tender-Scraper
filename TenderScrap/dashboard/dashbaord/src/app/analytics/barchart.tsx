@@ -46,7 +46,7 @@ const barChartsParams = {
       },
     },
   ],
-  xAxis: [{ data: ['0', '3', '6', '9', '12'], id: 'axis1' }],
+  xAxis: [{ data: ['', '3', '6', '9', '12'], id: 'axis1' }],
   height: 400,
 } as const;
 
