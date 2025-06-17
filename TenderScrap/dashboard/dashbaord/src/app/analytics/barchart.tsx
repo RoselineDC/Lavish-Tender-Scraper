@@ -24,7 +24,7 @@ const barChartsParams = {
       data: [3, 4, 1, 6, 5],
       label: 'SUBMITED',
       stack: 'total',
-      
+      color: "#4CAF50",
       highlightScope: {
         highlight: 'item',
       },
