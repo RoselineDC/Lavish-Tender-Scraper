@@ -91,14 +91,7 @@ export default function BarClick() {
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
         </Box>
-        <HighlightedCode
-          code={`Overview of the Monthly Progress
-${itemData ? JSON.stringify(itemData, null, 2) : '// The data will appear here'}
-
-// Data from axis click
-${axisData ? JSON.stringify(axisData, null, 2) : '// The data will appear here'}
-`}
-        />
+        
       </Stack>
     </Stack>
   );
