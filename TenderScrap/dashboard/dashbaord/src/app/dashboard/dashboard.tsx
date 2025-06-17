@@ -102,6 +102,7 @@ const Dashboard: React.FC = () => {
           csir <span className="text-green-600 ml-2">+7.66</span>
         </div>
         <div className="bg-white p-3 shadow rounded text-sm">
+          
           {" "}
           {/* Add another box if needed */}
         </div>
