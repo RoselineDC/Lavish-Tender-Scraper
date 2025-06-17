@@ -22,7 +22,7 @@ const barChartsParams = {
     {
       id: 'series-1',
       data: [3, 4, 1, 6, 5],
-      label: 'A',
+      label: 'S',
       stack: 'total',
       highlightScope: {
         highlight: 'item',
