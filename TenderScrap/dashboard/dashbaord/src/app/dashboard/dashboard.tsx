@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md ">
-          <div className="flex justify-between items-center mb-4">
+          
             <h3 className="text-lg font-bold mb-2 flex flex-col items-center">
               Total Revenue
             </h3>
