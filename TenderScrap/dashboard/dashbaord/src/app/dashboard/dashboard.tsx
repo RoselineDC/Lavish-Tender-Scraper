@@ -102,7 +102,7 @@ const Dashboard: React.FC = () => {
           csir <span className="text-green-600 ml-2">+7.66</span>
         </div>
         <div className="bg-white p-3 shadow rounded text-sm">
-          O <span className="text-green-600 ml-2">+7.66</span>
+          Others <span className="text-green-600 ml-2">+7.66</span>
           {" "}
           {/* Add another box if needed */}
         </div>
