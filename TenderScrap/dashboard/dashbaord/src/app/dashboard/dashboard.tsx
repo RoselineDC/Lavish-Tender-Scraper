@@ -1,17 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Filler,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
 import NewIntents from "@/app/tenders/NewIntents";
 // Update the path below to the correct relative path based on your project structure.
@@ -24,11 +14,9 @@ import NewIntents from "@/app/tenders/NewIntents";
 // import NewIntents from "../../app/tenders/NewIntents";
 
 const pieData = [
-  { name: "Not Submitted", value: 1, color: "#ff4d4d" },
-  { name: "Submitted", value: 2, color: "#4CAF50" },
-  { name: "New Intents", value: 3, color: "#2196F3" },
-  { name: "Submssion For Tomorrow", value: 4, color: "#FFC107" },
-
+  { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
+  { name: "Submitted", value: 45.36, color: "#4CAF50" },
+  { name: "New Intents", value: 50.69, color: "#2196F3" },
 ];
 
 const lineData = [
@@ -68,15 +56,15 @@ const Dashboard: React.FC = () => {
           link="analytics"
           color="green"
           title="ANALYTICS"
-          subtitle="Views"
+          subtitle="Page Views"
           footer="10k daily views"
         />
         <Card
           link="documents"
           color="blue"
-          title="ESSENTIAL GUIDES"
+          title="ESSENTIAL "
           subtitle="Downloads"
-          footer="11k downloads"
+          footer="11k download in App store"
         />
       </div>
       {/* New Intents Section */}
@@ -85,7 +73,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
         <div className="bg-blue-500 text-white rounded-xl p-4 shadow-md">
-          <h3 className="text-lg font-bold mb-2">MONTHLY REPORT</h3>
+          <h3 className="text-lg font-bold mb-2">Sales Per Day</h3>
           <LineChart width={300} height={100} data={lineData}>
             <Line
               type="monotone"
@@ -104,8 +92,8 @@ const Dashboard: React.FC = () => {
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md">
-          <h3 className="text-lg font-bold mb-2">Dailly Report</h3>
-          <PieChart width={300} height={300}>
+          <h3 className="text-lg font-bold mb-2">Total Revenue</h3>
+          <PieChart width={300} height={200}>
             <Pie data={pieData} dataKey="value" outerRadius={80} label>
               {pieData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
