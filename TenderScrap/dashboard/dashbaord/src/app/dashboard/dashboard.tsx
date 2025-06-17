@@ -73,6 +73,7 @@ const Dashboard: React.FC = () => {
               <MonthlyRecapChart />
             </div>
           </div>
+        </div>
 
         
 
