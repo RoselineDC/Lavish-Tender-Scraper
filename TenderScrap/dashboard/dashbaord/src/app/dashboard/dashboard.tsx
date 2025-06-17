@@ -15,9 +15,9 @@ import MonthlyRecapChart from "@/app/analytics/piechart";
 // import NewIntents from "../../app/tenders/NewIntents";
 
 const pieData = [
-   { name: "New Intents", value: 50.69, color: "#2196F3" },
-  { name: "Submitted", value: 45.36, color: "#4CAF50" },  
-  { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" }, 
+  { name: "New Intents", value: 50.69, color: "#2196F3" },
+  { name: "Submitted", value: 45.36, color: "#4CAF50" },
+  { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
 ];
 
@@ -66,21 +66,28 @@ const Dashboard: React.FC = () => {
       {/* Charts & Graphs */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Sales Per Day */}
-        
+
         <MonthlyRecapChart />
-       
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md ">
           <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold mb-2 flex flex-col items-center">Total Revenue</h3>
-          <PieChart width={300} height={230} className="mt-7">
-            <Pie data={pieData} dataKey="value" outerRadius={80} label className="">
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.color} />
-              ))}
-            </Pie>
-          </PieChart>
+            <h3 className="text-lg font-bold mb-2 flex flex-col items-center">
+              Total Revenue
+            </h3>
+            <PieChart width={300} height={230} className="mt-7">
+              <Pie
+                data={pieData}
+                dataKey="value"
+                outerRadius={80}
+                label
+                className=""
+              >
+                {pieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+            </PieChart>
           </div>
           <div className="flex justify-around text-xs mt-4">
             {pieData.map((item, index) => (
@@ -92,7 +99,6 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
         {/* Traffic Sources */}
-        
       </div>
 
       {/* Bottom Boxes */}
@@ -104,8 +110,7 @@ const Dashboard: React.FC = () => {
           csir <span className="text-green-600 ml-2">+7.66</span>
         </div>
         <div className="bg-white p-3 shadow rounded text-sm">
-          Others <span className="text-green-600 ml-2">+7.66</span>
-          {" "}
+          Others <span className="text-green-600 ml-2">+7.66</span>{" "}
           {/* Add another box if needed */}
         </div>
       </div>
@@ -143,4 +148,3 @@ const Card = ({
 };
 
 export default Dashboard;
-
