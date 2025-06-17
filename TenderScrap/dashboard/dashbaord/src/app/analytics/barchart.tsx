@@ -40,7 +40,7 @@ const barChartsParams = {
     {
       id: 'series-3',
       data: [4, 2, 5, 4, 1],
-      label: 'C',
+      label: 'NOT',
       highlightScope: {
         highlight: 'item',
       },
