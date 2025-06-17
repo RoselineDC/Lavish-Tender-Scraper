@@ -90,29 +90,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
         {/* Traffic Sources */}
-        <div className="bg-white rounded-xl p-4 shadow-md">
-          <h3 className="text-lg font-bold mb-4">Traffic Sources</h3>
-          {[
-            { label: "Direct", value: 80 },
-            { label: "Social", value: 50 },
-            { label: "Referral", value: 20 },
-            { label: "Bounce", value: 60 },
-            { label: "Internet", value: 40 },
-          ].map((source, index) => (
-            <div key={index} className="mb-3">
-              <div className="flex justify-between text-sm mb-1">
-                <span>{source.label}</span>
-                <span>{source.value}%</span>
-              </div>
-              <div className="w-full h-2 bg-gray-200 rounded-full">
-                <div
-                  className="h-full bg-blue-500 rounded-full"
-                  style={{ width: `${source.value}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+        
       </div>
 
       {/* Bottom Boxes */}
