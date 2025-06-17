@@ -99,7 +99,7 @@ const Dashboard: React.FC = () => {
           Transnet <span className="text-red-600 ml-2">-0.99</span>
         </div>
         <div className="bg-white p-3 shadow rounded text-sm">
-          INFRA <span className="text-green-600 ml-2">+7.66</span>
+          csir <span className="text-green-600 ml-2">+7.66</span>
         </div>
         <div className="bg-white p-3 shadow rounded text-sm">
           {" "}
