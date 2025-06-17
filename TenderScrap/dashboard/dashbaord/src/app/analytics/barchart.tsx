@@ -58,7 +58,7 @@ export default function BarClick() {
   const [axisData, setAxisData] = React.useState<ChartsAxisData | null>(null);
 
   return (
-    <Stack cl
+    <Stack className='bg-white rounded-xl p-4 shadow-md'
       direction={{ xs: 'column', md: 'row' }}
       spacing={{ xs: 0, md: 4 }}
       sx={{ width: '100%' }}
