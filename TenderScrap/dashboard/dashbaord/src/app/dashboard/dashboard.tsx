@@ -1,7 +1,16 @@
 "use client";
 
 import React from "react";
-import { LineChart, Line, PieChart, Pie, Cell } from "recharts";
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  Filler,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import Link from "next/link";
 import NewIntents from "@/app/tenders/NewIntents";
 // Update the path below to the correct relative path based on your project structure.
