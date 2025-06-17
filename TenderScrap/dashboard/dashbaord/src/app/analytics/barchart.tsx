@@ -46,7 +46,7 @@ const barChartsParams = {
       },
     },
   ],
-  xAxis: [{ data: ['week 1', 'week 2', 'week 3', 'week 4', '12'], id: 'axis1' }],
+  xAxis: [{ data: ['week 1', 'week 2', 'week 3', 'week 4', '12], id: 'axis1' }],
   height: 400,
 } as const;
 
