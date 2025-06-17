@@ -11,7 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-
+import { Line } from "react-chartjs-2";
 import Link from "next/link";
 import NewIntents from "@/app/tenders/NewIntents";
 // Update the path below to the correct relative path based on your project structure.
