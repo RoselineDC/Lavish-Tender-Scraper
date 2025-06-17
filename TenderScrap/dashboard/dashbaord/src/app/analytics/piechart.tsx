@@ -40,7 +40,7 @@ const MonthlyRecapChart = () => {
       },
       {
         label: "Last Year",
-        data: [70, 65, 80, 75, 60, 55, 50],
+        data: [7, 6, 80, 75, 60, 55, 50],
         fill: true,
         backgroundColor: "rgba(200, 200, 200, 0.4)", // Grey area
         borderColor: "rgba(200, 200, 200, 1)",
