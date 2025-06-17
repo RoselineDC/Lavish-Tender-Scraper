@@ -75,7 +75,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
         <div className="bg-blue-500 text-white rounded-xl p-4 shadow-md">
-          <h3 className="text-lg font-bold mb-2">MONTHLY y</h3>
+          <h3 className="text-lg font-bold mb-2">MONTHLY REPORTy</h3>
           <LineChart width={300} height={100} data={lineData}>
             <Line
               type="monotone"
