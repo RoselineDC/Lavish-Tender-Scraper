@@ -64,23 +64,7 @@ const Dashboard: React.FC = () => {
       {/* Charts & Graphs */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
-        <div className="bg-blue-500 text-white rounded-xl p-4 shadow-md">
-          <h3 className="text-lg font-bold mb-2">Sales Per Day</h3>
-          <LineChart width={300} height={100} data={lineData}>
-            <Line
-              type="monotone"
-              dataKey="sales"
-              stroke="#fff"
-              strokeWidth={2}
-            />
-          </LineChart>
-          <div className="mt-4 text-center">
-            <p className="text-xl font-bold">$4230</p>
-            <p className="text-sm">Total Revenue</p>
-            <p className="text-xl font-bold">321</p>
-            <p className="text-sm">Today Sales</p>
-          </div>
-        </div>
+        
         <MonthlyRecapChart />
 
         {/* Pie Chart */}
