@@ -96,7 +96,7 @@ const Dashboard: React.FC = () => {
       {/* Bottom Boxes */}
       <div className="grid grid-cols-3 gap-4 text-center">
         <div className="bg-white p-3 shadow rounded text-sm">
-          t <span className="text-red-600 ml-2">-0.99</span>
+          Trans <span className="text-red-600 ml-2">-0.99</span>
         </div>
         <div className="bg-white p-3 shadow rounded text-sm">
           INFRA <span className="text-green-600 ml-2">+7.66</span>
