@@ -1,0 +1,70 @@
+const MonthlyRecapChart = () => {
+  const labels = ["January", "February", "March", "April", "May", "June", "July"];
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "This Year",
+        data: [30, 50, 40, 20, 80, 30, 90],
+        fill: true,
+        backgroundColor: "rgba(33, 150, 243, 0.6)", // Blue area
+        borderColor: "rgba(33, 150, 243, 1)",
+        tension: 0.4,
+        pointRadius: 0,
+      },
+      {
+        label: "Last Year",
+        data: [70, 65, 80, 75, 60, 55, 50],
+        fill: true,
+        backgroundColor: "rgba(200, 200, 200, 0.4)", // Grey area
+        borderColor: "rgba(200, 200, 200, 1)",
+        tension: 0.4,
+        pointRadius: 0,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "Monthly Recap Report",
+        color: "#333",
+        font: {
+          size: 18,
+          weight: "bold",
+        },
+        align: "start",
+      },
+      subtitle: {
+        display: true,
+        text: "Sales: 1 Jan, 2014 - 30 Jul, 2014",
+        color: "#000",
+        font: {
+          size: 12,
+          weight: "bold",
+        },
+        align: "start",
+      },
+    },
+    scales: {
+      y: {
+        min: 10,
+        max: 90,
+        ticks: {
+          stepSize: 10,
+        },
+        grid: {
+          drawBorder: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+  };
