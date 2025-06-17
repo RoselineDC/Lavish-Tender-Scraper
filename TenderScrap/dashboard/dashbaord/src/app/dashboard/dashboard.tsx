@@ -81,6 +81,7 @@ const Dashboard: React.FC = () => {
               ))}
             </Pie>
           </PieChart>
+          </div>
           <div className="flex justify-around text-xs mt-4">
             {pieData.map((item, index) => (
               <div key={index} className="text-center">
