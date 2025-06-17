@@ -14,7 +14,7 @@ import NewIntents from "@/app/tenders/NewIntents";
 // import NewIntents from "../../app/tenders/NewIntents";
 
 const pieData = [
-  { name: "Not Submitted", value: , color: "#ff4d4d" },
+  { name: "Not Submitted", value: 1, color: "#ff4d4d" },
   { name: "Submitted", value: 45.36, color: "#4CAF50" },
   { name: "New Intents", value: 50.69, color: "#2196F3" },
   { name: "Submssion For Tomorrow", value: 20.69, color: "#FFC107" },
