@@ -3,7 +3,7 @@
 import React from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
-import NewIntents from "@/app/tenders/NewIntents";
+import FilterBar from "./FilterBar";
 import MonthlyRecapChart from "@/app/analytics/piechart";
 import  BarClick from "../analytics/barchart";
 import Footer from "./footer";
