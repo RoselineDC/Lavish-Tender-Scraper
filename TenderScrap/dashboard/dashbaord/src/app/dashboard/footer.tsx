@@ -32,7 +32,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="https://tailwindcss.com/" className="hover:underline">
-                    s
+                    Support
                   </a>
                 </li>
               </ul>
