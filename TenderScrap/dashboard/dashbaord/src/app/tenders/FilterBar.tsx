@@ -44,7 +44,7 @@ export default function FilterBar() {
   };
   // Hhandle search 
   const [searchTerm, setSearchTerm] = useState("");
-  const [tender, setTender] = useState([
+  const [tenders, setTender] = useState([
     {
       id: 1,
       institutionName: "Dept of Education",
