@@ -56,7 +56,7 @@ const barChartsParams = {
       },
     },
   ],
-  xAxis: [{ data: ["week 1", "week 2", "week 3", "week 4", "week 5", "week 6", "week 7", "week 8", "week 9", "week 10"], id: "axis1" }],
+  xAxis: [{ data: ["J", "week 2", "week 3", "week 4", "week 5", "week 6", "week 7", "week 8", "week 9", "week 10"], id: "axis1" }],
   height: 400,
 } as const;
 
@@ -72,7 +72,7 @@ export default function BarClick() {
       sx={{ width: "100%" }}
     >
       <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="h6" flexDirection={"row"} align="center" font gutterBottom>
+        <Typography variant="h6" flexDirection={"row"} align="center" fontWeight={"bold"} gutterBottom>
          MONTHLY OVERVIEW
         </Typography>
         <BarChart
