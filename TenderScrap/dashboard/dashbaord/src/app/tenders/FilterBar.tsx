@@ -95,7 +95,7 @@ export default function FilterBar() {
     },
   ]);
 
-  const filteredTenders = tender
+  const filteredTenders = tenders.fil
 
   return (
 
