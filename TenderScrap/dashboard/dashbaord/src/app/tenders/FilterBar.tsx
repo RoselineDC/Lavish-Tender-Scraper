@@ -27,7 +27,8 @@ const filters = {
 };
 
 export default function FilterBar() {
-  
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
     tender_category: filters.tender_category[0],
