@@ -56,6 +56,13 @@ const Dashboard: React.FC = () => {
           subtitle="Downloads"
           footer="11k download in App store"
         />
+        <Card
+          link="/tenders"
+          color="green"
+          title="Tenders"
+          subtitle="All Tenders"
+          footer="10% changes on profit"
+        />
       </div>
       {/* New Intents Section */}
       <NewIntents />
