@@ -210,7 +210,7 @@ export default function FilterBar() {
                         </h6>
                         <ul className="space-y-2 text-sm">
                           {[
-                            { id: "Today", label: "supply delivery", count: 56 },
+                            { id: "Today", label: "Today", count: 56 },
                             { id: "service", label: "Installation", count: 16 },
                             { id: "media", label: "Event", count: 49 },
                           
