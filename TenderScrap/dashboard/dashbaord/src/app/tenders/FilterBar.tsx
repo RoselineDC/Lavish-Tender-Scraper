@@ -42,7 +42,7 @@ export default function FilterBar() {
   };
   // Hhandle search 
   const [searchTerm, setSearchTerm] = useState("");
-  
+  c
   return (
 
     <>
