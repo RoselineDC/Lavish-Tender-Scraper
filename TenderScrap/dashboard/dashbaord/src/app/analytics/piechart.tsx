@@ -94,8 +94,7 @@ const MonthlyRecapChart = () => {
     },
   };
   return (
-    <div className="p-4 bg-white rounded shadow">
-      
+    <div className="p-4 bg-white rounded shadow">      
       <div className="text-center font-bold mt-4">Goal Completion</div>
     </div>
   );
