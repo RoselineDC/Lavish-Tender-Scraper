@@ -91,7 +91,7 @@ export default function BarClick() {
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
         </Box>
-        >
+        
       </Stack>
       <Box sx={{ flexGrow: 1 }}>
         <BarChart
