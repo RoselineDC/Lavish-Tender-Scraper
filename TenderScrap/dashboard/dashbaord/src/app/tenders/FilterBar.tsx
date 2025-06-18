@@ -153,6 +153,7 @@ export default function FilterBar() {
                       placeholder="Search"
                       required={true}
                       value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
                       
                     />
                   </div>
