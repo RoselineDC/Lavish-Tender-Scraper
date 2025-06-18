@@ -461,7 +461,7 @@ export default function FilterBar() {
                           )}
                           </tbody>
 
-                          
+                        </table>
                   {/* <tr className="border-b dark:border-gray-700"> */}
                   
             <nav
