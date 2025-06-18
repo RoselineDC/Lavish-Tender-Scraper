@@ -96,7 +96,7 @@ export default function FilterBar() {
   ]);
 
   const filteredTenders = tenders.filter((tender)) =>
-    `${tender.institution} ${tender.tender_number} ${tender.published_date}  ${tender.description} ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email} `.toLowerCase().includes(searchTerm.toLowerCase());
+    `${tender.institution} ${tender.tender_number} ${tender.published_date} ${tender.closing_date} ${tender.description} ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email} `.toLowerCase().includes(searchTerm.toLowerCase());
 
   return (
 
