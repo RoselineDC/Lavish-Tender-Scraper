@@ -41,7 +41,7 @@ export default function FilterBar() {
     setSelected({ ...selected, [key]: value });
   };
   // Hhandle search 
-  const handleSearch
+  const handleSearch()
 
   return (
     <>
