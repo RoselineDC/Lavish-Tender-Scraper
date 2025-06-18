@@ -396,7 +396,7 @@ export default function FilterBar() {
                   </tr>
                 </thead>
                 <tbody>
-                  {}
+                  {filteredTenders}
                   <tr className="border-b dark:border-gray-700">
                     <th
                       scope="row"
