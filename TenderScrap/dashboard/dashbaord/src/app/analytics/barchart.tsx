@@ -85,7 +85,7 @@ export default function BarClick() {
           </IconButton>
         </Box>
         
-      </Stack>
+      
       <Box sx={{ flexGrow: 1 }}>
         <BarChart
           {...barChartsParams}
