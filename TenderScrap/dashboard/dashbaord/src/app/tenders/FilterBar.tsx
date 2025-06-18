@@ -62,8 +62,39 @@ export default function FilterBar() {
     tender_status: "Open",
     contact_person: "Jane Smith",
     contact_email: "jane@example.com",
+  },
+  {
+    id: 1,
+    institutionName: "Dept of Education",
+    tender_number: "DOE123",
+    description: "Supply of Stationery",
+    published_date: "2025-06-01",
+    closing_date: "2025-06-30",
+    briefing_date: "2025-06-10",
+    location: "Pretoria",
+    tender_document_url: "http://example.com/doc.pdf",
+    tender_category: "Supplies",
+    tender_type: "Open",
+    tender_status: "Open",
+    contact_person: "John Doe",
+    contact_email: "john@example.com",
+  },
+  {
+    id: 2,
+    institutionName: "Transnet",
+    tender_number: "TN1234",
+    description: "Supply of Rail Components",
+    published_date: "2025-06-10",
+    closing_date: "2025-07-10",
+    briefing_date: "2025-06-15",
+    location: "Johannesburg",
+    tender_document_url: "https://www.transnet.net/tenders/rail-components.pdf",
+    tender_category: "Engineering",
+    tender_type: "Open",
+    tender_status: "Open",
+    contact_person: "Jane Smith",
+    contact_email: "jane@example.com",
   }
-  
     
 
     // Add more tenders as needed
