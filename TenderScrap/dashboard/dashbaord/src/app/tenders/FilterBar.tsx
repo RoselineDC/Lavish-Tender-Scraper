@@ -71,7 +71,7 @@ export default function FilterBar() {
     published_date: "2025-06-01",
     closing_date: "2025-06-30",
     briefing_date: "2025-06-10",
-    location: "Pretoria",
+    location: "Durban",
     tender_document_url: "http://example.com/doc.pdf",
     tender_category: "Supplies",
     tender_type: "Open",
