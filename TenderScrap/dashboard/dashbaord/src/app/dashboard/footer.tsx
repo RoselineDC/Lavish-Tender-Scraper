@@ -15,7 +15,7 @@ const Footer = () => {
                 alt="FlowBite Logo"
               />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
+                LAVISH TECH
               </span>
             </a>
           </div>
@@ -27,7 +27,7 @@ const Footer = () => {
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <a href="https://flowbite.com/" className="hover:underline">
-                    Flowbite
+                    oTHE
                   </a>
                 </li>
                 <li>
