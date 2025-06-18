@@ -57,7 +57,8 @@ export default function FilterBar() {
       tender_type: "Open",
       tender_status: "Open",
       contact_person: "John Doe",
-      contact_email: "
+      contact_email: "john@example.com",
+    },
   ]);
   return (
 
