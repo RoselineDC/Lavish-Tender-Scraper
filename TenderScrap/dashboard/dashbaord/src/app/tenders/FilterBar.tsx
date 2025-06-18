@@ -87,7 +87,7 @@ export default function FilterBar() {
     published_date: "2025-06-10",
     closing_date: "2025-07-10",
     briefing_date: "2025-06-15",
-    location: "Johannesburg",
+    location: "cape",
     tender_document_url: "https://www.transnet.net/tenders/rail-components.pdf",
     tender_category: "Engineering",
     tender_type: "Open",
