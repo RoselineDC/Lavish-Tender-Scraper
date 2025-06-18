@@ -24,8 +24,9 @@ const filters = {
     "Last 3 Months",
     "Custom Range",
   ],
-  
+
 };
+c
 
 export default function FilterBar() {
   const [selected, setSelected] = useState({
