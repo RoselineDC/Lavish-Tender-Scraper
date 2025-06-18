@@ -170,7 +170,7 @@ export default function FilterBar() {
                     title="Refresh the table"
                   >
                     <FcRefresh className="w-6 h-6 font-bold" />
-                    
+                    Rrfresh
                     
                   </button>
 
