@@ -211,8 +211,8 @@ export default function FilterBar() {
                         <ul className="space-y-2 text-sm">
                           {[
                             { id: "Today", label: "Today", count: 56 },
-                            { id: "3 days ago", label: "Installation", count: 16 },
-                            { id: "media", label: "Event", count: 49 },
+                            { id: "3 days ago", label: "3 days ago", count: 16 },
+                            { id: "last wee", label: "Event", count: 49 },
                           
                           ].map((brand) => (
                             <li key={brand.id} className="flex items-center">
