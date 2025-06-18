@@ -61,7 +61,7 @@ export default function FilterBar() {
     tender_type: "Open",
     tender_status: "Open",
     contact_person: "Jane Smith",
-    contact_email: "
+    contact_email: "jane@example.com",
   }
     
 
@@ -698,4 +698,6 @@ export default function FilterBar() {
           </div>
         </div>
       </section>
-  
+    </>
+  );
+}
