@@ -72,7 +72,9 @@ export default function BarClick() {
       sx={{ width: "100%" }}
     >
       <Box sx={{ flexGrow: 1 }}>
-        
+        <Typography variant="h6" gutterBottom>
+          Bar Chart with Click Events
+        </Typography>
         <BarChart
           {...barChartsParams}
           onItemClick={(event, d) => setItemData(d)}
