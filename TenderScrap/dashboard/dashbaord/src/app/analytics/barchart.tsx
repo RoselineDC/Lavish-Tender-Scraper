@@ -56,7 +56,7 @@ const barChartsParams = {
       },
     },
   ],
-  xAxis: [{ data: ["Jan", "Feb", "week 3", "week 4", "week 5", "week 6", "week 7", "week 8", "week 9", "week 10"], id: "axis1" }],
+  xAxis: [{ data: ["Jan", "Feb", "Mar", "April", "May", "June", "July", "August", "September", "October", "November", "December"], id: "axis0" }, { data: ["week 1", "week 2", "week 3", "week 4", "week 5", "week 6", "week 7", "week 8", "week 9", "week 10"], id: "axis1" }],
   height: 400,
 } as const;
 
