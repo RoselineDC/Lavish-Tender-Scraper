@@ -136,6 +136,7 @@ export default function FilterBar() {
                       placeholder="Search Tender"
                       required={true}
                       value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
                     />
                   </div>
                 </form>
