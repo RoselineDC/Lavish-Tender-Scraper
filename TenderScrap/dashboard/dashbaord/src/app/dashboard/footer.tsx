@@ -49,7 +49,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">
-                    E
+                    EMAIL
                   </a>
                 </li>
               </ul>
