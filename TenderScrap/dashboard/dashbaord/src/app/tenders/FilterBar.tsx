@@ -31,15 +31,22 @@ export default function FilterBar() {
 
   // store tender
   const [tenders, setTenders] = useState([
-    {
-      institution: "Dept of Education",
-      number: "DOE123",
-      description: "Supply of Stationery",
-      closingDate: "2025-06-01",
-      location: "Pretoria",
-      documentUrl: "http://example.com/doc.pdf",
-      category: "Supplies",
-    },
+   {
+    id: 1,
+    institutionName: "Dept of Education",
+    tender_number: "DOE123",
+    description: "Supply of Stationery",
+    published_date: "2025-06-01",
+    closing_date: "2025-06-30",
+    briefing_date: "2025-06-10",
+    location: "Pretoria",
+    tender_document_url: "http://example.com/doc.pdf",
+    tender_category: "Supplies",
+    tender_type: "Open",
+    tender_status: "Open",
+    contact_person: "John Doe",
+    contact_email: "john@example.com",
+  },
     {
       institution: "Transnet",
       number: "TN1234",
