@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import Dashboard from "../dashboard/dashboard";
-import SearchBar from "../dashboard/searhbar";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
@@ -38,81 +36,19 @@ export default function FilterBar() {
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
   };
-  // Hhandle search
-  const [searchTerm, setSearchTerm] = useState("");
 
-  const [tenders, setTenders] = useState([
-    {
-      id: 1,
-      institutionName: "Dept of Education",
-      tender_number: "DOE123",
-      description: "Supply of Stationery",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      briefing_date: "2025-06-10",
-      location: "Pretoria",
-      tender_document_url: "http://example.com/doc.pdf",
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
-    },
-    {
-      id: 2,
-      institutionName: "Transnet",
-      tender_number: "TN1234",
-      description: "Supply of Rail Components",
-      published_date: "2025-06-10",
-      closing_date: "2025-07-10",
-      briefing_date: "2025-06-15",
-      location: "Johannesburg",
-      tender_document_url:
-        "https://www.transnet.net/tenders/rail-components.pdf",
-      tender_category: "Engineering",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "Jane Smith",
-      contact_email: "jane@example.com",
-    },
-    {
-      id: 3,
-      institutionName: "Transnet",
-      tender_number: "TN5678",
-      description: "Maintenance of Freight Terminals",
-      published_date: "2025-06-14",
-      closing_date: "2025-07-14",
-      briefing_date: "2025-06-20",
-      location: "Durban",
-      tender_document_url:
-        "https://www.transnet.net/tenders/terminal-maintenance.pdf",
-      tender_category: "Services",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "Bob Johnson",
-      contact_email: "bob@example.com",
-    },
-  ]);
-
-  const filteredTenders = tenders.filter((tender) =>
-    `${tender.institutionName} ${tender.tender_number} ${tender.published_date} ${tender.closing_date} ${tender.description} ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email} `
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase())
-  );
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 ">
-        <div className="mx-auto max-w-screen-xl px-4 lg:px-1 ">
+      <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+        <div className="mx-auto max-w-screen-xl px-4 lg:px-1">
           {/* Start coding here */}
-          <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden border-t-4 border-green-500 hover:shadow-lg transition">
+          <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
               <div className="w-full md:w-1/2">
                 <form className="flex items-center">
-                  {/* <label htmlFor="simple-search" className="sr-only">
+                  <label htmlFor="simple-search" className="sr-only">
                     Search
-              
-                  </label> */}
-                  <SearchBar />
+                  </label>
                   <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                       <svg
@@ -133,9 +69,8 @@ export default function FilterBar() {
                       type="text"
                       id="simple-search"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                      placeholder="Search Tender"
+                      placeholder="Search"
                       required={true}
-                      
                     />
                   </div>
                 </form>
@@ -399,7 +334,7 @@ export default function FilterBar() {
                       </a>
                     </td>
                     <td className="px-4 py-3">Supplies</td>
-
+                    
                     <td className="px-4 py-3 flex items-center justify-end">
                       <button
                         id="tender-actions-dropdown-button"
@@ -452,163 +387,151 @@ export default function FilterBar() {
                         </div>
                       </div>
                     </td>
-                  </tr>
+                  </tr>                
+                 
                 </tbody>
                 <tbody>
-                  <tr className="border-b dark:border-gray-700">
-                    <th
-                      scope="row"
-                      className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Transnet
-                    </th>
-                    <td className="px-4 py-3">TN1234</td>
-                    <td className="px-4 py-3">Supply of Rail Components</td>
-                    <td className="px-4 py-3">2025-06-10</td>
-                    <td className="px-4 py-3">Johannesburg</td>
-                    <td className="px-4 py-3">
-                      <a
-                        href="https://www.transnet.net/tenders/rail-components.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
-                      >
-                        View
-                      </a>
-                    </td>
-                    <td className="px-4 py-3">Engineering</td>
-                    <td className="px-4 py-3 flex items-center justify-end">
-                      <button
-                        id="tender-actions-dropdown-button-1"
-                        data-dropdown-toggle="tender-actions-dropdown-1"
-                        className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-                        type="button"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          aria-hidden="true"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                        </svg>
-                      </button>
-                      <div
-                        id="tender-actions-dropdown-1"
-                        className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
-                      >
-                        <ul
-                          className="py-1 text-sm text-gray-700 dark:text-gray-200"
-                          aria-labelledby="tender-actions-dropdown-button-1"
-                        >
-                          <li>
-                            <a
-                              href="#"
-                              className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                            >
-                              Approve
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                            >
-                              Edit
-                            </a>
-                          </li>
-                        </ul>
-                        <div className="py-1">
-                          <a
-                            href="#"
-                            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                          >
-                            Delete
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
+  <tr className="border-b dark:border-gray-700">
+    <th
+      scope="row"
+      className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+    >
+      Transnet
+    </th>
+    <td className="px-4 py-3">TN1234</td>
+    <td className="px-4 py-3">Supply of Rail Components</td>
+    <td className="px-4 py-3">2025-06-10</td>
+    <td className="px-4 py-3">Johannesburg</td>
+    <td className="px-4 py-3">
+      <a
+        href="https://www.transnet.net/tenders/rail-components.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:underline"
+      >
+        View
+      </a>
+    </td>
+    <td className="px-4 py-3">Engineering</td>
+    <td className="px-4 py-3 flex items-center justify-end">
+      <button
+        id="tender-actions-dropdown-button-1"
+        data-dropdown-toggle="tender-actions-dropdown-1"
+        className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
+        type="button"
+      >
+        <svg
+          className="w-5 h-5"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+        </svg>
+      </button>
+      <div
+        id="tender-actions-dropdown-1"
+        className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+      >
+        <ul
+          className="py-1 text-sm text-gray-700 dark:text-gray-200"
+          aria-labelledby="tender-actions-dropdown-button-1"
+        >
+          <li>
+            <a href="#" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+              Approve
+            </a>
+          </li>
+          <li>
+            <a href="#" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+              Edit
+            </a>
+          </li>
+        </ul>
+        <div className="py-1">
+          <a
+            href="#"
+            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          >
+            Delete
+          </a>
+        </div>
+      </div>
+    </td>
+  </tr>
 
-                  <tr className="border-b dark:border-gray-700">
-                    <th
-                      scope="row"
-                      className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
-                      Transnet
-                    </th>
-                    <td className="px-4 py-3">TN5678</td>
-                    <td className="px-4 py-3">
-                      Maintenance of Freight Terminals
-                    </td>
-                    <td className="px-4 py-3">2025-06-14</td>
-                    <td className="px-4 py-3">Durban</td>
-                    <td className="px-4 py-3">
-                      <a
-                        href="https://www.transnet.net/tenders/terminal-maintenance.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
-                      >
-                        View
-                      </a>
-                    </td>
-                    <td className="px-4 py-3">Maintenance</td>
-                    <td className="px-4 py-3 flex items-center justify-end">
-                      <button
-                        id="tender-actions-dropdown-button-2"
-                        data-dropdown-toggle="tender-actions-dropdown-2"
-                        className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-                        type="button"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          aria-hidden="true"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                        </svg>
-                      </button>
-                      <div
-                        id="tender-actions-dropdown-2"
-                        className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
-                      >
-                        <ul
-                          className="py-1 text-sm text-gray-700 dark:text-gray-200"
-                          aria-labelledby="tender-actions-dropdown-button-2"
-                        >
-                          <li>
-                            <a
-                              href="#"
-                              className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                            >
-                              Approve
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                            >
-                              Edit
-                            </a>
-                          </li>
-                        </ul>
-                        <div className="py-1">
-                          <a
-                            href="#"
-                            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                          >
-                            Delete
-                          </a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
+  <tr className="border-b dark:border-gray-700">
+    <th
+      scope="row"
+      className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+    >
+      Transnet
+    </th>
+    <td className="px-4 py-3">TN5678</td>
+    <td className="px-4 py-3">Maintenance of Freight Terminals</td>
+    <td className="px-4 py-3">2025-06-14</td>
+    <td className="px-4 py-3">Durban</td>
+    <td className="px-4 py-3">
+      <a
+        href="https://www.transnet.net/tenders/terminal-maintenance.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:underline"
+      >
+        View
+      </a>
+    </td>
+    <td className="px-4 py-3">Maintenance</td>
+    <td className="px-4 py-3 flex items-center justify-end">
+      <button
+        id="tender-actions-dropdown-button-2"
+        data-dropdown-toggle="tender-actions-dropdown-2"
+        className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
+        type="button"
+      >
+        <svg
+          className="w-5 h-5"
+          aria-hidden="true"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+        </svg>
+      </button>
+      <div
+        id="tender-actions-dropdown-2"
+        className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+      >
+        <ul
+          className="py-1 text-sm text-gray-700 dark:text-gray-200"
+          aria-labelledby="tender-actions-dropdown-button-2"
+        >
+          <li>
+            <a href="#" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+              Approve
+            </a>
+          </li>
+          <li>
+            <a href="#" className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+              Edit
+            </a>
+          </li>
+        </ul>
+        <div className="py-1">
+          <a
+            href="#"
+            className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          >
+            Delete
+          </a>
+        </div>
+      </div>
+    </td>
+  </tr>
+</tbody>
+
               </table>
             </div>
             <nav
