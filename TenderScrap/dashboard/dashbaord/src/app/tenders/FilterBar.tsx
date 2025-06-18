@@ -397,7 +397,66 @@ export default function FilterBar() {
                 </thead>
                 <tbody>
                   {filteredTenders.map((tender, index) => () {
-                    
+                     <tr 
+                      key={index}
+                      className="border-b dark:border-gray-700"
+                    >
+                      <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {tender.institutionName}
+                      </td>
+                      <td className="px-4 py-3">{tender.tender_number}</td>
+                      <td className="px-4 py-3">{tender.description}</td>
+                      <td className="px-4 py-3">{tender.published_date}</td>
+                      <td className="px-4 py-3">{tender.briefing_date}</td>
+                      <td className="px-4 py-3">{tender.closing_date}</td>
+                      <td className="px-4 py-3">{tender.location}</td>
+                      <td className="px-4 py-3">
+                       <a
+                          href={tender.tender_document_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:underline"
+                        >
+                          View
+                        </a>
+                      </td>
+                     <td className="px-4 py-3">{tender.tender_category}</td>
+                      <td className="px-4 py-3">{tender.tender_type}</td>
+                      <td className="px-4 py-3">
+                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                          tender.tender_status === "Open"
+                            ? "bg-green-100 text-green-800"
+                            : "bg-red-100 text-red-800"
+                        }`}>
+                          {tender.tender_status}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="text-sm">
+                          <p className="font-medium">{tender.contact_person}</p>
+                          <p className="text-xs text-blue-600">{tender.contact_email}</p>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 flex items-center justify-end">
+                        <button
+                          id={`tender-actions-dropdown-button-${index}`}
+                          data-dropdown-toggle={`tender-actions-dropdown-${index}`}
+                          className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
+                          type="button"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                          </svg>
+                        </button>
+                        
+                          </td>
+                          </tr>
                   })}
                           
                           </tbody>
