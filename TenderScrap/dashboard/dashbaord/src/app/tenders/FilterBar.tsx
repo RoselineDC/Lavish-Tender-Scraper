@@ -48,14 +48,8 @@ export default function FilterBar() {
     contact_email: "john@example.com",
   },
     {
-      institution: "Transnet",
-      number: "TN1234",
-      description: "Supply of Rail Components",
-      closingDate: "2025-06-10",
-      location: "Johannesburg",
-      documentUrl: "https://www.transnet.net/tenders/rail-components.pdf",
-      category: "Engineering",
-    },
+    id: 2,
+    
     // Add more tenders as needed
   ]);
 
