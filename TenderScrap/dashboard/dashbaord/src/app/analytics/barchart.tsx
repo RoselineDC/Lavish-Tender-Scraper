@@ -92,7 +92,7 @@ export default function BarClick() {
           </IconButton>
         </Box>
         <HighlightedCode
-          code={`Overview of the Month
+          code={`Overview of the Monthly Progre
 ${itemData ? JSON.stringify(itemData, null, 2) : '// The data will appear here'}
 
 // Data from axis click
