@@ -77,14 +77,7 @@ export default function BarClick() {
           onItemClick={(event, d) => setItemData(d)}
           onAxisClick={(event, d) => setAxisData(d)}
         />
-      </Box>
-
-      <Box>
-        <Typography variant="h6" gutterBottom>
-          Item Data
-        </Typography>
-        <HighlightedCode code={JSON.stringify(itemData, null, 2)} />
-      </Box>
+      </Box
      
     </Stack>
   );
