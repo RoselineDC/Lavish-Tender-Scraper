@@ -71,7 +71,7 @@ export default function BarClick() {
       spacing={{ xs: 0, md: 4 }}
       sx={{ width: "100%" }}
     >
-      <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
+      {/* <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box
           sx={{
             display: "flex",
@@ -83,7 +83,7 @@ export default function BarClick() {
           <IconButton>
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
-        </Box>
+        </Box> */}
         
       
       <Box sx={{ flexGrow: 1 }}>
