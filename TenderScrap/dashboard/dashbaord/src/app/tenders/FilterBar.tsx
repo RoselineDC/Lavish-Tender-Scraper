@@ -183,7 +183,8 @@ export default function FilterBar() {
                   >
                     <TfiFilter />
 
-                    Filter
+                    Filter 
+                    
                     
                   </button>
                   <div
