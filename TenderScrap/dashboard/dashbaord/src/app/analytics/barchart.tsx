@@ -79,7 +79,7 @@ export default function BarClick() {
             alignItems: "center",
           }}
         >
-          <Typography></Typography>
+          <Typography>Monthly Progress </Typography>
           <IconButton
             aria-label="reset"
             size="small"
