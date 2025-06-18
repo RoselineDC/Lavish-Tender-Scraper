@@ -566,6 +566,7 @@ export default function FilterBar() {
             </nav>
           </div>
         </div>
+        
       </section>
     </>
   );
