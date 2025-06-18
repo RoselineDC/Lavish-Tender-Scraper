@@ -396,7 +396,13 @@ export default function FilterBar() {
                   </tr>
                 </thead>
                 <tbody>
-                  
+                  {filteredTenders.length === 0 ? (
+                  <tr>
+                    <td colSpan={12} className="px-4 py-3 text-center text-gray-400">
+                      No tenders found.
+                    </td>
+                  </tr>
+                ) : (
                   {filteredTenders.map((tender, index) => () {
                      <tr 
                       key={index}
