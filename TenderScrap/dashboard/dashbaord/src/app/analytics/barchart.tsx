@@ -94,6 +94,6 @@ export default function BarClick() {
         />
       </Box>
     </Stack>
-    </Stack>
+
   );
 }
