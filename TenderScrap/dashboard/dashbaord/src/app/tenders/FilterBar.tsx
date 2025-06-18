@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import Dashboard from "../dashboard/dashboard";
+import SearchBar from "../dashboard/searhbar";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
@@ -102,10 +103,11 @@ export default function FilterBar() {
             <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
               <div className="w-full md:w-1/2">
                 <form className="flex items-center">
-                  <label htmlFor="simple-search" className="sr-only">
+                  {/* <label htmlFor="simple-search" className="sr-only">
                     Search
               
-                  </label>
+                  </label> */}
+                  < SearchBar />
                   <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                       <svg

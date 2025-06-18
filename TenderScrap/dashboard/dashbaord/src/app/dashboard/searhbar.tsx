@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-export default function ) {
+export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [tenders] = useState([
