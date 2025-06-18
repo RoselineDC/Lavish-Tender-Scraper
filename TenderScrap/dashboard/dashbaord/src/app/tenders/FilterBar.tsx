@@ -50,7 +50,18 @@ export default function FilterBar() {
   {
     id: 2,
     institutionName: "Transnet",
-      
+    tender_number: "TN1234",
+    description: "Supply of Rail Components",
+    published_date: "2025-06-10",
+    closing_date: "2025-07-10",
+    briefing_date: "2025-06-15",
+    location: "Johannesburg",
+    tender_document_url: "https://www.transnet.net/tenders/rail-components.pdf",
+    tender_category: "Engineering",
+    tender_type: "Open",
+    tender_status: "Open",
+    contact_person: "Jane Smith",
+    contact_email: "
   }
     
 
@@ -687,6 +698,4 @@ export default function FilterBar() {
           </div>
         </div>
       </section>
-    </>
-  );
-}
+  
