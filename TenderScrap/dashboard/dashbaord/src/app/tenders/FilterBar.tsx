@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FcRefresh } from "react-icons/fc";
 import { TfiFilter } from "react-icons/tfi";
+import { IoIosArrowDropdown } from "react-icons/io";
 
 
 const filters = {
@@ -184,7 +185,7 @@ export default function FilterBar() {
                     <TfiFilter />
 
                     Filter 
-                    
+                    <IoIosArrowDropdown />
                     
                   </button>
                   <div
