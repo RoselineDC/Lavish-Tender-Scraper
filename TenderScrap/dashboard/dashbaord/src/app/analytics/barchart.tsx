@@ -28,7 +28,7 @@ const barChartsParams = {
   series: [
     {
       id: "series-1",
-      data: [3, 4, 1, 6, 5, 2, 7, 4, 6, 5, 8],
+      data: [3, 4, 1, 6, 5, 2, 7, 4, 6, 5, 8, 9],
       label: "SUBMITED",
       stack: "total",
       color: "#4CAF50",
@@ -38,7 +38,7 @@ const barChartsParams = {
     },
     {
       id: "series-2",
-      data: [4, 3, 1, 5, 8, 2, 6, 3, 5, 4, 7,],
+      data: [4, 3, 1, 5, 8, 2, 6, 3, 5, 4, 7, 2],
       label: "ADDED",
       stack: "total",
       color: "#2196F3",
