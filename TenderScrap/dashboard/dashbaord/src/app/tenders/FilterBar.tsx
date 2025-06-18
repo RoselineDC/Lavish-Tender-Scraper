@@ -66,8 +66,8 @@ export default function FilterBar() {
   {
     id: 1,
     institutionName: "Dept of Education",
-    tender_number: "DOE123",
-    description: "Supply of Stationery",
+    tender_number: "3dw",
+    description: "Supply of documentation",
     published_date: "2025-06-01",
     closing_date: "2025-06-30",
     briefing_date: "2025-06-10",
