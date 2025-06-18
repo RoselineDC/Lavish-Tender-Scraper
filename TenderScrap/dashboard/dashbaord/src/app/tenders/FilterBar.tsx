@@ -26,7 +26,8 @@ const filters = {
   ],
 
 };
-c
+
+
 
 export default function FilterBar() {
   const [selected, setSelected] = useState({
