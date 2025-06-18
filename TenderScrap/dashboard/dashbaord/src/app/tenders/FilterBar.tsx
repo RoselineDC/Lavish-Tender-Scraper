@@ -170,7 +170,7 @@ export default function FilterBar() {
                   >
                     <FcRefresh />
 
-                    Refresh
+        
                   </button>
 
                   <div
