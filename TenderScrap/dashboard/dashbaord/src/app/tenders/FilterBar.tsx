@@ -422,11 +422,6 @@ export default function FilterBar() {
 
                       <td className="px-4 py-3 flex items-center justify-end">
                         <button
-                          id={`tender-actions-dropdown-button-${index}`}
-                          data-dropdown-toggle={`tender-actions-dropdown-${index}`}
-                          className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
-                          type="button"
-                        >
                   ))}
                   {/* <tr className="border-b dark:border-gray-700"> */}
                     <th
