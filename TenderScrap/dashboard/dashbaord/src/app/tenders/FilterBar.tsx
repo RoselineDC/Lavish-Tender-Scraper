@@ -63,6 +63,7 @@ export default function FilterBar() {
   };
 
   // filter tenders based on search term
+  
 
 
   return (
