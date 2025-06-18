@@ -211,7 +211,7 @@ export default function FilterBar() {
                         <ul className="space-y-2 text-sm">
                           {[
                             { id: "Today", label: "Today", count: 56 },
-                            { id: "service", label: "Installation", count: 16 },
+                            { id: "3 days ago", label: "Installation", count: 16 },
                             { id: "media", label: "Event", count: 49 },
                           
                           ].map((brand) => (
