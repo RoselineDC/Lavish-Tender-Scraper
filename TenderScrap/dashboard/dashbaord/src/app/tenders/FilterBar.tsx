@@ -42,7 +42,23 @@ export default function FilterBar() {
   };
   // Hhandle search 
   const [searchTerm, setSearchTerm] = useState("");
-  const [tender, setTender] = useState([mockTenders]);
+  const [tender, setTender] = useState([
+    {
+      id: 1,
+      institutionName: "Dept of Education",
+      tender_number: "DOE123",
+      description: "Supply of Stationery",
+      published_date: "2025-06-01",
+      closing_date: "2025-06-30",
+      briefing_date: "2025-06-10",
+      location: "Pretoria",
+      tender_document_url: "http://example.com/doc.pdf",
+      tender_category: "Supplies",
+      tender_type: "Open",
+      tender_status: "Open",
+      contact_person: "John Doe",
+      contact_email: "
+  ]);
   return (
 
     <>
