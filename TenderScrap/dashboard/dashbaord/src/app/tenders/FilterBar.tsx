@@ -96,7 +96,7 @@ export default function FilterBar() {
   ]);
 
   const filteredTenders = tenders.filter((tender)) =>
-    `${tender.institution} ${tender_number} ${tender.description} ${tender.tender_category}`
+    `${tender.institution} ${tender.tender_number} ${tender.description} ${tender.tender_category}`
 
   return (
 
