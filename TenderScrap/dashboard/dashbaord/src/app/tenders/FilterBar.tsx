@@ -63,7 +63,11 @@ export default function FilterBar() {
   };
 
   // filter tenders based on search term
-  
+  const filteredTenders = tenders.filter((tender) =>
+    `${tender.institutionName} ${tender.number} ${tender.description} ${tender.category}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
 
   return (
