@@ -127,6 +127,9 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
     {/* footer */}
+      <div className="mt-6">
+        <Footer />
+      </div>
     </div>
   );
 };
