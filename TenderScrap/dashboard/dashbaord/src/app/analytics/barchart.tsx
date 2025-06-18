@@ -67,7 +67,7 @@ export default function BarClick() {
   return (
     <Stack
       className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition"
-      direction={{ xs: "rcolumn", md: "" }}
+      direction={{ xs: "column", md: "" }}
       spacing={{ xs: 0, md: 4 }}
       sx={{ width: "100%" }}
     >
