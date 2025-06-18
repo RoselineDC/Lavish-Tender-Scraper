@@ -403,7 +403,7 @@ export default function FilterBar() {
                     </td>
                   </tr>
                 ) : (
-                  filteredTenders.map((tender, index) => () {
+                  filteredTenders.map((tender, index) => ( 
                      <tr 
                       key={index}
                       className="border-b dark:border-gray-700"
