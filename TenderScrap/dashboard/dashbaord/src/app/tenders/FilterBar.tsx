@@ -401,6 +401,7 @@ export default function FilterBar() {
                         <td className="px-4 py-3">{tender.category}</td>
                         <td className="px-4 py-3">Actions...</td>
                       </tr>
+                      
                     ))}
                   </tbody>
                 </tbody>
