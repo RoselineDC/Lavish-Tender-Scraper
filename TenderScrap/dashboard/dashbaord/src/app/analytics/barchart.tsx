@@ -56,7 +56,7 @@ const barChartsParams = {
       },
     },
   ],
-  xAxis: [{ data: ["Jan", "Feb", "Mar", "April", "May", "June", "July", "August", "September", "October", "November", "December"], id: "axis0" }, 
+  xAxis: [{ data: ["Jan", "Feb", "Mar", "April", "May", "June", "July", "August", "September", "October", "November", "December"], id: "axis0" }
 } as const;
 
 export default function BarClick() {
