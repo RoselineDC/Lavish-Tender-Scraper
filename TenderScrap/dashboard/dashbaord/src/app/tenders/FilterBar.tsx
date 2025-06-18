@@ -169,7 +169,7 @@ export default function FilterBar() {
                     title="Refresh the table"
                   >
                     <span className="sr-only">Refresh</span>
-                    <FcRefresh />
+                    
                   </button>
 
                   <div
