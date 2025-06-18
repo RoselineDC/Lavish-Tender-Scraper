@@ -81,12 +81,7 @@ export default function BarClick() {
         >
           <Typography className="text-lg font-bold flex flex-col items-center ">Monthly Progress Overview</Typography>
           <IconButton
-            aria-label="reset"
-            size="small"
-            onClick={() => {
-              setItemData(undefined);
-              setAxisData(null);
-            }}
+           
           >
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
