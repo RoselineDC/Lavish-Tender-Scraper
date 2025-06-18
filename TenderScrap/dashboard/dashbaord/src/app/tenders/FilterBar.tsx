@@ -39,7 +39,7 @@ export default function FilterBar() {
 
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+      <section className="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 border-t-4 border-green-500 hover:shadow-lg transition">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-1">
           {/* Start coding here */}
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
