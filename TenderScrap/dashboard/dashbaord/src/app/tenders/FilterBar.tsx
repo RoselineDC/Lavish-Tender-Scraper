@@ -31,6 +31,7 @@ const filters = {
 
 export default function FilterBar() {
   const [searchTerm, setSearchTerm] = useState("");
+  
 
   // store tender
   const [tenders, setTenders] = useState([
