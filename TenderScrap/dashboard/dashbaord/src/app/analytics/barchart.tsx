@@ -38,7 +38,7 @@ const barChartsParams = {
     },
     {
       id: "series-2",
-      data: [4, 3, 1, 5, 8,],
+      data: [4, 3, 1, 5, 8, 2, 6, 3, 5, 4, 7],
       label: "ADDED",
       stack: "total",
       color: "#2196F3",
