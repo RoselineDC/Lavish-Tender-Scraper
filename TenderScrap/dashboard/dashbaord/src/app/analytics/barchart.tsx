@@ -71,7 +71,7 @@ export default function BarClick() {
       spacing={{ xs: 0, md: 4 }}
       sx={{ width: "100%" }}
     >
-         <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
+      <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box
           sx={{
             display: "flex",
@@ -107,8 +107,6 @@ ${axisData ? JSON.stringify(axisData, null, 2) : "// The data will appear here"}
           onAxisClick={(event, d) => setAxisData(d)}
         />
       </Box>
-
-     
     </Stack>
   );
 }
