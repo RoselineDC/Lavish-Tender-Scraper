@@ -166,15 +166,6 @@ export default function FilterBar() {
                     type="button"
                     title="Refresh the table"
                   >
-                    <svg
-                      className="-ml-1 mr-1.5 w-5 h-5"
-                      fill="blue"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path d="M4 4v5h.582a6 6 0 11-.39 3H2.17a8 8 0 101.83-8z" />
-                    </svg>
                     Refresh
                   </button>
 
