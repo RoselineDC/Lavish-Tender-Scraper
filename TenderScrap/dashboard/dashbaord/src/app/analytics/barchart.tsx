@@ -71,16 +71,6 @@ export default function BarClick() {
       spacing={{ xs: 0, md: 4 }}
       sx={{ width: "100%" }}
     >
-      
-        
-      
-      <Box sx={{ flexGrow: 1 }}>
-        <BarChart
-          {...barChartsParams}
-          onItemClick={(event, d) => setItemData(d)}
-          onAxisClick={(event, d) => setAxisData(d)}
-        />
-      </Box>
       <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box
           sx={{
@@ -89,13 +79,20 @@ export default function BarClick() {
             alignItems: "center",
           }}
         >
-          <Typography className="text-lg font-bold items-center ">Monthly Progress Overview</Typography>
+          <Typography className="text-lg font-bold flex items-center ">Monthly Progress Overview</Typography>
           <IconButton>
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
         </Box>
+        
       </Stack>
+      <Box sx={{ flexGrow: 1 }}>
+        <BarChart
+          {...barChartsParams}
+          onItemClick={(event, d) => setItemData(d)}
+          onAxisClick={(event, d) => setAxisData(d)}
+        />
+      </Box>
     </Stack>
-
   );
 }
