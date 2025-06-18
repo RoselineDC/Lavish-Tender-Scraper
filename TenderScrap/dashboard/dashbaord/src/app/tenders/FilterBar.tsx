@@ -75,7 +75,20 @@ export default function FilterBar() {
       contact_person: "Jane Smith",
       contact_email: "jane@example.com",
     },
-    
+    {
+      id: 3,
+      institutionName: "Transnet",
+      tender_number: "TN5678",
+      description: "Maintenance of Freight Terminals",
+      published_date: "2025-06-14",
+      closing_date: "2025-07-14",
+      briefing_date: "2025-06-20",
+      location: "Durban",
+      tender_document_url: "https://www.transnet.net/tenders/terminal-maintenance.pdf",
+      tender_category: "Services",
+      tender_type: "Open",
+      tender_status: "Open",
+      contact_person: "Bob Johnson",
   ]);
   return (
 
