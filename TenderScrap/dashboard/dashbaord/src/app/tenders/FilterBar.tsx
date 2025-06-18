@@ -211,8 +211,8 @@ export default function FilterBar() {
                         <ul className="space-y-2 text-sm">
                           {[
                             { id: "supply", label: "supply delivery", count: 56 },
-                            { id: "service", label: "Microsoft", count: 16 },
-                            { id: "razor", label: "Razor", count: 49 },
+                            { id: "service", label: "Installation", count: 16 },
+                            { id: "media", label: "Razor", count: 49 },
                             { id: "nikon", label: "Nikon", count: 12 },
                             { id: "benq", label: "BenQ", count: 74 },
                           ].map((brand) => (
