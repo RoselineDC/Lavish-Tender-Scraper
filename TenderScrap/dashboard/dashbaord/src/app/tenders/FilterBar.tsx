@@ -56,7 +56,6 @@ const [tenders] = useState([
       documentUrl: "https://www.transnet.net/tenders/terminal-maintenance.pdf",
       category: "Maintenance",
     },
-  ]);
 
 
 
