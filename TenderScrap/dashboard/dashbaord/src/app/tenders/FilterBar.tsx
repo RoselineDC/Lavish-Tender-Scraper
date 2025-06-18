@@ -333,9 +333,9 @@ export default function FilterBar() {
               <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                    <td scope="col" className="px-4 py-3">
-                      {tender.institutionName}
-                    </td>
+                    <th scope="col" className="px-4 py-3">
+                      {tenders.institutionName}
+                    </th>
                     <th scope="col" className="px-4 py-3">
                       Tender Number
                     </th>
@@ -360,6 +360,18 @@ export default function FilterBar() {
                     <th scope="col" className="px-4 py-3">
                       Tender Category
                     </th>
+                    {/* <th scope="col" className="px-4 py-3">
+                      Tender Type
+                    </th> */}
+                    {/* <th scope="col" className="px-4 py-3">
+                      Tender Status
+                    </th> */}
+                    {/* <th scope="col" className="px-4 py-3">
+                      Contact Person
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Contact Email
+                    </th> */}
                     <th scope="col" className="px-4 py-3">
                       Actions
                     </th>
