@@ -427,8 +427,8 @@ export default function FilterBar() {
                           View
                         </a>
                       </td>
-                     {/* <td className="px-4 py-3">{tender.tender_category}</td> */}
-                      <td className="px-4 py-3">{tender.tender_type}</td>
+                     <td className="px-4 py-3">{tender.tender_category}</td>
+                      {/* <td className="px-4 py-3">{tender.tender_type}</td> */}
                       <td className="px-4 py-3">
                         <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                           tender.tender_status === "Open"
