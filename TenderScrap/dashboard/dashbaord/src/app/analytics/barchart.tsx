@@ -82,7 +82,7 @@ export default function BarClick() {
       <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box
           sx={{
-            display: " ",
+            display: "b ",
             justifyContent: "space-between",
             alignItems: "center",
           }}
