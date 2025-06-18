@@ -401,7 +401,7 @@ export default function FilterBar() {
                         <td className="px-4 py-3">{tender.category}</td>
                         <td className="px-4 py-3">Actions...</td>
                       </tr>
-                      // $ ${tender.tender_number} $ $ ${tender.description} ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email}
+                      // $ ${tender.tender_number} $ $ $ ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email}
                     ))}
                   </tbody>
                 </tbody>
