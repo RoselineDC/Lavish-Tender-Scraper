@@ -459,7 +459,6 @@ export default function FilterBar() {
                           </tr>
                           ))
                           )}
-                          
                           </tbody>
 
                         </table>
