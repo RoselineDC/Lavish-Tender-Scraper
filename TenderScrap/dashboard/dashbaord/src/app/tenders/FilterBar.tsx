@@ -96,7 +96,7 @@ export default function FilterBar() {
   ]);
 
   const filteredTenders = tenders.filter((tender)) =>
-    `$`
+    `${te}`
 
   return (
 
