@@ -79,7 +79,7 @@ export default function BarClick() {
         />
       </Box>
 
-      <Stack direction="row" sx={{ width: { xs: "100%", md: "40%" } }}>
+      <Stack direction="ro" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box
           sx={{
             display: "flex ",
