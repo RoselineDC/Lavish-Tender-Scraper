@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-export default function FilterBar() {
+export default function ) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [tenders] = useState([
