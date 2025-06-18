@@ -212,7 +212,7 @@ export default function FilterBar() {
                           {[
                             { id: "Today", label: "Today", count: 56 },
                             { id: "3 days ago", label: "3 days ago", count: 16 },
-                            { id: "last week", label: "Event", count: 49 },
+                            { id: "last week", label: "E", count: 49 },
                           
                           ].map((brand) => (
                             <li key={brand.id} className="flex items-center">
