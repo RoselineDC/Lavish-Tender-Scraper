@@ -60,7 +60,7 @@ const TenderTable: React.FC = () => {
 
   return (
     <>
-    <FilterBar/>
+    {/* <FilterBar/> */}
 
     </>
     
