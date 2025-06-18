@@ -457,7 +457,8 @@ export default function FilterBar() {
                         
                           </td>
                           </tr>
-                  )}
+                  )};
+                </tbody>
                   {/* <tr className="border-b dark:border-gray-700"> */}
                     <th
                       scope="row"
