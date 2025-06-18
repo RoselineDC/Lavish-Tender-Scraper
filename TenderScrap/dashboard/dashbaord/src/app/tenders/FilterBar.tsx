@@ -28,7 +28,34 @@ const filters = {
   ],
 
 };
-
+const [tenders] = useState([
+    {
+      institution: "Dept of Education",
+      number: "DOE123",
+      description: "Supply of Stationery",
+      closingDate: "2025-06-01",
+      location: "Pretoria",
+      documentUrl: "http://example.com/doc.pdf",
+      category: "Supplies",
+    },
+    {
+      institution: "Transnet",
+      number: "TN1234",
+      description: "Supply of Rail Components",
+      closingDate: "2025-06-10",
+      location: "Johannesburg",
+      documentUrl: "https://www.transnet.net/tenders/rail-components.pdf",
+      category: "Engineering",
+    },
+    {
+      institution: "Transnet",
+      number: "TN5678",
+      description: "Maintenance of Freight Terminals",
+      closingDate: "2025-06-14",
+      location: "Durban",
+      documentUrl: "https://www.transnet.net/tenders/terminal-maintenance.pdf",
+      category: "Maintenance",
+    },
 
 
 
