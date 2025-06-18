@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FcRefresh } from "react-icons/fc";
-import { IoMdRefreshCircle } from "react-icons/io";
-
 
 
 const filters = {
@@ -170,7 +168,7 @@ export default function FilterBar() {
                     type="button"
                     title="Refresh the table"
                   >
-                    <<IoMdRefreshCircle className="w-6 h-6 font-bold fill-blue-950" />
+                    <FcRefresh className="w-6 h-6 font-bold" />
                     
                   </button>
 
