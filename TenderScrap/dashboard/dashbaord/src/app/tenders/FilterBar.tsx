@@ -42,7 +42,7 @@ export default function FilterBar() {
   };
   // Hhandle search 
   const [searchTerm, setSearchTerm] = useState("");
-  const [tender, setTender] = useState(mockTenders);
+  const [tender, setTender] = useState([mockTenders]);
   return (
 
     <>
