@@ -95,7 +95,7 @@ export default function FilterBar() {
     },
   ]);
 
-  consy
+  const filtered
 
   return (
 
