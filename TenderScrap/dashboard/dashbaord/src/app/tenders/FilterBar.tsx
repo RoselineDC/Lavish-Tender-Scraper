@@ -360,9 +360,9 @@ export default function FilterBar() {
                     <th scope="col" className="px-4 py-3">
                       Tender Description
                     </th>
-                    {/* <th scope="col" className="px-4 py-3">
+                    <th scope="col" className="px-4 py-3">
                       Published Date
-                    </th> */}
+                    </th>
                     <th scope="col" className="px-4 py-3">
                       Closing Date
                     </th>
