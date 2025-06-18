@@ -5,7 +5,6 @@ import { FaChevronDown } from "react-icons/fa";
 import { FcRefresh } from "react-icons/fc";
 import { TfiFilter } from "react-icons/tfi";
 
-
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
   tender_category: [
@@ -174,10 +173,8 @@ export default function FilterBar() {
                   >
                     <FcRefresh className="w-6 h-6 font-bold" />
                     Refresh
-                    
                   </button>
 
-                  
                   <button
                     id="filterDropdownButton"
                     data-dropdown-toggle="filterDropdown"
@@ -185,7 +182,6 @@ export default function FilterBar() {
                     type="button"
                   >
                     <TfiFilter />
-
                     Filter
                     <svg
                       className="-mr-1 ml-1.5 w-5 h-5"
@@ -201,64 +197,64 @@ export default function FilterBar() {
                       />
                     </svg>
                   </button>
-                 <div className="relative inline-block text-left w-full md:w-auto">
-      <button
-        id="filterDropdownButton"
-        onClick={toggleDropdown}
-        className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-        type="button"
-      >
-        <TfiFilter className="mr-2" />
-        Filter
-        <svg
-          className="-mr-1 ml-1.5 w-5 h-5"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            clipRule="evenodd"
-            fillRule="evenodd"
-            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-          />
-        </svg>
-      </button>
+                  <div className="relative inline-block text-left w-full md:w-auto">
+                    <button
+                      id="filterDropdownButton"
+                      onClick={toggleDropdown}
+                      className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                      type="button"
+                    >
+                      <TfiFilter className="mr-2" />
+                      Filter
+                      <svg
+                        className="-mr-1 ml-1.5 w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                      >
+                        <path
+                          clipRule="evenodd"
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        />
+                      </svg>
+                    </button>
 
-      {showDropdown && (
-        <div
-          id="filterDropdown"
-          className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
-        >
-          <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-            Choose brand
-          </h6>
-          <ul className="space-y-2 text-sm">
-            {[
-              { id: "apple", label: "Apple", count: 56 },
-              { id: "fitbit", label: "Microsoft", count: 16 },
-              { id: "razor", label: "Razor", count: 49 },
-              { id: "nikon", label: "Nikon", count: 12 },
-              { id: "benq", label: "BenQ", count: 74 },
-            ].map((brand) => (
-              <li key={brand.id} className="flex items-center">
-                <input
-                  id={brand.id}
-                  type="checkbox"
-                  className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                />
-                <label
-                  htmlFor={brand.id}
-                  className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                >
-                  {brand.label} ({brand.count})
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+                    {showDropdown && (
+                      <div
+                        id="filterDropdown"
+                        className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
+                      >
+                        <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                          Choose brand
+                        </h6>
+                        <ul className="space-y-2 text-sm">
+                          {[
+                            { id: "apple", label: "Apple", count: 56 },
+                            { id: "fitbit", label: "Microsoft", count: 16 },
+                            { id: "razor", label: "Razor", count: 49 },
+                            { id: "nikon", label: "Nikon", count: 12 },
+                            { id: "benq", label: "BenQ", count: 74 },
+                          ].map((brand) => (
+                            <li key={brand.id} className="flex items-center">
+                              <input
+                                id={brand.id}
+                                type="checkbox"
+                                className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                              />
+                              <label
+                                htmlFor={brand.id}
+                                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+                              >
+                                {brand.label} ({brand.count})
+                              </label>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
