@@ -73,7 +73,7 @@ export default function BarClick() {
     >
       <Box sx={{ flexGrow: 1 }}>
         <Typography variant="h6" gutterBottom>
-         M
+         MONTHLY OVERVI
         </Typography>
         <BarChart
           {...barChartsParams}
