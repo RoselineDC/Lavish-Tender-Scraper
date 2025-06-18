@@ -91,10 +91,7 @@ export default function BarClick() {
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
         </Box>
-        <Box sx={{ my: 2 }}>
-          {itemData && <HighlightedCode code={JSON.stringify(itemData)} />}
-          {axisData && <HighlightedCode code={JSON.stringify(axisData)} />}
-        </Box>
+        >
       </Stack>
       <Box sx={{ flexGrow: 1 }}>
         <BarChart
