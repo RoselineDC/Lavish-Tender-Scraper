@@ -168,6 +168,7 @@ export default function FilterBar() {
                     type="button"
                     title="Refresh the table"
                   >
+                    
                     <FcRefresh />
                   </button>
 
