@@ -79,12 +79,26 @@ export default function BarClick() {
             alignItems: "center",
           }}
         >
-          <Typography className="text-lg font-bold flex items-center ">Monthly Progress Overview</Typography>
-          <IconButton>
+          <Typography>Click on the chart</Typography>
+          <IconButton
+            aria-label="reset"
+            size="small"
+            onClick={() => {
+              setItemData(undefined);
+              setAxisData(null);
+            }}
+          >
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
         </Box>
-        
+        <HighlightedCode
+          code={`Overview of the Monthly Progress
+            ${itemData ? JSON.stringify(itemData, null, 2) : "// The data will appear here"}
+
+            // Data from axis click
+            ${axisData ? JSON.stringify(axisData, null, 2) : "// The data will appear here"}
+            `}
+        />
       </Stack>
       <Box sx={{ flexGrow: 1 }}>
         <BarChart
