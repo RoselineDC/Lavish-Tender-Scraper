@@ -401,7 +401,7 @@ export default function FilterBar() {
                       key={index}
                       className="border-b dark:border-gray-700"
                     >
-                      
+                      <td
                   ))}
                   {/* <tr className="border-b dark:border-gray-700"> */}
                     <th
