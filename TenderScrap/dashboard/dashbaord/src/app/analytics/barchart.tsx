@@ -48,7 +48,7 @@ const barChartsParams = {
     },
     {
       id: "series-3",
-      data: [4, 2, 5, 4, 1],
+      data: [4, 2, 5, 4, 1, 3, 2],
       label: "NOT SUBMITED",
       color: "#ff4d4d",
       highlightScope: {
