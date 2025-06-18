@@ -378,19 +378,19 @@ export default function FilterBar() {
                   </tr>
                 </thead>
                 <tbody>
-                  
+                  <tbody>
                     {filteredTenders.map((tender, index) => (
                       <tr key={index} className="border-b dark:border-gray-700">
                         <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                         {tender.institutionName}
+                          {tender.institutionName}
                         </td>
-                        <td className="px-4 py-3">{tender.published_date}</td>
-                        <td className="px-4 py-3">{tender.closing_date}</td>
+                        <td className="px-4 py-3">{tender.tender_number}</td>
                         <td className="px-4 py-3">{tender.description}</td>
-                        <td className="px-4 py-3">{tender.tender_category}</td>
+                        <td className="px-4 py-3">{tender.closingDate}</td>
+                        <td className="px-4 py-3">{tender.location}</td>
                         <td className="px-4 py-3">
                           <a
-                            href={tender.tender_document_url}
+                            href={tender.documentUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline"
@@ -401,7 +401,7 @@ export default function FilterBar() {
                         <td className="px-4 py-3">{tender.category}</td>
                         <td className="px-4 py-3">Actions...</td>
                       </tr>
-                      // $ ${tender.tender_number} $ $ $ $ ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email}
+                      // $ ${tender.tender_number} ${tender.published_date} ${tender.closing_date} ${tender.description} ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email}
                     ))}
                   </tbody>
                 </tbody>
