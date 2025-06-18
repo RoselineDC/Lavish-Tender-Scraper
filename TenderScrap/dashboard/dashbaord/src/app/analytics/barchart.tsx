@@ -79,35 +79,7 @@ export default function BarClick() {
         />
       </Box>
 
-      <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
-        <Box
-          sx={{
-            display: "f", 
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography>Click on the chart</Typography>
-          <IconButton
-            aria-label="reset"
-            size="small"
-            onClick={() => {
-              setItemData(undefined);
-              setAxisData(null);
-            }}
-          >
-            <UndoOutlinedIcon fontSize="small" />
-          </IconButton>
-        </Box>
-        <HighlightedCode
-          code={`Overview of the Monthly Progress
-${itemData ? JSON.stringify(itemData, null, 2) : "// The data will appear here"}
-
-// Data from axis click
-${axisData ? JSON.stringify(axisData, null, 2) : "// The data will appear here"}
-`}
-        />
-      </Stack>
+     
     </Stack>
   );
 }
