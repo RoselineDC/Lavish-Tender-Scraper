@@ -406,11 +406,13 @@ export default function FilterBar() {
                       </td>
                       <td className="px-4 py-3">{tender.tender_number}</td>
                       <td className="px-4 py-3">{tender.description}</td>
-                      <td className="px-4 py-3">{tender.closingDate}</td>
+                      <td className="px-4 py-3">{tender.published_date}</td>
+                      <td className="px-4 py-3">{tender.briefing_date}</td>
+                      <td className="px-4 py-3">{tender.closing_date}</td>
                       <td className="px-4 py-3">{tender.location}</td>
                       <td className="px-4 py-3">
-                        <a
-                          href={tender.tenderDocumentUrl}
+                       <a
+                          href={tender.tender_document_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:underline"
