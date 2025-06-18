@@ -91,14 +91,10 @@ export default function BarClick() {
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
         </Box>
-        <HighlightedCode
-          code={`Overview of the Monthly Progress
-            ${itemData ? JSON.stringify(itemData, null, 2) : "// The data will appear here"}
-
-            // Data from axis click
-            ${axisData ? JSON.stringify(axisData, null, 2) : "// The data will appear here"}
-            `}
-        />
+        <Box sx={{ my: 2 }}>
+          {itemData && <HighlightedCode code={JSON.stringify(itemData)} />}
+          {axisData && <HighlightedCode code={JSON.stringify(axisData)} />}
+        </Box>
       </Stack>
       <Box sx={{ flexGrow: 1 }}>
         <BarChart
