@@ -183,8 +183,7 @@ export default function FilterBar() {
                   >
                     <TfiFilter />
 
-                    Filter 
-                    <IoIosArrowDropdown />
+                    Filter
                     
                   </button>
                   <div
