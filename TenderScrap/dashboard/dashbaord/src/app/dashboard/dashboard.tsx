@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
         />
       </div>
       {/* New Intents Section */}
-      <NewIntents />
+      <FilterBar/>
       {/* Charts & Graphs */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Sales Per Day */}
