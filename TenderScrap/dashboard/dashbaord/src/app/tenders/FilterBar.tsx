@@ -170,7 +170,7 @@ export default function FilterBar() {
                     type="button"
                     title="Refresh the table"
                   >
-                    <IoMdRefreshCircle className="w-6 h-6 font-bold fill-blue-950" />
+                    <<IoMdRefreshCircle className="w-6 h-6 font-bold fill-blue-950" />
                     
                   </button>
 
