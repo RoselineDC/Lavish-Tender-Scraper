@@ -168,7 +168,7 @@ export default function FilterBar() {
                     type="button"
                     title="Refresh the table"
                   >
-                    <FcRefresh className="w-6 h-6 font-bold" />
+                    <FcRefresh className="w-8 h-8 font-bold" />
                     
                   </button>
 
