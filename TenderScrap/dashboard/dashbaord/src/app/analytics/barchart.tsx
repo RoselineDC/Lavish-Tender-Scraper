@@ -79,7 +79,7 @@ export default function BarClick() {
             alignItems: "center",
           }}
         >
-          <Typography>Click on the chart</Typography>
+          <Typography></Typography>
           <IconButton
             aria-label="reset"
             size="small"
