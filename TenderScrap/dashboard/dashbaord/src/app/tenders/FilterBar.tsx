@@ -359,19 +359,7 @@ export default function FilterBar() {
                     </th>
                     <th scope="col" className="px-4 py-3">
                       Tender Category
-                    </th>
-                    {/* <th scope="col" className="px-4 py-3">
-                      Tender Type
-                    </th> */}
-                    {/* <th scope="col" className="px-4 py-3">
-                      Tender Status
-                    </th> */}
-                    {/* <th scope="col" className="px-4 py-3">
-                      Contact Person
-                    </th>
-                    <th scope="col" className="px-4 py-3">
-                      Contact Email
-                    </th> */}
+                    
                     <th scope="col" className="px-4 py-3">
                       Actions
                     </th>
