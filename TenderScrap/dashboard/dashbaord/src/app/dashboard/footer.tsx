@@ -48,7 +48,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://disc/4eeurUVvTy" className="hover:underline">
+                  <a href="roseline.danga@gmail" className="hover:underline">
                     EMAIL
                   </a>
                 </li>
