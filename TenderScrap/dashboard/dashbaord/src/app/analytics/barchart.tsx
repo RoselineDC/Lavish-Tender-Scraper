@@ -93,6 +93,7 @@ export default function BarClick() {
           onAxisClick={(event, d) => setAxisData(d)}
         />
       </Box>
+      
     </Stack>
 
   );
