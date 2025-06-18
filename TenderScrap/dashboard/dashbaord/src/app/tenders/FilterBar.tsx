@@ -212,9 +212,8 @@ export default function FilterBar() {
                           {[
                             { id: "supply", label: "supply delivery", count: 56 },
                             { id: "service", label: "Installation", count: 16 },
-                            { id: "media", label: "Razor", count: 49 },
-                            { id: "nikon", label: "Nikon", count: 12 },
-                            { id: "benq", label: "BenQ", count: 74 },
+                            { id: "media", label: "Event", count: 49 },
+                          
                           ].map((brand) => (
                             <li key={brand.id} className="flex items-center">
                               <input
