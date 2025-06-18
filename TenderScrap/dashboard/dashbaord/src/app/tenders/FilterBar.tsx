@@ -24,6 +24,7 @@ const filters = {
     "Last 3 Months",
     "Custom Range",
   ],
+  
 };
 
 export default function FilterBar() {
