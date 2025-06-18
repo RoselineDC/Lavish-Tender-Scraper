@@ -28,14 +28,14 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
         <Card
           link="/tenders"
-          color="orange"
+          color="green"
           title="Tenders"
           subtitle="All Tenders"
           footer="10% changes on profit"
         />
         <Card
           link="suppliers"
-          color="bl"
+          color="green"
           title="Daily Task progress"
           subtitle="Tasks"
           footer="28% task performance"
