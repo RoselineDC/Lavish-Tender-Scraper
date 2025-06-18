@@ -44,6 +44,7 @@ export default function FilterBar() {
   };
   // Hhandle search 
   const [searchTerm, setSearchTerm] = useState("");
+
   const [tenders, setTenders] = useState([
     {
       id: 1,
@@ -97,7 +98,7 @@ export default function FilterBar() {
 
 
   const filteredTenders = tenders.filter((tender) =>
-    ${tender.institution} ${tender.tender_number} ${tender.published_date} ${tender.closing_date} ${tender.description} ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email} ``
+    ${tender.institution} ${tender.tender_number} ${tender.published_date} ${tender.closing_date} ${tender.description} ${tender.tender_category} ${tender.tender_type} ${tender.tender_status} ${tender.contact_person} ${tender.contact_email} `
       .toLowerCase()
       .includes(searchTerm.toLowerCase())
   );
