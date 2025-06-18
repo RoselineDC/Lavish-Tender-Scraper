@@ -206,7 +206,7 @@ export default function FilterBar() {
                         className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
                       >
                         <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-                          Choose Cate
+                          Choose Category
                         </h6>
                         <ul className="space-y-2 text-sm">
                           {[
