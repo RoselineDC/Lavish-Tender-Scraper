@@ -66,7 +66,7 @@ export default function BarClick() {
 
   return (
     <Stack
-      className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition flex row-re"
+      className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition"
       direction={{ xs: "column", md: "row" }}
       spacing={{ xs: 0, md: 4 }}
       sx={{ width: "100%" }}
@@ -82,7 +82,7 @@ export default function BarClick() {
       <Stack direction="column" sx={{ width: { xs: "100%", md: "40%" } }}>
         <Box
           sx={{
-            display: "flex ",
+            display: " ",
             justifyContent: "space-between",
             alignItems: "center",
           }}
