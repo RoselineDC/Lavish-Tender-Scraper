@@ -47,9 +47,13 @@ export default function FilterBar() {
     contact_person: "John Doe",
     contact_email: "john@example.com",
   },
-    {
+  {
     id: 2,
+    institutionName: "Transnet",
+      
+  }
     
+
     // Add more tenders as needed
   ]);
 
