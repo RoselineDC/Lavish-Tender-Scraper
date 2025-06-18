@@ -378,7 +378,7 @@ export default function FilterBar() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tbody>
+                  <tbod>
                     {filteredTenders.map((tender, index) => (
                       <tr key={index} className="border-b dark:border-gray-700">
                         <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
