@@ -168,7 +168,9 @@ export default function FilterBar() {
                     type="button"
                     title="Refresh the table"
                   >
-                    <span className="sr-only">Refresh</span>
+                    <span className="sr-only">
+                      
+                      Refresh</span>
                     
                   </button>
 
