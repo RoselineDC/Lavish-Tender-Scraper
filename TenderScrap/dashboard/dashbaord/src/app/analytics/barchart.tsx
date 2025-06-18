@@ -80,9 +80,7 @@ export default function BarClick() {
           }}
         >
           <Typography className="text-lg font-bold flex flex-col items-center ">Monthly Progress Overview</Typography>
-          <IconButton
-           
-          >
+          <IconButton>
             <UndoOutlinedIcon fontSize="small" />
           </IconButton>
         </Box>
