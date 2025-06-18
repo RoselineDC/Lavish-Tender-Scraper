@@ -379,21 +379,30 @@ export default function FilterBar() {
                 </thead>
                 <tbody>
                   <tbody>
-  {filteredTenders.map((tender, index) => (
-    <tr key={index} className="border-b dark:border-gray-700">
-      <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">{tender.institution}</td>
-      <td className="px-4 py-3">{tender.number}</td>
-      <td className="px-4 py-3">{tender.description}</td>
-      <td className="px-4 py-3">{tender.closingDate}</td>
-      <td className="px-4 py-3">{tender.location}</td>
-      <td className="px-4 py-3">
-        <a href={tender.documentUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">View</a>
-      </td>
-      <td className="px-4 py-3">{tender.category}</td>
-      <td className="px-4 py-3">Actions...</td>
-    </tr>
-  ))}
-</tbody>
+                    {filteredTenders.map((tender, index) => (
+                      <tr key={index} className="border-b dark:border-gray-700">
+                        <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          {tender.institution}
+                        </td>
+                        <td className="px-4 py-3">{tender.number}</td>
+                        <td className="px-4 py-3">{tender.description}</td>
+                        <td className="px-4 py-3">{tender.closingDate}</td>
+                        <td className="px-4 py-3">{tender.location}</td>
+                        <td className="px-4 py-3">
+                          <a
+                            href={tender.documentUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline"
+                          >
+                            View
+                          </a>
+                        </td>
+                        <td className="px-4 py-3">{tender.category}</td>
+                        <td className="px-4 py-3">Actions...</td>
+                      </tr>
+                    ))}
+                  </tbody>
                 </tbody>
                 <tbody>
                   <tr className="border-b dark:border-gray-700">
