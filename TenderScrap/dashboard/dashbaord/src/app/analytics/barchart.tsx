@@ -72,6 +72,7 @@ export default function BarClick() {
       sx={{ width: "100%" }}
     >
       <Box sx={{ flexGrow: 1 }}>
+        
         <BarChart
           {...barChartsParams}
           onItemClick={(event, d) => setItemData(d)}
