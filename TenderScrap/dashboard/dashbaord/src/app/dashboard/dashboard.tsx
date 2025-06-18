@@ -26,13 +26,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="p-6 bg-gray-100 min-h-screen space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
-        <Card
-          link="/tenders"
-          color="green"
-          title="Tenders"
-          subtitle="All Tenders"
-          footer="10% changes on profit"
-        />
+        
         <Card
           link="suppliers"
           color="green"
@@ -40,6 +34,7 @@ const Dashboard: React.FC = () => {
           subtitle="Tasks"
           footer="28% task performance"
         />
+        
         {/* <Card
         link="/pages/Suppliers"
         color="red"
