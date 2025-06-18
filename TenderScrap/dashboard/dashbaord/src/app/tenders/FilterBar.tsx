@@ -36,6 +36,7 @@ export default function FilterBar() {
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
   };
+  // 
 
   return (
     <>
