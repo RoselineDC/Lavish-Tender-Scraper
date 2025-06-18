@@ -56,7 +56,7 @@ const barChartsParams = {
       },
     },
   ],
-  xAxis: [{ data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "November", "December"], id: "axis1" }],
+  xAxis: [{ data: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "December"], id: "axis1" }],
   height: 400,
 } as const;
 
