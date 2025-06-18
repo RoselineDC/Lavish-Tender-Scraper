@@ -114,7 +114,8 @@ export default function FilterBar() {
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
   };
-  
+
+  const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   // filter tenders based on search term
   const filteredTenders = tenders.filter((tender) =>
