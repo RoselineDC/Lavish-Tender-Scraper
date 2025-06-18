@@ -335,7 +335,7 @@ export default function FilterBar() {
                   <tr>
                     <td scope="col" className="px-4 py-3">
                       {tenders.institutionName}
-                    </th>
+                    </td>
                     <th scope="col" className="px-4 py-3">
                       Tender Number
                     </th>
