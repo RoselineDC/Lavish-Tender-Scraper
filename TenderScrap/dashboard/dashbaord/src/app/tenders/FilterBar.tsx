@@ -396,7 +396,7 @@ export default function FilterBar() {
                   </tr>
                 </thead>
                 <tbody>
-                  {fi
+                  {filteredTenders.map((tender, index) =>
                           ))
                           )}
                           </tbody>
