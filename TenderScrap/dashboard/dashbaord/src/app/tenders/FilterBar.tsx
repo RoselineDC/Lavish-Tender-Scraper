@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import Dashboard from "../dashboard/dashboard";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
@@ -52,7 +53,7 @@ export default function FilterBar() {
                 <form className="flex items-center">
                   <label htmlFor="simple-search" className="sr-only">
                     Search
-                    
+                    < Dashboard 
                   </label>
                   <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
