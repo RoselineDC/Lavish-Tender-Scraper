@@ -71,6 +71,7 @@ export default function BarClick() {
       spacing={{ xs: 0, md: 4 }}
       sx={{ width: "100%" }}
     >
+        
       <Box sx={{ flexGrow: 1 }}>
         <BarChart
           {...barChartsParams}
