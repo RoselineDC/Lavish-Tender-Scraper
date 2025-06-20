@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 import Page from "./page";
 
 export const metadata: Metadata = {
-  title: "TENDE",
+  title: "TENDER SCAPPER",
   description: "Get the best deals on your favorite products",
 };
 
