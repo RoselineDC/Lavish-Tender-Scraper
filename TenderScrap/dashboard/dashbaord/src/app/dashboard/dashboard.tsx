@@ -8,14 +8,7 @@ import FilterBar from "@/app/tenders/FilterBar";
 import MonthlyRecapChart from "@/app/analytics/piechart";
 import  BarClick from "../analytics/barchart";
 import Footer from "./footer";
-// Update the path below to the correct relative path based on your project structure.
-// For example, if NewIntents.tsx is in src/components/tenders/NewIntents.tsx:
-// import NewIntents from "../tenders/NewIntents";
-/*
-    If you are getting "Cannot find module '../tenders/NewIntents'" error,
-    make sure the import path is correct. Based on your file structure, try:
-*/
-// import NewIntents from "../../app/tenders/NewIntents";
+
 
 const pieData = [
   { name: "New Intents", value: 50.69, color: "#2196F3" },
