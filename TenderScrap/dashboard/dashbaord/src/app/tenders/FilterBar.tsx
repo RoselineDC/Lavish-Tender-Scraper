@@ -35,8 +35,7 @@ export default function FilterBar() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [showDropdown, setShowDropdown] = useState(false);
- const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
-
+  const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
 
   // store tender
   const [tenders, setTenders] = useState([
@@ -116,10 +115,9 @@ export default function FilterBar() {
     published_date_filter: filters.published_date_filter[0],
   });
   const applyFilters = (filters: number[]) => {
-  const filtered = tenders.filter((tender) => filters.includes(tender.id));
-  setFilteredTenders(filtered);
-};
-
+    const filtered = tenders.filter((tender) => filters.includes(tender.id));
+    setFilteredTenders(filtered);
+  };
 
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
@@ -129,17 +127,17 @@ export default function FilterBar() {
 
   // filter tenders based on search term
   const handleFilterChange = (filterId) => {
-  let updatedFilters = [...checkedFilters];
+    let updatedFilters = [...checkedFilters];
 
-  if (updatedFilters.includes(filterId)) {
-    updatedFilters = updatedFilters.filter((id) => id !== filterId);
-  } else {
-    updatedFilters.push(filterId);
-  }
+    if (updatedFilters.includes(filterId)) {
+      updatedFilters = updatedFilters.filter((id) => id !== filterId);
+    } else {
+      updatedFilters.push(filterId);
+    }
 
-  setCheckedFilters(updatedFilters);
-  applyFilters(updatedFilters);
-};
+    setCheckedFilters(updatedFilters);
+    applyFilters(updatedFilters);
+  };
 
   const handleRefresh = () => {
     setTenders([...tenders]);
