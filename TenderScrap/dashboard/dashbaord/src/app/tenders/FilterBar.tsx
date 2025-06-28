@@ -171,7 +171,7 @@ export default function FilterBar() {
                   <button
                     id="refreshButton"
                     onClick={handleRefresh}
-                    className=" md:w-auto flex items-center justify-center py-2 px-4 text-sm font-bold text-white 
+                    className=" md:w-auto flex items-center justify-center py-2 px-4 text-sm font-bold text-white "
                     title="Refresh the table"
                   >
                     <RefreshCcw className="mr-2" />
