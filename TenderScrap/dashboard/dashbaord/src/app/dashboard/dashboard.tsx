@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
 
 import FilterBar from "@/app/tenders/FilterBar";
-import PieChartRevenue from "../piechartm/analytics/piechart";
+import
 import  BarClick from "../analytics/barchart";
 
 import Footer from "./footer";
