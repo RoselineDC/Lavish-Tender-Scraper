@@ -122,7 +122,50 @@ export default function FilterBar() {
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   // filter tenders based on search term
-  
+  const handleFilterChange = (filterId) => {
+  let updatedFilters = [...checkedFilters];
+
+  if (updatedFilters.includes(filterId)) {
+    updatedFilters = updatedFilters.filter((id) => id !== filterId);
+  } else {
+    updatedFilters.push(filterId);
+  }
+
+  setCheckedFilters(updatedFilters);
+  applyFilters(updatedFilters);
+};
+
+const applyFilters = (filters) => {
+  if (filters.length === 0) {
+    setFilteredTenders(tenders);
+    return;
+  }
+
+  const today = new Date();
+  const filtered = tenders.filter((tender) => {
+    const publishedDate = new Date(tender.published_date);
+
+    return filters.some((filter) => {
+      switch (filter) {
+        case "Today":
+          return publishedDate.toDateString() === today.toDateString();
+        case "3 days ago":
+          const threeDaysAgo = new Date(today);
+          threeDaysAgo.setDate(today.getDate() - 3);
+          return publishedDate.toDateString() === threeDaysAgo.toDateString();
+        case "last week":
+          const sevenDaysAgo = new Date(today);
+          sevenDaysAgo.setDate(today.getDate() - 7);
+          return publishedDate >= sevenDaysAgo && publishedDate <= today;
+        default:
+          return false;
+      }
+    });
+  });
+
+  setFilteredTenders(filtered);
+};
+
  
   const handleRefresh = () => {
     setTenders([...tenders]);
