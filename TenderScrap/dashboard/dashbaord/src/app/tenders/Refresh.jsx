@@ -6,8 +6,7 @@ import React from 'react'
 
 export default function Refresh() {
     return (
-        <div>
-              
+        <div>             
            
                 Refresh
         </div>
