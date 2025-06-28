@@ -1,103 +1,39 @@
 "use client";
 
 import React from "react";
-import {
-  Chart as ChartJS,
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Filler,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+import { PieChart, Pie, Cell } from "recharts";
 
-ChartJS.register(
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Filler,
-  Tooltip,
-  Legend
-);
+const pieData = [
+  { name: "New Intents", value: 50.69, color: "#2196F3" },
+  { name: "Submitted", value: 45.36, color: "#4CAF50" },
+  { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
+  { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
+];
 
-const MonthlyRecapChart = () => {
-  const labels = ["Jan", "Feb", "Mar", "April", "May", "June", "July, August, September, October, November, December"];
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: "This Year",
-        data: [3, 5, 4, 2, 8, 3, 9],
-        fill: true,
-        backgroundColor: "rgba(33, 150, 243, 0.6)", // Blue area
-        borderColor: "rgba(33, 150, 243, 1)",
-        tension: 0.4,
-        pointRadius: 0,
-      },
-      {
-        label: "Last Year",
-        data: [7, 6, 8, 5, 0, 3, 5],
-        fill: true,
-        backgroundColor: "rgba(200, 200, 200, 0.4)", // Grey area
-        borderColor: "rgba(200, 200, 200, 1)",
-        tension: 0.4,
-        pointRadius: 0,
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-      title: {
-        display: true,
-        text: "Monthly Recap Report",
-        color: "#333",
-        font: {
-          size: 18,
-          weight: "bold",
-        },
-        align: "start",
-      },
-      subtitle: {
-        display: true,
-        text: "Sales: 1 Jan, 2014 - 30 Jul, 2014",
-        color: "#000",
-        font: {
-          size: 12,
-          weight: "bold",
-        },
-        align: "start",
-      },
-    },
-    scales: {
-      y: {
-        min: 0,
-        max: 9,
-        ticks: {
-          stepSize: 10,
-        },
-        grid: {
-          drawBorder: false,
-        },
-      },
-      x: {
-        grid: {
-          display: false,
-        },
-      },
-    },
-  };
+const PieChartRevenue: React.FC = () => {
   return (
-    <div className="p-4 bg-white rounded shadow">      
-      <div className="text-center font-bold mt-4">Goal Completion</div>
+    <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
+      <div className="flex flex-col items-center">
+        <h3 className="text-lg font-bold mb-2">Total Revenue</h3>
+        <PieChart width={300} height={230}>
+          <Pie data={pieData} dataKey="value" outerRadius={80} label>
+            {pieData.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.color} />
+            ))}
+          </Pie>
+        </PieChart>
+      </div>
+
+      <div className="flex justify-around text-xs mt-4">
+        {pieData.map((item, index) => (
+          <div key={index} className="text-center flex flex-col items-center">
+            <p style={{ color: item.color }}>{item.name}</p>
+            <p className="font-semibold">{item.value}%</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default MonthlyRecapChart;
+export default PieChartRevenue;

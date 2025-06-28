@@ -74,7 +74,7 @@ const Dashboard: React.FC = () => {
             <h3 className="text-lg font-bold mb-2 flex flex-col items-center">
               Total Revenue
             </h3>
-            <PieChart
+            {/* <PieChart
               width={300}
               height={230}
               className="mt-7 flex flex-col items-center"
@@ -90,7 +90,7 @@ const Dashboard: React.FC = () => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-            </PieChart>
+            </PieChart> */}
           </div>
 
           <div className="flex justify-around text-xs mt-4">
