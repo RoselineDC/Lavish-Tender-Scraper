@@ -225,7 +225,7 @@ export default function FilterBar() {
               {showDropdown && (
                 <div
                   id="filterDropdown"
-                  className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700"
+                  className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700 "
                 >
                   <h6 className="mb-3 text-sm font-medium text-white dark:text-white bg-green-800 p-2">
                     Date Collected
