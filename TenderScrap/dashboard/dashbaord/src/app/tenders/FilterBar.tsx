@@ -114,6 +114,7 @@ export default function FilterBar() {
     tender_category: filters.tender_category[0],
     published_date_filter: filters.published_date_filter[0],
   });
+  
 
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
