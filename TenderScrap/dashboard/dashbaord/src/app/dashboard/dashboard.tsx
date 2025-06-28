@@ -6,6 +6,7 @@ import Link from "next/link";
 import FilterBar from "@/app/tenders/FilterBar";
 import  BarClick from "../analytics/barchart";
 
+
 import Footer from "./footer";
 
 
