@@ -75,17 +75,7 @@ const Dashboard: React.FC = () => {
             <PieChartRevenu />
           </div>
 
-          <div className="flex justify-around text-xs mt-4">
-            {pieData.map((item, index) => (
-              <div
-                key={index}
-                className="text-center flex flex-col items-center"
-              >
-                <p style={{ color: item.color }}>{item.name}</p>
-                <p className="font-semibold">{item.value}%</p>
-              </div>
-            ))}
-          </div>
+         
         </div>
         {/* Traffic Sources */}
       </div>
