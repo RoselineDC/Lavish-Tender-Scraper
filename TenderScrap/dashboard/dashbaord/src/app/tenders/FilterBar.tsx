@@ -106,27 +106,7 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-
-  //filter
-  const applyFilters = (filters) => {
-  if (filters.length === 0) {
-    setFilteredTenders(tenders);
-    return;
-  }
-
-  const handleFilterChange = (filterId) => {
-    let updatedFilters = [...checkedFilters];
-
-    if (updatedFilters.includes(filterId)) {
-      updatedFilters = updatedFilters.filter((id) => id !== filterId);
-    } else {
-      updatedFilters.push(filterId);
-    }
-
-    setCheckedFilters(updatedFilters);
-    applyFilters(updatedFilters);
-  };
-  
+//filter
 
   //handle refresh
   const handleRefresh = () => {
