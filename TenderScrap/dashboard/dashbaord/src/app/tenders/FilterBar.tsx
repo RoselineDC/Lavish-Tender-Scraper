@@ -126,22 +126,19 @@ export default function FilterBar() {
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   // filter tenders based on search term
-  const handleFilterChange = (filterId) => {
-    let updatedFilters = [...checkedFilters];
+ const handleFilterChange = (filterId: number) => {
+  let updatedFilters = [...checkedFilters];
 
-    if (updatedFilters.includes(filterId)) {
-      updatedFilters = updatedFilters.filter((id) => id !== filterId);
-    } else {
-      updatedFilters.push(filterId);
-    }
+  if (updatedFilters.includes(filterId)) {
+    updatedFilters = updatedFilters.filter((id) => id !== filterId);
+  } else {
+    updatedFilters.push(filterId);
+  }
 
-    setCheckedFilters(updatedFilters);
-    applyFilters(updatedFilters);
-  };
+  setCheckedFilters(updatedFilters);
+  applyFilters(updatedFilters);
+};
 
-  const handleRefresh = () => {
-    setTenders([...tenders]);
-  };
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
