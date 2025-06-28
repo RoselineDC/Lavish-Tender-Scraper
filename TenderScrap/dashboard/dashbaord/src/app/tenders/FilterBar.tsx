@@ -124,7 +124,9 @@ export default function FilterBar() {
       .includes(searchTerm.toLowerCase())
   );
   //handle refresh 
-  const handleRefresh = () 
+  const handleRefresh = () => {
+    s
+  }
 
   return (
     <>
