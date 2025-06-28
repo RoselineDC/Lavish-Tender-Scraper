@@ -106,7 +106,7 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-
+//
   //handle refresh
   const handleRefresh = () => {
     setTenders([...tenders]);
