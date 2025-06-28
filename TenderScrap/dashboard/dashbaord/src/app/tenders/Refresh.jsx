@@ -1,8 +1,8 @@
 'use client'
 // handles refresh 
 
-import React from 'react'
-imp
+import Reactfrom 'react'
+import import { FcRefresh } from "react-icons/fc";
 
 export default function Refresh() {
     return (
