@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FcRefresh } from "react-icons/fc";
 import { TfiFilter } from "react-icons/tfi";
-import Refresh from "/Refresh"
+import Refresh from "/Refresh";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
