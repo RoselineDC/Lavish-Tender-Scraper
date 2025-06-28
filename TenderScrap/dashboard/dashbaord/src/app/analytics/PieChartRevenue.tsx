@@ -43,7 +43,7 @@ import React from "react";
 import { useEffect, useRef } from 'react';
 
 // @ts-ignore – if no type definitions available
-import 'https://drilldowncharts.com/lib/drilldown.min.js'; // for external CDN usage
+?; // for external CDN usage
 const PieChartRevenue = () => {
   const chartRef = useRef<HTMLDivElement>(null);
 
