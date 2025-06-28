@@ -123,7 +123,8 @@ export default function FilterBar() {
       .toLowerCase()
       .includes(searchTerm.toLowerCase())
   );
-  
+  //handle refresh 
+  const handleRefresh = () 
 
   return (
     <>
