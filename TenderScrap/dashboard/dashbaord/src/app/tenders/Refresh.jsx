@@ -8,7 +8,6 @@ export default function Refresh() {
         <div>
            
                 Refresh
-            </button>
         </div>
     )
 }
