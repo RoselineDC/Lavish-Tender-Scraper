@@ -15,7 +15,7 @@ const PieChartRevenue: React.FC = () => {
     <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
        <div className="flex flex-col items-center">
             <h3 className="text-lg font-bold mb-2 flex flex-col items-center">Total Revenue</h3>
-        <PieChart width={300} height={290}>
+        <PieChart width={300} height={3000}>
           <Pie data={pieData} dataKey="value" outerRadius={80} label>
             {pieData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
