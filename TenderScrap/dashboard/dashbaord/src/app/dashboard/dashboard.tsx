@@ -66,7 +66,6 @@ const Dashboard: React.FC = () => {
         <div className="lg:col-span-2">
           <BarClick />
         </div>
-        <PieChartRevenue />
 
         {/* Pie Chart */}
         {/* <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
@@ -91,8 +90,8 @@ const Dashboard: React.FC = () => {
                 ))}
               </Pie>
             </PieChart> */}
-            
-          {/* </div>
+            <PieChartRevenue />
+          </div>
 
           <div className="flex justify-around text-xs mt-4">
             {pieData.map((item, index) => (
@@ -104,10 +103,10 @@ const Dashboard: React.FC = () => {
                 <p className="font-semibold">{item.value}%</p>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
         {/* Traffic Sources */}
-      {/* </div> */}
+      </div>
 
       {/* Bottom Boxes */}
       <div className="grid grid-cols-3 gap-4 text-center">
