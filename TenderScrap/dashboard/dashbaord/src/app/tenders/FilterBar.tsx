@@ -35,7 +35,8 @@ export default function FilterBar() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [showDropdown, setShowDropdown] = useState(false);
-  const [checkedFilters, setCheckedFilters] = useState([]);
+ const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
+
 
   // store tender
   const [tenders, setTenders] = useState([
