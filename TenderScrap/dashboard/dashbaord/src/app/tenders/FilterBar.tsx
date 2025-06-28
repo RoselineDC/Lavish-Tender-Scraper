@@ -106,7 +106,7 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-  
+
   //filter
   const applyFilters = (filters) => {
   if (filters.length === 0) {
@@ -126,6 +126,7 @@ export default function FilterBar() {
     setCheckedFilters(updatedFilters);
     applyFilters(updatedFilters);
   };
+  
 
   //handle refresh
   const handleRefresh = () => {
