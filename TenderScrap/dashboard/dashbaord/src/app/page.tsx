@@ -154,7 +154,7 @@ export default function Page() {
         )}
       </div>
        <main className="flex-1 overflow-y-auto p-6 bg-white">
-        {/* <Dashboard /> */}
+        <Dashboard />
          
         </main>
       </div>
