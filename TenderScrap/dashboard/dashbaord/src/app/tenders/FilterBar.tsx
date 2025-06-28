@@ -5,6 +5,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { FcRefresh } from "react-icons/fc";
 import { TfiFilter } from "react-icons/tfi";
 
+
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
   tender_category: [
@@ -172,7 +173,7 @@ export default function FilterBar() {
                     title="Refresh the table"
                   >
                     <FcRefresh className="w-6 h-6 font-bold" />
-                    <Refresh /
+                    <Refresh />
                   </button>
 
                  
