@@ -87,7 +87,7 @@ const Dashboard: React.FC = () => {
           {/* </div> */}
         </div>
         {/* Traffic Sources */}
-      </div>
+      
 
       {/* Bottom Boxes */}
       <div className="grid grid-cols-3 gap-4 text-center">
