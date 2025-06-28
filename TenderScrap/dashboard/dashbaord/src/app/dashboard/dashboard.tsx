@@ -9,12 +9,12 @@ import PieChartRevenue from "../analytics/PieChartRevenue";
 import Footer from "./footer";
 
 
-const pieData = [
-  { name: "New Intents", value: 50.69, color: "#2196F3" },
-  { name: "Submitted", value: 45.36, color: "#4CAF50" },
-  { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
-  { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
-];
+// const pieData = [
+//   { name: "New Intents", value: 50.69, color: "#2196F3" },
+//   { name: "Submitted", value: 45.36, color: "#4CAF50" },
+//   { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
+//   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
+// ];
 
 const Dashboard: React.FC = () => {
   return (
