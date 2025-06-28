@@ -75,7 +75,7 @@ const Dashboard: React.FC = () => {
             </h3> */}
            
             <PieChartRevenue />
-          </div>
+          {/* </div> */}
 
           {/* <div className="flex justify-around text-xs mt-4">
             {pieData.map((item, index) => (
