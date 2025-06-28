@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
 import FilterBar from "@/app/tenders/FilterBar";
 import  BarClick from "../analytics/barchart";
-import PieChartRevenue from "../analytics/PieChartRevenue";
+import
 import Footer from "./footer";
 
 
@@ -66,14 +66,33 @@ const Dashboard: React.FC = () => {
         <div className="lg:col-span-2">
           <BarClick />
         </div>
-        <div>
-          
-            <PieChartRevenue />
-        </div>
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
-          
+          <div className="flex flex-col items-center">
+            <h3 className="text-lg font-bold mb-2 flex flex-col items-center">
+              Total Revenue
+            </h3>
+            {/* <PieChart
+              width={300}
+              height={230}
+              className="mt-7 flex flex-col items-center"
+            >
+              <Pie
+                data={pieData}
+                dataKey="value"
+                outerRadius={80}
+                label
+                className=""
+              >
+                {pieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+            </PieChart> */}
+            <PieChartRevenu />
+          </div>
+
           <div className="flex justify-around text-xs mt-4">
             {pieData.map((item, index) => (
               <div
