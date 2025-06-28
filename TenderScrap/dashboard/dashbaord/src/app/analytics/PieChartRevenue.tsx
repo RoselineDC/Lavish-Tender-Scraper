@@ -40,7 +40,7 @@ import React from "react";
 // export default PieChartRevenue;
 // 'use client';
 
-// import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 // @ts-ignore – if no type definitions available
 import 'https://drilldowncharts.com/lib/drilldown.min.js'; // for external CDN usage
