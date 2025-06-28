@@ -123,7 +123,6 @@ export default function FilterBar() {
 
   // filter tenders based on search term
 
- 
   const handleRefresh = () => {
     setTenders([...tenders]);
   };
@@ -210,23 +209,22 @@ export default function FilterBar() {
                     Date Collected
                   </h6>
                   <ul className="space-y-2 text-sm">
-                   {tenders.map((tender) => (
-  <li key={tender.id} className="flex items-center">
-    <input
-      id={`filter-${tender.id}`}
-      type="checkbox"
-      checked={checkedFilters.includes(tender.id)}
-      onChange={() => handleFilterChange(tender.id)}
-    />
-    <label
-      htmlFor={`filter-${tender.id}`}
-      className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-    >
-      {tender.institutionName} ({tender.id})
-    </label>
-  </li>
-))}
-
+                    {tenders.map((tender) => (
+                      <li key={tender.id} className="flex items-center">
+                        <input
+                          id={`filter-${tender.id}`}
+                          type="checkbox"
+                          checked={checkedFilters.includes(tender.id)}
+                          onChange={() => handleFilterChange(tender.id)}
+                        />
+                        <label
+                          htmlFor={`filter-${tender.id}`}
+                          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+                        >
+                          {tender.institutionName} ({tender.id})
+                        </label>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
