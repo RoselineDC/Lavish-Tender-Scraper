@@ -127,6 +127,10 @@ export default function FilterBar() {
     applyFilters(updatedFilters);
   };
   
+  const today = new Date();
+
+  const filtered = tenders.filter((tender) => {
+    const publishedDate = new Date(tender.published_date);
 
   //handle refresh
   const handleRefresh = () => {
