@@ -131,7 +131,7 @@ export default function FilterBar() {
   }
 
   return (
-        <div className="mx-auto max-w-screen-xl p3 sm:p-5 px-4 lg:px-1">
+        <div className="mx-auto max-w-screen-xl sm:p-5 px-4 lg:px-1">
           {/* Start coding here */}
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
