@@ -37,4 +37,56 @@ const PieChartRevenue: React.FC = () => {
 };
 
 export default PieChartRevenue;
+'use client';
+
+import { useEffect, useRef } from 'react';
+
+// @ts-ignore – if no type definitions available
+import 'https://drilldowncharts.com/lib/drilldown.min.js'; // for external CDN usage
+
+const PieChartComponent = () => {
+  const chartRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).PieChart && chartRef.current) {
+      const chart = new (window as any).PieChart({
+        container: chartRef.current,
+        area: { height: null },
+        data: {
+          preloaded: {
+            subvalues: [
+              {
+                value: 35,
+                name: 'Apples',
+                subvalues: [
+                  { value: 25, name: 'Red apples' },
+                  { value: 10, name: 'Green apples' },
+                ],
+              },
+              {
+                value: 20,
+                name: 'Grapes',
+                subvalues: [
+                  { value: 15, name: 'Sweet grapes' },
+                  { value: 5, name: 'Sour grapes' },
+                ],
+              },
+              { value: 50, name: 'Vegetables' },
+            ],
+          },
+        },
+      });
+    }
+  }, []);
+
+  return (
+    <div
+      ref={chartRef}
+      id="chart"
+      className="w-full h-[400px]"
+    ></div>
+  );
+};
+
+export default PieChartComponent;
 
