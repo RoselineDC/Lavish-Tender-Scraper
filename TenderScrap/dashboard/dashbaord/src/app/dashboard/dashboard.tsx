@@ -91,7 +91,7 @@ const Dashboard: React.FC = () => {
               </Pie>
             </PieChart> */}
             <PieChartRevenue />
-          </div>
+          {/* </div>
 
           <div className="flex justify-around text-xs mt-4">
             {pieData.map((item, index) => (
@@ -103,7 +103,7 @@ const Dashboard: React.FC = () => {
                 <p className="font-semibold">{item.value}%</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
         {/* Traffic Sources */}
       </div>
