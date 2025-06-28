@@ -69,7 +69,7 @@ const Dashboard: React.FC = () => {
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
-          <div className="flex flex-col items-center">
+        
             
             <PieChartRevenue />
           </div>
