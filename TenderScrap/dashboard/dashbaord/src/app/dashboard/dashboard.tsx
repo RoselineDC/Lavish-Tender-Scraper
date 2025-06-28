@@ -3,11 +3,9 @@
 import React from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
-
 import FilterBar from "@/app/tenders/FilterBar";
-import 
 import  BarClick from "../analytics/barchart";
-
+import PieChartRevenue from "../analytics/PieChartRevenue";
 import Footer from "./footer";
 
 
@@ -92,7 +90,7 @@ const Dashboard: React.FC = () => {
                 ))}
               </Pie>
             </PieChart> */}
-            <PieChartRevenu />
+            <PieChartRevenue />
           </div>
 
           <div className="flex justify-around text-xs mt-4">
