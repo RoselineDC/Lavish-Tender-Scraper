@@ -3,10 +3,9 @@
 import React from "react";
 import { PieChart, Pie, Cell } from "recharts";
 import Link from "next/link";
-import FilterBar from "@/app/tenders/FilterBar";
- 
+import FilterBar from "@/app/tenders/FilterBar"; 
 import  BarClick from "../analytics/barchart";
-
+import PieChartRevenue from "../analytics/PieChartRevenue";
 import Footer from "./footer";
 
 
