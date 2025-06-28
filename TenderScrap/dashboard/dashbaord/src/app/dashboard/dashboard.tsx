@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
         
             
             <PieChartRevenue />
-          </div>
+          
         </div>
         {/* Traffic Sources */}
       
