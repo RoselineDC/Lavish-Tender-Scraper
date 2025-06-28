@@ -108,6 +108,7 @@ export default function FilterBar() {
   ]);
   //filter
   
+
   const handleFilterChange = (filterId) => {
     let updatedFilters = [...checkedFilters];
 
