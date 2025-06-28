@@ -131,7 +131,7 @@ export default function FilterBar() {
   }
 
   return (
-    <>
+  
     
         <div className="mx-auto max-w-screen-xl px-4 lg:px-1">
           {/* Start coding here */}
