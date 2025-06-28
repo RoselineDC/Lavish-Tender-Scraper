@@ -107,6 +107,7 @@ export default function FilterBar() {
     // Add more tenders as needed
   ]);
   //filter
+  
   const handleFilterChange = (filterId) => {
     let updatedFilters = [...checkedFilters];
 
