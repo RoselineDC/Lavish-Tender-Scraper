@@ -125,7 +125,7 @@ export default function FilterBar() {
   );
   //handle refresh 
   const handleRefresh = () => {
-    setTenders([])
+    setTenders([..
   }
 
   return (
