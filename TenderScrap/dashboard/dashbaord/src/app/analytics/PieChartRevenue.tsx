@@ -88,5 +88,4 @@ const PieChartRevenue = () => {
   );
 };
 
-export default PieChartComponent;
-
+export default PieChartRevenue;
