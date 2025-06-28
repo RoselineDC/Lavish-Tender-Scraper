@@ -114,10 +114,16 @@ export default function FilterBar() {
     tender_category: filters.tender_category[0],
     published_date_filter: filters.published_date_filter[0],
   });
-  const applyFilters = (filters: number[]) => {
-    const filtered = tenders.filter((tender) => filters.includes(tender.id));
-    setFilteredTenders(filtered);
-  };
+ const applyFilters = (filters: number[]) => {
+  if (filters.length === 0) {
+    setFilteredTenders(tenders);
+    return;
+  }
+
+  const filtered = tenders.filter((tender) => filters.includes(tender.id));
+  setFilteredTenders(filtered);
+};
+
 
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
