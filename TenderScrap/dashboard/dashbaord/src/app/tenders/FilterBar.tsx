@@ -109,7 +109,7 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-    const [filteredTenders, setFilteredTenders] = useState(tenders);
+   
 
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
