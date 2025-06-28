@@ -124,11 +124,11 @@ const [selected, setSelected] = useState({
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   // filter tenders based on search term
-  const filteredTenders = tenders.filter((tender) =>
-    `${tender.institutionName} ${tender.tender_number} ${tender.description} ${tender.tender_category} ${tender.location} ${tender.contact_person} ${tender.contact_email}`
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase())
-  );
+  // const filteredTenders = tenders.filter((tender) =>
+  //   `${tender.institutionName} ${tender.tender_number} ${tender.description} ${tender.tender_category} ${tender.location} ${tender.contact_person} ${tender.contact_email}`
+  //     .toLowerCase()
+  //     .includes(searchTerm.toLowerCase())
+  // );
   //handle refresh
   const handleRefresh = () => {
     setTenders([...tenders]);
