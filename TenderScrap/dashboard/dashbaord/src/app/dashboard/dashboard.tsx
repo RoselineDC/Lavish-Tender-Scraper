@@ -9,12 +9,12 @@ import PieChartRevenue from "../analytics/PieChartRevenue";
 import Footer from "./footer";
 
 
-// const pieData = [
-//   { name: "New Intents", value: 50.69, color: "#2196F3" },
-//   { name: "Submitted", value: 45.36, color: "#4CAF50" },
-//   { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
-//   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
-// ];
+const pieData = [
+  { name: "New Intents", value: 50.69, color: "#2196F3" },
+  { name: "Submitted", value: 45.36, color: "#4CAF50" },
+  { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
+  { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
+];
 
 const Dashboard: React.FC = () => {
   return (
@@ -69,7 +69,43 @@ const Dashboard: React.FC = () => {
 
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
-         
+          <div className="flex flex-col items-center">
+            <h3 className="text-lg font-bold mb-2 flex flex-col items-center">
+              Total Revenue
+            </h3>
+            {/* <PieChart
+              width={300}
+              height={230}
+              className="mt-7 flex flex-col items-center"
+            >
+              <Pie
+                data={pieData}
+                dataKey="value"
+                outerRadius={80}
+                label
+                className=""
+              >
+                {pieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+            </PieChart> */}
+            <PieChartRevenue />
+          </div>
+
+          <div className="flex justify-around text-xs mt-4">
+            {pieData.map((item, index) => (
+              <div
+                key={index}
+                className="text-center flex flex-col items-center"
+              >
+                <p style={{ color: item.color }}>{item.name}</p>
+                <p className="font-semibold">{item.value}%</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Traffic Sources */}
       </div>
 
       {/* Bottom Boxes */}
