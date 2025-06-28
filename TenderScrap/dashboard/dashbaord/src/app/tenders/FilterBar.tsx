@@ -471,7 +471,7 @@ export default function FilterBar() {
           </div>
         </div>
       
-    </ section>
+   
   );
 }
 // pagination
