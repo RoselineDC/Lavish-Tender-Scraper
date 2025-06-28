@@ -91,7 +91,7 @@ const Dashboard: React.FC = () => {
                 ))}
               </Pie>
             </PieChart> */}
-            <
+            <PieChartRevenu
           </div>
 
           <div className="flex justify-around text-xs mt-4">
