@@ -110,8 +110,8 @@ export default function FilterBar() {
     // Add more tenders as needed
   ]);
    
- const [filteredTenders, setFilteredTenders] = useState(tenders);
-  const [selected, setSelected] = useState({
+//  const [filteredTenders, setFilteredTenders] = useState(tenders);
+const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
     tender_category: filters.tender_category[0],
     published_date_filter: filters.published_date_filter[0],
