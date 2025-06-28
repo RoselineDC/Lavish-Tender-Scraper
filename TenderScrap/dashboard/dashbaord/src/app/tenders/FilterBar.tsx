@@ -228,7 +228,7 @@ export default function FilterBar() {
                   className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700 "
                 >
                   <h6 className="mb-3 text-sm font-medium text-white dark:text-white p-2 bg-green-900 rounded-lg border hover:bg-green-900 hover:text-primary-700">
-                    I
+                    INSTITUTION
                   </h6>
                   <ul className="space-y-2 text-sm">
                     {tenders.map((tender) => (
