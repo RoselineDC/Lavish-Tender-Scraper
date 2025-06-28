@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
          
             
             
-            <PieChartRevenu />
+            <PieChartRevenue />
         
 
          
