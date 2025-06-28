@@ -106,8 +106,25 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-//filter
 
+  const [selected, setSelected] = useState({
+    institutionName: filters.institutionName[0],
+    tender_category: filters.tender_category[0],
+    published_date_filter: filters.published_date_filter[0],
+  });
+
+  const handleChange = (key: string, value: string) => {
+    setSelected({ ...selected, [key]: value });
+  };
+
+  const toggleDropdown = () => setShowDropdown(!showDropdown);
+
+  // filter tenders based on search term
+  const filteredTenders = tenders.filter((tender) =>
+    `${tender.institutionName} ${tender.tender_number} ${tender.description} ${tender.tender_category} ${tender.location} ${tender.contact_person} ${tender.contact_email}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
   //handle refresh
   const handleRefresh = () => {
     setTenders([...tenders]);
@@ -165,7 +182,7 @@ export default function FilterBar() {
             <div className="relative inline-block text-left w-full md:w-auto">
               <button
                 id="filterDropdownButton"
-                onClick={toggleDropdon}
+                onClick={toggleDropdown}
                 className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 type="button"
               >
