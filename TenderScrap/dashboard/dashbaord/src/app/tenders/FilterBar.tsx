@@ -128,6 +128,18 @@ export default function FilterBar() {
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   // filter tenders based on search term
+  const handleFilterChange = (filterId) => {
+  let updatedFilters = [...checkedFilters];
+
+  if (updatedFilters.includes(filterId)) {
+    updatedFilters = updatedFilters.filter((id) => id !== filterId);
+  } else {
+    updatedFilters.push(filterId);
+  }
+
+  setCheckedFilters(updatedFilters);
+  applyFilters(updatedFilters);
+};
 
   const handleRefresh = () => {
     setTenders([...tenders]);
