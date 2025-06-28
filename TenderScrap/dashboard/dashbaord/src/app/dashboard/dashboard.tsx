@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
           {/* <div className="flex flex-col items-center">
             <h3 className="text-lg font-bold mb-2 flex flex-col items-center">
               Total Revenue
-            </h3> */} */
+            </h3> */} 
             {/* <PieChart
               width={300}
               height={230}
