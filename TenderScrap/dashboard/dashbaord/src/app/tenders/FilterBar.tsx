@@ -5,6 +5,7 @@ import { FaChevronDown } from "react-icons/fa";
 // import { FcRefresh } from "react-icons/fc";
 import { TfiFilter } from "react-icons/tfi";
 import Refresh from "./Refresh";
+import { mock } from "node:test";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
@@ -125,7 +126,7 @@ export default function FilterBar() {
   );
   //handle refresh 
   const handleRefresh = () => {
-    setTenders([..
+    setTenders([...mockTenders]);
   }
 
   return (
