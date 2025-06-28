@@ -115,7 +115,7 @@ export default function FilterBar() {
     tender_category: filters.tender_category[0],
     published_date_filter: filters.published_date_filter[0],
   });
-  const applyFilters = (filters : string[]) => {
+  const applyFilters = (filters : string]) => {
   const filtered = tenders.filter((tender) => filters.includes(tender.id));
   setFilteredTenders(filtered);
 };
