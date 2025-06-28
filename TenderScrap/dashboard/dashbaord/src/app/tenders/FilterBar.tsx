@@ -225,25 +225,24 @@ export default function FilterBar() {
                     Date Collected
                   </h6>
                   <ul className="space-y-2 text-sm">
-  {tenders.map((tender) => (
-    <li key={tender.id} className="flex items-center">
-      <input
-        id={`filter-${tender.id}`}
-        type="checkbox"
-        checked={checkedFilters.includes(tender.id)}
-        onChange={() => handleFilterChange(tender.id)}
-        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-      />
-      <label
-        htmlFor={`filter-${tender.id}`}
-        className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-      >
-        {tender.institutionName} ({tender.id})
-      </label>
-    </li>
-  ))}
-</ul>
-
+                    {tenders.map((tender) => (
+                      <li key={tender.id} className="flex items-center">
+                        <input
+                          id={`filter-${tender.id}`}
+                          type="checkbox"
+                          checked={checkedFilters.includes(tender.id)}
+                          onChange={() => handleFilterChange(tender.id)}
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                        />
+                        <label
+                          htmlFor={`filter-${tender.id}`}
+                          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+                        >
+                          {tender.institutionName} ({tender.id})
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
             </div>
