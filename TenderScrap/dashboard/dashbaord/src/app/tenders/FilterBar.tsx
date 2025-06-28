@@ -33,7 +33,7 @@ const filters = {
 
 export default function FilterBar() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredTenders, setFilteredTenders] = useState(tenders);
+
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkedFilters, setCheckedFilters] = useState([]);
   
