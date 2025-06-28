@@ -176,7 +176,7 @@ export default function FilterBar() {
                     title="Refresh the table"
                   >
                     <RefreshCcw className="mr-2" />
-        Refresh
+        Refre4sh
                     <Refresh />
                   </button>
 
