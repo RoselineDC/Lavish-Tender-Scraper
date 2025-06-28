@@ -114,16 +114,15 @@ export default function FilterBar() {
     tender_category: filters.tender_category[0],
     published_date_filter: filters.published_date_filter[0],
   });
- const applyFilters = (filters: number[]) => {
-  if (filters.length === 0) {
-    setFilteredTenders(tenders);
-    return;
-  }
+  const applyFilters = (filters: number[]) => {
+    if (filters.length === 0) {
+      setFilteredTenders(tenders);
+      return;
+    }
 
-  const filtered = tenders.filter((tender) => filters.includes(tender.id));
-  setFilteredTenders(filtered);
-};
-
+    const filtered = tenders.filter((tender) => filters.includes(tender.id));
+    setFilteredTenders(filtered);
+  };
 
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
@@ -132,20 +131,22 @@ export default function FilterBar() {
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   // filter tenders based on search term
- const handleFilterChange = (filterId: number) => {
-  let updatedFilters = [...checkedFilters];
+  const handleFilterChange = (filterId: number) => {
+    let updatedFilters = [...checkedFilters];
 
-  if (updatedFilters.includes(filterId)) {
-    updatedFilters = updatedFilters.filter((id) => id !== filterId);
-  } else {
-    updatedFilters.push(filterId);
-  }
+    if (updatedFilters.includes(filterId)) {
+      updatedFilters = updatedFilters.filter((id) => id !== filterId);
+    } else {
+      updatedFilters.push(filterId);
+    }
 
-  setCheckedFilters(updatedFilters);
-  applyFilters(updatedFilters);
-};
-
-
+    setCheckedFilters(updatedFilters);
+    applyFilters(updatedFilters);
+  };
+  const handleRefresh = () => {
+    setCheckedFilters([]);
+    setFilteredTenders(tenders);
+  };
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
