@@ -123,6 +123,7 @@ export default function FilterBar() {
       .toLowerCase()
       .includes(searchTerm.toLowerCase())
   );
+  
 
   return (
     <>
