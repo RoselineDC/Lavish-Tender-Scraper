@@ -106,7 +106,7 @@ export default function FilterBar() {
     },
       {
       
-attachment
+attachment 
 : 
 "https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/99459"
 briefingDate
