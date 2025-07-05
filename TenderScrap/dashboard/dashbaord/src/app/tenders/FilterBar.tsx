@@ -202,7 +202,9 @@ useEffect(() => {
         (t) =>
           t.institutionName.toLowerCase().includes(term) ||
           t.tender_number.toLowerCase().includes(term) ||
-          t.description.toLowerCase().includes(term)
+          t.description.toLowerCase().includes(term)||
+          t.tender_category.toLowerCase().includes(term) ||
+          t.location.toLowerCase().includes(term) ||
       )
     );
   }
