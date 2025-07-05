@@ -15,7 +15,7 @@ const TableWithPagination = () => {
     currentPage * itemsPerPage
   );
 
-  const handlePageClick = (page: SetStateAction<) => {
+  const handlePageClick = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
