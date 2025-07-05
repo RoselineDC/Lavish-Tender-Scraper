@@ -47,7 +47,7 @@ export default function FilterBar() {
       closing_date: "2025-06-30",
       briefing_date: "2025-06-10",
       location: "Pretoria",
-      tender_document_url:         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_document_url:         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013"
 ,
       tender_category: "Supplies",
       tender_type: "Open",
