@@ -7,6 +7,24 @@ import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
 import { mock } from "node:test";
 import TableWithPagination from "../dashboard/TableWithPagination";
+export interface TenderType {
+  id: number;
+  institutionName: string;
+  tender_number: string;
+  description: string;
+  published_date: string;      // ISO date string; use Date if you prefer
+  closing_date: string;
+  briefing_date: string;
+  location: string;
+  tender_document_url: string;
+  tender_category: string;     // e.g. "Goods", "Engineering"
+  tender_type: string;         // e.g. "Open", "RFQ", "RFP"
+  tender_status: "Open" | "Closed";
+  contact_person: string;
+  contact_email: string;
+  rowKey?: string;             // optional because it isn’t in every record
+}
+
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
