@@ -97,7 +97,7 @@ export default function FilterBar() {
       briefing_date: "2025-06-15",
       location: "cape town",
       tender_document_url:
-        "https://www.transnet.net/tenders/rail-components.pdf",
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
       tender_category: "Engineering",
       tender_type: "Open",
       tender_status: "Open",
