@@ -105,20 +105,61 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
       {
-      id: 1,
-      institutionName: "Dept of Education",
-      tender_number: "DOE123",
-      description: "Supply of Stationery",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      briefing_date: "2025-06-10",
-      location: "Pretoria",
-      tender_document_url: "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=79500",
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
+      
+attachment
+: 
+"https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/99459"
+briefingDate
+: 
+"6/26/2025 10:00:00 AM"
+briefingDetails
+: 
+"NB: IT IS COMPULSORY FOR A BIDDER TO ATTEND AN RFP BRIEFING AND SITE VISIT FOR THE DEPOT/AREA BIDDING FOR, FAILURE TO ATTEND RFP BRIEFING AND SITE VISIT WILL LEAD TO BID DISQUALIFICATION\nNB: PPE REQUIREMENTS: BIDDERS ARE REQUIRED TO WEAR SAFETY SHOE WITH STEEL TOE CAP AND A REFLETOR VEST IN ORDER TO GAIN ACCESS TO RFP BRIEFING AND SITE VISIT;\nFAILURE TO COMPLY WITH PPE REQUIREMENTS WILL DISQUALIFY THE BIDDER FROM ATTENDING THE COMPULSORY RFP BRIEFING AND SITE VISIT\n\nADMIN BUILDING\nTRANSNET ROAD\nHILTON\nBLOEMFONTEIN"
+closingDate
+: 
+"7/7/2025 6:00:00 PM"
+contactPersonEmailAddress
+: 
+"Naomi.Jordaan@transnet.net"
+contactPersonName
+: 
+"Naomi Jordaan    Transnet Engineering   BFN"
+descriptionOfTender
+: 
+"REQUEST FOR AUTHORITY TO OBTAIN BIDS VIA THE OPEN BID PROCESS: REQUEST TO SOURCE A SERVICE PROVIDER WITH ASSESSING, FAULTFINDING, STRIP AND QUOTE AND REPAIRING OF THE KATCHER WAPP MACHINE IN THE LOCOMOTIVE BUSINESS, BLOEMFONTEIN"
+locationOfService
+: 
+"LOCOMOTIVES BLOEMFONTEIN"
+nameOfInstitution
+: 
+"TE"
+nameOfTender
+: 
+"TE/2025/06/0019/99459/RFQ"
+publishedDate
+: 
+"6/24/2025 2:12:08 PM"
+rowKey
+: 
+"99459"
+selectedSuppliers
+: 
+""
+tenderAccessType
+: 
+"Open"
+tenderCategory
+: 
+"Goods & Services"
+tenderNumber
+: 
+"TE/2025/06/0019/99459/RFQ"
+tenderStatus
+: 
+"Open"
+tenderType
+: 
+"RFQ"
     },   
 
     // Add more tenders as needed
