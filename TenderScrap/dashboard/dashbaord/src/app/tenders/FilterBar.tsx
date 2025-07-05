@@ -201,21 +201,28 @@ const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   };
 
   const handleApprove = (id: number) => {
-    console.log("Approved tender ID:", id);
+  const tenderToApprove = tenders.find((tender) => tender.id === id);
+  if (tenderToApprove) {
+    setApprovedTenders((prev) => [...prev, tenderToApprove]);
+    setTenders((prev) => prev.filter((tender) => tender.id !== id));
     setOpenDropdown(null);
-    // your logic to mark as approved
-  };
+    console.log("Approved tender ID:", id);
+  }
+};
 
-  const handleDelete = (id: number) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this tender?"
-    );
-    if (confirmed) {
-      console.log("Deleted tender ID:", id);
+const handleDelete = (id: number) => {
+  const confirmed = window.confirm("Are you sure you want to delete this tender?");
+  if (confirmed) {
+    const tenderToDelete = tenders.find((tender) => tender.id === id);
+    if (tenderToDelete) {
+      setDeletedTenders((prev) => [...prev, tenderToDelete]);
+      setTenders((prev) => prev.filter((tender) => tender.id !== id));
       setOpenDropdown(null);
-      // your logic to delete
+      console.log("Deleted tender ID:", id);
     }
-  };
+  }
+};
+
   // Update filteredTenders whenever searchTerm or tenders change
   useEffect(() => {
     if (searchTerm.trim() === "") {
