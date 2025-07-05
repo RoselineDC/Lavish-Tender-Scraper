@@ -20,7 +20,8 @@ const TableWithPagination = () => {
   };
 
   return (
-    <div className="p-4 space-y-4"
+    <div className="p-4 space-y-4">
+
 
       {/* Pagination UI (YOUR DESIGN) */}
       <nav
