@@ -6,7 +6,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
 import { mock } from "node:test";
-import pagination from "path";
+import pagination from "./pagination";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
