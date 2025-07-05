@@ -63,14 +63,14 @@ export default function FilterBar() {
       closing_date: "2025-07-10",
       briefing_date: "2025-06-15",
       location: "Johannesburg",
-      tender_document_url:
+      tender_document_url: 
         "https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${tender.rowKey},
       tender_category: "Engineering",
       tender_type: "Open",
       tender_status: "Open",
       contact_person: "Jane Smith",
       contact_email: "jane@example.com",
-    },
+    },  
     {
       id: 1,
       institutionName: "Dept of Education",
