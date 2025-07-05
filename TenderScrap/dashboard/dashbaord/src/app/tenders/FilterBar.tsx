@@ -169,7 +169,29 @@ export default function FilterBar() {
     setCheckedFilters([]);
     setFilteredTenders(tenders);
   };
-  
+
+  // HANDLE APPROVE delete 
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+
+const handleDropdownToggle = (index: number) => {
+  setOpenDropdown(prev => (prev === index ? null : index));
+};
+
+const handleApprove = (id: number) => {
+  console.log("Approved tender ID:", id);
+  setOpenDropdown(null);
+  // your logic to mark as approved
+};
+
+const handleDelete = (id: number) => {
+  const confirmed = window.confirm("Are you sure you want to delete this tender?");
+  if (confirmed) {
+    console.log("Deleted tender ID:", id);
+    setOpenDropdown(null);
+    // your logic to delete
+  }
+};
+
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
