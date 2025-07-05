@@ -327,7 +327,7 @@ export default function FilterBar() {
               {/* <th scope="col" className="px-4 py-3">
                       Published Date
                     </th> */}
-              <th scope="col" className="px-5 py-3">
+              <th scope="col" className="px-6 py-3">
                 Closing Date
               </th>
               {/* <th scope="col" className="px-4 py-3">
