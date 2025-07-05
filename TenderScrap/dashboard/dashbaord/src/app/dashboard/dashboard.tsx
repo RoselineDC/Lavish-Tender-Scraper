@@ -51,7 +51,7 @@ const Dashboard: React.FC = () => {
         <Card
           link="documents"
           color="green"
-          title="ESSENTIAL "
+          title="ORDERS"
           subtitle="Downloads"
           footer="11k download in App store"
         />
