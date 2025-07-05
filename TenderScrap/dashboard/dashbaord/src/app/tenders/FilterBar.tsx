@@ -191,8 +191,6 @@ const handleDelete = (id: number) => {
     // your logic to delete
   }
 };
-
-
 // Update filteredTenders whenever searchTerm or tenders change
 useEffect(() => {
   if (searchTerm.trim() === "") {
