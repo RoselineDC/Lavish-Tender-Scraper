@@ -555,7 +555,7 @@ export default function FilterBar() {
             </li>
           </ul>
         </nav>
-        
+        </P
       </div>
     </div>
   );
