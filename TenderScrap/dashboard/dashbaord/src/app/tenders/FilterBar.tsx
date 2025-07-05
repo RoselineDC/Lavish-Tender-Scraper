@@ -63,13 +63,14 @@ export default function FilterBar() {
       closing_date: "2025-07-10",
       briefing_date: "2025-06-15",
       location: "Johannesburg",
-      tender_document_url: `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${tender.rowKey},
+      tender_document_url:
+        "https://www.transnet.net/tenders/rail-components.pdf",
       tender_category: "Engineering",
       tender_type: "Open",
       tender_status: "Open",
       contact_person: "Jane Smith",
       contact_email: "jane@example.com",
-    },  
+    },
     {
       id: 1,
       institutionName: "Dept of Education",
@@ -122,7 +123,6 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-  
   const [filteredTenders, setFilteredTenders] = useState(tenders);
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
