@@ -172,7 +172,9 @@ export default function FilterBar() {
   };
 
   // HANDLE APPROVE delete
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
+const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
+const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   const handleDropdownToggle = (index: number) => {
     setOpenDropdown((prev) => (prev === index ? null : index));
