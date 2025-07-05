@@ -191,6 +191,24 @@ const handleDelete = (id: number) => {
     // your logic to delete
   }
 };
+const [searchTerm, setSearchTerm] = useState("");
+
+// Update filteredTenders whenever searchTerm or tenders change
+useEffect(() => {
+  if (searchTerm.trim() === "") {
+    setFilteredTenders(tenders);
+  } else {
+    const term = searchTerm.toLowerCase();
+    setFilteredTenders(
+      tenders.filter(
+        (t) =>
+          t.institutionName.toLowerCase().includes(term) ||
+          t.tender_number.toLowerCase().includes(term) ||
+          t.description.toLowerCase().includes(term)
+      )
+    );
+  }
+}, [searchTerm, tenders]);
 
 
 
