@@ -1,4 +1,4 @@
-// "use client";
+/"use client";
 
 // import { useState } from "react";
 // import { FaChevronDown } from "react-icons/fa";
@@ -191,7 +191,194 @@
 //     // your logic to delete
 //   }
 // };
+"use client";
 
+import { useEffect, useState } from "react";
+import { RefreshCcw } from "lucide-react";
+import { TfiFilter } from "react-icons/tfi";
+
+const filters = {
+  institutionName: ["Transnet", "CSIR", "OTHERS"],
+  tender_category: [
+    "Goods",
+    "Services",
+    "Goods & Services",
+    "Siding Lease",
+    "Port Slot / Terminal Concession",
+    "RFQ (Request for Quotation)",
+    "RFP (Request for Proposal)",
+  ],
+  published_date_filter: [
+    "Today",
+    "Yesterday",
+    "Last 7 Days",
+    "Last 14 Days",
+    "This Month",
+    "Last Month",
+    "Last 3 Months",
+    "Custom Range",
+  ],
+};
+
+export default function FilterBar() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [tenders, setTenders] = useState([
+    {
+      id: 1,
+      institutionName: "Dept of Education",
+      tender_number: "DOE123",
+      description: "Supply of Stationery",
+      published_date: "2025-06-01",
+      closing_date: "2025-06-30",
+      briefing_date: "2025-06-10",
+      location: "Pretoria",
+      tender_document_url:
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_category: "Supplies",
+      tender_type: "Open",
+      tender_status: "Closed",
+      contact_person: "John Doe",
+      contact_email: "john@example.com",
+    },
+    {
+      id: 2,
+      institutionName: "Transnet",
+      tender_number: "TN1234",
+      description: "Supply of Rail Components",
+      published_date: "2025-06-10",
+      closing_date: "2025-07-10",
+      briefing_date: "2025-06-15",
+      location: "Johannesburg",
+      tender_document_url:
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_category: "Engineering",
+      tender_type: "Open",
+      tender_status: "Open",
+      contact_person: "Jane Smith",
+      contact_email: "jane@example.com",
+    },
+    {
+      id: 3,
+      institutionName: "Dept of Education",
+      tender_number: "3dw",
+      description: "Supply of documentation",
+      published_date: "2025-06-01",
+      closing_date: "2025-06-30",
+      briefing_date: "2025-06-10",
+      location: "Durban",
+      tender_document_url:
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_category: "Supplies",
+      tender_type: "Open",
+      tender_status: "Open",
+      contact_person: "John Doe",
+      contact_email: "john@example.com",
+    },
+    {
+      id: 4,
+      institutionName: "Transnet",
+      tender_number: "12345",
+      description: "Supply of Rail Components",
+      published_date: "2025-06-10",
+      closing_date: "2025-07-10",
+      briefing_date: "2025-06-15",
+      location: "Cape Town",
+      tender_document_url:
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_category: "Engineering",
+      tender_type: "Open",
+      tender_status: "Open",
+      contact_person: "Jane Smith",
+      contact_email: "jane@example.com",
+    },
+    {
+      id: 5,
+      institutionName: "TE",
+      tender_number: "TE/2025/06/0019/99459/RFQ",
+      description:
+        "REQUEST FOR AUTHORITY TO OBTAIN BIDS VIA THE OPEN BID PROCESS: REQUEST TO SOURCE A SERVICE PROVIDER WITH ASSESSING, FAULTFINDING, STRIP AND QUOTE AND REPAIRING OF THE KATCHER WAPP MACHINE IN THE LOCOMOTIVE BUSINESS, BLOEMFONTEIN",
+      published_date: "2025-06-24",
+      closing_date: "2025-07-07",
+      briefing_date: "2025-06-26",
+      location: "LOCOMOTIVES BLOEMFONTEIN",
+      tender_document_url:
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_category: "Goods & Services",
+      tender_type: "RFQ",
+      tender_status: "Open",
+      contact_person: "Naomi Jordaan",
+      contact_email: "Naomi.Jordaan@transnet.net",
+    },
+  ]);
+
+  const [filteredTenders, setFilteredTenders] = useState(tenders);
+
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setFilteredTenders(tenders);
+    } else {
+      const term = searchTerm.toLowerCase();
+      setFilteredTenders(
+        tenders.filter(
+          (t) =>
+            t.institutionName.toLowerCase().includes(term) ||
+            t.tender_number.toLowerCase().includes(term) ||
+            t.description.toLowerCase().includes(term)
+        )
+      );
+    }
+  }, [searchTerm, tenders]);
+
+  const applyFilters = (filters: number[]) => {
+    if (filters.length === 0) {
+      setFilteredTenders(tenders);
+    } else {
+      setFilteredTenders(tenders.filter((t) => filters.includes(t.id)));
+    }
+  };
+
+  const handleFilterChange = (id: number) => {
+    const updated = checkedFilters.includes(id)
+      ? checkedFilters.filter((fid) => fid !== id)
+      : [...checkedFilters, id];
+    setCheckedFilters(updated);
+    applyFilters(updated);
+  };
+
+  const handleRefresh = () => {
+    setCheckedFilters([]);
+    setSearchTerm("");
+    setFilteredTenders(tenders);
+  };
+
+  const handleDropdownToggle = (index: number) => {
+    setOpenDropdown((prev) => (prev === index ? null : index));
+  };
+
+  const handleApprove = (id: number) => {
+    setTenders((prev) =>
+      prev.map((t) =>
+        t.id === id ? { ...t, tender_status: "Approved" } : t
+      )
+    );
+    setFilteredTenders((prev) =>
+      prev.map((t) =>
+        t.id === id ? { ...t, tender_status: "Approved" } : t
+      )
+    );
+    setOpenDropdown(null);
+  };
+
+  const handleDelete = (id: number) => {
+    if (confirm("Are you sure you want to delete this tender?")) {
+      setTenders((prev) => prev.filter((t) => t.id !== id));
+      setFilteredTenders((prev) => prev.filter((t) => t.id !== id));
+      setOpenDropdown(null);
+    }
+  };
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition ">
