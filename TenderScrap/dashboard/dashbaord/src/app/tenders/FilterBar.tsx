@@ -191,7 +191,6 @@
 //     // your logic to delete
 //   }
 // };
-"use client";
 
 import { useEffect, useState } from "react";
 import { RefreshCcw } from "lucide-react";
