@@ -80,7 +80,8 @@ export default function FilterBar() {
       closing_date: "2025-06-30",
       briefing_date: "2025-06-10",
       location: "Durban",
-      tender_document_url: "http://example.com/doc.pdf",
+      tender_document_url:         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+
       tender_category: "Supplies",
       tender_type: "Open",
       tender_status: "Open",
