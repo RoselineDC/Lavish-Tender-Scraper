@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 
 const TableWithPagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,7 +15,7 @@ const TableWithPagination = () => {
     currentPage * itemsPerPage
   );
 
-  const handlePageClick = (page) => {
+  const handlePageClick = (page: SetStateAction<number>) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
