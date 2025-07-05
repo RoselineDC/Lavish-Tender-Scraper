@@ -73,7 +73,7 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
     {
-      id: 13,
+      id: 3,
       institutionName: "Dept of Education",
       tender_number: "3dw",
       description: "Supply of documentation",
@@ -91,7 +91,7 @@ export default function FilterBar() {
       contact_email: "john@example.com",
     },
     {
-      id: 2,
+      id: 4,
       institutionName: "Transnet",
       tender_number: "12345",
       description: "Supply of Rail Components",
@@ -108,7 +108,7 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
     {
-      id: 4,
+      id: 5,
       institutionName: "TE",
       tender_number: "TE/2025/06/0019/99459/RFQ",
       description:
