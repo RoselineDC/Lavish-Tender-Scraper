@@ -47,7 +47,7 @@ export default function FilterBar() {
       closing_date: "2025-06-30",
       briefing_date: "2025-06-10",
       location: "Pretoria",
-      tender_document_url: "http://example.com/doc.pdf",
+      tender_document_url: ,
       tender_category: "Supplies",
       tender_type: "Open",
       tender_status: "Open",
@@ -64,7 +64,7 @@ export default function FilterBar() {
       briefing_date: "2025-06-15",
       location: "Johannesburg",
       tender_document_url:
-        "https://www.transnet.net/tenders/rail-components.pdf",
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
       tender_category: "Engineering",
       tender_type: "Open",
       tender_status: "Open",
