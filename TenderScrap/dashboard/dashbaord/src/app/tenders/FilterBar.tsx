@@ -115,7 +115,8 @@ export default function FilterBar() {
       briefing_date: "2025-06-26",
       location: "LOCOMOTIVES BLOEMFONTEIN",
       tender_document_url:
-        "https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/",
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=100135
+",
       tender_category: "Goods & Services",
       tender_type: "RFQ",
       tender_status: "Open",
