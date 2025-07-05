@@ -73,7 +73,7 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
     {
-      id: 3,
+      id: 1,
       institutionName: "Dept of Education",
       tender_number: "3dw",
       description: "Supply of documentation",
@@ -91,7 +91,7 @@ export default function FilterBar() {
       contact_email: "john@example.com",
     },
     {
-      id: 4,
+      id: 2,
       institutionName: "Transnet",
       tender_number: "12345",
       description: "Supply of Rail Components",
@@ -108,7 +108,7 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
     {
-      id: ,
+      id: 4,
       institutionName: "TE",
       tender_number: "TE/2025/06/0019/99459/RFQ",
       description:
@@ -299,7 +299,7 @@ const handleDelete = (id: number) => {
           </div>
         </div>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-h">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
