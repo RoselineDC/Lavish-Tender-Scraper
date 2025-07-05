@@ -14,18 +14,19 @@ export interface TenderType {
   institutionName: string;
   tender_number: string;
   description: string;
-  published_date: string; // ISO date string; use Date if you prefer
+  published_date: string;      // ISO date string; use Date if you prefer
   closing_date: string;
   briefing_date: string;
   location: string;
   tender_document_url: string;
-  tender_category: string; // e.g. "Goods", "Engineering"
-  tender_type: string; // e.g. "Open", "RFQ", "RFP"
+  tender_category: string;     // e.g. "Goods", "Engineering"
+  tender_type: string;         // e.g. "Open", "RFQ", "RFP"
   tender_status: "Open" | "Closed";
   contact_person: string;
   contact_email: string;
-  rowKey?: string; // optional because it isn’t in every record
+  rowKey?: string;             // optional because it isn’t in every record
 }
+
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
@@ -191,38 +192,36 @@ export default function FilterBar() {
   };
 
   // HANDLE APPROVE delete
-  const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
-  const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
+const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
+const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   const handleDropdownToggle = (index: number) => {
     setOpenDropdown((prev) => (prev === index ? null : index));
   };
 
   const handleApprove = (id: number) => {
-    const tenderToApprove = tenders.find((tender) => tender.id === id);
-    if (tenderToApprove) {
-      setApprovedTenders((prev) => [...prev, tenderToApprove]);
+  const tenderToApprove = tenders.find((tender) => tender.id === id);
+  if (tenderToApprove) {
+    setApprovedTenders((prev) => [...prev, tenderToApprove]);
+    setTenders((prev) => prev.filter((tender) => tender.id !== id));
+    setOpenDropdown(null);
+    console.log("Approved tender ID:", id);
+  }
+};
+
+const handleDelete = (id: number) => {
+  const confirmed = window.confirm("Are you sure you want to delete this tender?");
+  if (confirmed) {
+    const tenderToDelete = tenders.find((tender) => tender.id === id);
+    if (tenderToDelete) {
+      setDeletedTenders((prev) => [...prev, tenderToDelete]);
       setTenders((prev) => prev.filter((tender) => tender.id !== id));
       setOpenDropdown(null);
-      console.log("Approved tender ID:", id);
+      console.log("Deleted tender ID:", id);
     }
-  };
-
-  const handleDelete = (id: number) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this tender?"
-    );
-    if (confirmed) {
-      const tenderToDelete = tenders.find((tender) => tender.id === id);
-      if (tenderToDelete) {
-        setDeletedTenders((prev) => [...prev, tenderToDelete]);
-        setTenders((prev) => prev.filter((tender) => tender.id !== id));
-        setOpenDropdown(null);
-        console.log("Deleted tender ID:", id);
-      }
-    }
-  };
+  }
+};
 
   // Update filteredTenders whenever searchTerm or tenders change
   useEffect(() => {
@@ -453,29 +452,30 @@ export default function FilterBar() {
                     </button>
 
                     {/* Dropdown Menu */}
-                    {tenders.map((tender) => (
-                      <div key={tender.id} className="...">
-                        {/* Your tender row */}
-                        <ul className="py-1 text-sm text-gray-700">
-                          <li>
-                            <button
-                              onClick={() => handleApprove(tender.id)}
-                              className="w-full text-left px-4 py-2 hover:bg-green-100"
-                            >
-                              ✅ Approve
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              onClick={() => handleDelete(tender.id)}
-                              className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
-                            >
-                              ❌ Delete
-                            </button>
-                          </li>
-                        </ul>
-                      </div>
-                    ))}
+                   {tenders.map((tender) => (
+  <div key={tender.id} className="...">
+    {/* Your tender row */}
+    <ul className="py-1 text-sm text-gray-700">
+      <li>
+        <button
+          onClick={() => handleApprove(tender.id)}
+          className="w-full text-left px-4 py-2 hover:bg-green-100"
+        >
+          ✅ Approve
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={() => handleDelete(tender.id)}
+          className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
+        >
+          ❌ Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+))}
+
                   </td>
                 </tr>
               ))
@@ -484,7 +484,8 @@ export default function FilterBar() {
         </table>
         {/* <tr className="border-b dark:border-gray-700"> */}
 
-        <TableWithPagination />
+        
+       <TableWithPagination />
       </div>
     </div>
   );
