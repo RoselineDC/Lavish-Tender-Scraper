@@ -105,21 +105,22 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
       {
-      id: 1,
-      institutionName: "Dept of Education",
-      tender_number: "DOE123",
-      description: "Supply of Stationery",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      briefing_date: "2025-06-10",
-      location: "Pretoria",
-      tender_document_url: "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=79500",
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
-    },   
+  id: 99459,
+  institutionName: "TE",
+  tender_number: "TE/2025/06/0019/99459/RFQ",
+  description: "REQUEST FOR AUTHORITY TO OBTAIN BIDS VIA THE OPEN BID PROCESS: REQUEST TO SOURCE A SERVICE PROVIDER WITH ASSESSING, FAULTFINDING, STRIP AND QUOTE AND REPAIRING OF THE KATCHER WAPP MACHINE IN THE LOCOMOTIVE BUSINESS, BLOEMFONTEIN",
+  published_date: "2025-06-24",
+  closing_date: "2025-07-07",
+  briefing_date: "2025-06-26",
+  location: "LOCOMOTIVES BLOEMFONTEIN",
+  tender_document_url: "https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/99459",
+  tender_category: "Goods & Services",
+  tender_type: "RFQ",
+  tender_status: "Open",
+  contact_person: "Naomi Jordaan    Transnet Engineering   BFN",
+  contact_email: "Naomi.Jordaan@transnet.net",
+}
+
 
     // Add more tenders as needed
   ]);
