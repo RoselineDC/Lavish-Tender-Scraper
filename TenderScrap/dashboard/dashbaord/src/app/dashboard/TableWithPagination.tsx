@@ -20,26 +20,26 @@ const TableWithPagination = () => {
   };
 
   return (
-    <div className="p-4 space-y-4">
-      {/* Table */}
-      <table className="w-full text-left border">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="p-2">#</th>
-            <th className="p-2">Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {paginatedData.map((item, index) => (
-            <tr key={index}>
-              <td className="p-2 border">
-                {(currentPage - 1) * itemsPerPage + index + 1}
-              </td>
-              <td className="p-2 border">{item}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    // <div className="p-4 space-y-4">
+    //   {/* Table */}
+    //   <table className="w-full text-left border">
+    //     <thead>
+    //       <tr className="bg-gray-100">
+    //         <th className="p-2">#</th>
+    //         <th className="p-2">Name</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {paginatedData.map((item, index) => (
+    //         <tr key={index}>
+    //           <td className="p-2 border">
+    //             {(currentPage - 1) * itemsPerPage + index + 1}
+    //           </td>
+    //           <td className="p-2 border">{item}</td>
+    //         </tr>
+    //       ))}
+    //     </tbody>
+    //   </table>
 
       {/* Pagination UI (YOUR DESIGN) */}
       <nav
