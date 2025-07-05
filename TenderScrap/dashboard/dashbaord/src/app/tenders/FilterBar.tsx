@@ -104,28 +104,28 @@ export default function FilterBar() {
       contact_person: "Jane Smith",
       contact_email: "jane@example.com",
     },
-      {
-  id: 99459,
-  institutionName: "TE",
-  tender_number: "TE/2025/06/0019/99459/RFQ",
-  description: "REQUEST FOR AUTHORITY TO OBTAIN BIDS VIA THE OPEN BID PROCESS: REQUEST TO SOURCE A SERVICE PROVIDER WITH ASSESSING, FAULTFINDING, STRIP AND QUOTE AND REPAIRING OF THE KATCHER WAPP MACHINE IN THE LOCOMOTIVE BUSINESS, BLOEMFONTEIN",
-  published_date: "2025-06-24",
-  closing_date: "2025-07-07",
-  briefing_date: "2025-06-26",
-  location: "LOCOMOTIVES BLOEMFONTEIN",
-  tender_document_url: "https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/99459",
-  tender_category: "Goods & Services",
-  tender_type: "RFQ",
-  tender_status: "Open",
-  contact_person: "Naomi Jordaan    Transnet Engineering   BFN",
-  contact_email: "Naomi.Jordaan@transnet.net",
-}
-
+    {
+      id: 99459,
+      institutionName: "TE",
+      tender_number: "TE/2025/06/0019/99459/RFQ",
+      description:
+        "REQUEST FOR AUTHORITY TO OBTAIN BIDS VIA THE OPEN BID PROCESS: REQUEST TO SOURCE A SERVICE PROVIDER WITH ASSESSING, FAULTFINDING, STRIP AND QUOTE AND REPAIRING OF THE KATCHER WAPP MACHINE IN THE LOCOMOTIVE BUSINESS, BLOEMFONTEIN",
+      published_date: "2025-06-24",
+      closing_date: "2025-07-07",
+      briefing_date: "2025-06-26",
+      location: "LOCOMOTIVES BLOEMFONTEIN",
+      tender_document_url:
+        "https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/99459",
+      tender_category: "Goods & Services",
+      tender_type: "RFQ",
+      tender_status: "Open",
+      contact_person: "Naomi Jordaan    Transnet Engineering   BFN",
+      contact_email: "Naomi.Jordaan@transnet.net",
+    },
 
     // Add more tenders as needed
   ]);
   const tenderDocumentUrl = `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${rowKey}`;
-;
   const [filteredTenders, setFilteredTenders] = useState(tenders);
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
@@ -146,8 +146,7 @@ export default function FilterBar() {
     setSelected({ ...selected, [key]: value });
   };
 
- const toggleDropdown = () => setShowDropdown((prev) => !prev);
-
+  const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
   // filter tenders based on search term
   const handleFilterChange = (filterId: number) => {
