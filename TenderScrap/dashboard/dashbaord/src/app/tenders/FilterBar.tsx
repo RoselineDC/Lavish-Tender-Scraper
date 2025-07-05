@@ -123,8 +123,7 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-  const tenderDocumentUrl = `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${tender.rowKey}`;
-
+  
   const [filteredTenders, setFilteredTenders] = useState(tenders);
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
