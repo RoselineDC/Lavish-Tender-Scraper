@@ -170,78 +170,77 @@ export default function FilterBar() {
     setFilteredTenders(tenders);
   };
 
-  // HANDLE APPROVE delete 
+  // HANDLE APPROVE delete
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-const handleDropdownToggle = (index: number) => {
-  setOpenDropdown(prev => (prev === index ? null : index));
-};
+  const handleDropdownToggle = (index: number) => {
+    setOpenDropdown((prev) => (prev === index ? null : index));
+  };
 
-const handleApprove = (id: number) => {
-  console.log("Approved tender ID:", id);
-  setOpenDropdown(null);
-  // your logic to mark as approved
-};
-
-const handleDelete = (id: number) => {
-  const confirmed = window.confirm("Are you sure you want to delete this tender?");
-  if (confirmed) {
-    console.log("Deleted tender ID:", id);
+  const handleApprove = (id: number) => {
+    console.log("Approved tender ID:", id);
     setOpenDropdown(null);
-    // your logic to delete
-  }
-};
-// Update filteredTenders whenever searchTerm or tenders change
-useEffect(() => {
-  if (searchTerm.trim() === "") {
-    setFilteredTenders(tenders);
-  } else {
-    const term = searchTerm.toLowerCase();
-    setFilteredTenders(
-      tenders.filter(
-        (t) =>
-          t.institutionName.toLowerCase().includes(term) ||
-          t.tender_number.toLowerCase().includes(term) ||
-          t.description.toLowerCase().includes(term)||
-          t.tender_category.toLowerCase().includes(term) ||
-          t.location.toLowerCase().includes(term) ||
-          t.contact_person.toLowerCase().includes(term) ||
-          t.contact_email.toLowerCase().includes(term) ||
-          t.tender_status.toLowerCase().includes(term)
-      )
+    // your logic to mark as approved
+  };
+
+  const handleDelete = (id: number) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this tender?"
     );
-  }
-}, [searchTerm, tenders]);
-
-
+    if (confirmed) {
+      console.log("Deleted tender ID:", id);
+      setOpenDropdown(null);
+      // your logic to delete
+    }
+  };
+  // Update filteredTenders whenever searchTerm or tenders change
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setFilteredTenders(tenders);
+    } else {
+      const term = searchTerm.toLowerCase();
+      setFilteredTenders(
+        tenders.filter(
+          (t) =>
+            t.institutionName.toLowerCase().includes(term) ||
+            t.tender_number.toLowerCase().includes(term) ||
+            t.description.toLowerCase().includes(term) ||
+            t.tender_category.toLowerCase().includes(term) ||
+            t.location.toLowerCase().includes(term) ||
+            t.contact_person.toLowerCase().includes(term) ||
+            t.contact_email.toLowerCase().includes(term) ||
+            t.tender_status.toLowerCase().includes(term)
+        )
+      );
+    }
+  }, [searchTerm, tenders]);
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition ">
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div className="relative w-full">
-  <input
-    type="text"
-    placeholder="Search tenders"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full pl-10 p-2"
-  />
-  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-    <svg
-      aria-hidden="true"
-      className="w-5 h-5 text-gray-500"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-    >
-      <path
-        fillRule="evenodd"
-        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-        clipRule="evenodd"
-      />
-    </svg>
-  </div>
-</div>
-
+          <input
+            type="text"
+            placeholder="Search tenders"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full pl-10 p-2"
+          />
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg
+              aria-hidden="true"
+              className="w-5 h-5 text-gray-500"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
         <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
           <div className="flex items-center space-x-3 w-full md:w-auto">
             <button
