@@ -119,11 +119,12 @@ export default function FilterBar() {
       tender_status: "Open",
       contact_person: "John Doe",
       contact_email: "john@example.com",
-    },
-    
+    },   
 
     // Add more tenders as needed
   ]);
+  const tenderDocumentUrl = `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${tender.rowKey}`;
+
   const [filteredTenders, setFilteredTenders] = useState(tenders);
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
