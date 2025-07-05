@@ -123,7 +123,7 @@ export default function FilterBar() {
 
     // Add more tenders as needed
   ]);
-  const tender
+  const tenderDocumentUrl = "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=79500";
   const [filteredTenders, setFilteredTenders] = useState(tenders);
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
