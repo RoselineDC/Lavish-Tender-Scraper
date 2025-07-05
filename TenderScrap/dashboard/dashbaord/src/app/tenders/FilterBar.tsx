@@ -452,31 +452,30 @@ const handleDelete = (id: number) => {
                     </button>
 
                     {/* Dropdown Menu */}
-                    <div
-                      id={`tender-actions-dropdown-${index}`}
-                      className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${
-                        openDropdown === index ? "" : "hidden"
-                      }`}
-                    >
-                      <ul className="py-1 text-sm text-gray-700">
-                        <li>
-                          <button
-                            onClick={() => handleApprove(tender.id)}
-                            className="w-full text-left px-4 py-2 hover:bg-green-100"
-                          >
-                            ✅ Approve
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            onClick={() => handleDelete(tender.id)}
-                            className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
-                          >
-                            ❌ Delete
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
+                   {tenders.map((tender) => (
+  <div key={tender.id} className="...">
+    {/* Your tender row */}
+    <ul className="py-1 text-sm text-gray-700">
+      <li>
+        <button
+          onClick={() => handleApprove(tender.id)}
+          className="w-full text-left px-4 py-2 hover:bg-green-100"
+        >
+          ✅ Approve
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={() => handleDelete(tender.id)}
+          className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
+        >
+          ❌ Delete
+        </button>
+      </li>
+    </ul>
+  </div>
+))}
+
                   </td>
                 </tr>
               ))
