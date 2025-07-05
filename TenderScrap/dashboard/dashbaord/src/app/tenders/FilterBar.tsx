@@ -50,7 +50,7 @@ export default function FilterBar() {
       tender_document_url:         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
       tender_category: "Supplies",
       tender_type: "Open",
-      tender_status: "C",
+      tender_status: "Closed",
       contact_person: "John Doe",
       contact_email: "john@example.com",
     },
