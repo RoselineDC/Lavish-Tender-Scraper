@@ -556,7 +556,7 @@ export default function FilterBar() {
             </li>
           </ul>
         </nav>
-       <Pagination />
+       <pagination />
       </div>
     </div>
   );
