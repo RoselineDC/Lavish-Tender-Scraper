@@ -113,7 +113,7 @@ export default function FilterBar() {
       closing_date: "2025-06-30",
       briefing_date: "2025-06-10",
       location: "Pretoria",
-      tender_document_url: "http://example.com/doc.pd",
+      tender_document_url: ",
       tender_category: "Supplies",
       tender_type: "Open",
       tender_status: "Open",
