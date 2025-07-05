@@ -6,6 +6,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
 import { mock } from "node:test";
+import Pagination from "@mui/material/Pagination";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
@@ -555,7 +556,7 @@ export default function FilterBar() {
             </li>
           </ul>
         </nav>
-       
+       <Pagination /
       </div>
     </div>
   );
