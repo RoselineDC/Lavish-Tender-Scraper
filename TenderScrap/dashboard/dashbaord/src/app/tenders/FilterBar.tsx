@@ -1,196 +1,196 @@
-"use client";
+// "use client";
 
-import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
-// import { FcRefresh } from "react-icons/fc";
-import { RefreshCcw } from "lucide-react";
-import { TfiFilter } from "react-icons/tfi";
-import { mock } from "node:test";
+// import { useState } from "react";
+// import { FaChevronDown } from "react-icons/fa";
+// // import { FcRefresh } from "react-icons/fc";
+// import { RefreshCcw } from "lucide-react";
+// import { TfiFilter } from "react-icons/tfi";
+// import { mock } from "node:test";
 
-const filters = {
-  institutionName: ["Transnet", "CSIR", "OTHERS"],
-  tender_category: [
-    "Goods",
-    "Services",
-    "Goods & Services",
-    "Siding Lease",
-    "Port Slot / Terminal Concession",
-    "RFQ (Request for Quotation)",
-    "RFP (Request for Proposal)",
-  ],
-  published_date_filter: [
-    "Today",
-    "Yesterday",
-    "Last 7 Days",
-    "Last 14 Days",
-    "This Month",
-    "Last Month",
-    "Last 3 Months",
-    "Custom Range",
-  ],
-};
+// const filters = {
+//   institutionName: ["Transnet", "CSIR", "OTHERS"],
+//   tender_category: [
+//     "Goods",
+//     "Services",
+//     "Goods & Services",
+//     "Siding Lease",
+//     "Port Slot / Terminal Concession",
+//     "RFQ (Request for Quotation)",
+//     "RFP (Request for Proposal)",
+//   ],
+//   published_date_filter: [
+//     "Today",
+//     "Yesterday",
+//     "Last 7 Days",
+//     "Last 14 Days",
+//     "This Month",
+//     "Last Month",
+//     "Last 3 Months",
+//     "Custom Range",
+//   ],
+// };
 
-export default function FilterBar() {
-  const [searchTerm, setSearchTerm] = useState("");
+// export default function FilterBar() {
+//   const [searchTerm, setSearchTerm] = useState("");
 
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
+//   const [showDropdown, setShowDropdown] = useState(false);
+//   const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
 
-  // store tender
-  const [tenders, setTenders] = useState([
-    {
-      id: 1,
-      institutionName: "Dept of Education",
-      tender_number: "DOE123",
-      description: "Supply of Stationery",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      briefing_date: "2025-06-10",
-      location: "Pretoria",
-      tender_document_url:
-        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Closed",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
-    },
-    {
-      id: 2,
-      institutionName: "Transnet",
-      tender_number: "TN1234",
-      description: "Supply of Rail Components",
-      published_date: "2025-06-10",
-      closing_date: "2025-07-10",
-      briefing_date: "2025-06-15",
-      location: "Johannesburg",
-      tender_document_url:
-        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Engineering",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "Jane Smith",
-      contact_email: "jane@example.com",
-    },
-    {
-      id: 3,
-      institutionName: "Dept of Education",
-      tender_number: "3dw",
-      description: "Supply of documentation",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      briefing_date: "2025-06-10",
-      location: "Durban",
-      tender_document_url:
-        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+//   // store tender
+//   const [tenders, setTenders] = useState([
+//     {
+//       id: 1,
+//       institutionName: "Dept of Education",
+//       tender_number: "DOE123",
+//       description: "Supply of Stationery",
+//       published_date: "2025-06-01",
+//       closing_date: "2025-06-30",
+//       briefing_date: "2025-06-10",
+//       location: "Pretoria",
+//       tender_document_url:
+//         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+//       tender_category: "Supplies",
+//       tender_type: "Open",
+//       tender_status: "Closed",
+//       contact_person: "John Doe",
+//       contact_email: "john@example.com",
+//     },
+//     {
+//       id: 2,
+//       institutionName: "Transnet",
+//       tender_number: "TN1234",
+//       description: "Supply of Rail Components",
+//       published_date: "2025-06-10",
+//       closing_date: "2025-07-10",
+//       briefing_date: "2025-06-15",
+//       location: "Johannesburg",
+//       tender_document_url:
+//         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+//       tender_category: "Engineering",
+//       tender_type: "Open",
+//       tender_status: "Open",
+//       contact_person: "Jane Smith",
+//       contact_email: "jane@example.com",
+//     },
+//     {
+//       id: 3,
+//       institutionName: "Dept of Education",
+//       tender_number: "3dw",
+//       description: "Supply of documentation",
+//       published_date: "2025-06-01",
+//       closing_date: "2025-06-30",
+//       briefing_date: "2025-06-10",
+//       location: "Durban",
+//       tender_document_url:
+//         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
 
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
-    },
-    {
-      id: 4,
-      institutionName: "Transnet",
-      tender_number: "12345",
-      description: "Supply of Rail Components",
-      published_date: "2025-06-10",
-      closing_date: "2025-07-10",
-      briefing_date: "2025-06-15",
-      location: "cape town",
-      tender_document_url:
-        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Engineering",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "Jane Smith",
-      contact_email: "jane@example.com",
-    },
-    {
-      id: 5,
-      institutionName: "TE",
-      tender_number: "TE/2025/06/0019/99459/RFQ",
-      description:
-        "REQUEST FOR AUTHORITY TO OBTAIN BIDS VIA THE OPEN BID PROCESS: REQUEST TO SOURCE A SERVICE PROVIDER WITH ASSESSING, FAULTFINDING, STRIP AND QUOTE AND REPAIRING OF THE KATCHER WAPP MACHINE IN THE LOCOMOTIVE BUSINESS, BLOEMFONTEIN",
-      published_date: "2025-06-24",
-      closing_date: "2025-07-07",
-      briefing_date: "2025-06-26",
-      location: "LOCOMOTIVES BLOEMFONTEIN",
-      tender_document_url:
-        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Goods & Services",
-      tender_type: "RFQ",
-      tender_status: "Open",
-      contact_person: "Naomi Jordaan    Transnet Engineering   BFN",
-      contact_email: "Naomi.Jordaan@transnet.net",
-      rowKey: "99459",
-    },
+//       tender_category: "Supplies",
+//       tender_type: "Open",
+//       tender_status: "Open",
+//       contact_person: "John Doe",
+//       contact_email: "john@example.com",
+//     },
+//     {
+//       id: 4,
+//       institutionName: "Transnet",
+//       tender_number: "12345",
+//       description: "Supply of Rail Components",
+//       published_date: "2025-06-10",
+//       closing_date: "2025-07-10",
+//       briefing_date: "2025-06-15",
+//       location: "cape town",
+//       tender_document_url:
+//         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+//       tender_category: "Engineering",
+//       tender_type: "Open",
+//       tender_status: "Open",
+//       contact_person: "Jane Smith",
+//       contact_email: "jane@example.com",
+//     },
+//     {
+//       id: 5,
+//       institutionName: "TE",
+//       tender_number: "TE/2025/06/0019/99459/RFQ",
+//       description:
+//         "REQUEST FOR AUTHORITY TO OBTAIN BIDS VIA THE OPEN BID PROCESS: REQUEST TO SOURCE A SERVICE PROVIDER WITH ASSESSING, FAULTFINDING, STRIP AND QUOTE AND REPAIRING OF THE KATCHER WAPP MACHINE IN THE LOCOMOTIVE BUSINESS, BLOEMFONTEIN",
+//       published_date: "2025-06-24",
+//       closing_date: "2025-07-07",
+//       briefing_date: "2025-06-26",
+//       location: "LOCOMOTIVES BLOEMFONTEIN",
+//       tender_document_url:
+//         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+//       tender_category: "Goods & Services",
+//       tender_type: "RFQ",
+//       tender_status: "Open",
+//       contact_person: "Naomi Jordaan    Transnet Engineering   BFN",
+//       contact_email: "Naomi.Jordaan@transnet.net",
+//       rowKey: "99459",
+//     },
 
-    // Add more tenders as needed
-  ]);
-  // const tenderDocumentUrl = `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${rowKey}`;
-  const [filteredTenders, setFilteredTenders] = useState(tenders);
-  const [selected, setSelected] = useState({
-    institutionName: filters.institutionName[0],
-    tender_category: filters.tender_category[0],
-    published_date_filter: filters.published_date_filter[0],
-  });
-  const applyFilters = (filters: number[]) => {
-    if (filters.length === 0) {
-      setFilteredTenders(tenders);
-      return;
-    }
+//     // Add more tenders as needed
+//   ]);
+//   // const tenderDocumentUrl = `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${rowKey}`;
+//   const [filteredTenders, setFilteredTenders] = useState(tenders);
+//   const [selected, setSelected] = useState({
+//     institutionName: filters.institutionName[0],
+//     tender_category: filters.tender_category[0],
+//     published_date_filter: filters.published_date_filter[0],
+//   });
+//   const applyFilters = (filters: number[]) => {
+//     if (filters.length === 0) {
+//       setFilteredTenders(tenders);
+//       return;
+//     }
 
-    const filtered = tenders.filter((tender) => filters.includes(tender.id));
-    setFilteredTenders(filtered);
-  };
+//     const filtered = tenders.filter((tender) => filters.includes(tender.id));
+//     setFilteredTenders(filtered);
+//   };
 
-  const handleChange = (key: string, value: string) => {
-    setSelected({ ...selected, [key]: value });
-  };
+//   const handleChange = (key: string, value: string) => {
+//     setSelected({ ...selected, [key]: value });
+//   };
 
-  const toggleDropdown = () => setShowDropdown((prev) => !prev);
+//   const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
-  // filter tenders based on search term
-  const handleFilterChange = (filterId: number) => {
-    let updatedFilters = [...checkedFilters];
+//   // filter tenders based on search term
+//   const handleFilterChange = (filterId: number) => {
+//     let updatedFilters = [...checkedFilters];
 
-    if (updatedFilters.includes(filterId)) {
-      updatedFilters = updatedFilters.filter((id) => id !== filterId);
-    } else {
-      updatedFilters.push(filterId);
-    }
+//     if (updatedFilters.includes(filterId)) {
+//       updatedFilters = updatedFilters.filter((id) => id !== filterId);
+//     } else {
+//       updatedFilters.push(filterId);
+//     }
 
-    setCheckedFilters(updatedFilters);
-    applyFilters(updatedFilters);
-  };
-  const handleRefresh = () => {
-    setCheckedFilters([]);
-    setFilteredTenders(tenders);
-  };
+//     setCheckedFilters(updatedFilters);
+//     applyFilters(updatedFilters);
+//   };
+//   const handleRefresh = () => {
+//     setCheckedFilters([]);
+//     setFilteredTenders(tenders);
+//   };
 
-  // HANDLE APPROVE delete 
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+//   // HANDLE APPROVE delete 
+//   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-const handleDropdownToggle = (index: number) => {
-  setOpenDropdown(prev => (prev === index ? null : index));
-};
+// const handleDropdownToggle = (index: number) => {
+//   setOpenDropdown(prev => (prev === index ? null : index));
+// };
 
-const handleApprove = (id: number) => {
-  console.log("Approved tender ID:", id);
-  setOpenDropdown(null);
-  // your logic to mark as approved
-};
+// const handleApprove = (id: number) => {
+//   console.log("Approved tender ID:", id);
+//   setOpenDropdown(null);
+//   // your logic to mark as approved
+// };
 
-const handleDelete = (id: number) => {
-  const confirmed = window.confirm("Are you sure you want to delete this tender?");
-  if (confirmed) {
-    console.log("Deleted tender ID:", id);
-    setOpenDropdown(null);
-    // your logic to delete
-  }
-};
+// const handleDelete = (id: number) => {
+//   const confirmed = window.confirm("Are you sure you want to delete this tender?");
+//   if (confirmed) {
+//     console.log("Deleted tender ID:", id);
+//     setOpenDropdown(null);
+//     // your logic to delete
+//   }
+// };
 
 
   return (
