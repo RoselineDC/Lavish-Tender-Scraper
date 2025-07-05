@@ -120,6 +120,7 @@ export default function FilterBar() {
       contact_person: "John Doe",
       contact_email: "john@example.com",
     },
+    
 
     // Add more tenders as needed
   ]);
