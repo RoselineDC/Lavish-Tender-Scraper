@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import FilterBar from './FilterBar';
+import Card from "@mui/material/Card";
 
 interface Tender {
   id: number;
