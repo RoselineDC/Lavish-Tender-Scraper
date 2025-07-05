@@ -60,7 +60,46 @@ const TenderTable: React.FC = () => {
 
   return (
     <>
-    
+     <div className="p-6 bg-gray-100 min-h-screen space-y-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 ">
+        
+        <Card
+          link="suppliers"
+          color="green"
+          title="Daily Progress"
+          subtitle="Tasks"
+          footer="28% task performance"
+        />
+        
+        {/* <Card
+        link="/pages/Suppliers"
+        color="red"
+        title="145"
+        subtitle="Tasks"
+        footer="28% task performance"
+      /> */}
+        <Card
+          link="analytics"
+          color="green"
+          title="ANALYTICS"
+          subtitle="Page Views"
+          footer="10k daily views"
+        />
+        <Card
+          link="documents"
+          color="green"
+          title="ORDERS"
+          subtitle="Purchase Orders REPORT"
+          footer="Pending and Paid Orders"
+        />
+        <Card
+          link="/tenders"
+          color="green"
+          title="Tenders"
+          subtitle="All Tenders"
+          footer="10% changes on profit"
+        />
+      </div>
     
 
     </>
