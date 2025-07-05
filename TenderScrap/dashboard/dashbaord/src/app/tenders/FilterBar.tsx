@@ -7,6 +7,8 @@ import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
 import { mock } from "node:test";
 import TableWithPagination from "../dashboard/TableWithPagination";
+
+// Define the TenderType interface
 export interface TenderType {
   id: number;
   institutionName: string;
