@@ -64,7 +64,7 @@ export default function FilterBar() {
       briefing_date: "2025-06-15",
       location: "Johannesburg",
       tender_document_url:
-        "https://www.transnet.net/tenders/rail-components.pdf",
+        "https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${tender.rowKey},
       tender_category: "Engineering",
       tender_type: "Open",
       tender_status: "Open",
