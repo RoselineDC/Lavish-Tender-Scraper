@@ -73,7 +73,7 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
     {
-      id: 1,
+      id: 13,
       institutionName: "Dept of Education",
       tender_number: "3dw",
       description: "Supply of documentation",
