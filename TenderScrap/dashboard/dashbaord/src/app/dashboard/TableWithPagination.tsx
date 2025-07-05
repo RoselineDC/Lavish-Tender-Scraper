@@ -13,7 +13,7 @@ const TableWithPagination = () => {
     currentPage * itemsPerPage
   );
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: ) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
