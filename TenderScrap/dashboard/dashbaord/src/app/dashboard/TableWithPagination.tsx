@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const PaginationTable = () => {
+const TableWithPagination = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const data = Array.from({ length: 1000 }, (_, i) => `Row ${i + 1}`);
@@ -138,4 +138,4 @@ const PaginationTable = () => {
   );
 };
 
-export default PaginationTable;
+export default TableWithPagination;
