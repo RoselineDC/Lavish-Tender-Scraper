@@ -106,9 +106,7 @@ export default function FilterBar() {
     },
       {
       
-attachment 
-: 
-"https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/99459"
+attachment: https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/99459"
 briefingDate
 : 
 "6/26/2025 10:00:00 AM"
