@@ -121,6 +121,7 @@ export default function FilterBar() {
       tender_status: "Open",
       contact_person: "Naomi Jordaan    Transnet Engineering   BFN",
       contact_email: "Naomi.Jordaan@transnet.net",
+      rowKey: "99459",
     },
 
     // Add more tenders as needed
