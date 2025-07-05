@@ -191,7 +191,7 @@ const handleDelete = (id: number) => {
     // your logic to delete
   }
 };
-const [searchTerm, setSearchTerm] = useState("");
+
 
 // Update filteredTenders whenever searchTerm or tenders change
 useEffect(() => {
