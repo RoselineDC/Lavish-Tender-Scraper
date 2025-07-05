@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
+// import { FcRefresh } from "react-icons/fc";
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
+import { mock } from "node:test";
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
@@ -29,9 +32,11 @@ const filters = {
 
 export default function FilterBar() {
   const [searchTerm, setSearchTerm] = useState("");
+
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+
+  // store tender
   const [tenders, setTenders] = useState([
     {
       id: 1,
@@ -68,7 +73,7 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
     {
-      id: 3,
+      id: 1,
       institutionName: "Dept of Education",
       tender_number: "3dw",
       description: "Supply of documentation",
@@ -78,6 +83,7 @@ export default function FilterBar() {
       location: "Durban",
       tender_document_url:
         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+
       tender_category: "Supplies",
       tender_type: "Open",
       tender_status: "Open",
@@ -85,14 +91,14 @@ export default function FilterBar() {
       contact_email: "john@example.com",
     },
     {
-      id: 4,
+      id: 2,
       institutionName: "Transnet",
       tender_number: "12345",
       description: "Supply of Rail Components",
       published_date: "2025-06-10",
       closing_date: "2025-07-10",
       briefing_date: "2025-06-15",
-      location: "Cape Town",
+      location: "cape town",
       tender_document_url:
         "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
       tender_category: "Engineering",
@@ -102,7 +108,7 @@ export default function FilterBar() {
       contact_email: "jane@example.com",
     },
     {
-      id: 5,
+      id: 4,
       institutionName: "TE",
       tender_number: "TE/2025/06/0019/99459/RFQ",
       description:
@@ -116,184 +122,438 @@ export default function FilterBar() {
       tender_category: "Goods & Services",
       tender_type: "RFQ",
       tender_status: "Open",
-      contact_person: "Naomi Jordaan",
+      contact_person: "Naomi Jordaan    Transnet Engineering   BFN",
       contact_email: "Naomi.Jordaan@transnet.net",
+      rowKey: "99459",
     },
+
+    // Add more tenders as needed
   ]);
-
+  // const tenderDocumentUrl = `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${rowKey}`;
   const [filteredTenders, setFilteredTenders] = useState(tenders);
-
-  useEffect(() => {
-    if (searchTerm.trim() === "") {
-      setFilteredTenders(tenders);
-    } else {
-      const term = searchTerm.toLowerCase();
-      setFilteredTenders(
-        tenders.filter(
-          (t) =>
-            t.institutionName.toLowerCase().includes(term) ||
-            t.tender_number.toLowerCase().includes(term) ||
-            t.description.toLowerCase().includes(term)
-        )
-      );
-    }
-  }, [searchTerm, tenders]);
-
+  const [selected, setSelected] = useState({
+    institutionName: filters.institutionName[0],
+    tender_category: filters.tender_category[0],
+    published_date_filter: filters.published_date_filter[0],
+  });
   const applyFilters = (filters: number[]) => {
     if (filters.length === 0) {
       setFilteredTenders(tenders);
-    } else {
-      setFilteredTenders(tenders.filter((t) => filters.includes(t.id)));
+      return;
     }
+
+    const filtered = tenders.filter((tender) => filters.includes(tender.id));
+    setFilteredTenders(filtered);
   };
 
-  const handleFilterChange = (id: number) => {
-    const updated = checkedFilters.includes(id)
-      ? checkedFilters.filter((fid) => fid !== id)
-      : [...checkedFilters, id];
-    setCheckedFilters(updated);
-    applyFilters(updated);
+  const handleChange = (key: string, value: string) => {
+    setSelected({ ...selected, [key]: value });
   };
 
+  const toggleDropdown = () => setShowDropdown((prev) => !prev);
+
+  // filter tenders based on search term
+  const handleFilterChange = (filterId: number) => {
+    let updatedFilters = [...checkedFilters];
+
+    if (updatedFilters.includes(filterId)) {
+      updatedFilters = updatedFilters.filter((id) => id !== filterId);
+    } else {
+      updatedFilters.push(filterId);
+    }
+
+    setCheckedFilters(updatedFilters);
+    applyFilters(updatedFilters);
+  };
   const handleRefresh = () => {
     setCheckedFilters([]);
-    setSearchTerm("");
     setFilteredTenders(tenders);
   };
 
-  const handleDropdownToggle = (index: number) => {
-    setOpenDropdown((prev) => (prev === index ? null : index));
-  };
+  // HANDLE APPROVE delete 
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-  const handleApprove = (id: number) => {
-    setTenders((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, tender_status: "Approved" } : t))
-    );
-    setFilteredTenders((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, tender_status: "Approved" } : t))
-    );
+const handleDropdownToggle = (index: number) => {
+  setOpenDropdown(prev => (prev === index ? null : index));
+};
+
+const handleApprove = (id: number) => {
+  console.log("Approved tender ID:", id);
+  setOpenDropdown(null);
+  // your logic to mark as approved
+};
+
+const handleDelete = (id: number) => {
+  const confirmed = window.confirm("Are you sure you want to delete this tender?");
+  if (confirmed) {
+    console.log("Deleted tender ID:", id);
     setOpenDropdown(null);
-  };
+    // your logic to delete
+  }
+};
 
-  const handleDelete = (id: number) => {
-    if (confirm("Are you sure you want to delete this tender?")) {
-      setTenders((prev) => prev.filter((t) => t.id !== id));
-      setFilteredTenders((prev) => prev.filter((t) => t.id !== id));
-      setOpenDropdown(null);
-    }
-  };
 
   return (
-    <div className="p-4">
-      <div className="mb-4 flex gap-4 items-center">
-        <input
-          type="text"
-          className="border px-3 py-1 rounded w-64"
-          placeholder="Search tenders..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button onClick={handleRefresh} className="flex items-center gap-1 bg-green-600 text-white px-3 py-1 rounded">
-          <RefreshCcw size={16} /> Refresh
-        </button>
-        <button onClick={() => setShowDropdown(!showDropdown)} className="flex items-center gap-1 border px-3 py-1 rounded">
-          <TfiFilter /> Filters
-        </button>
-      </div>
+    <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition ">
+      <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+        <div className="w-full md:w-1/2">
+          <form className="flex items-center">
+            <label htmlFor="simple-search" className="sr-only">
+              Search
+            </label>
+            <div className="relative w-full">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="simple-search"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                placeholder="Search"
+                required={true}
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          </form>
+        </div>
+        <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+          <div className="flex items-center space-x-3 w-full md:w-auto">
+            <button
+              id="refreshButton"
+              onClick={handleRefresh}
+              className=" md:w-auto flex items-center justify-center py-2 px-4 text-sm font-bold text-white focus:outline-none bg-green-500 rounded-lg border hover:bg-green-900 hover:text-primary-700"
+              type="button"
+              title="Refresh the table"
+            >
+              <RefreshCcw className="mr-2" />
+              Refresh
+            </button>
 
-      {showDropdown && (
-        <div className="mb-4 border p-2 rounded bg-gray-100">
-          <strong>Institution Filters</strong>
-          <div className="flex flex-wrap gap-2 mt-2">
-            {tenders.map((tender) => (
-              <label key={tender.id} className="flex items-center gap-1">
-                <input
-                  type="checkbox"
-                  checked={checkedFilters.includes(tender.id)}
-                  onChange={() => handleFilterChange(tender.id)}
-                />
-                {tender.institutionName} ({tender.id})
-              </label>
-            ))}
+            <div className="relative inline-block text-left w-full md:w-auto">
+              <button
+                id="filterDropdownButton"
+                onClick={toggleDropdown}
+                className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                type="button"
+              >
+                <TfiFilter className="mr-2" />
+                Filter
+                <svg
+                  className="-mr-1 ml-1.5 w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    clipRule="evenodd"
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  />
+                </svg>
+              </button>
+
+              {showDropdown && (
+                <div
+                  id="filterDropdown"
+                  className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700 "
+                >
+                  <h6 className="mb-3 text-sm font-medium text-white dark:text-white p-2 bg-green-900 rounded-lg border hover:bg-green-900 hover:text-primary-700">
+                    INSTITUTION
+                  </h6>
+                  <ul className="space-y-2 text-sm">
+                    {tenders.map((tender) => (
+                      <li key={tender.id} className="flex items-center">
+                        <input
+                          id={`filter-${tender.id}`}
+                          type="checkbox"
+                          checked={checkedFilters.includes(tender.id)}
+                          onChange={() => handleFilterChange(tender.id)}
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                        />
+                        <label
+                          htmlFor={`filter-${tender.id}`}
+                          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+                        >
+                          {tender.institutionName} ({tender.id})
+                        </label>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      )}
-
-      <table className="min-w-full border text-sm">
-        <thead className="bg-gray-200">
-          <tr>
-            <th className="border px-3 py-2">Institution</th>
-            <th className="border px-3 py-2">Tender #</th>
-            <th className="border px-3 py-2">Description</th>
-            <th className="border px-3 py-2">Closing</th>
-            <th className="border px-3 py-2">Location</th>
-            <th className="border px-3 py-2">Doc</th>
-            <th className="border px-3 py-2">Category</th>
-            <th className="border px-3 py-2">Status</th>
-            <th className="border px-3 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredTenders.length === 0 ? (
+      </div>
+      <div className="overflow-hi">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <td colSpan={9} className="text-center py-4">
-                No tenders found.
-              </td>
+              <th scope="col" className="px-4 py-3">
+                Institution Name
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Number
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Description
+              </th>
+              {/* <th scope="col" className="px-4 py-3">
+                      Published Date
+                    </th> */}
+              <th scope="col" className="px-4 py-3">
+                Closing Date
+              </th>
+              {/* <th scope="col" className="px-4 py-3">
+                      Briefing Date
+                    </th> */}
+              <th scope="col" className="px-4 py-3">
+                Location
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Document
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Category
+              </th>
+              {/* <th scope="col" className="px-4 py-3">
+                      Tender Type
+                    </th> */}
+              <th scope="col" className="px-4 py-3">
+                Tender Status
+              </th>
+              {/* <th scope="col" className="px-4 py-3">
+                      Contact Person
+                    </th>
+                    <th scope="col" className="px-4 py-3">
+                      Contact Email
+                    </th> */}
+              <th scope="col" className="px-4 py-3">
+                Actions
+              </th>
             </tr>
-          ) : (
-            filteredTenders.map((tender, index) => (
-              <tr key={tender.id} className="border-t">
-                <td className="border px-3 py-2">{tender.institutionName}</td>
-                <td className="border px-3 py-2">{tender.tender_number}</td>
-                <td className="border px-3 py-2">{tender.description}</td>
-                <td className="border px-3 py-2">{tender.closing_date}</td>
-                <td className="border px-3 py-2">{tender.location}</td>
-                <td className="border px-3 py-2">
-                  <a href={tender.tender_document_url} className="text-blue-600 hover:underline" target="_blank">
-                    View
-                  </a>
-                </td>
-                <td className="border px-3 py-2">{tender.tender_category}</td>
-                <td className="border px-3 py-2">
-                  <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                    tender.tender_status === "Open"
-                      ? "bg-green-100 text-green-800"
-                      : tender.tender_status === "Approved"
-                      ? "bg-blue-100 text-blue-800"
-                      : "bg-red-100 text-red-800"
-                  }`}>
-                    {tender.tender_status}
-                  </span>
-                </td>
-                <td className="border px-3 py-2 relative">
-                  <button
-                    onClick={() => handleDropdownToggle(index)}
-                    className="text-gray-600 hover:text-black"
-                  >
-                    ⋮
-                  </button>
-                  {openDropdown === index && (
-                    <div className="absolute right-0 mt-1 bg-white border rounded shadow text-sm">
-                      <button
-                        onClick={() => handleApprove(tender.id)}
-                        className="block w-full px-4 py-2 hover:bg-green-100 text-left"
-                      >
-                        Approve
-                      </button>
-                      <button
-                        onClick={() => handleDelete(tender.id)}
-                        className="block w-full px-4 py-2 hover:bg-red-100 text-left text-red-600"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  )}
+          </thead>
+          <tbody>
+            {filteredTenders.length === 0 ? (
+              <tr>
+                <td
+                  colSpan={12}
+                  className="px-4 py-3 text-center text-gray-400"
+                >
+                  No tenders found.
                 </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              filteredTenders.map((tender, index) => (
+                <tr key={index} className="border-b dark:border-gray-700">
+                  <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {tender.institutionName}
+                  </td>
+                  <td className="px-4 py-3">{tender.tender_number}</td>
+                  <td className="px-4 py-3">{tender.description}</td>
+                  {/* <td className="px-4 py-3">{tender.published_date}</td> */}
+                  {/* <td className="px-4 py-3">{tender.briefing_date}</td> */}
+                  <td className="px-4 py-3">{tender.closing_date}</td>
+                  <td className="px-4 py-3">{tender.location}</td>
+                  <td className="px-4 py-3">
+                    <a
+                      href={tender.tender_document_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      View
+                    </a>
+                  </td>
+                  <td className="px-4 py-3">{tender.tender_category}</td>
+                  {/* <td className="px-4 py-3">{tender.tender_type}</td> */}
+                  <td className="px-4 py-3">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                        tender.tender_status === "Open"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {tender.tender_status}
+                    </span>
+                  </td>
+                  {/* <td className="px-4 py-3">
+                        <div className="text-sm">
+                          <p className="font-medium">{tender.contact_person}</p>
+                          <p className="text-xs text-blue-600">{tender.contact_email}</p>
+                        </div>
+                      </td> */}
+                  <td className="px-4 py-3 flex items-center justify-end relative">
+                    <button
+                      id={`tender-actions-dropdown-button-${index}`}
+                      data-dropdown-toggle={`tender-actions-dropdown-${index}`}
+                      onClick={() => handleDropdownToggle(index)} // optional toggle logic
+                      className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
+                      type="button"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                      </svg>
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    <div
+                      id={`tender-actions-dropdown-${index}`}
+                      className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${
+                        openDropdown === index ? "" : "hidden"
+                      }`}
+                    >
+                      <ul className="py-1 text-sm text-gray-700">
+                        <li>
+                          <button
+                            onClick={() => handleApprove(tender.id)}
+                            className="w-full text-left px-4 py-2 hover:bg-green-100"
+                          >
+                            ✅ Approve
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            onClick={() => handleDelete(tender.id)}
+                            className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
+                          >
+                            ❌ Delete
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+        {/* <tr className="border-b dark:border-gray-700"> */}
+
+        <nav
+          className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
+          aria-label="Table navigation"
+        >
+          <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+            Showing
+            <span className="font-semibold text-gray-900 dark:text-white">
+              1-10
+            </span>
+            of
+            <span className="font-semibold text-gray-900 dark:text-white">
+              1000
+            </span>
+          </span>
+          <ul className="inline-flex items-stretch -space-x-px">
+            <li>
+              <a
+                href="#"
+                className="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <span className="sr-only">Previous</span>
+                <svg
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                1
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                2
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                aria-current="page"
+                className="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-primary-600 bg-primary-50 border border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+              >
+                3
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                ...
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                100
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                <span className="sr-only">Next</span>
+                <svg
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }
+// pagination
+// refresh function
+// approve / decline functionl
