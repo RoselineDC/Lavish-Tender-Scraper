@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 
 // import { useState } from "react";
 // import { FaChevronDown } from "react-icons/fa";
@@ -191,6 +191,7 @@
 //     // your logic to delete
 //   }
 // };
+"use client";
 
 import { useEffect, useState } from "react";
 import { RefreshCcw } from "lucide-react";
