@@ -142,7 +142,7 @@ useEffect(() => {
     }
   };
   // Fetch approved tenders from the API
-  < HandleTra/>
+  < HandleTransnetTenders />
 
   
 
