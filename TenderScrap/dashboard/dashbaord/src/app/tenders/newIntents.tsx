@@ -333,6 +333,13 @@ const NewIntents = () => {
       console.log("Approved tender ID:", id);
     }
   }, [searchTerm, tenders]);
+
+  const handleFilterChange = (filterId: number) => {
+    let updatedFilters = [...checkedFilters];
+    if (updatedFilters.includes(filterId)) {
+      updatedFilters = updatedFilters.filter((id) => id !== filterId);
+    } else {
+      updatedFilters.push(filterId);
   };
   
   const handleDelete = (id: number) => {
@@ -346,6 +353,15 @@ const NewIntents = () => {
         console.log("Deleted tender ID:", id);
       }
     }
+
+    setCheckedFilters(updatedFilters);
+    const filtered = filterTenders(tenders, updatedFilters);
+    setFilteredTenders(filtered);
+  };
+
+  const handleRefresh = () => {
+    setCheckedFilters([]);
+    setFilteredTenders(tenders);
   };
   
     // Update filteredTenders whenever searchTerm or tenders change
@@ -372,8 +388,6 @@ const NewIntents = () => {
   
    
 
-  const handleFilterChange = (filterId: number) => {
-    let updatedFilters = [...checkedFilters];
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6">TRANSNET TENDERS</h1>
@@ -400,13 +414,30 @@ const NewIntents = () => {
           link="/documents"
         />
       </div>
+      <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
       <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition "> 
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-4">ACTIVE APPROVED TENDERS</h2>
           <p className="text-gray-600">
+            View and manage Approved tenders for Transnet
             View and manage Approved tendes for Transnet
           </p>
         </div>
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+          <div className="relative w-full">
+            <input
+              type="text"
+              placeholder="Search tenders"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full pl-10 p-2"
+            />
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div className="relative w-full">
           <input
@@ -451,6 +482,12 @@ const NewIntents = () => {
                 className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 type="button"
               >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                />
+              </svg>
                 <TfiFilter className="mr-2" />
                 Filter
                 <svg
