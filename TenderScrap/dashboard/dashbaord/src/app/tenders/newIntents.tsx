@@ -38,7 +38,7 @@ const NewIntents = () => {
       <h1 className="text-3xl font-bold mb-6">TENDERS</h1>
       <div className="grid grid-cols-3 gap-4">
         <Card
-          color="yel"
+          color="blue"
           title="TRANSNET"
           subtitle="Transnet Tenders Report"
           footer="Active and Closed Tenders"
