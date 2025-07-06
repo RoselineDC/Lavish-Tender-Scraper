@@ -7,7 +7,6 @@ import { TfiFilter } from "react-icons/tfi";
 import TableWithPagination from "../dashboard/TableWithPagination";
 import Link from "next/link";
 
-import HandleTransnetTenders from "./HandleTransnetApproved";
 // Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
   blue: { border: "border-blue-900", bg: "bg-blue-900" },
@@ -76,7 +75,22 @@ const NewIntents = () => {
   const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-useEffect(() => {
+  // Fetch approved tenders on component mount
+  useEffect(() => {
+    fetch("http://localhost:8000/tenders")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch tenders");
+        return res.json();
+      })
+      .then((data) => {
+        setApprovedTenders(data);
+      })
+      .catch((err) => {
+        console.error("Error fetching tenders:", err);
+      });
+  }, []);
+
+  useEffect(() => {
     let filtered = approvedTenders;
 
     // Filter by category
@@ -142,9 +156,6 @@ useEffect(() => {
       console.log("Deleted approved tender ID:", id);
     }
   };
- 
-
-  
 
   return (
     <div className="p-6">
@@ -299,7 +310,10 @@ useEffect(() => {
             <tbody>
               {filteredTenders.length === 0 ? (
                 <tr>
-                  <td colSpan={12} className="px-4 py-3 text-center text-gray-400">
+                  <td
+                    colSpan={12}
+                    className="px-4 py-3 text-center text-gray-400"
+                  >
                     No tenders found.
                   </td>
                 </tr>
