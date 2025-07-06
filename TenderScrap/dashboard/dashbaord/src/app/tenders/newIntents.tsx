@@ -77,7 +77,7 @@ const NewIntents = () => {
 
   // Fetch approved tenders on component mount
   useEffect(() => {
-    fetch("http://localhost:8000/tenders")
+    fetch("http://localhost:8000/tenders/approved")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch tenders");
         return res.json();
