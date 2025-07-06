@@ -12,7 +12,20 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+Define schema for POST
+class Tender(BaseModel):
+    tender_number: str
+    description: str
+    published_date: str
+    closing_date: str
+    briefing_date: str
+    location: str
+    tender_document_url: str
+    tender_category: str
+    tender_type: str
+    tender_status: str
+    contact_person: str
+    contact_email: str
 
 @app.get("/tenders")
 def get_tenders():
