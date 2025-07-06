@@ -522,7 +522,7 @@ const NewIntents = () => {
                       </svg>
                     </button>
 
-                    {/* Dropdown Menu */}
+                    {/* Dropdown Menu */
                     <div
                       id={`tender-actions-dropdown-${index}`}
                       className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${
