@@ -18,7 +18,7 @@ export interface TenderType {
   contact_email: string;
 }
 
-const HandleTransnetTenders = () => {
+const handleTransnetTenders = () => {
   const [tenders, setTenders] = useState<TenderType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
