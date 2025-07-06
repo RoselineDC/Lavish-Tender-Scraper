@@ -7,8 +7,7 @@ import { TfiFilter } from "react-icons/tfi";
 import TableWithPagination from "../dashboard/TableWithPagination";
 import Link from "next/link";
 
-import handleTransnetTenders  from "./HandleTransnetApproved";
-
+import HandleTransnetTenders from "./HandleTransnetApproved";
 // Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
   blue: { border: "border-blue-900", bg: "bg-blue-900" },
