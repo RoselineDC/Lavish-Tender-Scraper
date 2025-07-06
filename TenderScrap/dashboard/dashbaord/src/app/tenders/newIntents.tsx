@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-IMPO
+// IMPOR
 
 // Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
