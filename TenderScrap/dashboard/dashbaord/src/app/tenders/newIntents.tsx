@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 
+
 // Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
   blue: { border: "border-blue-900", bg: "bg-blue-900" },
