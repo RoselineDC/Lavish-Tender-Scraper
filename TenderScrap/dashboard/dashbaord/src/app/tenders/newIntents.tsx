@@ -56,6 +56,7 @@ const Card = ({
 };
 
 
+
 const NewIntents = () => {
    const [searchTerm, setSearchTerm] = useState("");
   
