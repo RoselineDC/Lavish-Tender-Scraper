@@ -51,7 +51,7 @@ const filters = {
 export default function FilterBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
-  const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
+const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
 
   // ✅ FETCH tenders from backend
   const [tenders, setTenders] = useState<TenderType[]>([]);
