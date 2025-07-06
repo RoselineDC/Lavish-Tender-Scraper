@@ -318,7 +318,7 @@ const NewIntents = () => {
         />
       </div>
       <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition "> 
-        
+        <div className="flex flex-col items-center">
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div className="relative w-full">
           <input
