@@ -142,8 +142,7 @@ useEffect(() => {
       console.log("Deleted approved tender ID:", id);
     }
   };
-  // Fetch approved tenders from the API
-  <handleTransnetTenders />
+ 
 
   
 
