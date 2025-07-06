@@ -244,6 +244,26 @@ const NewIntents = () => {
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
   const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+
+  const handleFilterChange = (filterId: number) => {
+    let updatedFilters = [...checkedFilters];
+
+    if (updatedFilters.includes(filterId)) {
+      updatedFilters = updatedFilters.filter((id) => id !== filterId);
+    } else {
+      updatedFilters.push(filterId);
+    }
+
+    setCheckedFilters(updatedFilters);
+    applyFilters(updatedFilters);
+  };
+
+  const handleRefresh = () => {
+    setCheckedFilters([]);
+    setFilteredTenders(tenders);
+  };
+
+  const handleApprove = (id: number) => {
   
     const handleDropdownToggle = (index: number) => {
       setOpenDropdown((prev) => (prev === index ? null : index));
@@ -258,6 +278,7 @@ const NewIntents = () => {
       console.log("Approved tender ID:", id);
     }
   };
+
   
   const handleDelete = (id: number) => {
     const confirmed = window.confirm("Are you sure you want to delete this tender?");
@@ -271,6 +292,27 @@ const NewIntents = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setFilteredTenders(tenders);
+    } else {
+      const term = searchTerm.toLowerCase();
+      setFilteredTenders(
+        tenders.filter(
+          (t) =>
+            t.institutionName.toLowerCase().includes(term) ||
+            t.tender_number.toLowerCase().includes(term) ||
+            t.description.toLowerCase().includes(term) ||
+            t.tender_category.toLowerCase().includes(term) ||
+            t.location.toLowerCase().includes(term) ||
+            t.contact_person.toLowerCase().includes(term) ||
+            t.contact_email.toLowerCase().includes(term) ||
+            t.tender_status.toLowerCase().includes(term)
+        )
+      );
+    }
+  }, [searchTerm, tenders]);
   
     // Update filteredTenders whenever searchTerm or tenders change
     useEffect(() => {
@@ -296,11 +338,11 @@ const NewIntents = () => {
   
    
 
-  const handleFilterChange = (filterId: number) => {
-    let updatedFilters = [...checkedFilters];
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6">TRANSNET TENDERS</h1>
+
+      <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
       <div className="grid grid-cols-3 gap-4">
         <Card
           color="yellow"
@@ -331,6 +373,30 @@ const NewIntents = () => {
             View and manage Approved tendes for Transnet
           </p>
         </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+          <div className="relative w-full">
+            <input
+              type="text"
+              placeholder="Search tenders"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full pl-10 p-2"
+            />
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div className="relative w-full">
           <input
@@ -354,12 +420,15 @@ const NewIntents = () => {
               />
             </svg>
           </div>
+
+          <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
         </div>
         <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
           <div className="flex items-center space-x-3 w-full md:w-auto">
             <button
               id="refreshButton"
               onClick={handleRefresh}
+              className="md:w-auto flex items-center justify-center py-2 px-4 text-sm font-bold text-white focus:outline-none bg-green-500 rounded-lg border hover:bg-green-900 hover:text-primary-700"
               className=" md:w-auto flex items-center justify-center py-2 px-4 text-sm font-bold text-white focus:outline-none bg-green-500 rounded-lg border hover:bg-green-900 hover:text-primary-700"
               type="button"
               title="Refresh the table"
@@ -368,10 +437,10 @@ const NewIntents = () => {
               Refresh
             </button>
 
-    if (updatedFilters.includes(filterId)) {
             <div className="relative inline-block text-left w-full md:w-auto">
               <button
                 id="filterDropdownButton"
+                onClick={() => setShowFilters((prev) => !prev)}
                 onClick={toggleDropdown}
                 className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 type="button"
@@ -393,9 +462,11 @@ const NewIntents = () => {
                 </svg>
               </button>
 
+              {showFilters && (
               {showDropdown && (
                 <div
                   id="filterDropdown"
+                  className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700"
                   className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700 "
                 >
                   <h6 className="mb-3 text-sm font-medium text-white dark:text-white p-2 bg-green-900 rounded-lg border hover:bg-green-900 hover:text-primary-700">
