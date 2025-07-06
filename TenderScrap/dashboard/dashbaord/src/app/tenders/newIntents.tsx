@@ -22,6 +22,7 @@ const colorMap: Record<string, { border: string; bg: string }> = {
   green: { border: "border-green-800", bg: "bg-green-800" },
 };
 
+/*************  ✨ Windsurf Command 🌟  *************/
 const Card = ({
   color,
   title,
@@ -34,6 +35,16 @@ const Card = ({
   subtitle: string;
   footer: string;
   link?: string;
+}): JSX.Element | null => {
+  const borderClass = colorMap[color]?.border;
+  const bgClass = colorMap[color]?.bg;
+
+  if (!borderClass || !bgClass) {
+    console.warn(
+      `Invalid color '${color}' passed to Card component; using default instead.`
+    );
+    return null;
+  }
 }) => {
   const borderClass = colorMap[color]?.border || "border-gray-500";
   const bgClass = colorMap[color]?.bg || "bg-gray-500";
@@ -54,6 +65,7 @@ const Card = ({
 
   return link ? <Link href={link}>{content}</Link> : content;
 };
+/*******  a0c2403d-bdfa-4151-bb08-f9a069e164aa  *******/
 export interface TenderType {
   id: number;
   institutionName: string;
