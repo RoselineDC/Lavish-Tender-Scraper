@@ -5,8 +5,8 @@ import Link from "next/link";
 
 // Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
-  blue: { border: "border-blue-500", bg: "bg-blue-500" },
-  yellow: { border: "border-red-500", bg: "bg-yellow-00" },
+  blue: { border: "border-blue-500", bg: "bg-blue-00" },
+  yellow: { border: "border-red-500", bg: "bg-yellow-600" },
   green: { border: "border-green-500", bg: "bg-green-800" },
 };
 
