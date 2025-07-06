@@ -172,6 +172,7 @@ export default function FilterBar() {
       {/* ... Search & Filter UI (unchanged) ... */}
       {/* [ KEEP all your search input, dropdown button, checkboxes etc here ] */}
       {/* ... copy-paste your full existing JSX UI here ... */}
+      
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
