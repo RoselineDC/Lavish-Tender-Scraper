@@ -74,7 +74,9 @@ const NewIntents = () => {
           link="/documents"
         />
       </div>
-      
+      <div className="mt-6">
+        <FilterBar />
+      </div>
       
     </div>
   );
