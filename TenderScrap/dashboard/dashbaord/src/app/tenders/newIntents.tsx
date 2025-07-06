@@ -73,72 +73,7 @@ export interface TenderType {
 }
 
 
-/*************  ✨ Windsurf Command 🌟  *************/
-import React, { useEffect, useState } from "react";
-import { RefreshCcw, TfiFilter } from "react-icons/tfi";
-import { Card } from "../components/Card";
-import { TableWithPagination } from "../components/TableWithPagination";
-import { filterTenders } from "../utils/filterTenders";
-
-export interface TenderType {
-  id: number;
-  institutionName: string;
-  tender_number: string;
-  description: string;
-  published_date: string;
-  closing_date: string;
-  location: string;
-  tender_document_url: string;
-  tender_category: string;
-  tender_type: string;
-  tender_status: "Open" | "Closed";
-  contact_person: string;
-  contact_email: string;
-  rowKey?: string;
-}
-
 const NewIntents = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
-  const [tenders, setTenders] = useState<TenderType[]>([
-    {
-      id: 1,
-      institutionName: "Dept of Education",
-      tender_number: "DOE123",
-      description: "Supply of Stationery",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      location: "Pretoria",
-      tender_document_url:
-        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Closed",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
-    },
-    {
-      id: 2,
-      institutionName: "Transnet",
-      tender_number: "TN1234",
-      description: "Supply of Rail Components",
-      published_date: "2025-06-10",
-      closing_date: "2025-07-10",
-      location: "Johannesburg",
-      tender_document_url:
-        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Engineering",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "Jane Smith",
-      contact_email: "jane@example.com",
-    },
-  ]);
-  const [filteredTenders, setFilteredTenders] = useState(tenders);
-
-  useEffect(() => {
-    if (searchTerm.trim() === "") {
    const [searchTerm, setSearchTerm] = useState("");
   
     const [showDropdown, setShowDropdown] = useState(false);
@@ -298,21 +233,6 @@ const NewIntents = () => {
     const handleRefresh = () => {
       setCheckedFilters([]);
       setFilteredTenders(tenders);
-    } else {
-      const term = searchTerm.toLowerCase();
-      setFilteredTenders(
-        tenders.filter(
-          (tender) =>
-            tender.institutionName.toLowerCase().includes(term) ||
-            tender.tender_number.toLowerCase().includes(term) ||
-            tender.description.toLowerCase().includes(term) ||
-            tender.tender_category.toLowerCase().includes(term) ||
-            tender.location.toLowerCase().includes(term) ||
-            tender.contact_person.toLowerCase().includes(term) ||
-            tender.contact_email.toLowerCase().includes(term) ||
-            tender.tender_status.toLowerCase().includes(term)
-        )
-      );
     };
   
     // HANDLE APPROVE delete
@@ -332,14 +252,6 @@ const NewIntents = () => {
       setOpenDropdown(null);
       console.log("Approved tender ID:", id);
     }
-  }, [searchTerm, tenders]);
-
-  const handleFilterChange = (filterId: number) => {
-    let updatedFilters = [...checkedFilters];
-    if (updatedFilters.includes(filterId)) {
-      updatedFilters = updatedFilters.filter((id) => id !== filterId);
-    } else {
-      updatedFilters.push(filterId);
   };
   
   const handleDelete = (id: number) => {
@@ -353,15 +265,6 @@ const NewIntents = () => {
         console.log("Deleted tender ID:", id);
       }
     }
-
-    setCheckedFilters(updatedFilters);
-    const filtered = filterTenders(tenders, updatedFilters);
-    setFilteredTenders(filtered);
-  };
-
-  const handleRefresh = () => {
-    setCheckedFilters([]);
-    setFilteredTenders(tenders);
   };
   
     // Update filteredTenders whenever searchTerm or tenders change
@@ -414,30 +317,13 @@ const NewIntents = () => {
           link="/documents"
         />
       </div>
-      <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition">
       <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition "> 
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-4">ACTIVE APPROVED TENDERS</h2>
           <p className="text-gray-600">
-            View and manage Approved tenders for Transnet
             View and manage Approved tendes for Transnet
           </p>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder="Search tenders"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full pl-10 p-2"
-            />
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg
-                aria-hidden="true"
-                className="w-5 h-5 text-gray-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div className="relative w-full">
           <input
@@ -482,12 +368,6 @@ const NewIntents = () => {
                 className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 type="button"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
                 <TfiFilter className="mr-2" />
                 Filter
                 <svg
@@ -692,6 +572,5 @@ const NewIntents = () => {
     </div>
   );
 };
-/*******  3ff02e8b-9b4f-4a7b-8d18-ff6948ad6b4a  *******/
 
 export default NewIntents;
