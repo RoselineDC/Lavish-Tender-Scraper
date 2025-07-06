@@ -63,7 +63,7 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
     published_date_filter: filters.published_date_filter[0],
   });
 
-  const applyFilters = (filters: number[]) => {
+  const applyFilters = (filters: []) => {
     if (filters.length === 0) {
       setFilteredTenders(tenders);
       return;
