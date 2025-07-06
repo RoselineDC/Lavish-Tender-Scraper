@@ -569,7 +569,7 @@ const NewIntents = () => {
 
     <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition "> 
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-bold mb-4">ACTIVE dec TENDERS</h2>
+          <h2 className="text-2xl font-bold mb-4">ACTIVE DE TENDERS</h2>
           <p className="text-gray-600">
             View and manage Approved tendes for Transnet
           </p>
