@@ -40,7 +40,7 @@ def get_tenders():
     return [dict(row) for row in rows]
 
 # add tenders to approved table
-@app.post("/tenders/aP")
+@app.post("/tenders/approved")
 def add_tender(tender: Tender):
     try:
         conn = sqlite3.connect("tenders.db")
