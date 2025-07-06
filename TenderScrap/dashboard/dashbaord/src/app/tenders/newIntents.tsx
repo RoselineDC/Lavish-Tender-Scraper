@@ -118,31 +118,8 @@ const NewIntents = () => {
     }
 
     // Filter by search term
-    if (searchTerm.trim() !== "") {
-      const term = searchTerm.toLowerCase();
-      filtered = filtered.filter(
-        (t) =>
-          t.institutionName?.toLowerCase().includes(term) ||
-          t.tender_number?.toLowerCase().includes(term) ||
-          t.description?.toLowerCase().includes(term) ||
-          t.tender_category?.toLowerCase().includes(term) ||
-          t.location?.toLowerCase().includes(term) ||
-          t.contact_person?.toLowerCase().includes(term) ||
-          t.contact_email?.toLowerCase().includes(term) ||
-          t.tender_status?.toLowerCase().includes(term)
-      );
-    }
-
-    setFilteredTenders(filtered);
-  }, [searchTerm, checkedCategories, tenders]);
-
-  const toggleDropdown = () => setShowDropdown((prev) => !prev);
-
-  const handleRefresh = () => {
-    setSearchTerm("");
-    setCheckedCategories([]);
-    setFilteredTenders(tenders);
-  };
+  
+  
 
   return (
     <div className="p-6">
