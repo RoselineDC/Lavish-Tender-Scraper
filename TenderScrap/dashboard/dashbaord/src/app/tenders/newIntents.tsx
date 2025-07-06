@@ -75,6 +75,7 @@ const NewIntents = () => {
         />
       </div>
       
+      
     </div>
   );
 };
