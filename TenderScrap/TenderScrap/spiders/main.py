@@ -39,4 +39,4 @@ def get_tenders():
 
     return [dict(row) for row in rows]
 
-# add tende
+# add tenders to approved table
