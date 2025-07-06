@@ -91,33 +91,25 @@ const NewIntents = () => {
   }, []);
 
   useEffect(() => {
-    let filtered = approvedTenders;
-
-    // Filter by category
-    if (checkedCategories.length > 0) {
-      filtered = filtered.filter((t) =>
-        checkedCategories.includes(t.tender_category)
-      );
-    }
-
-    // Filter by search term
-    if (searchTerm.trim() !== "") {
-      const term = searchTerm.toLowerCase();
-      filtered = filtered.filter(
+  if (searchTerm.trim() === "") {
+    setFilteredTenders(approvedTenders);
+  } else {
+    const term = searchTerm.toLowerCase();
+    setFilteredTenders(
+      approvedTenders.filter(
         (t) =>
-          t.institutionName?.toLowerCase().includes(term) ||
-          t.tender_number?.toLowerCase().includes(term) ||
-          t.description?.toLowerCase().includes(term) ||
-          t.tender_category?.toLowerCase().includes(term) ||
-          t.location?.toLowerCase().includes(term) ||
-          t.contact_person?.toLowerCase().includes(term) ||
-          t.contact_email?.toLowerCase().includes(term) ||
-          t.tender_status?.toLowerCase().includes(term)
-      );
-    }
-
-    setFilteredTenders(filtered);
-  }, [approvedTenders, searchTerm, checkedCategories]);
+          (t.institutionName?.toLowerCase() || "").includes(term) ||
+          (t.tender_number?.toLowerCase() || "").includes(term) ||
+          (t.description?.toLowerCase() || "").includes(term) ||
+          (t.tender_category?.toLowerCase() || "").includes(term) ||
+          (t.location?.toLowerCase() || "").includes(term) ||
+          (t.contact_person?.toLowerCase() || "").includes(term) ||
+          (t.contact_email?.toLowerCase() || "").includes(term) ||
+          (t.tender_status?.toLowerCase() || "").includes(term)
+      )
+    );
+  }
+}, [searchTerm, approvedTenders]);
 
   // Collect categories dynamically from approved tenders
   const categories = Array.from(
