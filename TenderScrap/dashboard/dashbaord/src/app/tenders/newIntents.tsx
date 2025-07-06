@@ -1,193 +1,134 @@
-// Corrected tender dashboard React component
 "use client";
 
-import { useState, useEffect } from "react";
-import { FaChevronDown } from "react-icons/fa";
-import { RefreshCcw } from "lucide-react";
-import { TfiFilter } from "react-icons/tfi";
-import TableWithPagination from "../dashboard/TableWithPagination";
-import Link from "next/link";
+import React, { useState, useMemo } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 
-const colorMap = {
-  blue: { border: "border-blue-900", bg: "bg-blue-900" },
-  yellow: { border: "border-red-700", bg: "bg-red-700" },
-  green: { border: "border-green-800", bg: "bg-green-800" },
+type Tender = {
+  id: number;
+  institution: string;
+  number: string;
+  description: string;
+  closingDate: string;
+  location: string;
+  documentUrl: string;
+  category: string;
 };
 
-const Card = ({ color, title, subtitle, footer, link }) => {
-  const borderClass = colorMap[color]?.border || "border-gray-500";
-  const bgClass = colorMap[color]?.bg || "bg-gray-500";
-
-  const content = (
-    <div className={`bg-white rounded-xl shadow-md p-4 border-t-4 ${borderClass} hover:shadow-lg transition`}>
-      <h2 className="text-2xl font-bold">{title}</h2>
-      <p className="text-sm text-gray-500">{subtitle}</p>
-      <div className={`mt-2 text-xs ${bgClass} text-white rounded p-1 text-center`}>{footer}</div>
-    </div>
-  );
-
-  return link ? <Link href={link}>{content}</Link> : content;
-};
-
-const NewIntents = () => {
+const TenderPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [checkedFilters, setCheckedFilters] = useState([]);
-  const [approvedTenders, setApprovedTenders] = useState([]);
-  const [deletedTenders, setDeletedTenders] = useState([]);
-  const [openDropdown, setOpenDropdown] = useState(null);
 
-  const [tenders, setTenders] = useState([
+  const tenders: Tender[] = [
     {
       id: 1,
-      institutionName: "Dept of Education",
-      tender_number: "DOE123",
-      description: "Supply of Stationery",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      briefing_date: "2025-06-10",
-      location: "Pretoria",
-      tender_document_url: "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Closed",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
+      institution: "Department of Health",
+      number: "DOH/2023/001",
+      description: "Supply and delivery of medical equipment.",
+      closingDate: "2025-07-15",
+      location: "Pretoria, Gauteng",
+      documentUrl: "https://example.com/tender1",
+      category: "Medical",
     },
     {
       id: 2,
-      institutionName: "Transnet",
-      tender_number: "TN1234",
-      description: "Supply of Rail Components",
-      published_date: "2025-06-10",
-      closing_date: "2025-07-10",
-      briefing_date: "2025-06-15",
-      location: "Johannesburg",
-      tender_document_url: "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Engineering",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "Jane Smith",
-      contact_email: "jane@example.com",
+      institution: "Department of Education",
+      number: "DOE/2023/002",
+      description: "Construction of new classrooms.",
+      closingDate: "2025-07-20",
+      location: "Durban, KZN",
+      documentUrl: "https://example.com/tender2",
+      category: "Construction",
     },
     {
       id: 3,
-      institutionName: "Dept of Education",
-      tender_number: "3dw",
-      description: "Supply of documentation",
-      published_date: "2025-06-01",
-      closing_date: "2025-06-30",
-      briefing_date: "2025-06-10",
-      location: "Durban",
-      tender_document_url: "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Supplies",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "John Doe",
-      contact_email: "john@example.com",
+      institution: "Department of Public Works",
+      number: "DPW/2023/003",
+      description: "Renovation of government buildings.",
+      closingDate: "2025-07-22",
+      location: "Cape Town, Western Cape",
+      documentUrl: "https://example.com/tender3",
+      category: "Infrastructure",
     },
     {
       id: 4,
-      institutionName: "Transnet",
-      tender_number: "12345",
-      description: "Supply of Rail Components",
-      published_date: "2025-06-10",
-      closing_date: "2025-07-10",
-      briefing_date: "2025-06-15",
-      location: "Cape Town",
-      tender_document_url: "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Engineering",
-      tender_type: "Open",
-      tender_status: "Open",
-      contact_person: "Jane Smith",
-      contact_email: "jane@example.com",
+      institution: "Department of Transport",
+      number: "DOT/2023/004",
+      description: "Maintenance of provincial roads.",
+      closingDate: "2025-07-25",
+      location: "Polokwane, Limpopo",
+      documentUrl: "https://example.com/tender4",
+      category: "Transport",
     },
-    {
-      id: 5,
-      institutionName: "TE",
-      tender_number: "TE/2025/06/0019/99459/RFQ",
-      description: "REQUEST TO SOURCE A SERVICE PROVIDER FOR WAPP MACHINE REPAIR",
-      published_date: "2025-06-24",
-      closing_date: "2025-07-07",
-      briefing_date: "2025-06-26",
-      location: "Bloemfontein",
-      tender_document_url: "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
-      tender_category: "Goods & Services",
-      tender_type: "RFQ",
-      tender_status: "Open",
-      contact_person: "Naomi Jordaan",
-      contact_email: "Naomi.Jordaan@transnet.net",
-    },
-  ]);
+  ];
 
-  const [filteredTenders, setFilteredTenders] = useState(tenders);
+  const normalizedSearch = searchTerm.trim().toLowerCase();
 
-  useEffect(() => {
-    if (!searchTerm.trim()) {
-      setFilteredTenders(tenders);
-    } else {
-      const term = searchTerm.toLowerCase();
-      setFilteredTenders(
-        tenders.filter((t) =>
-          [
-            t.institutionName,
-            t.tender_number,
-            t.description,
-            t.tender_category,
-            t.location,
-            t.contact_person,
-            t.contact_email,
-            t.tender_status,
-          ]
-            .join(" ")
+  const filteredTenders = useMemo(() => {
+    if (!normalizedSearch) return tenders;
+
+    return tenders.filter((tender) =>
+      ["institution", "number", "description", "category", "location"].some(
+        (key) =>
+          (tender as Record<string, string>)[key]
             .toLowerCase()
-            .includes(term)
-        )
-      );
-    }
-  }, [searchTerm, tenders]);
+            .includes(normalizedSearch)
+      )
+    );
+  }, [normalizedSearch, tenders]);
 
-  const handleFilterChange = (filterId) => {
-    let updated = [...checkedFilters];
-    if (updated.includes(filterId)) {
-      updated = updated.filter((id) => id !== filterId);
-    } else {
-      updated.push(filterId);
-    }
-    setCheckedFilters(updated);
-    setFilteredTenders(tenders.filter((t) => updated.includes(t.id)));
-  };
+  return (
+    <div className="p-4 space-y-4">
+      <div className="flex items-center justify-between space-x-4">
+        <Input
+          placeholder="Search tenders..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="max-w-sm"
+        />
+        <Button variant="outline">Refresh</Button>
+      </div>
 
-  const handleRefresh = () => {
-    setCheckedFilters([]);
-    setFilteredTenders(tenders);
-  };
-
-  const handleDropdownToggle = (index) => {
-    setOpenDropdown((prev) => (prev === index ? null : index));
-  };
-
-  const handleApprove = (id) => {
-    const approved = tenders.find((t) => t.id === id);
-    if (approved) {
-      setApprovedTenders((prev) => [...prev, approved]);
-      setTenders((prev) => prev.filter((t) => t.id !== id));
-      setOpenDropdown(null);
-    }
-  };
-
-  const handleDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this tender?")) {
-      const deleted = tenders.find((t) => t.id === id);
-      if (deleted) {
-        setDeletedTenders((prev) => [...prev, deleted]);
-        setTenders((prev) => prev.filter((t) => t.id !== id));
-        setOpenDropdown(null);
-      }
-    }
-  };
-
-  return <div className="p-6">{/* ... your UI remains unchanged */}</div>;
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredTenders.map((tender) => (
+          <Card
+            key={tender.id}
+            className="p-4 rounded-xl shadow-md border border-gray-200"
+          >
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold">{tender.institution}</h3>
+              <p className="text-sm text-gray-600">{tender.description}</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge>{tender.number}</Badge>
+                <Badge>{tender.category}</Badge>
+              </div>
+              <div className="text-sm text-gray-500">
+                Closing Date: {tender.closingDate}
+              </div>
+              <div className="text-sm text-gray-500">
+                Location: {tender.location}
+              </div>
+              <a
+                href={tender.documentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 text-sm hover:underline"
+              >
+                View Document
+              </a>
+              <div className="flex justify-end gap-2 mt-2">
+                <Button size="sm" variant="outline">
+                  Delete
+                </Button>
+                <Button size="sm">Approve</Button>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-export default NewIntents;
+export default TenderPage;
