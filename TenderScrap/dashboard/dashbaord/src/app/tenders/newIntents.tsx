@@ -321,7 +321,7 @@ const NewIntents = () => {
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-4">ACTIVE APPROVED TENDERS</h2>
           <p className="text-gray-600">
-            View and manage tenders from various institutions.
+            View and manage A
           </p>
         </div>
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
