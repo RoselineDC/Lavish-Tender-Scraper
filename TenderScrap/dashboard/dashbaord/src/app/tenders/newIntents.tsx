@@ -455,9 +455,9 @@ const NewIntents = () => {
                     <th scope="col" className="px-4 py-3">
                       Contact Email
                     </th> */}
-              <th scope="col" className="px-4 py-3">
+              {/* <th scope="col" className="px-4 py-3">
                 Actions
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody>
