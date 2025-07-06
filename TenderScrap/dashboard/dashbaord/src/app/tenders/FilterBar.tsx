@@ -69,9 +69,9 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
     return;
   }
 
-    const filtered = tenders.filter((tender) => filters.includes(tender.id));
-    setFilteredTenders(filtered);
-  };
+   const filtered = tenders.filter((tender) => filters.includes(tender.id));
+  setFilteredTenders(filtered);
+};
 
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
@@ -80,17 +80,18 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
   const handleFilterChange = (filterId: number) => {
-    let updatedFilters = [...checkedFilters];
+  let updatedFilters = [...checkedFilters];
 
-    if (updatedFilters.includes(filterId)) {
-      updatedFilters = updatedFilters.filter((id) => id !== filterId);
-    } else {
-      updatedFilters.push(filterId);
-    }
+  if (updatedFilters.includes(filterId)) {
+    updatedFilters = updatedFilters.filter((id) => id !== filterId);
+  } else {
+    updatedFilters.push(filterId);
+  }
 
-    setCheckedFilters(updatedFilters);
-    applyFilters(updatedFilters);
-  };
+  setCheckedFilters(updatedFilters);
+  applyFilters(updatedFilters);
+};
+
 
   const handleRefresh = () => {
     setCheckedFilters([]);
