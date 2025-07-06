@@ -159,7 +159,7 @@ const NewIntents = () => {
         title="TRANSNET"
         subtitle="Transnet Tenders Report"
         footer="Active and Closed Tenders"
-        link="/tenders"
+        link="/tenders/approved"
       />
       <Card
         color="blue"
