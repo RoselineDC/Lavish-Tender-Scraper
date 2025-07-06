@@ -75,12 +75,7 @@ const NewIntents = () => {
   const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-  // Fetch tenders from backend
-  
 
-  // Filter tenders based on search term and category filters
- 
-  
   
 
   return (
