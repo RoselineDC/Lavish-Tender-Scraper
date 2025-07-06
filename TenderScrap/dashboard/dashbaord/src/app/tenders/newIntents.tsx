@@ -49,7 +49,7 @@ const NewIntents = () => {
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6">TENDERS</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols- md:grid-cols-3 gap-4">
         <Card
           color="blue"
           title="TRANSNET"
