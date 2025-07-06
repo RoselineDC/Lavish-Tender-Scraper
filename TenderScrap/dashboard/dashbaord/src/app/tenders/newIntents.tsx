@@ -99,45 +99,9 @@ const NewIntents = () => {
     "Custom Range",
   ],
 };
-    // const tenderDocumentUrl = `https://publishedetenders.blob.core.windows.net/publishedetenderscontainer/${rowKey}`;
-    const [filteredTenders, setFilteredTenders] = useState(tenders);
-    const [selected, setSelected] = useState({
-      institutionName: filters.institutionName[0],
-      tender_category: filters.tender_category[0],
-      published_date_filter: filters.published_date_filter[0],
-    });
-    const applyFilters = (filters: number[]) => {
-      if (filters.length === 0) {
-        setFilteredTenders(tenders);
-        return;
-      }
-  
-      const filtered = tenders.filter((tender) => filters.includes(tender.id));
-      setFilteredTenders(filtered);
-    };
-  
-    const handleChange = (key: string, value: string) => {
-      setSelected({ ...selected, [key]: value });
-    };
-  
-    const toggleDropdown = () => setShowDropdown((prev) => !prev);
-  
-    // filter tenders based on search term
-    const handleFilterChange = (filterId: number) => {
-      let updatedFilters = [...checkedFilters];
-  
-      if (updatedFilters.includes(filterId)) {
-        updatedFilters = updatedFilters.filter((id) => id !== filterId);
-      } else {
-        updatedFilters.push(filterId);
-      }
-  
-      setCheckedFilters(updatedFilters);
-      applyFilters(updatedFilters);
-    };
     const handleRefresh = () => {
       setCheckedFilters([]);
-      setFilteredTenders(tenders);
+      // setFilteredTenders(tenders);
     };
   
     // HANDLE APPROVE delete
