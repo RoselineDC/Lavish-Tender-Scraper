@@ -61,4 +61,3 @@ def add_tender(tender: Tender):
         return {"message": "Tender added successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-    
