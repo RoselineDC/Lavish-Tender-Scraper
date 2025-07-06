@@ -144,35 +144,6 @@ const NewIntents = () => {
     setFilteredTenders(tenders);
   };
 
-  const handleDropdownToggle = (index: number) => {
-    setOpenDropdown((prev) => (prev === index ? null : index));
-  };
-
-  const handleApprove = (id: number) => {
-    const tenderToApprove = tenders.find((t) => t.id === id);
-    if (tenderToApprove) {
-      setApprovedTenders((prev) => [...prev, tenderToApprove]);
-      setTenders((prev) => prev.filter((t) => t.id !== id));
-      setOpenDropdown(null);
-      console.log("Approved tender ID:", id);
-    }
-  };
-
-  const handleDelete = (id: number) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this tender?"
-    );
-    if (confirmed) {
-      const tenderToDelete = tenders.find((t) => t.id === id);
-      if (tenderToDelete) {
-        setDeletedTenders((prev) => [...prev, tenderToDelete]);
-        setTenders((prev) => prev.filter((t) => t.id !== id));
-        setOpenDropdown(null);
-        console.log("Deleted tender ID:", id);
-      }
-    }
-  };
-
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6">TRANSNET TENDERS</h1>
