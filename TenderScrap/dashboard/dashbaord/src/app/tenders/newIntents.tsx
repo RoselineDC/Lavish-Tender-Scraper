@@ -54,7 +54,47 @@ const Card = ({
 
   return link ? <Link href={link}>{content}</Link> : content;
 };
+export interface TenderType {
+  id: number;
+  institutionName: string;
+  tender_number: string;
+  description: string;
+  published_date: string;      // ISO date string; use Date if you prefer
+  closing_date: string;
+  briefing_date: string;
+  location: string;
+  tender_document_url: string;
+  tender_category: string;     // e.g. "Goods", "Engineering"
+  tender_type: string;         // e.g. "Open", "RFQ", "RFP"
+  tender_status: "Open" | "Closed";
+  contact_person: string;
+  contact_email: string;
+  rowKey?: string;             // optional because it isn’t in every record
+}
 
+
+const filters = {
+  institutionName: ["Transnet", "CSIR", "OTHERS"],
+  tender_category: [
+    "Goods",
+    "Services",
+    "Goods & Services",
+    "Siding Lease",
+    "Port Slot / Terminal Concession",
+    "RFQ (Request for Quotation)",
+    "RFP (Request for Proposal)",
+  ],
+  published_date_filter: [
+    "Today",
+    "Yesterday",
+    "Last 7 Days",
+    "Last 14 Days",
+    "This Month",
+    "Last Month",
+    "Last 3 Months",
+    "Custom Range",
+  ],
+};
 
 const NewIntents = () => {
    const [searchTerm, setSearchTerm] = useState("");
