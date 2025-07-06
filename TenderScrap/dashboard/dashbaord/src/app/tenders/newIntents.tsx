@@ -7,7 +7,7 @@ import Link from "next/link";
 const colorMap: Record<string, { border: string; bg: string }> = {
   blue: { border: "border-blue-500", bg: "bg-blue-500" },
   yellow: { border: "border-red-500", bg: "bg-yellow-600" },
-  gr: { border: "border-pink-500", bg: "bg-pink-500" },
+  green: { border: "border-g-500", bg: "bg-pink-500" },
 };
 
 const Card = ({
