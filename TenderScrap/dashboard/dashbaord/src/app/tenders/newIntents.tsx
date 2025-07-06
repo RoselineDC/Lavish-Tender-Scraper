@@ -73,7 +73,72 @@ export interface TenderType {
 }
 
 
+/*************  ✨ Windsurf Command 🌟  *************/
+import React, { useEffect, useState } from "react";
+import { RefreshCcw, TfiFilter } from "react-icons/tfi";
+import { Card } from "../components/Card";
+import { TableWithPagination } from "../components/TableWithPagination";
+import { filterTenders } from "../utils/filterTenders";
+
+export interface TenderType {
+  id: number;
+  institutionName: string;
+  tender_number: string;
+  description: string;
+  published_date: string;
+  closing_date: string;
+  location: string;
+  tender_document_url: string;
+  tender_category: string;
+  tender_type: string;
+  tender_status: "Open" | "Closed";
+  contact_person: string;
+  contact_email: string;
+  rowKey?: string;
+}
+
 const NewIntents = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
+  const [tenders, setTenders] = useState<TenderType[]>([
+    {
+      id: 1,
+      institutionName: "Dept of Education",
+      tender_number: "DOE123",
+      description: "Supply of Stationery",
+      published_date: "2025-06-01",
+      closing_date: "2025-06-30",
+      location: "Pretoria",
+      tender_document_url:
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_category: "Supplies",
+      tender_type: "Open",
+      tender_status: "Closed",
+      contact_person: "John Doe",
+      contact_email: "john@example.com",
+    },
+    {
+      id: 2,
+      institutionName: "Transnet",
+      tender_number: "TN1234",
+      description: "Supply of Rail Components",
+      published_date: "2025-06-10",
+      closing_date: "2025-07-10",
+      location: "Johannesburg",
+      tender_document_url:
+        "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id=10013",
+      tender_category: "Engineering",
+      tender_type: "Open",
+      tender_status: "Open",
+      contact_person: "Jane Smith",
+      contact_email: "jane@example.com",
+    },
+  ]);
+  const [filteredTenders, setFilteredTenders] = useState(tenders);
+
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
    const [searchTerm, setSearchTerm] = useState("");
   
     const [showDropdown, setShowDropdown] = useState(false);
@@ -233,6 +298,21 @@ const NewIntents = () => {
     const handleRefresh = () => {
       setCheckedFilters([]);
       setFilteredTenders(tenders);
+    } else {
+      const term = searchTerm.toLowerCase();
+      setFilteredTenders(
+        tenders.filter(
+          (tender) =>
+            tender.institutionName.toLowerCase().includes(term) ||
+            tender.tender_number.toLowerCase().includes(term) ||
+            tender.description.toLowerCase().includes(term) ||
+            tender.tender_category.toLowerCase().includes(term) ||
+            tender.location.toLowerCase().includes(term) ||
+            tender.contact_person.toLowerCase().includes(term) ||
+            tender.contact_email.toLowerCase().includes(term) ||
+            tender.tender_status.toLowerCase().includes(term)
+        )
+      );
     };
   
     // HANDLE APPROVE delete
@@ -252,6 +332,7 @@ const NewIntents = () => {
       setOpenDropdown(null);
       console.log("Approved tender ID:", id);
     }
+  }, [searchTerm, tenders]);
   };
   
   const handleDelete = (id: number) => {
@@ -291,6 +372,8 @@ const NewIntents = () => {
   
    
 
+  const handleFilterChange = (filterId: number) => {
+    let updatedFilters = [...checkedFilters];
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6">TRANSNET TENDERS</h1>
@@ -572,5 +655,6 @@ const NewIntents = () => {
     </div>
   );
 };
+/*******  3ff02e8b-9b4f-4a7b-8d18-ff6948ad6b4a  *******/
 
 export default NewIntents;
