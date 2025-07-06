@@ -566,6 +566,7 @@ const NewIntents = () => {
        <TableWithPagination />
       </div>
     </div>
+    
       
     </div>
   );
