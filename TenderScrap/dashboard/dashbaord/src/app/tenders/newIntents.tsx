@@ -4,7 +4,8 @@ import React from "react";
 import Link from "next/link";
 // IMPORT SEARCH FROM DASHBOARD
 
-// IMPO
+// IMPORT FILTER BAR
+import FilterBar from "@/app/tenders/FilterBar"; 
 
 // Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
