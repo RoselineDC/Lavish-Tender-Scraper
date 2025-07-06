@@ -70,7 +70,31 @@ const NewIntents = () => {
           link="/documents"
         />
       </div>
-      
+      <div className="mt-6">
+        <h2 className="text-2xl font-bold mb-4">Recent Activity</h2>
+        <div className="grid grid-cols-3 gap-4">
+          <Card
+            color="blue"
+            title="New Tender"
+            subtitle="Tender ID: 12345"
+            footer="Posted on 2023-10-01"
+            link="/tender/12345"
+          />
+          <Card
+            color="yellow"
+            title="Tender Update"
+            subtitle="Tender ID: 67890"
+            footer="Updated on 2023-10-02"
+            link="/tender/67890"
+          />
+          <Card
+            color="green"
+            title="Document Request"
+            subtitle="Request ID: 54321"
+            footer="Requested on 2023-10-03"
+            link="/document/54321"
+          />
+        </div>
     </div>
   );
 };
