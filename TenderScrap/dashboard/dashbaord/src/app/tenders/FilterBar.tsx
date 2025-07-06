@@ -82,18 +82,19 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
 
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
-  const handleFilterChange = (filterId: number) => {
+ const handleFilterChange = (category: string) => {
   let updatedFilters = [...checkedFilters];
 
-  if (updatedFilters.includes(filterId)) {
-    updatedFilters = updatedFilters.filter((id) => id !== filterId);
+  if (updatedFilters.includes(category)) {
+    updatedFilters = updatedFilters.filter((c) => c !== category);
   } else {
-    updatedFilters.push(filterId);
+    updatedFilters.push(category);
   }
 
   setCheckedFilters(updatedFilters);
   applyFilters(updatedFilters);
 };
+
 
 
   const handleRefresh = () => {
