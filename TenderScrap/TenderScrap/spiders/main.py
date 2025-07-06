@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 import sqlite3
 
 app = FastAPI()
@@ -12,7 +13,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-Define schema for POST
+# Define schema for POST
 class Tender(BaseModel):
     tender_number: str
     description: str
