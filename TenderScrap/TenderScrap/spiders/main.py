@@ -13,6 +13,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/tenders")
 def get_tenders():
     conn = sqlite3.connect("tenders.db")
