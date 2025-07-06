@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-
+import { useState, useEffect } from "react";
 // IMPORT SEARCH FROM DASHBOARD
 
 // IMPORT FILTER BAR
