@@ -78,7 +78,21 @@ const NewIntents = () => {
   
     const [showDropdown, setShowDropdown] = useState(false);
     const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
-    
+    useEffect(() => {
+  const fetchTenders = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/tenders");
+      const data = await response.json();
+      setTenders(data);
+      setFilteredTenders(data);
+    } catch (error) {
+      console.error("Error fetching tenders:", error);
+    }
+  };
+
+  fetchTenders();
+}, []);
+
   
     // store tender
     
