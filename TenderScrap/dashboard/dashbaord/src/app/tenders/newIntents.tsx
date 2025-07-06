@@ -35,20 +35,20 @@ const Card = ({
 const NewIntents = () => {
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6">New Intents</h1>
+      <h1 className="text-3xl font-bold mb-6">TENDERS</h1>
       <div className="grid grid-cols-3 gap-4">
         <Card
           color="blue"
-          title="TENDERS"
-          subtitle="Tenders Report"
-          footer="Pending and Paid Tenders"
+          title="TRANSNET"
+          subtitle="Transnet Tenders Report"
+          footer="Active and Closed Tenders"
           link="/tenders"
         />
         <Card
           color="green"
-          title="ORDERS"
-          subtitle="Purchase Orders Report"
-          footer="Pending and Paid Orders"
+          title="CSIR"
+          subtitle="CSIR Tenders Report"
+          footer="Active and Closed Tenders"
           link="/documents"
         />
         <Card
