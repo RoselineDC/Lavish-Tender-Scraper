@@ -30,11 +30,7 @@ const filters = {
   tender_category: [
     "Goods",
     "Services",
-    "Goods & Services",
-    "Siding Lease",
-    "Port Slot / Terminal Concession",
-    "RFQ (Request for Quotation)",
-    "RFP (Request for Proposal)",
+    "Goods & Services"
   ],
   published_date_filter: [
     "Today",
