@@ -73,7 +73,12 @@ export interface TenderType {
 }
 
 
+/*************  ✨ Windsurf Command 🌟  *************/
 const NewIntents = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
+  const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
    const [searchTerm, setSearchTerm] = useState("");
   
     const [showDropdown, setShowDropdown] = useState(false);
@@ -291,6 +296,8 @@ const NewIntents = () => {
   
    
 
+  const handleFilterChange = (filterId: number) => {
+    let updatedFilters = [...checkedFilters];
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold mb-6">TRANSNET TENDERS</h1>
@@ -361,6 +368,7 @@ const NewIntents = () => {
               Refresh
             </button>
 
+    if (updatedFilters.includes(filterId)) {
             <div className="relative inline-block text-left w-full md:w-auto">
               <button
                 id="filterDropdownButton"
@@ -572,5 +580,6 @@ const NewIntents = () => {
     </div>
   );
 };
+/*******  61920173-2c00-4aa4-ac14-a84327dd3c43  *******/
 
 export default NewIntents;
