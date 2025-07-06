@@ -82,4 +82,4 @@ const handleTransnetTenders = () => {
   );
 };
 
-export default HandleTransnetTenders;
+export default handleTransnetTenders;
