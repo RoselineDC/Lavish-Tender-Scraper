@@ -63,7 +63,7 @@ const NewIntents = () => {
           link="/documents"
         />
         <Card
-          color="pink"
+          color="green"
           title="DOCUMENTS"
           subtitle="Documents Report"
           footer="Pending and Paid Documents"
