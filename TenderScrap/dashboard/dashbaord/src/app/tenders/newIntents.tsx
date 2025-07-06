@@ -56,7 +56,7 @@ const NewIntents = () => {
           link="/tenders"
         />
         <Card
-          color="red"
+          color="b"
           title="CSIR"
           subtitle="CSIR Tenders Report"
           footer="Active and Closed Tenders"
