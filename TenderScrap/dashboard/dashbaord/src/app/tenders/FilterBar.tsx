@@ -60,7 +60,7 @@ export default function FilterBar() {
   // store tender
   const [tenders, setTenders] = useState([
     {
-      id: ,
+      id: 1,
       institutionName: "Dept of Education",
       tender_number: "DOE123",
       description: "Supply of Stationery",
