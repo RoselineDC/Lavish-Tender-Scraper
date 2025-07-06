@@ -318,7 +318,12 @@ const NewIntents = () => {
         />
       </div>
       <div className="bg-white rounded-xl p-4 shadow-md  border-t-4 border-green-500 hover:shadow-lg transition "> 
-        <div className="flex flex-col items-center"></div>
+        <div className="flex flex-col items-center">
+          <h2 className="text-2xl font-bold mb-4">Tenders Overview</h2>
+          <p className="text-gray-600">
+            View and manage tenders from various institutions.
+          </p>
+        </div>
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div className="relative w-full">
           <input
