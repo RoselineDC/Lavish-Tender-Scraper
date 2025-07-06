@@ -70,6 +70,7 @@ const NewIntents = () => {
           link="/documents"
         />
       </div>
+      
     </div>
   );
 };
