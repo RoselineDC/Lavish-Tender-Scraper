@@ -268,7 +268,75 @@ const NewIntents = () => {
             </div>
           </div>
         </div>
-          
+          {approvedTenders.length > 0 ? (
+  <div className="overflow-x-auto">
+    <table className="w-full text-sm text-left text-gray-500">
+      <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+        <tr>
+          <th scope="col" className="px-2 py-3">Institution Name</th>
+          <th scope="col" className="px-4 py-3">Tender Number</th>
+          <th scope="col" className="px-20 py-3">Tender Description</th>
+          <th scope="col" className="px-4 py-3">Closing Date</th>
+          <th scope="col" className="px-4 py-3">Location</th>
+          <th scope="col" className="px-4 py-3">Tender Document</th>
+          <th scope="col" className="px-4 py-3">Tender Category</th>
+          <th scope="col" className="px-4 py-3">Tender Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {filteredTenders.length === 0 ? (
+          <tr>
+            <td colSpan={12} className="px-4 py-3 text-center text-gray-400">
+              No tenders found.
+            </td>
+          </tr>
+        ) : (
+          filteredTenders.map((tender, index) => (
+            <tr key={index} className="border-b">
+              <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
+                {tender.institutionName}
+              </td>
+              <td className="px-4 py-3">{tender.tender_number}</td>
+              <td className="px-4 py-3">{tender.description}</td>
+              <td className="px-4 py-3">{tender.closing_date}</td>
+              <td className="px-4 py-3">{tender.location}</td>
+              <td className="px-4 py-3">
+                <a
+                  href={tender.tender_document_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  View
+                </a>
+              </td>
+              <td className="px-4 py-3">{tender.tender_category}</td>
+              <td className="px-4 py-3">
+                <span
+                  className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                    tender.tender_status === "Open"
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
+                  }`}
+                >
+                  {tender.tender_status}
+                </span>
+              </td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
+
+    <TableWithPagination />
+  </div>
+) : (
+  <div className="text-center text-gray-400 py-6">
+    No approved tenders available.
+  </div>
+)}
+
 
           <TableWithPagination />
         </div>
