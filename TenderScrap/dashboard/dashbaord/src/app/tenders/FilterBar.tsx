@@ -239,23 +239,23 @@ export default function FilterBar() {
                   className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700 "
                 >
                   <h6 className="mb-3 text-sm font-medium text-white dark:text-white p-2 bg-green-900 rounded-lg border hover:bg-green-900 hover:text-primary-700">
-                    INSTITUTION
+                    CATEGORY
                   </h6>
                   <ul className="space-y-2 text-sm">
-                    {tenders.map((tender) => (
-                      <li key={tender.id} className="flex items-center">
+                    {filters.tender_category.map((category) => (
+                      <li key={category} className="flex items-center">
                         <input
-                          id={`filter-${tender.id}`}
+                          id={`filter-${category}`}
                           type="checkbox"
-                          checked={checkedFilters.includes(tender.id)}
-                          onChange={() => handleFilterChange(tender.id)}
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                          checked={checkedFilters.includes(category)}
+                          onChange={() => handleFilterChange(category)}
+                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
                         />
                         <label
-                          htmlFor={`filter-${tender.id}`}
-                          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
+                          htmlFor={`filter-${category}`}
+                          className="ml-2 text-sm font-medium text-gray-900"
                         >
-                          {tender.institutionName} ({tender.id})
+                          {category}
                         </label>
                       </li>
                     ))}
