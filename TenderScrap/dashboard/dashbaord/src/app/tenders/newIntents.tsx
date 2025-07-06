@@ -78,6 +78,7 @@ const NewIntents = () => {
   
     const [showDropdown, setShowDropdown] = useState(false);
     const [checkedFilters, setCheckedFilters] = useState<number[]>([]);
+    
   
     // store tender
     
@@ -99,6 +100,7 @@ const NewIntents = () => {
     "Custom Range",
   ],
 };
+
     const handleRefresh = () => {
       setCheckedFilters([]);
       // setFilteredTenders(tenders);
