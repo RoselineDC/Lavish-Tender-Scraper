@@ -76,35 +76,7 @@ const NewIntents = () => {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   // Fetch tenders from backend
-  useEffect(() => {
-    const fetchTenders = async () => {
-      try {
-        const response = await fetch("http://localhost:8000/tenders");
-        const data = await response.json();
-        setTenders(data);
-        setFilteredTenders(data);
-      } catch (error) {
-        console.error("Error fetching tenders:", error);
-      }
-    };
-    fetchTenders();
-  }, []);
-
-  // Dynamically get categories from tenders
-  const categories = Array.from(
-    new Set(tenders.map((t) => t.tender_category).filter(Boolean))
-  );
-
-  // Handle category filter checkbox toggle
-  const handleCategoryToggle = (category: string) => {
-    let updatedCategories = [...checkedCategories];
-    if (updatedCategories.includes(category)) {
-      updatedCategories = updatedCategories.filter((c) => c !== category);
-    } else {
-      updatedCategories.push(category);
-    }
-    setCheckedCategories(updatedCategories);
-  };
+  
 
   // Filter tenders based on search term and category filters
  
