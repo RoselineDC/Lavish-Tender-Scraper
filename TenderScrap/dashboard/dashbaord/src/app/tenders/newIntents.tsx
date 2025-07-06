@@ -144,7 +144,7 @@ useEffect(() => {
     }
   };
   // Fetch approved tenders from the API
-  < andleTransnetTenders />
+  < handleTransnetTenders />
 
   
 
