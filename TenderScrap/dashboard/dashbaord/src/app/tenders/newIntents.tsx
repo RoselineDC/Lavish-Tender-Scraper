@@ -504,7 +504,7 @@ const NewIntents = () => {
                       {tender.tender_status}
                     </span>
                   </td>
-                  <td className="px-4 py-3 flex items-center justify-end relative">
+                  {/* <td className="px-4 py-3 flex items-center justify-end relative">
                     <button
                       id={`tender-actions-dropdown-button-${index}`}
                       data-dropdown-toggle={`tender-actions-dropdown-${index}`}
@@ -548,7 +548,7 @@ const NewIntents = () => {
                         </li>
                       </ul>
                     </div>
-                  </td>
+                  </td> */}
                 </tr>
               ))
             )}
