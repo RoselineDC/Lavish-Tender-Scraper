@@ -172,12 +172,7 @@ export default function FilterBar() {
       {/* ... Search & Filter UI (unchanged) ... */}
       {/* [ KEEP all your search input, dropdown button, checkboxes etc here ] */}
       {/* ... copy-paste your full existing JSX UI here ... */}
-        <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-bold mb-4">ACTIVE APPROVED TENDERS</h2>
-          <p className="text-gray-600">
-            View and manage Approved tendes for Transnet
-          </p>
-        </div>
+      
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
