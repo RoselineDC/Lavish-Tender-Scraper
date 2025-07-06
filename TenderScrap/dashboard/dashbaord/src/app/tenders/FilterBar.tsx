@@ -27,11 +27,7 @@ export interface TenderType {
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
-  tender_category: [
-    "Goods",
-    "Services",
-    "Goods & Services"
-  ],
+  tender_category: ["Goods", "Services", "Goods & Services"],
   published_date_filter: [
     "Today",
     "Yesterday",
@@ -47,11 +43,11 @@ const filters = {
 export default function FilterBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
-const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
+  const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
 
   // ✅ FETCH tenders from backend
   const [tenders, setTenders] = useState<TenderType[]>([]);
-  
+
   const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
@@ -59,18 +55,17 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
     published_date_filter: filters.published_date_filter[0],
   });
 
- const applyFilters = (filters: string[]) => {
-  if (filters.length === 0) {
-    setFilteredTenders(tenders);
-    return;
-  }
+  const applyFilters = (filters: string[]) => {
+    if (filters.length === 0) {
+      setFilteredTenders(tenders);
+      return;
+    }
 
-  const filtered = tenders.filter((tender) =>
-    filters.includes(tender.tender_category)
-  );
-  setFilteredTenders(filtered);
-};
-
+    const filtered = tenders.filter((tender) =>
+      filters.includes(tender.tender_category)
+    );
+    setFilteredTenders(filtered);
+  };
 
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
@@ -78,20 +73,18 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
 
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
 
- const handleFilterChange = (category: string) => {
-  let updatedFilters = [...checkedFilters];
+  const handleFilterChange = (category: string) => {
+    let updatedFilters = [...checkedFilters];
 
-  if (updatedFilters.includes(category)) {
-    updatedFilters = updatedFilters.filter((c) => c !== category);
-  } else {
-    updatedFilters.push(category);
-  }
+    if (updatedFilters.includes(category)) {
+      updatedFilters = updatedFilters.filter((c) => c !== category);
+    } else {
+      updatedFilters.push(category);
+    }
 
-  setCheckedFilters(updatedFilters);
-  applyFilters(updatedFilters);
-};
-
-
+    setCheckedFilters(updatedFilters);
+    applyFilters(updatedFilters);
+  };
 
   const handleRefresh = () => {
     setCheckedFilters([]);
@@ -154,18 +147,18 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
     } else {
       const term = searchTerm.toLowerCase();
       setFilteredTenders(
-  tenders.filter((t) =>
-    (t.institutionName?.toLowerCase() || "").includes(term) ||
-    (t.tender_number?.toLowerCase() || "").includes(term) ||
-    (t.description?.toLowerCase() || "").includes(term) ||
-    (t.tender_category?.toLowerCase() || "").includes(term) ||
-    (t.location?.toLowerCase() || "").includes(term) ||
-    (t.contact_person?.toLowerCase() || "").includes(term) ||
-    (t.contact_email?.toLowerCase() || "").includes(term) ||
-    (t.tender_status?.toLowerCase() || "").includes(term)
-  )
-);
-
+        tenders.filter(
+          (t) =>
+            (t.institutionName?.toLowerCase() || "").includes(term) ||
+            (t.tender_number?.toLowerCase() || "").includes(term) ||
+            (t.description?.toLowerCase() || "").includes(term) ||
+            (t.tender_category?.toLowerCase() || "").includes(term) ||
+            (t.location?.toLowerCase() || "").includes(term) ||
+            (t.contact_person?.toLowerCase() || "").includes(term) ||
+            (t.contact_email?.toLowerCase() || "").includes(term) ||
+            (t.tender_status?.toLowerCase() || "").includes(term)
+        )
+      );
     }
   }, [searchTerm, tenders]);
 
