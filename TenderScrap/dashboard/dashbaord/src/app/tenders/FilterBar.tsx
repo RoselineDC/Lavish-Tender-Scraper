@@ -115,7 +115,9 @@ export default function FilterBar() {
   };
 
   const handleDelete = (id: number) => {
-    const confirmed = window.confirm("Are you sure you want to delete this tender?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this tender?"
+    );
     if (confirmed) {
       const tenderToDelete = tenders.find((tender) => tender.id === id);
       if (tenderToDelete) {
@@ -174,12 +176,43 @@ export default function FilterBar() {
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            {/* Header Row (unchanged) */}
+            <tr>
+              <th scope="col" className="px-2 py-3">
+                Institution Name
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Number
+              </th>
+              <th scope="col" className="px-20 py-3">
+                Tender Description
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Closing Date
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Location
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Document
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Category
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Tender Status
+              </th>
+              <th scope="col" className="px-4 py-3">
+                Actions
+              </th>
+            </tr>
           </thead>
           <tbody>
             {filteredTenders.length === 0 ? (
               <tr>
-                <td colSpan={12} className="px-4 py-3 text-center text-gray-400">
+                <td
+                  colSpan={12}
+                  className="px-4 py-3 text-center text-gray-400"
+                >
                   No tenders found.
                 </td>
               </tr>
