@@ -45,14 +45,14 @@ const NewIntents = () => {
           link="/tenders"
         />
         <Card
-          color="green"
+          color="red"
           title="CSIR"
           subtitle="CSIR Tenders Report"
           footer="Active and Closed Tenders"
           link="/documents"
         />
         <Card
-          color="purple"
+          color="p"
           title="DOCUMENTS"
           subtitle="Documents Report"
           footer="Pending and Paid Documents"
