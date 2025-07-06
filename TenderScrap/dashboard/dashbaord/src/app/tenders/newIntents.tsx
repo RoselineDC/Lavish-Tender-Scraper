@@ -6,7 +6,7 @@ import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
 import TableWithPagination from "../dashboard/TableWithPagination";
 import Link from "next/link";
-import HandleTransnetTenders from "/HandleTransnetTenders";
+import HandleTransnetTenders from "HandleTransnetTenders";
 
 // Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
