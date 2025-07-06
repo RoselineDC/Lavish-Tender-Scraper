@@ -38,3 +38,5 @@ def get_tenders():
     conn.close()
 
     return [dict(row) for row in rows]
+
+# add tende
