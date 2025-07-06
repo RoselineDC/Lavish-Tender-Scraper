@@ -55,6 +55,7 @@ const Card = ({
   return link ? <Link href={link}>{content}</Link> : content;
 };
 
+
 const NewIntents = () => {
    const [searchTerm, setSearchTerm] = useState("");
   
