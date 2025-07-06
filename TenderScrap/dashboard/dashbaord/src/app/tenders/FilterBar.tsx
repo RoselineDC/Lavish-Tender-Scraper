@@ -63,15 +63,18 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
     published_date_filter: filters.published_date_filter[0],
   });
 
- const applyFilters = (filters: number[]) => {
+ const applyFilters = (filters: string[]) => {
   if (filters.length === 0) {
     setFilteredTenders(tenders);
     return;
   }
 
-   const filtered = tenders.filter((tender) => filters.includes(tender.id));
+  const filtered = tenders.filter((tender) =>
+    filters.includes(tender.tender_category)
+  );
   setFilteredTenders(filtered);
 };
+
 
   const handleChange = (key: string, value: string) => {
     setSelected({ ...selected, [key]: value });
