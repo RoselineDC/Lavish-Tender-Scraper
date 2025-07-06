@@ -107,17 +107,7 @@ const NewIntents = () => {
   };
 
   // Filter tenders based on search term and category filters
-  useEffect(() => {
-    let filtered = tenders;
-
-    // Filter by categories if any selected
-    if (checkedCategories.length > 0) {
-      filtered = filtered.filter((t) =>
-        checkedCategories.includes(t.tender_category)
-      );
-    }
-
-    // Filter by search term
+ 
   
   
 
