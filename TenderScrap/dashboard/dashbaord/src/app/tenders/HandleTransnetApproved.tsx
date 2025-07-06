@@ -82,4 +82,4 @@ const HandleTransnetTenders = () => {
   );
 };
 
-export default TendersPage;
+export default HandleTransnetTenders;
