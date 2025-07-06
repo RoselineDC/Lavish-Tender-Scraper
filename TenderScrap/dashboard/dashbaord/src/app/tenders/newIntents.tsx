@@ -345,6 +345,7 @@ const NewIntents = () => {
                 ))
               )}
             </tbody>
+            
           </table>
 
           <TableWithPagination />
