@@ -68,4 +68,12 @@ const NewIntents = () => {
           color="pink"
           title="DOCUMENTS"
           subtitle="Documents Report"
-          footer="Pending and Paid Do
+          footer="Pending and Paid Documents"
+          link="/documents"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default NewIntents;
