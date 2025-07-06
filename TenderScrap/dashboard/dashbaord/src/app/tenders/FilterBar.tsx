@@ -154,18 +154,18 @@ const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
     } else {
       const term = searchTerm.toLowerCase();
       setFilteredTenders(
-        tenders.filter(
-          (t) =>
-            t.institutionName.toLowerCase().includes(term) ||
-            t.tender_number.toLowerCase().includes(term) ||
-            t.description.toLowerCase().includes(term) ||
-            t.tender_category.toLowerCase().includes(term) ||
-            t.location.toLowerCase().includes(term) ||
-            t.contact_person.toLowerCase().includes(term) ||
-            t.contact_email.toLowerCase().includes(term) ||
-            t.tender_status.toLowerCase().includes(term)
-        )
-      );
+  tenders.filter((t) =>
+    (t.institutionName?.toLowerCase() || "").includes(term) ||
+    (t.tender_number?.toLowerCase() || "").includes(term) ||
+    (t.description?.toLowerCase() || "").includes(term) ||
+    (t.tender_category?.toLowerCase() || "").includes(term) ||
+    (t.location?.toLowerCase() || "").includes(term) ||
+    (t.contact_person?.toLowerCase() || "").includes(term) ||
+    (t.contact_email?.toLowerCase() || "").includes(term) ||
+    (t.tender_status?.toLowerCase() || "").includes(term)
+  )
+);
+
     }
   }, [searchTerm, tenders]);
 
