@@ -75,7 +75,72 @@ const NewIntents = () => {
   const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
+useEffect(() => {
+    let filtered = approvedTenders;
 
+    // Filter by category
+    if (checkedCategories.length > 0) {
+      filtered = filtered.filter((t) =>
+        checkedCategories.includes(t.tender_category)
+      );
+    }
+
+    // Filter by search term
+    if (searchTerm.trim() !== "") {
+      const term = searchTerm.toLowerCase();
+      filtered = filtered.filter(
+        (t) =>
+          t.institutionName?.toLowerCase().includes(term) ||
+          t.tender_number?.toLowerCase().includes(term) ||
+          t.description?.toLowerCase().includes(term) ||
+          t.tender_category?.toLowerCase().includes(term) ||
+          t.location?.toLowerCase().includes(term) ||
+          t.contact_person?.toLowerCase().includes(term) ||
+          t.contact_email?.toLowerCase().includes(term) ||
+          t.tender_status?.toLowerCase().includes(term)
+      );
+    }
+
+    setFilteredTenders(filtered);
+  }, [approvedTenders, searchTerm, checkedCategories]);
+
+  // Collect categories dynamically from approved tenders
+  const categories = Array.from(
+    new Set(approvedTenders.map((t) => t.tender_category).filter(Boolean))
+  );
+
+  const toggleDropdown = () => setShowDropdown((prev) => !prev);
+
+  const handleRefresh = () => {
+    setSearchTerm("");
+    setCheckedCategories([]);
+    setFilteredTenders(approvedTenders);
+  };
+
+  const handleCategoryToggle = (category: string) => {
+    let updatedCategories = [...checkedCategories];
+    if (updatedCategories.includes(category)) {
+      updatedCategories = updatedCategories.filter((c) => c !== category);
+    } else {
+      updatedCategories.push(category);
+    }
+    setCheckedCategories(updatedCategories);
+  };
+
+  const handleDropdownToggle = (index: number) => {
+    setOpenDropdown((prev) => (prev === index ? null : index));
+  };
+
+  const handleDelete = (id: number) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this tender?"
+    );
+    if (confirmed) {
+      setApprovedTenders((prev) => prev.filter((t) => t.id !== id));
+      setOpenDropdown(null);
+      console.log("Deleted approved tender ID:", id);
+    }
+  };
   
 
   return (
