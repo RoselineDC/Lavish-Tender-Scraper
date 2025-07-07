@@ -46,7 +46,6 @@ export default function FilterBar() {
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
   const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
 
-
   // ✅ FETCH tenders from backend
   const [tenders, setTenders] = useState<TenderType[]>([]);
 
@@ -89,50 +88,48 @@ export default function FilterBar() {
   };
 
   // LOAD DATA FROM DB
-//   const fetchApprovedTenders = async () => {
-//   try {
-//     const res = await fetch("http://localhost:8000/tenders/approved");
-//     if (!res.ok) throw new Error("Failed to fetch tenders");
-//     const data = await res.json();
-//     setApprovedTenders(data);
-//     setFilteredTenders(data); // show fresh results
-//   } catch (err) {
-//     console.error("Error fetching tenders:", err);
-//   }
-// };
+  //   const fetchApprovedTenders = async () => {
+  //   try {
+  //     const res = await fetch("http://localhost:8000/tenders/approved");
+  //     if (!res.ok) throw new Error("Failed to fetch tenders");
+  //     const data = await res.json();
+  //     setApprovedTenders(data);
+  //     setFilteredTenders(data); // show fresh results
+  //   } catch (err) {
+  //     console.error("Error fetching tenders:", err);
+  //   }
+  // };
 
-const handleRefresh = async () => {
-  console.log("Refresh button clicked"); // Check button works
+  const handleRefresh = async () => {
+    console.log("Refresh button clicked"); // Check button works
 
-  try {
-    setCheckedFilters([]);
-    setSearchTerm("");
+    try {
+      setCheckedFilters([]);
+      setSearchTerm("");
 
-    // Trigger scraper
-    const res = await fetch("http://localhost:8000/refresh-tenders", { method: "POST" });
-    if (!res.ok) throw new Error("Failed to trigger scraper");
+      // Trigger scraper
+      const res = await fetch("http://localhost:8000/refresh-tenders", {
+        method: "POST",
+      });
+      if (!res.ok) throw new Error("Failed to trigger scraper");
 
-    console.log("Scraper triggered successfully");
+      console.log("Scraper triggered successfully");
 
-    await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10s
+      await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10s
 
-    const tendersRes = await fetch("http://localhost:8000/tenders");
-    const data = await tendersRes.json();
+      const tendersRes = await fetch("http://localhost:8000/tenders");
+      const data = await tendersRes.json();
 
-    console.log("Fetched tenders from backend:", data); // See what data is fetched
+      console.log("Fetched tenders from backend:", data); // See what data is fetched
 
-    if (!Array.isArray(data)) throw new Error("Expected array of tenders");
+      if (!Array.isArray(data)) throw new Error("Expected array of tenders");
 
-    setApprovedTenders(data);
-    setFilteredTenders(data);
-  } catch (err) {
-    console.error("Error refreshing tenders:", err);
-  }
-};
-
-
-
-
+      setApprovedTenders(data);
+      setFilteredTenders(data);
+    } catch (err) {
+      console.error("Error refreshing tenders:", err);
+    }
+  };
 
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
   const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
@@ -141,34 +138,36 @@ const handleRefresh = async () => {
   const handleDropdownToggle = (index: number) => {
     setOpenDropdown((prev) => (prev === index ? null : index));
   };
-const handleApprove = async (id: number) => {
-  try {
-    const response = await fetch(`http://localhost:8000/tenders/${id}/approve`, {
-      method: "PATCH",
-    });
+  const handleApprove = async (id: number) => {
+    try {
+      const response = await fetch(
+        `http://localhost:8000/tenders/${id}/approve`,
+        {
+          method: "PATCH",
+        }
+      );
 
-    if (!response.ok) {
-      throw new Error("Failed to approve tender");
+      if (!response.ok) {
+        throw new Error("Failed to approve tender");
+      }
+
+      const tenderToApprove = tenders.find((tender) => tender.id === id);
+      if (tenderToApprove) {
+        const updatedTender: TenderType = {
+          ...tenderToApprove,
+          tender_status: "Approved", // now a valid value
+        };
+
+        setApprovedTenders((prev: TenderType[]) => [...prev, updatedTender]);
+        setTenders((prev: TenderType[]) => prev.filter((t) => t.id !== id));
+      }
+
+      setOpenDropdown(null);
+      console.log("Approved tender ID:", id);
+    } catch (error) {
+      console.error("Error approving tender:", error);
     }
-
-    const tenderToApprove = tenders.find((tender) => tender.id === id);
-    if (tenderToApprove) {
-      const updatedTender: TenderType = {
-        ...tenderToApprove,
-        tender_status: "Approved", // now a valid value
-      };
-
-      setApprovedTenders((prev: TenderType[]) => [...prev, updatedTender]);
-      setTenders((prev: TenderType[]) => prev.filter((t) => t.id !== id));
-    }
-
-    setOpenDropdown(null);
-    console.log("Approved tender ID:", id);
-  } catch (error) {
-    console.error("Error approving tender:", error);
-  }
-};
-
+  };
 
   const handleDelete = (id: number) => {
     const confirmed = window.confirm(
@@ -225,15 +224,13 @@ const handleApprove = async (id: number) => {
   // DISPLAY CLOSSING EARLY FIRTS
   const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
 
-const sortedTenders = [...filteredTenders].sort((a, b) => {
-  const dateA = new Date(a.closing_date);
-  const dateB = new Date(b.closing_date);
-  return closingDateSortAsc
-    ? dateA.getTime() - dateB.getTime()
-    : dateB.getTime() - dateA.getTime();
-});
-
-
+  const sortedTenders = [...filteredTenders].sort((a, b) => {
+    const dateA = new Date(a.closing_date);
+    const dateB = new Date(b.closing_date);
+    return closingDateSortAsc
+      ? dateA.getTime() - dateB.getTime()
+      : dateB.getTime() - dateA.getTime();
+  });
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
@@ -349,13 +346,11 @@ const sortedTenders = [...filteredTenders].sort((a, b) => {
                 Tender Description
               </th>
               <th
-  scope="col"
-  className="px-4 py-3 cursor-pointer"
-  onClick={() => setClosingDateSortAsc(!closingDateSortAsc)}
->
-  Closing Date {closingDateSortAsc ? "↑" : "↓"}
-</th>
-
+                scope="col"
+                className="px-4 py-3 cursor-pointer"
+                onClick={() => setClosingDateSortAsc(!closingDateSortAsc)}
+              >
+                Closing Date {closingDateSortAsc ? "↑" : "↓"}
               </th>
               <th scope="col" className="px-4 py-3">
                 Location
