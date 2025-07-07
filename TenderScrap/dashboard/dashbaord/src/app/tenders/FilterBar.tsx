@@ -231,7 +231,16 @@ export default function FilterBar() {
       ? dateA.getTime() - dateB.getTime()
       : dateB.getTime() - dateA.getTime();
   });
-  
+  // BY PUBLISHED DAT
+  const sortedTenders = [...filteredTenders].sort((a, b) => {
+  const parseDate = (dateStr: string) => new Date(dateStr.replace(" ", "T"));
+
+  const dateA = parseDate(a.published_date);
+  const dateB = parseDate(b.published_date);
+
+  return dateB.getTime() - dateA.getTime(); // latest first
+});
+
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
