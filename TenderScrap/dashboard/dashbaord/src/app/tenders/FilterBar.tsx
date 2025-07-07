@@ -102,6 +102,8 @@ export default function FilterBar() {
 // };
 
 const handleRefresh = async () => {
+  console.log("Refresh button clicked"); // Check button works
+
   try {
     setCheckedFilters([]);
     setSearchTerm("");
@@ -110,12 +112,14 @@ const handleRefresh = async () => {
     const res = await fetch("http://localhost:8000/refresh-tenders", { method: "POST" });
     if (!res.ok) throw new Error("Failed to trigger scraper");
 
-    // Wait for scraping to finish (adjust time as needed)
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+    console.log("Scraper triggered successfully");
 
-    // Fetch all tenders from /tenders
+    await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10s
+
     const tendersRes = await fetch("http://localhost:8000/tenders");
     const data = await tendersRes.json();
+
+    console.log("Fetched tenders from backend:", data); // See what data is fetched
 
     if (!Array.isArray(data)) throw new Error("Expected array of tenders");
 
@@ -125,6 +129,7 @@ const handleRefresh = async () => {
     console.error("Error refreshing tenders:", err);
   }
 };
+
 
 
 
