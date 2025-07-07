@@ -48,7 +48,7 @@ def get_tenders():
     return [dict(row) for row in rows]
 
     # add tenders 
-  @app.post("/tenders")
+@app.post("/tenders")
 def add_tender(tender: Tender):
     try:
         conn = get_db_connection()
