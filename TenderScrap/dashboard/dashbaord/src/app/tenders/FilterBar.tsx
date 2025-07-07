@@ -231,6 +231,7 @@ export default function FilterBar() {
       ? dateA.getTime() - dateB.getTime()
       : dateB.getTime() - dateA.getTime();
   });
+  
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
