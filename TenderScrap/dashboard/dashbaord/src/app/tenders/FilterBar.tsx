@@ -373,6 +373,9 @@ export default function FilterBar() {
                 Location
               </th>
               <th scope="col" className="px-4 py-3">
+                Location
+              </th>
+              <th scope="col" className="px-4 py-3">
                 Tender Document
               </th>
               <th scope="col" className="px-4 py-3">
