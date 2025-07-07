@@ -50,26 +50,24 @@ def get_tenders():
     # add tenders 
 
 # add tenders to approved table
-@app.post("/tenders/approved")
-def add_tender(tender: Tender):
-    try:
-        conn = sqlite3.connect("tenders.db")
-        cursor = conn.cursor()
-        cursor.execute("""
-            INSERT INTO tenders (
-                tender_number, description, published_date, closing_date,
-                briefing_date, location, tender_document_url, tender_category,
-                tender_type, tender_status, contact_person, contact_email
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
-            tender.tender_number, tender.description, tender.published_date, tender.closing_date,
-            tender.briefing_date, tender.location, tender.tender_document_url, tender.tender_category,
-            tender.tender_type, tender.tender_status, tender.contact_person, tender.contact_email
-        ))
-        conn.commit()
+app.patch("/tenders/{tender_id}/approve")
+def approve_tender(tender_id: int = Path(..., description="The ID of the tender to approve")):
+    conn = sqlite3.connect("tenders.db")
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT * FROM tenders WHERE id = ?", (tender_id,))
+    tender = cursor.fetchone()
+    if tender is None:
         conn.close()
-        return {"message": "Tender added successfully"}
-    except Exception as e:
+        raise HTTPException(status_code=404, detail="Tender not found")
+    
+    cursor.execute(
+        "UPDATE tenders SET tender_status = 'Approved' WHERE id = ?", (tender_id,)
+    )
+    conn.commit()
+    conn.close()
+    
+    return {"message": f"Tender with id {tender_id} approved successfully"}
         raise HTTPException(status_code=500, detail=str(e))
 # get approved tenders
 @app.get("/tenders/approved")
