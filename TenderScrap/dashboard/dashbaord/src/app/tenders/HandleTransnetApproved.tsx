@@ -24,7 +24,7 @@ const handleTransnetTenders = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/tenders")
+    fetch("http://localhost:8000/tenders/approved") // Adjust the URL as needed
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch tenders");
         return res.json();
