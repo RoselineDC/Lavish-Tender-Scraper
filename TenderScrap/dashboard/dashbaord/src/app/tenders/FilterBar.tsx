@@ -19,7 +19,7 @@ export interface TenderType {
   tender_document_url: string;
   tender_category: string;
   tender_type: string;
-  tender_status: "Open" | "Closed";
+  tender_status: "Open" | "Closed" | "Approved";
   contact_person: string;
   contact_email: string;
   rowKey?: string;
