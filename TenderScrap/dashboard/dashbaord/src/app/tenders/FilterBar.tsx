@@ -99,20 +99,15 @@ export default function FilterBar() {
     setOpenDropdown((prev) => (prev === index ? null : index));
   };
 
- const approveTender = async (id: number) => {
-  try {
-    const res = await fetch(`http://localhost:8000/tenders/${id}/approve`, {
-      method: "PATCH",
-    });
-    if (!res.ok) throw new Error("Failed to approve tender");
-
-    // Refresh approved tenders list after successful approval
-    fetchApprovedTenders();
-  } catch (error) {
-    console.error(error);
-  }
-};
-
+  const handleApprove = (id: number) => {
+    const tenderToApprove = tenders.find((tender) => tender.id === id);
+    if (tenderToApprove) {
+      setApprovedTenders((prev) => [...prev, tenderToApprove]);
+      setTenders((prev) => prev.filter((tender) => tender.id !== id));
+      setOpenDropdown(null);
+      console.log("Approved tender ID:", id);
+    }
+  };
 
   const handleDelete = (id: number) => {
     const confirmed = window.confirm(
