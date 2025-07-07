@@ -14,7 +14,7 @@ def create_table(cursor):
         tender_document_url TEXT,
         tender_category TEXT,
         tender_type TEXT,
-       tender_status TEXT DEFAULT 'Pending',,
+       tender_status TEXT DEFAULT 'Pending',
         contact_person TEXT,
         contact_email TEXT,
                    
