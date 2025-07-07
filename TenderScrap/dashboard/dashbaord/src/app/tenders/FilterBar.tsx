@@ -222,7 +222,13 @@ const handleApprove = async (id: number) => {
       );
     }
   }, [searchTerm, tenders]);
-  
+  // DISPLAY CLOSSING EARLY FIRTS
+  const sortedTenders = [...filteredTenders].sort((a, b) => {
+  const dateA = new Date(a.closing_date);
+  const dateB = new Date(b.closing_date);
+  return dateA.getTime() - dateB.getTime(); // ascending: earliest first
+});
+
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
