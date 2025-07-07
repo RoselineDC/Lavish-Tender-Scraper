@@ -31,6 +31,7 @@ def parse(self, response):
             ))
 
         conn.commit()
+        cursor.close()
         conn.close()
 
     except Exception as e:
