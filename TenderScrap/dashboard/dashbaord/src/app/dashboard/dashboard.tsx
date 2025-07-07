@@ -20,7 +20,21 @@ const pieData = [
   { name: "Submission For Tomorrow", value: 20.69, color: "#FFC107" },
   { name: "Not Submitted", value: 16.85, color: "#ff4d4d" },
 ];
+// ✅ Fetch tenders from FastAPI on mount
+  useEffect(() => {
+    const fetchTenders = async () => {
+      try {
+        const res = await fetch("http://localhost:8000/tenders");
+        const data = await res.json();
+        setTenders(data);
+        setFilteredTenders(data);
+      } catch (error) {
+        console.error("Error fetching tenders:", error);
+      }
+    };
 
+    fetchTenders();
+  }, []);
 
 const Dashboard: React.FC = () => {
   return (
