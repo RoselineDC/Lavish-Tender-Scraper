@@ -272,7 +272,6 @@ const NewIntents = () => {
 
       {/* Conditional table based on approved tenders */}
       {filteredTenders.map((tender, index) => (
-
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50">
