@@ -48,7 +48,41 @@ def get_tenders():
     return [dict(row) for row in rows]
 
     # add tenders 
-    
+  @app.post("/tenders")
+def add_tender(tender: Tender):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            INSERT INTO tenders (
+                tender_number, description, published_date, closing_date,
+                briefing_date, location, tender_document_url, tender_category,
+                tender_type, tender_status, contact_person, contact_email
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                tender.tender_number,
+                tender.description,
+                tender.published_date.isoformat(),
+                tender.closing_date.isoformat(),
+                tender.briefing_date.isoformat(),
+                tender.location,
+                tender.tender_document_url,
+                tender.tender_category,
+                tender.tender_type,
+                tender.tender_status,
+                tender.contact_person,
+                tender.contact_email,
+            ),
+        )
+        conn.commit()
+        tender_id = cursor.lastrowid
+        conn.close()
+        return {"message": "Tender added successfully", "id": tender_id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+  
 
 # add tenders to approved table
 @app.post("/tenders/approved")
