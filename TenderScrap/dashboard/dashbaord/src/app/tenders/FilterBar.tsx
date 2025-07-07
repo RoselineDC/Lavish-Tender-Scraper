@@ -100,9 +100,9 @@ export default function FilterBar() {
 };
 
  const handleRefresh = () => {
-  setCheckedFilters([]);      // clear filters
-  setSearchTerm("");          // clear search (optional)
-  fetchApprovedTenders();     // 🔥 now this talks to FastAPI!
+  setCheckedFilters([]);      
+  setSearchTerm("");          
+  fetchApprovedTenders();     
 };
 
 
