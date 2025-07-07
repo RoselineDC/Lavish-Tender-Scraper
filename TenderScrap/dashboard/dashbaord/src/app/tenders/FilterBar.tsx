@@ -355,6 +355,7 @@ export default function FilterBar() {
               <th scope="col" className="px-20 py-3">
                 Tender Description
               </th>
+              
               <th
                 scope="col"
                 className="px-4 py-3 cursor-pointer"
@@ -370,7 +371,7 @@ export default function FilterBar() {
                 Closing Date {closingDateSortAsc ? "↑" : "↓"}
               </th> */}
               <th scope="col" className="px-4 py-3">
-                Location
+                published Date
               </th>
               <th scope="col" className="px-4 py-3">
                 Location
