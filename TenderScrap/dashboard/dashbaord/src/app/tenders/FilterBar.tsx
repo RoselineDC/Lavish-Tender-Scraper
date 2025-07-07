@@ -223,11 +223,16 @@ const handleApprove = async (id: number) => {
     }
   }, [searchTerm, tenders]);
   // DISPLAY CLOSSING EARLY FIRTS
-  const sortedTenders = [...filteredTenders].sort((a, b) => {
+  const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
+
+const sortedTenders = [...filteredTenders].sort((a, b) => {
   const dateA = new Date(a.closing_date);
   const dateB = new Date(b.closing_date);
-  return dateA.getTime() - dateB.getTime(); // ascending: earliest first
+  return closingDateSortAsc
+    ? dateA.getTime() - dateB.getTime()
+    : dateB.getTime() - dateA.getTime();
 });
+
 
 
   return (
