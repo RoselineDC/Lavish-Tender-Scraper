@@ -35,14 +35,6 @@ class Tender(BaseModel):
     contact_email: str
 
 # get all tenders
-@app.get("/tenders")
-def get_tenders():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM tenders ORDER BY published_date DESC")
-    rows = cursor.fetchall()
-    conn.close()
-    return [dict(row) for row in rows]
 
 @app.get("/tenders")
 def get_tenders():
