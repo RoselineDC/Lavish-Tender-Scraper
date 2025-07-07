@@ -35,7 +35,7 @@ class Tender(BaseModel):
     contact_email: str
 
 # get all tenders
-@app.get("/tenders/al")
+@app.get("/tenders")
 def get_tenders():
     conn = get_db_connection()
     cursor = conn.cursor()
