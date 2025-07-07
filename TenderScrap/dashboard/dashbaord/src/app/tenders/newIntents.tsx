@@ -7,7 +7,6 @@ import { TfiFilter } from "react-icons/tfi";
 import TableWithPagination from "../dashboard/TableWithPagination";
 import Link from "next/link";
 
-// Tailwind-compatible color map
 const colorMap: Record<string, { border: string; bg: string }> = {
   blue: { border: "border-blue-900", bg: "bg-blue-900" },
   yellow: { border: "border-red-700", bg: "bg-red-700" },
@@ -31,16 +30,10 @@ const Card = ({
   const bgClass = colorMap[color]?.bg || "bg-gray-500";
 
   const content = (
-    <div
-      className={`bg-white rounded-xl shadow-md p-4 border-t-4 ${borderClass} hover:shadow-lg transition`}
-    >
+    <div className={`bg-white rounded-xl shadow-md p-4 border-t-4 ${borderClass} hover:shadow-lg transition`}>
       <h2 className="text-2xl font-bold">{title}</h2>
       <p className="text-sm text-gray-500">{subtitle}</p>
-      <div
-        className={`mt-2 text-xs ${bgClass} text-white rounded p-1 text-center`}
-      >
-        {footer}
-      </div>
+      <div className={`mt-2 text-xs ${bgClass} text-white rounded p-1 text-center`}>{footer}</div>
     </div>
   );
 
@@ -69,13 +62,9 @@ const NewIntents = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
-  const [tenders, setTenders] = useState<TenderType[]>([]);
-  const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
-  const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
 
-  // Fetch approved tenders on component mount
   useEffect(() => {
     fetch("http://localhost:8000/tenders/approved")
       .then((res) => {
@@ -84,6 +73,7 @@ const NewIntents = () => {
       })
       .then((data) => {
         setApprovedTenders(data);
+        setFilteredTenders(data); // Initially show all approved tenders
       })
       .catch((err) => {
         console.error("Error fetching tenders:", err);
@@ -91,12 +81,11 @@ const NewIntents = () => {
   }, []);
 
   useEffect(() => {
-  if (searchTerm.trim() === "") {
-    setFilteredTenders(approvedTenders);
-  } else {
-    const term = searchTerm.toLowerCase();
-    setFilteredTenders(
-      approvedTenders.filter(
+    let filtered = approvedTenders;
+
+    if (searchTerm.trim() !== "") {
+      const term = searchTerm.toLowerCase();
+      filtered = filtered.filter(
         (t) =>
           (t.institutionName?.toLowerCase() || "").includes(term) ||
           (t.tender_number?.toLowerCase() || "").includes(term) ||
@@ -106,12 +95,18 @@ const NewIntents = () => {
           (t.contact_person?.toLowerCase() || "").includes(term) ||
           (t.contact_email?.toLowerCase() || "").includes(term) ||
           (t.tender_status?.toLowerCase() || "").includes(term)
-      )
-    );
-  }
-}, [searchTerm, approvedTenders]);
+      );
+    }
 
-  // Collect categories dynamically from approved tenders
+    if (checkedCategories.length > 0) {
+      filtered = filtered.filter((t) =>
+        checkedCategories.includes(t.tender_category)
+      );
+    }
+
+    setFilteredTenders(filtered);
+  }, [searchTerm, checkedCategories, approvedTenders]);
+
   const categories = Array.from(
     new Set(approvedTenders.map((t) => t.tender_category).filter(Boolean))
   );
@@ -134,89 +129,65 @@ const NewIntents = () => {
     setCheckedCategories(updatedCategories);
   };
 
-  const handleDropdownToggle = (index: number) => {
-    setOpenDropdown((prev) => (prev === index ? null : index));
-  };
+  return (
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-6">TRANSNET TENDERS</h1>
 
-  const handleDelete = (id: number) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this tender?"
-    );
-    if (confirmed) {
-      setApprovedTenders((prev) => prev.filter((t) => t.id !== id));
-      setOpenDropdown(null);
-      console.log("Deleted approved tender ID:", id);
-    }
-  };
-
- return (
-  <div className="p-6">
-    <h1 className="text-3xl font-bold mb-6">TRANSNET TENDERS</h1>
-
-    <div className="grid grid-cols-3 gap-4">
-      <Card
-        color="yellow"
-        title="TRANSNET"
-        subtitle="Transnet Tenders Report"
-        footer="Active and Closed Tenders"
-        link="/tenders/approved"
-      />
-      <Card
-        color="blue"
-        title="CSIR"
-        subtitle="CSIR Tenders Report"
-        footer="Active and Closed Tenders"
-        link="/documents"
-      />
-      <Card
-        color="green"
-        title="DOCUMENTS"
-        subtitle="Documents Report"
-        footer="Pending and Paid Documents"
-        link="/documents"
-      />
-    </div>
-
-    <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition mt-6">
-      <div className="flex flex-col items-center">
-        <h2 className="text-2xl font-bold mb-4">ACTIVE APPROVED TENDERS</h2>
-        <p className="text-gray-600">
-          View and manage Approved tenders for Transnet
-        </p>
+      <div className="grid grid-cols-3 gap-4">
+        <Card
+          color="yellow"
+          title="TRANSNET"
+          subtitle="Transnet Tenders Report"
+          footer="Active and Closed Tenders"
+          link="/tenders/approved"
+        />
+        <Card
+          color="blue"
+          title="CSIR"
+          subtitle="CSIR Tenders Report"
+          footer="Active and Closed Tenders"
+          link="/documents"
+        />
+        <Card
+          color="green"
+          title="DOCUMENTS"
+          subtitle="Documents Report"
+          footer="Pending and Paid Documents"
+          link="/documents"
+        />
       </div>
 
-      {/* Search and filter bar */}
-      <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-        <div className="relative w-full">
-          <input
-            type="text"
-            placeholder="Search tenders"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full pl-10 p-2"
-          />
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 text-gray-500"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
+      <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition mt-6">
+        <div className="flex flex-col items-center">
+          <h2 className="text-2xl font-bold mb-4">ACTIVE APPROVED TENDERS</h2>
+          <p className="text-gray-600">View and manage Approved tenders for Transnet</p>
         </div>
 
-        <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-          <div className="flex items-center space-x-3 w-full md:w-auto">
+        {/* Search & Filter UI */}
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+          <div className="relative w-full">
+            <input
+              type="text"
+              placeholder="Search tenders"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full pl-10 p-2"
+            />
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg className="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+
+          <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
             <button
-              id="refreshButton"
               onClick={handleRefresh}
-              className="md:w-auto flex items-center justify-center py-2 px-4 text-sm font-bold text-white focus:outline-none bg-green-500 rounded-lg border hover:bg-green-900 hover:text-primary-700"
+              className="flex items-center justify-center py-2 px-4 text-sm font-bold text-white bg-green-500 rounded-lg border hover:bg-green-900"
               type="button"
               title="Refresh the table"
             >
@@ -224,12 +195,10 @@ const NewIntents = () => {
               Refresh
             </button>
 
-            <div className="relative inline-block text-left w-full md:w-auto">
+            <div className="relative">
               <button
-                id="filterDropdownButton"
                 onClick={toggleDropdown}
-                className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
-                type="button"
+                className="flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100"
               >
                 <TfiFilter className="mr-2" />
                 Filter
@@ -237,13 +206,8 @@ const NewIntents = () => {
               </button>
 
               {showDropdown && (
-                <div
-                  id="filterDropdown"
-                  className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700"
-                >
-                  <h6 className="mb-3 text-sm font-medium text-gray-900 p-2 border-b border-gray-300">
-                    TENDER CATEGORY
-                  </h6>
+                <div className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow">
+                  <h6 className="mb-3 text-sm font-medium text-gray-900 border-b pb-2">TENDER CATEGORY</h6>
                   <ul className="space-y-2 text-sm max-h-60 overflow-auto">
                     {categories.map((category) => (
                       <li key={category} className="flex items-center">
@@ -252,12 +216,9 @@ const NewIntents = () => {
                           type="checkbox"
                           checked={checkedCategories.includes(category)}
                           onChange={() => handleCategoryToggle(category)}
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-2"
+                          className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 rounded"
                         />
-                        <label
-                          htmlFor={`filter-${category}`}
-                          className="ml-2 text-sm font-medium text-gray-900"
-                        >
+                        <label htmlFor={`filter-${category}`} className="ml-2 text-sm text-gray-900">
                           {category}
                         </label>
                       </li>
@@ -268,72 +229,73 @@ const NewIntents = () => {
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Conditional table based on approved tenders */}
-      {filteredTenders.map((tender, index) => (
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-              <tr>
-                <th className="px-2 py-3">Institution Name</th>
-                <th className="px-4 py-3">Tender Number</th>
-                <th className="px-20 py-3">Tender Description</th>
-                <th className="px-4 py-3">Closing Date</th>
-                <th className="px-4 py-3">Location</th>
-                <th className="px-4 py-3">Tender Document</th>
-                <th className="px-4 py-3">Tender Category</th>
-                <th className="px-4 py-3">Tender Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {approvedTenders.map((tender, index) => (
-                <tr key={index} className="border-b">
-                  <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
-                    {tender.institutionName}
-                  </td>
-                  <td className="px-4 py-3">{tender.tender_number}</td>
-                  <td className="px-4 py-3">{tender.description}</td>
-                  <td className="px-4 py-3">{tender.closing_date}</td>
-                  <td className="px-4 py-3">{tender.location}</td>
-                  <td className="px-4 py-3">
-                    <a
-                      href={tender.tender_document_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      View
-                    </a>
-                  </td>
-                  <td className="px-4 py-3">{tender.tender_category}</td>
-                  <td className="px-4 py-3">
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                        tender.tender_status === "Open"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {tender.tender_status}
-                    </span>
-                  </td>
+        {/* Display Tenders */}
+        {approvedTenders.length === 0 ? (
+          <div className="text-center text-gray-400 py-6">
+            No tenders have been approved yet.
+          </div>
+        ) : filteredTenders.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left text-gray-500">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                  <th className="px-2 py-3">Institution Name</th>
+                  <th className="px-4 py-3">Tender Number</th>
+                  <th className="px-20 py-3">Tender Description</th>
+                  <th className="px-4 py-3">Closing Date</th>
+                  <th className="px-4 py-3">Location</th>
+                  <th className="px-4 py-3">Tender Document</th>
+                  <th className="px-4 py-3">Tender Category</th>
+                  <th className="px-4 py-3">Tender Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <TableWithPagination />
-        </div>
-      ) : (
-        <div className="text-center text-gray-400 py-6">
-          No approved tenders available.
-        </div>
-      )}
+              </thead>
+              <tbody>
+                {filteredTenders.map((tender) => (
+                  <tr key={tender.id} className="border-b">
+                    <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
+                      {tender.institutionName}
+                    </td>
+                    <td className="px-4 py-3">{tender.tender_number}</td>
+                    <td className="px-4 py-3">{tender.description}</td>
+                    <td className="px-4 py-3">{tender.closing_date}</td>
+                    <td className="px-4 py-3">{tender.location}</td>
+                    <td className="px-4 py-3">
+                      <a
+                        href={tender.tender_document_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline"
+                      >
+                        View
+                      </a>
+                    </td>
+                    <td className="px-4 py-3">{tender.tender_category}</td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                          tender.tender_status === "Open"
+                            ? "bg-green-100 text-green-800"
+                            : "bg-red-100 text-red-800"
+                        }`}
+                      >
+                        {tender.tender_status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <TableWithPagination />
+          </div>
+        ) : (
+          <div className="text-center text-gray-400 py-6">
+            No tenders match your search or selected categories.
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-);
-
+  );
 };
 
 export default NewIntents;
