@@ -1,9 +1,8 @@
+// /app/tenders/approved/page.tsx
 
-import React from 'react';
-import NewIntents from './NewIntents'; 
+import React from "react";
+import NewIntents from "@/app/tenders/NewIntents"; // adjust the import path as needed
 
-const Tenders = () => {
+export default function ApprovedTendersPage() {
   return <NewIntents />;
-};
-
-export default Tenders;
+}
