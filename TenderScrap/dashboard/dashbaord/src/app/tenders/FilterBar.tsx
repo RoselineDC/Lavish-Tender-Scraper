@@ -50,7 +50,7 @@ export default function FilterBar() {
   // ✅ FETCH tenders from backend
   const [tenders, setTenders] = useState<TenderType[]>([]);
 
-  const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
+  // const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
   const [selected, setSelected] = useState({
     institutionName: filters.institutionName[0],
     tender_category: filters.tender_category[0],
