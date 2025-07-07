@@ -19,12 +19,11 @@ export interface TenderType {
   tender_document_url: string;
   tender_category: string;
   tender_type: string;
-  tender_status: "Open" | "Closed" | "Approved"; // <-- add Approved here
+  tender_status: "Open" | "Closed";
   contact_person: string;
   contact_email: string;
   rowKey?: string;
 }
-
 
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
