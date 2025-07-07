@@ -66,7 +66,7 @@ def approve_tender(tender_id: int):
     conn.close()
 
     return {"message": f"Tender with id {tender_id} approved successfully"}
-
+# add tenders to database
 @app.get("/tenders/approved")
 def get_approved_tenders():
     conn = sqlite3.connect("tenders.db")
