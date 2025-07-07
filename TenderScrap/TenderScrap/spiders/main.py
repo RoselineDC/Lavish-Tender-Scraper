@@ -46,6 +46,8 @@ def get_tenders():
     conn.close()
 
     return [dict(row) for row in rows]
+
+    # add tenders 
     
 
 # add tenders to approved table
