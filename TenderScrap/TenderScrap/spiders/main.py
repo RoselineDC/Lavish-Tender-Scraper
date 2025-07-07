@@ -73,6 +73,7 @@ def approve_tender(tender_id: int):
 
     cursor.execute("UPDATE tenders SET tender_status = 'Approved' WHERE id = ?", (tender_id,))
     conn.commit()
+    
     conn.close()
 
     return {"message": f"Tender with id {tender_id} approved successfully"}
