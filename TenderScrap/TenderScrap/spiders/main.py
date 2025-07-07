@@ -83,7 +83,7 @@ def add_tender(tender: Tender):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
   
-
+# 
 # add tenders to approved table
 @app.post("/tenders/approved")
 def add_tender(tender: Tender):
