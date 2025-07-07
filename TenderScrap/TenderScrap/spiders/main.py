@@ -13,6 +13,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 # Define schema for POST
 class Tender(BaseModel):
     tender_number: str
