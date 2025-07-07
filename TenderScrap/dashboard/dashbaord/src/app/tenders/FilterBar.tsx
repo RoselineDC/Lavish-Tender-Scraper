@@ -100,8 +100,6 @@ export default function FilterBar() {
   };
 
 
-
-
   const handleDelete = (id: number) => {
     const confirmed = window.confirm(
       "Are you sure you want to delete this tender?"
