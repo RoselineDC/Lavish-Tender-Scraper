@@ -348,9 +348,14 @@ const sortedTenders = [...filteredTenders].sort((a, b) => {
               <th scope="col" className="px-20 py-3">
                 Tender Description
               </th>
-              <th scope="col" className="px-4 py-3">
-                
-                Closing Date
+              <th
+  scope="col"
+  className="px-4 py-3 cursor-pointer"
+  onClick={() => setClosingDateSortAsc(!closingDateSortAsc)}
+>
+  Closing Date {closingDateSortAsc ? "↑" : "↓"}
+</th>
+
               </th>
               <th scope="col" className="px-4 py-3">
                 Location
