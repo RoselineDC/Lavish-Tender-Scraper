@@ -99,10 +99,12 @@ export default function FilterBar() {
   }
 };
 
-  const handleRefresh = () => {
-    setCheckedFilters([]);
-    setFilteredTenders(tenders);
-  };
+ const handleRefresh = () => {
+  setCheckedFilters([]);      // clear filters
+  setSearchTerm("");          // clear search (optional)
+  fetchApprovedTenders();     // 🔥 now this talks to FastAPI!
+};
+
 
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
   const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
