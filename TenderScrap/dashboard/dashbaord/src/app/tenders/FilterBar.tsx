@@ -114,7 +114,7 @@ export default function FilterBar() {
     await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10 seconds
 
     // 3. Fetch latest tenders from backend
-    const tendersRes = await fetch("http://localhost:8000/tenders/approved");
+    const tendersRes = await fetch("http://localhost:8000/");
     const data = await tendersRes.json();
     setApprovedTenders(data);
     setFilteredTenders(data);
