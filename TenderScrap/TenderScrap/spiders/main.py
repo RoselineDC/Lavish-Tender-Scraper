@@ -72,4 +72,25 @@ def add_tender(tender: Tender):
             ),
         )
         conn.commit()
-        tender
+        tender_id = cursor.lastrowid
+        conn.close()
+        return {"message": "Tender added successfully", "id": tender_id}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/tenders/approved")
+def get_approved_tenders():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        """
+        SELECT * FROM tenders
+        WHERE tender_status = 'Approved'
+        ORDER BY published_date DESC
+        """
+    )
+    rows = cursor.fetchall()
+    conn.close()
+    return [dict(row) for row in rows]
+
+# Removed duplicate POST /tenders/approved — use /tenders POST to add tenders, including approved ones.
