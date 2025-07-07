@@ -15,6 +15,10 @@ app.add_middleware(
 )
 
 # Initialize SQLite database
+def get_db_connection():
+    conn = sqlite3.connect("tenders.db")
+    conn.row_factory = sqlite3.Row
+    return conn
 # Define schema for POST
 class Tender(BaseModel):
     tender_number: str
