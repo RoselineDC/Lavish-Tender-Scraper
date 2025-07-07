@@ -101,29 +101,31 @@ export default function FilterBar() {
 //   }
 // };
 
- const handleRefresh = async () => {
+const handleRefresh = async () => {
   try {
     setCheckedFilters([]);
     setSearchTerm("");
 
-    // 1. Tell backend to run Scrapy
-    const res = await fetch("http://localhost:8000/refresh-tenders", {
-      method: "POST",
-    });
+    // Trigger scraper
+    const res = await fetch("http://localhost:8000/refresh-tenders", { method: "POST" });
     if (!res.ok) throw new Error("Failed to trigger scraper");
 
-    // 2. Wait a bit for the spider to finish (e.g. 5–10s)
-    await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10 seconds
+    // Wait for scraping to finish (adjust time as needed)
+    await new Promise((resolve) => setTimeout(resolve, 10000));
 
-    // 3. Fetch latest tenders from backend
-    const tendersRes = await fetch("http://localhost:8000/");
+    // Fetch all tenders from /tenders
+    const tendersRes = await fetch("http://localhost:8000/tenders");
     const data = await tendersRes.json();
+
+    if (!Array.isArray(data)) throw new Error("Expected array of tenders");
+
     setApprovedTenders(data);
     setFilteredTenders(data);
   } catch (err) {
     console.error("Error refreshing tenders:", err);
   }
 };
+
 
 
 
