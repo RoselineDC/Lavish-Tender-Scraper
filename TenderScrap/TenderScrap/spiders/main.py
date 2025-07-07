@@ -14,12 +14,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize SQLite database
 def get_db_connection():
     conn = sqlite3.connect("tenders.db")
     conn.row_factory = sqlite3.Row
     return conn
-# Define schema for POST
+
+# Pydantic schema for tender
 class Tender(BaseModel):
     tender_number: str
     description: str
@@ -34,20 +34,15 @@ class Tender(BaseModel):
     contact_person: str
     contact_email: str
 
-# get all tenders
-
 @app.get("/tenders")
 def get_tenders():
-    conn = sqlite3.connect("tenders.db")
-    conn.row_factory = sqlite3.Row
+    conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM tenders ORDER BY published_date DESC")
     rows = cursor.fetchall()
     conn.close()
-
     return [dict(row) for row in rows]
 
-    # add tenders 
 @app.post("/tenders")
 def add_tender(tender: Tender):
     try:
@@ -64,9 +59,9 @@ def add_tender(tender: Tender):
             (
                 tender.tender_number,
                 tender.description,
-                tender.published_date.isoformat(),
-                tender.closing_date.isoformat(),
-                tender.briefing_date.isoformat(),
+                tender.published_date,
+                tender.closing_date,
+                tender.briefing_date,
                 tender.location,
                 tender.tender_document_url,
                 tender.tender_category,
@@ -77,58 +72,4 @@ def add_tender(tender: Tender):
             ),
         )
         conn.commit()
-        tender_id = cursor.lastrowid
-        conn.close()
-        return {"message": "Tender added successfully", "id": tender_id}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-  
-# get approved tenders
-@app.get("/tenders/approved")
-def get_approved_tenders():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute(
-        """
-        SELECT * FROM tenders
-        WHERE tender_status = 'Approved'
-        ORDER BY published_date DESC
-        """
-    )
-    rows = cursor.fetchall()
-    conn.close()
-    return [dict(row) for row in rows]
-
-# add tenders to approved table
-@app.post("/tenders/approved")
-def add_tender(tender: Tender):
-    try:
-        conn = sqlite3.connect("tenders.db")
-        cursor = conn.cursor()
-        cursor.execute("""
-            INSERT INTO tenders (
-                tender_number, description, published_date, closing_date,
-                briefing_date, location, tender_document_url, tender_category,
-                tender_type, tender_status, contact_person, contact_email
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
-            tender.tender_number, tender.description, tender.published_date, tender.closing_date,
-            tender.briefing_date, tender.location, tender.tender_document_url, tender.tender_category,
-            tender.tender_type, tender.tender_status, tender.contact_person, tender.contact_email
-        ))
-        conn.commit()
-        conn.close()
-        return {"message": "Tender added successfully"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-# get approved tenders
-@app.get("/tenders/approved")
-def get_approved_tenders():
-    conn = sqlite3.connect("tenders.db")
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM tenders ORDER BY published_date DESC")
-    rows = cursor.fetchall()
-    conn.close()
-
-    return [dict(row) for row in rows]
+        tender
