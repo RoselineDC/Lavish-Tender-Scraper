@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+# Initialize SQLite database
 # Define schema for POST
 class Tender(BaseModel):
     tender_number: str
