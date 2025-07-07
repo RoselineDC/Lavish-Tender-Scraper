@@ -84,6 +84,20 @@ def add_tender(tender: Tender):
         raise HTTPException(status_code=500, detail=str(e))
   
 # get approved tenders
+@app.get("/tenders/approved")
+def get_approved_tenders():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(
+        """
+        SELECT * FROM tenders
+        WHERE tender_status = 'Approved'
+        ORDER BY published_date DESC
+        """
+    )
+    rows = cursor.fetchall()
+    conn.close()
+    return [dict(row) for row in rows]
 
 # add tenders to approved table
 @app.post("/tenders/approved")
