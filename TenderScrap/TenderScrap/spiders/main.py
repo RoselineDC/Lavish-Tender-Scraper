@@ -36,7 +36,14 @@ class Tender(BaseModel):
     contact_person: str
     contact_email: str
 
-# GET NEW TENDERS FROM TRAN
+# GET NEW TENDERS FROM TRANSNET
+@app.post("/refresh-tenders")
+def run_scraper(background_tasks: BackgroundTasks):
+    def run_spider():
+        subprocess.run(["scrapy", "crawl", "transnet_tenders"], cwd="path/to/your/spider")
+
+    background_tasks.add_task(run_spider)
+    return {"message": "Scraping started in background"}
 # get all tenders
 
 @app.get("/tenders")
