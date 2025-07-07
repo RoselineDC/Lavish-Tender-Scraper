@@ -344,6 +344,8 @@ const handleApprove = async (id: number) => {
                 Tender Description
               </th>
               <th scope="col" className="px-4 py-3">
+                {sortedTenders.map((tender) => (
+    <tr key={tender.id} className="border-b">
                 Closing Date
               </th>
               <th scope="col" className="px-4 py-3">
