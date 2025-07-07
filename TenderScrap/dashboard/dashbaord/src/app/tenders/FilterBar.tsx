@@ -222,6 +222,7 @@ const handleApprove = async (id: number) => {
       );
     }
   }, [searchTerm, tenders]);
+  
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
