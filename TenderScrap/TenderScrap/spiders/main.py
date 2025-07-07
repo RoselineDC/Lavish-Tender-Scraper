@@ -57,7 +57,7 @@ def approve_tender(tender_id: int):
 
     cursor.execute("SELECT * FROM tenders WHERE id = ?", (tender_id,))
     tender = cursor.fetchone()
-    if tender is None:
+    if not tender:
         conn.close()
         raise HTTPException(status_code=404, detail="Tender not found")
 
@@ -66,6 +66,7 @@ def approve_tender(tender_id: int):
     conn.close()
 
     return {"message": f"Tender with id {tender_id} approved successfully"}
+
 # add tenders to database
 @app.get("/tenders/approved")
 def get_approved_tenders():
