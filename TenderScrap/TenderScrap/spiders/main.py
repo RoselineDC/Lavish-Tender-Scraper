@@ -51,7 +51,6 @@ def get_tenders():
 
 # add tenders to approved table
 app.patch("/tenders/{tender_id}/approve")
-
 def approve_tender(tender_id: int):
     conn = sqlite3.connect("tenders.db")
     cursor = conn.cursor()
