@@ -50,8 +50,7 @@ def get_tenders():
     # add tenders 
 
 # add tenders to approved table
-app.patch("/tenders/{tender_id}/approve")
-def approve_tender(tender_id: int = Path(..., description="The ID of the tender to approve")):
+app.patch("/tenders/{tender_id}/approve")f approve_tender(tender_id: int = Path(..., description="The ID of the tender to approve")):
     conn = sqlite3.connect("tenders.db")
     cursor = conn.cursor()
     
@@ -69,6 +68,7 @@ def approve_tender(tender_id: int = Path(..., description="The ID of the tender 
     
     return {"message": f"Tender with id {tender_id} approved successfully"}
         
+de
 # get approved tenders
 @app.get("/tenders/approved")
 def get_approved_tenders():
