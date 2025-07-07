@@ -34,6 +34,8 @@ class Tender(BaseModel):
     contact_person: str
     contact_email: str
 
+# get all tenders
+
 @app.get("/tenders")
 def get_tenders():
     conn = sqlite3.connect("tenders.db")
