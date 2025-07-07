@@ -87,6 +87,18 @@ export default function FilterBar() {
   };
 
   // LOAD DATA FROM DB
+  const fetchApprovedTenders = async () => {
+  try {
+    const res = await fetch("http://localhost:8000/tenders/approved");
+    if (!res.ok) throw new Error("Failed to fetch tenders");
+    const data = await res.json();
+    setApprovedTenders(data);
+    setFilteredTenders(data); // show fresh results
+  } catch (err) {
+    console.error("Error fetching tenders:", err);
+  }
+};
+
   const handleRefresh = () => {
     setCheckedFilters([]);
     setFilteredTenders(tenders);
