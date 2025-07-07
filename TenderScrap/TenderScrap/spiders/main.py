@@ -50,8 +50,23 @@ def get_tenders():
     # add tenders 
 
 # add tenders to approved table
-app.patch("/tenders/{tender_id}/approve")f approve_tender(tender_id: int = Path(..., description="The ID of the tender to approve")):
+app.patch("/tenders/{tender_id}/approve")
+@app.patch("/tenders/{tender_id}/approve")
+def approve_tender(tender_id: int):
     conn = sqlite3.connect("tenders.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM tenders WHERE id = ?", (tender_id,))
+    tender = cursor.fetchone()
+    if not tender:
+        conn.close()
+        raise HTTPException(status_code=404, detail="Tender not found")
+
+    cursor.execute("UPDATE tenders SET tender_status = ? WHERE id = ?", ("Approved", tender_id))
+    conn.commit()
+    conn.close()
+
+    return {"message": "Tender approved successfully"}    conn = sqlite3.connect("tenders.db")
     cursor = conn.cursor()
     
     cursor.execute("SELECT * FROM tenders WHERE id = ?", (tender_id,))
@@ -68,7 +83,6 @@ app.patch("/tenders/{tender_id}/approve")f approve_tender(tender_id: int = Path(
     
     return {"message": f"Tender with id {tender_id} approved successfully"}
         
-de
 # get approved tenders
 @app.get("/tenders/approved")
 def get_approved_tenders():
