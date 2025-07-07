@@ -36,7 +36,7 @@ class Tender(BaseModel):
     contact_person: str
     contact_email: str
 
-# GET NEW 
+# GET NEW TENDERS FROM TRAN
 # get all tenders
 
 @app.get("/tenders")
