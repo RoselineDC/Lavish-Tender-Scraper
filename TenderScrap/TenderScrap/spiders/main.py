@@ -68,7 +68,7 @@ def approve_tender(tender_id: int = Path(..., description="The ID of the tender 
     conn.close()
     
     return {"message": f"Tender with id {tender_id} approved successfully"}
-        raise HTTPException(status_code=500, detail=str(e))
+        
 # get approved tenders
 @app.get("/tenders/approved")
 def get_approved_tenders():
