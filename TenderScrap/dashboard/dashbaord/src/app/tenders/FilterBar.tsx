@@ -86,7 +86,7 @@ export default function FilterBar() {
     applyFilters(updatedFilters);
   };
 
-  // 
+  // LOAD DATA FROM DB
   const handleRefresh = () => {
     setCheckedFilters([]);
     setFilteredTenders(tenders);
