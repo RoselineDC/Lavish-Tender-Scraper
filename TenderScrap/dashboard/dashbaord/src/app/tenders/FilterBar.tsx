@@ -607,17 +607,18 @@ export default function FilterBar() {
                     <td className="px-4 py-3">{tender.tender_number}</td>
                     <td className="px-4 py-3">{tender.description}</td>
                     <td className="px-4 py-3">
-  {typeof tender.published_date === "string" || typeof tender.published_date === "number" ? (
-    new Date(tender.published_date).toLocaleDateString("en-ZA", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    })
-  ) : (
-    "N/A"
-  )}
-</td>
-
+                      {typeof tender.published_date === "string" ||
+                      typeof tender.published_date === "number"
+                        ? new Date(tender.published_date).toLocaleDateString(
+                            "en-ZA",
+                            {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            }
+                          )
+                        : "N/A"}
+                    </td>
 
                     <td className="px-4 py-3">{tender.closing_date}</td>
                     <td className="px-4 py-3">{tender.location}</td>
