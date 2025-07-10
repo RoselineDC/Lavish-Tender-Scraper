@@ -40,8 +40,10 @@ class Tender(BaseModel):
 @app.post("/refresh-tenders")
 def run_scraper(background_tasks: BackgroundTasks):
     def run_spider():
-        subprocess.run(["scrapy", "crawl", "transnet_tenders"], cwd="./TenderScrap/TenderScrap/spiders/pdate_tenders.py")
-
+        # Dynamically get the directory of this file
+        spider_dir = os.path.dirname(os.path.abspath(__file__))
+        subprocess.run(["scrapy", "crawl", "transnet_tenders"], cwd=spider_dir)
+    
     background_tasks.add_task(run_spider)
     return {"message": "Scraping started in background"}
 # get all tenders
