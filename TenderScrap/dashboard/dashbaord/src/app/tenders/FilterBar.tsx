@@ -132,36 +132,55 @@ export default function FilterBar() {
   const handleDropdownToggle = (index: number) => {
     setOpenDropdown((prev) => (prev === index ? null : index));
   };
-  const handleApprove = async (id: number) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8000/tenders/${id}/approve`,
-        {
-          method: "PATCH",
-        }
-      );
+  const handleRefresh = async () => {
+  console.log("Refresh button clicked"); // Check button works
 
-      if (!response.ok) {
-        throw new Error("Failed to approve tender");
-      }
+  try {
+    setCheckedFilters([]);
+    setSearchTerm("");
 
-      const tenderToApprove = tenders.find((tender) => tender.id === id);
-      if (tenderToApprove) {
-        const updatedTender: TenderType = {
-          ...tenderToApprove,
-          tender_status: "Approved", // now a valid value
-        };
+    // Trigger scraper
+    const res = await fetch("http://localhost:8000/refresh-tenders", {
+      method: "POST",
+    });
+    if (!res.ok) throw new Error("Failed to trigger scraper");
 
-        setApprovedTenders((prev: TenderType[]) => [...prev, updatedTender]);
-        setTenders((prev: TenderType[]) => prev.filter((t) => t.id !== id));
-      }
+    console.log("Scraper triggered successfully");
 
-      setOpenDropdown(null);
-      console.log("Approved tender ID:", id);
-    } catch (error) {
-      console.error("Error approving tender:", error);
-    }
-  };
+    await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10s
+
+    const tendersRes = await fetch("http://localhost:8000/tenders");
+    const data = await tendersRes.json();
+
+    console.log("Fetched tenders from backend:", data); // See what data is fetched
+
+    if (!Array.isArray(data)) throw new Error("Expected array of tenders");
+
+    // Prepend new tenders: filter out duplicates first (by id)
+    setTenders((prevTenders) => {
+      // Create a Set of existing tender IDs
+      const existingIds = new Set(prevTenders.map(t => t.id));
+      // Filter new tenders to keep only those not already present
+      const newUniqueTenders = data.filter(t => !existingIds.has(t.id));
+      // Prepend new unique tenders to the current list
+      return [...newUniqueTenders, ...prevTenders];
+    });
+
+    // Also update filteredTenders to show updated list
+    setFilteredTenders((prevTenders) => {
+      const existingIds = new Set(prevTenders.map(t => t.id));
+      const newUniqueTenders = data.filter(t => !existingIds.has(t.id));
+      return [...newUniqueTenders, ...prevTenders];
+    });
+
+    // Optionally update approved tenders similarly if needed
+    setApprovedTenders(data); // Or handle accordingly
+
+  } catch (err) {
+    console.error("Error refreshing tenders:", err);
+  }
+};
+
 
   const handleDelete = (id: number) => {
     const confirmed = window.confirm(
