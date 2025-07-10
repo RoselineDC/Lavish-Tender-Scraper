@@ -209,15 +209,6 @@ export default function FilterBar() {
   }, [searchTerm, tenders]);
   // DISPLAY CLOSSING EARLY FIRTS
   const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
-
-  // const sortedTenders = [...filteredTenders].sort((a, b) => {
-  //   const dateA = new Date(a.closing_date);
-  //   const dateB = new Date(b.closing_date);
-  //   return closingDateSortAsc
-  //     ? dateA.getTime() - dateB.getTime()
-  //     : dateB.getTime() - dateA.getTime();
-  // });
-  // BY PUBLISHED DAT
   const sortedTenders = [...filteredTenders].sort((a, b) => {
   const parseDate = (dateStr: string) => new Date(dateStr.replace(" ", "T"));
 
