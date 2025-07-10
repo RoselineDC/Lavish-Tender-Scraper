@@ -39,6 +39,7 @@ class Tender(BaseModel):
 # GET NEW TENDERS FROM TRANSNET
 @app.post("/refresh-tenders")
 def run_scraper(background_tasks: BackgroundTasks):
+    
     def run_spider():
         subprocess.run(["scrapy", "crawl", "transnet_tenders"], cwd="./TenderScrap/TenderScrap/spiders/pdate_tenders.py")
 
