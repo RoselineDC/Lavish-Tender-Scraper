@@ -225,7 +225,13 @@ export default function FilterBar() {
 
     return dateB.getTime() - dateA.getTime(); // latest first
   });
-  
+  const parseDateString = (dateStr: string) => {
+  if (dateStr.includes(" ")) {
+    return new Date(dateStr.replace(" ", "T"));
+  }
+  return new Date(dateStr);
+};
+
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
