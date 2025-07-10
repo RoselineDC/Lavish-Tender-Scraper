@@ -1,6 +1,6 @@
 import pandas as pd
 
-def clean_and_sort_csv(file_path='advert2.csv'):
+def clean_and_sort_csv(file_path='advert.csv'):
     df = pd.read_csv(file_path)
     df.columns = df.columns.str.strip()
 
