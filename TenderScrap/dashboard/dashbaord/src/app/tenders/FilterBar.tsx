@@ -341,15 +341,7 @@ export default function FilterBar() {
                 onClick={() => setClosingDateSortAsc(!closingDateSortAsc)}
               >
                 Closing Date {closingDateSortAsc ? "↑" : "↓"}
-              </th>
-              {/* <th
-                scope="col"
-                className="px-4 py-3 cursor-pointer"
-                onClick={() => setClosingDateSortAsc(!closingDateSortAsc)}
-              >
-                Closing Date {closingDateSortAsc ? "↑" : "↓"}
-              </th> */}
-             
+              </th>             
               <th scope="col" className="px-4 py-3">
                 Location
               </th>
