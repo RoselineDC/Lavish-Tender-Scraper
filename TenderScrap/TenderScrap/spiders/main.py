@@ -54,7 +54,6 @@ def get_tenders():
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM tenders ORDER BY published_date DESC")
-
     rows = cursor.fetchall()
     conn.close()
 
