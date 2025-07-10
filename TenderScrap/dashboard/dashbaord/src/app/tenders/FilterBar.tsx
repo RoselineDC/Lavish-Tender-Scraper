@@ -625,6 +625,7 @@ export default function FilterBar() {
                           )
                         : "N/A"}
                     </td>
+                    
 
                     <td className="px-4 py-3">
                       {typeof tender.closing_date === "string"
