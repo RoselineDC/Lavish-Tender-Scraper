@@ -46,6 +46,7 @@ def run_scraper(background_tasks: BackgroundTasks):
     
     background_tasks.add_task(run_spider)
     return {"message": "Scraping started in background"}
+
 # get all tenders
 
 @app.get("/tenders")
