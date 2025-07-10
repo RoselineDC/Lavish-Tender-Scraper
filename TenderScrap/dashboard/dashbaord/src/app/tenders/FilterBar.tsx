@@ -617,7 +617,7 @@ export default function FilterBar() {
                     <td className="px-4 py-3">
                       {typeof  tender.published_date  === "string"
                         ? parseDateString(
-                            tender.closing_date
+                            tender.published_date
                           ).toLocaleDateString("en-ZA", {
                             day: "numeric",
                             month: "short",
