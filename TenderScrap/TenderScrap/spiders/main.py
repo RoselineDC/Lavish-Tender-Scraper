@@ -40,7 +40,7 @@ class Tender(BaseModel):
 @app.post("/refresh-tenders")
 def run_scraper(background_tasks: BackgroundTasks):
     def run_spider():
-        subprocess.run(["scrapy", "crawl", "transnet_tenders"], cwd="./TenderScrap/TenderScrap/spiders/p")
+        subprocess.run(["scrapy", "crawl", "transnet_tenders"], cwd="./TenderScrap/TenderScrap/spiders/pdate")
 
     background_tasks.add_task(run_spider)
     return {"message": "Scraping started in background"}
