@@ -48,7 +48,6 @@ def run_scraper(background_tasks: BackgroundTasks):
     return {"message": "Scraping started in background"}
 
 # get all tenders
-
 @app.get("/tenders")
 def get_tenders():
     conn = sqlite3.connect("tenders.db")
