@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
           footer="Pending and Paid Orders"
         />
         <Card
-          link="./app/tenders/approved/NewIntents."
+          link="./app/tenders/approved/p"
           color="green"
           title="Tenders"
           subtitle="All Tenders"
