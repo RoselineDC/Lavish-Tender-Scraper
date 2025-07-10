@@ -86,7 +86,6 @@ export default function FilterBar() {
     setCheckedFilters(updatedFilters);
     applyFilters(updatedFilters);
   };
-
   const handleRefresh = async () => {
     console.log("Refresh button clicked"); // Check button works
 
