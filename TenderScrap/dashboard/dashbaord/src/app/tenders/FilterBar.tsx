@@ -612,7 +612,7 @@ export default function FilterBar() {
                     </td>
                     <td className="px-4 py-3">{tender.tender_number}</td>
                     <td className="px-4 py-3">{tender.description}</td>
-                    <td className="px-4 py-3">
+                    {/* <td className="px-4 py-3">
                       {typeof tender.published_date === "string" ||
                       typeof tender.published_date === "number"
                         ? new Date(tender.published_date).toLocaleDateString(
@@ -623,10 +623,10 @@ export default function FilterBar() {
                               year: "numeric",
                             }
                           )
-                        : "N/A"}
+                        : "N/A"} */}
                     </td>
                     <td className="px-4 py-3">
-                      {typeof tender.closing_date === "string"
+                      {typeof  tender.published_date  === "string"
                         ? parseDateString(
                             tender.closing_date
                           ).toLocaleDateString("en-ZA", {
