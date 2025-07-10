@@ -226,12 +226,11 @@ export default function FilterBar() {
     return dateB.getTime() - dateA.getTime(); // latest first
   });
   const parseDateString = (dateStr: string) => {
-  if (dateStr.includes(" ")) {
-    return new Date(dateStr.replace(" ", "T"));
-  }
-  return new Date(dateStr);
-};
-
+    if (dateStr.includes(" ")) {
+      return new Date(dateStr.replace(" ", "T"));
+    }
+    return new Date(dateStr);
+  };
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
@@ -627,17 +626,17 @@ export default function FilterBar() {
                         : "N/A"}
                     </td>
 
-                   <td className="px-4 py-3">
-  {typeof tender.closing_date === "string" ? (
-    parseDateString(tender.closing_date).toLocaleDateString("en-ZA", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-    })
-  ) : (
-    "N/A"
-  )}
-</td>
+                    <td className="px-4 py-3">
+                      {typeof tender.closing_date === "string"
+                        ? parseDateString(
+                            tender.closing_date
+                          ).toLocaleDateString("en-ZA", {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                          })
+                        : "N/A"}
+                    </td>
                     <td className="px-4 py-3">{tender.location}</td>
                     <td className="px-4 py-3">
                       <a
