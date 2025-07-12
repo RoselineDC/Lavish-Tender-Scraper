@@ -332,7 +332,7 @@ const handleApproveTender = async (tender_number: string | undefined) => {
               </tr>
             ) : (
               sortedTenders.map((tender, index) => (
-                <tr key={tender.te} className="border-b">
+                <tr key={tender.tender_number} className="border-b">
                   <td className="px-4 py-3 font-medium whitespace-nowrap">
                     {tender.institutionName || "N/A"}
                   </td>
