@@ -44,7 +44,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
         for date_col in ["Published Date", "Closing Date", "Briefing Date"]:
             if date_col in df.columns:
                df[date_col] = pd.to_datetime(df[date_col], dayfirst=True, errors="coerce")
-                df[date_col] = df[date_col].dt.strftime('%Y-%m-%d').fillna("")
+            df[date_col] = df[date_col].dt.strftime('%Y-%m-%d').fillna("")
 
 
         for _, row in df.iterrows():
