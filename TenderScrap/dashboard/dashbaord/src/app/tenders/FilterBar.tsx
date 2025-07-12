@@ -108,22 +108,24 @@ const fetchApprovedTenders = async () => {
 // ✅ Update this to use `tender.id` and ensure `fetchApprovedTenders` is in scope
 const handleApproveTender = async (tender_number: string | undefined) => {
   if (!tender_number) {
-    console.error("Tender ID is undefined.");
+    console.error("Tender number is undefined.");
     return;
   }
 
   try {
-    const res = await fetch(`http://localhost:8000/tenders/${tender_number}/approve`, {
+    const encodedTenderNumber = encodeURIComponent(tender_number); // 🔐 encode
+    const res = await fetch(`http://localhost:8000/tenders/${encodedTenderNumber}/approve`, {
       method: "PATCH",
     });
 
     if (!res.ok) throw new Error("Failed to approve tender");
     console.log("Approved tender:", tender_number);
-    fetchApprovedTenders(); // ✅ Call the refresh function
+    fetchApprovedTenders(); // update list
   } catch (err) {
     console.error("Error approving tender:", err);
   }
 };
+
 
 
 
