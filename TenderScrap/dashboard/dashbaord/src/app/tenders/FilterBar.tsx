@@ -123,7 +123,10 @@ export default function FilterBar() {
         throw new Error("No tenders returned");
 
       setTenders(result.tenders);
-      setFilteredTenders(result.tenders);
+      setFilteredTenders(
+  [...result.tenders].sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime())
+);
+
       setApprovedTenders(result.tenders);
     } catch (err) {
       console.error("Error refreshing tenders:", err);
