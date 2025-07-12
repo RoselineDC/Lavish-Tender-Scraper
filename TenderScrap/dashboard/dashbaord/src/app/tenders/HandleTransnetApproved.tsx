@@ -18,13 +18,13 @@ export interface TenderType {
   contact_email: string;
 }
 
-const handleTransnetTenders = () => {
+const HandleTransnetTenders = () => {
   const [tenders, setTenders] = useState<TenderType[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/tenders/approved") // Adjust the URL as needed
+    fetch("http://localhost:8000/tenders/approved")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch tenders");
         return res.json();
@@ -70,7 +70,12 @@ const handleTransnetTenders = () => {
               <td>{t.tender_category}</td>
               <td>{t.tender_status}</td>
               <td>
-                <a href={t.tender_document_url} target="_blank" rel="noreferrer" className="text-blue-600 underline">
+                <a
+                  href={t.tender_document_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-600 underline"
+                >
                   View
                 </a>
               </td>
@@ -82,4 +87,6 @@ const handleTransnetTenders = () => {
   );
 };
 
-export default handleTransnetTenders;
+export default HandleTransnetTenders;
+
+

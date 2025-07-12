@@ -13,6 +13,8 @@ import { FaChevronDown } from "react-icons/fa";
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
 import TableWithPagination from "../dashboard/TableWithPagination";
+import { parse } from "date-fns";
+import HandleTransnetTenders from "./HandleTransnetApproved";
 
 // Define the TenderType interface
 export interface TenderType {
@@ -53,6 +55,7 @@ export default function FilterBar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
   const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   // ✅ FETCH tenders from backend
   const [tenders, setTenders] = useState<TenderType[]>([]);
@@ -94,37 +97,6 @@ export default function FilterBar() {
     setCheckedFilters(updatedFilters);
     applyFilters(updatedFilters);
   };
-  // const handleRefresh = async () => {
-  //   console.log("Refresh button clicked"); // Check button works
-
-  //   try {
-  //     setCheckedFilters([]);
-  //     setSearchTerm("");
-
-  //     // Trigger scraper
-  //     const res = await fetch("http://localhost:8000/refresh-tenders", {
-  //       method: "POST",
-  //     });
-  //     if (!res.ok) throw new Error("Failed to trigger scraper");
-
-  //     console.log("Scraper triggered successfully");
-
-  //     await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10s
-
-  //     const tendersRes = await fetch("http://localhost:8000/tenders");
-  //     const data = await tendersRes.json();
-
-  //     console.log("Fetched tenders from backend:", data); // See what data is fetched
-
-  //     if (!Array.isArray(data)) throw new Error("Expected array of tenders");
-
-  //     setApprovedTenders(data);
-  //     setFilteredTenders(data);
-  //   } catch (err) {
-  //     console.error("Error refreshing tenders:", err);
-  //   }
-  // };
-
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
   const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -133,66 +105,72 @@ export default function FilterBar() {
     setOpenDropdown((prev) => (prev === index ? null : index));
   };
   const handleRefresh = async () => {
-  console.log("Refresh button clicked"); // Check button works
+    try {
+      setLoading(true);
+      setCheckedFilters([]);
+      setSearchTerm("");
 
-  try {
-    setCheckedFilters([]);
-    setSearchTerm("");
+      const res = await fetch("http://localhost:8000/refresh-tenders", {
+        method: "POST",
+      });
 
-    // Trigger scraper
-    const res = await fetch("http://localhost:8000/refresh-tenders", {
-      method: "POST",
+      if (!res.ok) throw new Error("Failed to trigger scraper");
+
+      const result = await res.json();
+      console.log(`Scraping done: ${result.count} tenders collected`);
+
+      if (!Array.isArray(result.tenders))
+        throw new Error("No tenders returned");
+
+      setTenders(result.tenders);
+      setFilteredTenders(result.tenders);
+      setApprovedTenders(result.tenders);
+    } catch (err) {
+      console.error("Error refreshing tenders:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  // ✅ Approve tenders
+ // This is your approved tenders state (somewhere higher in your app)
+// Function to fetch updated approved tenders
+const fetchApprovedTenders = () => {
+  fetch("http://localhost:8000/tenders/approved")
+    .then(res => res.json())
+    .then(data => setApprovedTenders(data));
+};
+
+// Call once to load approved tenders
+useEffect(() => {
+  fetchApprovedTenders();
+}, []);
+
+// Approve tender handler
+const handleApproveTender = (tenderNumber: string) => {
+  fetch(`http://localhost:8000/tenders/approve/${tenderNumber}`, { method: "POST" })
+    .then(() => {
+      console.log("Approved tender:", tenderNumber);
+      fetchApprovedTenders();  // Refresh list after approving
     });
-    if (!res.ok) throw new Error("Failed to trigger scraper");
-
-    console.log("Scraper triggered successfully");
-
-    await new Promise((resolve) => setTimeout(resolve, 10000)); // wait 10s
-
-    const tendersRes = await fetch("http://localhost:8000/tenders");
-    const data = await tendersRes.json();
-
-    console.log("Fetched tenders from backend:", data); // See what data is fetched
-
-    if (!Array.isArray(data)) throw new Error("Expected array of tenders");
-
-    // Prepend new tenders: filter out duplicates first (by id)
-    setTenders((prevTenders) => {
-      // Create a Set of existing tender IDs
-      const existingIds = new Set(prevTenders.map(t => t.id));
-      // Filter new tenders to keep only those not already present
-      const newUniqueTenders = data.filter(t => !existingIds.has(t.id));
-      // Prepend new unique tenders to the current list
-      return [...newUniqueTenders, ...prevTenders];
-    });
-
-    // Also update filteredTenders to show updated list
-    setFilteredTenders((prevTenders) => {
-      const existingIds = new Set(prevTenders.map(t => t.id));
-      const newUniqueTenders = data.filter(t => !existingIds.has(t.id));
-      return [...newUniqueTenders, ...prevTenders];
-    });
-
-    // Optionally update approved tenders similarly if needed
-    setApprovedTenders(data); // Or handle accordingly
-
-  } catch (err) {
-    console.error("Error refreshing tenders:", err);
-  }
 };
 
 
-  const handleDelete = (id: number) => {
+  // delete tenders
+  const handleDelete = (tender_number: string) => {
     const confirmed = window.confirm(
       "Are you sure you want to delete this tender?"
     );
     if (confirmed) {
-      const tenderToDelete = tenders.find((tender) => tender.id === id);
+      const tenderToDelete = tenders.find(
+        (t) => t.tender_number === tender_number
+      );
       if (tenderToDelete) {
         setDeletedTenders((prev) => [...prev, tenderToDelete]);
-        setTenders((prev) => prev.filter((tender) => tender.id !== id));
+        setTenders((prev) =>
+          prev.filter((t) => t.tender_number !== tender_number)
+        );
         setOpenDropdown(null);
-        console.log("Deleted tender ID:", id);
+        console.log("Deleted tender number:", tender_number);
       }
     }
   };
@@ -245,10 +223,12 @@ export default function FilterBar() {
     return dateB.getTime() - dateA.getTime(); // latest first
   });
   const parseDateString = (dateStr: string) => {
-    if (dateStr.includes(" ")) {
-      return new Date(dateStr.replace(" ", "T"));
+    try {
+      return parse(dateStr, "M/d/yyyy h:mm:ss a", new Date());
+    } catch (err) {
+      console.error("Failed to parse date:", dateStr, err);
+      return new Date(""); // Invalid Date
     }
-    return new Date(dateStr);
   };
 
   return (
@@ -631,10 +611,9 @@ export default function FilterBar() {
                     </td>
                     <td className="px-4 py-3">{tender.tender_number}</td>
                     <td className="px-4 py-3">{tender.description}</td>
-                   
-                    
+
                     <td className="px-4 py-3">
-                      {typeof  tender.published_date  === "string"
+                      {typeof tender.published_date === "string"
                         ? parseDateString(
                             tender.published_date
                           ).toLocaleDateString("en-ZA", {
@@ -703,7 +682,9 @@ export default function FilterBar() {
                         <ul className="py-1 text-sm text-gray-700">
                           <li>
                             <button
-                              onClick={() => handleApprove(tender.id)}
+                              onClick={() =>
+                                handleApproveTender(tender.tender_number)
+                              }
                               className="w-full text-left px-4 py-2 hover:bg-green-100"
                             >
                               ✅ Approve
@@ -711,7 +692,7 @@ export default function FilterBar() {
                           </li>
                           <li>
                             <button
-                              onClick={() => handleDelete(tender.id)}
+                              onClick={() => handleDelete(tender.tender_number)}
                               className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
                             >
                               ❌ Delete

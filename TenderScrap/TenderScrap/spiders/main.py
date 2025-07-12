@@ -1,6 +1,6 @@
 import os
 import subprocess
-
+from fastapi.responses import JSONResponse
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -36,21 +36,38 @@ class Tender(BaseModel):
     contact_person: str
     contact_email: str
 
-# GET NEW TENDERS FROM TRANSNET
+# GET NEW TENDERS FROM TRANSNET@app.post("/refresh-tenders")
 @app.post("/refresh-tenders")
-def run_scraper(background_tasks: BackgroundTasks):
-    def run_spider():
-        # Dynamically get the directory of this file
-        spider_dir = os.path.dirname(os.path.abspath(__file__))
-        subprocess.run(["scrapy", "crawl", "transnet_tenders"], cwd=spider_dir)
+def refresh_tenders():
+    # 1. Run Scrapy spider
+    spider_dir = os.path.dirname(os.path.abspath(__file__))
+    result = subprocess.run(
+        ["scrapy", "crawl", "transnet_tenders"], cwd=spider_dir
+    )
     
-    background_tasks.add_task(run_spider)
-    return {"message": "Scraping started in background"}
+    if result.returncode != 0:
+        return JSONResponse(status_code=500, content={"error": "Scraper failed"})
+
+    # 2. Load tenders from DB
+    conn = sqlite3.connect("transnetTenders.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM tenders ORDER BY published_date DESC")
+    rows = cursor.fetchall()
+
+    # Optional: Fetch column names
+    column_names = [desc[0] for desc in cursor.description]
+    conn.close()
+
+    # 3. Convert to list of dicts
+    tenders = [dict(zip(column_names, row)) for row in rows]
+
+    # 4. Return scraped tenders
+    return {"status": "done", "count": len(tenders), "tenders": tenders}
 
 # get all tenders
 @app.get("/tenders")
 def get_tenders():
-    conn = sqlite3.connect("tenders.db")
+    conn = sqlite3.connect("transnetTenders.db")
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM tenders ORDER BY published_date DESC")
@@ -64,7 +81,7 @@ def get_tenders():
 # add tenders to approved table
 @app.patch("/tenders/{tender_id}/approve")
 def approve_tender(tender_id: int):
-    conn = sqlite3.connect("tenders.db")
+    conn = sqlite3.connect("TransnetTenders.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM tenders WHERE id = ?", (tender_id,))
@@ -83,7 +100,7 @@ def approve_tender(tender_id: int):
 # add tenders to database
 @app.get("/tenders/approved")
 def get_approved_tenders():
-    conn = sqlite3.connect("tenders.db")
+    conn = sqlite3.connect("transnetTenders.db")
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM tenders WHERE tender_status = 'Approved' ORDER BY published_date DESC")
