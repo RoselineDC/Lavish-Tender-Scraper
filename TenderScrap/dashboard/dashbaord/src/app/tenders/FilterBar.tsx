@@ -119,7 +119,7 @@ const handleApproveTender = async (tender_number: string | undefined) => {
 
     // Update the frontend state
     setTenders(prev => prev.filter(t => t.tender_number !== tender_number));
-    
+  
     fetchApprovedTenders();  // Refresh approved tenders if needed
   } catch (err) {
     console.error("Error approving tender:", err);
