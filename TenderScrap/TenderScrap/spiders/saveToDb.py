@@ -42,19 +42,19 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
         # Insert each row from the CSV
         for _, row in df.iterrows():
             cursor.execute(insert_query, (
-                str(row.get("Tender Number", "")).strip(),
-                str(row.get("Description", "")).strip(),
-                pd.to_datetime(row.get("Published Date", ""), dayfirst=True).strftime('%Y-%m-%d') if pd.notna(row.get("Published Date", "")) else "",
-                pd.to_datetime(row.get("Closing Date", ""), dayfirst=True).strftime('%Y-%m-%d') if pd.notna(row.get("Closing Date", "")) else "",
-                str(row.get("Briefing Date", "")).strip(),
-                str(row.get("Location", "")).strip(),
-                str(row.get("Tender Document URL", "")).strip(),
-                str(row.get("Tender Category", "")).strip(),
-                str(row.get("Tender Type", "")).strip(),
-                str(row.get("Tender Status", "Open")).strip(),
-                str(row.get("Contact Person", "")).strip(),
-                str(row.get("Contact Email", "")).strip()
-            ))
+            str(row.get("Tender Number", "")).strip(),
+            str(row.get("Description", "")).strip(),
+            pd.to_datetime(row.get("Published Date", ""), dayfirst=True).strftime('%Y-%m-%d') if pd.notna(row.get("Published Date", "")) else "",
+            pd.to_datetime(row.get("Closing Date", ""), dayfirst=True).strftime('%Y-%m-%d') if pd.notna(row.get("Closing Date", "")) else "",
+            str(row.get("Briefing Date", "")).strip(),
+            str(row.get("Location", "")).strip(),
+            str(row.get("Tender Document URL", "")).strip(),
+            str(row.get("Tender Category", "")).strip(),
+            str(row.get("Tender Type", "")).strip(),
+            str(row.get("Tender Status", "Open")).strip(),
+            str(row.get("Contact Person", "")).strip(),
+            str(row.get("Contact Email", "")).strip()
+        ))
 
         # Finalize
         conn.commit()
