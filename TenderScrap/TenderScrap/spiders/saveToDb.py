@@ -68,4 +68,3 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
             cursor.close()
         if 'conn' in locals():
             conn.close()
-
