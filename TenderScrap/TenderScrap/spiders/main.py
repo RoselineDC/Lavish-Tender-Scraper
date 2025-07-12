@@ -142,19 +142,32 @@ def approve_tender(tender_number: str):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
+    # Fetch tender to move
     cursor.execute("SELECT * FROM tenders WHERE tender_number = ?", (tender_number,))
     tender = cursor.fetchone()
+
     if not tender:
-        cursor.close()
         conn.close()
         raise HTTPException(status_code=404, detail="Tender not found")
 
-    cursor.execute("UPDATE tenders SET tender_status = 'Approved' WHERE tender_number = ?", (tender_number,))
+    # Insert into approved_tenders
+    insert_query = """
+        INSERT INTO approved_tenders (
+            tender_number, description, published_date, closing_date, briefing_date,
+            location, tender_document_url, tender_category, tender_type,
+            contact_person, contact_email, institution_name
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """
+    cursor.execute(insert_query, tender[1:])  # skip `id` field
+
+    # Delete from general tenders
+    cursor.execute("DELETE FROM tenders WHERE tender_number = ?", (tender_number,))
+
     conn.commit()
-    cursor.close()
     conn.close()
 
-    return {"message": f"Tender with number {tender_number} approved successfully"}
+    return {"message": f"Tender {tender_number} approved and moved successfully"}
+
 
 @app.get("/tenders/approved")
 def get_approved_tenders():
