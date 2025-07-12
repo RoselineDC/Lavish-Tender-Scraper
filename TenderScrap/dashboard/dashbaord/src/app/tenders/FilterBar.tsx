@@ -93,7 +93,37 @@ export default function FilterBar() {
       setLoading(false);
     }
   };
-  
+  // ✅ Place this above handleApproveTender
+const fetchApprovedTenders = async () => {
+  try {
+    const res = await fetch("http://localhost:8000/tenders/approved");
+    const data = await res.json();
+    setApprovedTenders(data);
+  } catch (error) {
+    console.error("Failed to fetch approved tenders:", error);
+  }
+};
+
+// ✅ Update this to use `tender.id` and ensure `fetchApprovedTenders` is in scope
+const handleApproveTender = async (id: number | undefined) => {
+  if (!id) {
+    console.error("Tender ID is undefined.");
+    return;
+  }
+
+  try {
+    const res = await fetch(`http://localhost:8000/tenders/${id}/approve`, {
+      method: "PATCH",
+    });
+
+    if (!res.ok) throw new Error("Failed to approve tender");
+    console.log("Approved tender:", id);
+    fetchApprovedTenders(); // ✅ Call the refresh function
+  } catch (err) {
+    console.error("Error approving tender:", err);
+  }
+};
+
 
   // Approve tender (using PATCH and tender.id)
   const handleApproveTender = async (id: number | undefined) => {
