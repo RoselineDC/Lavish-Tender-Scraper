@@ -127,8 +127,6 @@ export default function FilterBar() {
 
       setTenders(result.tenders);
       
-
-
       setApprovedTenders(result.tenders);
     } catch (err) {
       console.error("Error refreshing tenders:", err);
