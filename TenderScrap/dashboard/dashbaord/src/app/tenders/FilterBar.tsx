@@ -93,7 +93,7 @@ export default function FilterBar() {
       setLoading(false);
     }
   };
-  // ✅ Place this above handleApproveTender
+// ✅ Place this above handleApproveTender
 const fetchApprovedTenders = async () => {
   try {
     const res = await fetch("http://localhost:8000/tenders/approved");
@@ -124,26 +124,6 @@ const handleApproveTender = async (id: number | undefined) => {
   }
 };
 
-
-  // Approve tender (using PATCH and tender.id)
-  const handleApproveTender = async (id: number | undefined) => {
-  if (!id) {
-    console.error("Tender ID is undefined.");
-    return;
-  }
-
-  try {
-    const res = await fetch(`http://localhost:8000/tenders/${id}/approve`, {
-      method: "PATCH",
-    });
-
-    if (!res.ok) throw new Error("Failed to approve tender");
-    console.log("Approved tender:", id);
-    fetchApprovedTenders();
-  } catch (err) {
-    console.error("Error approving tender:", err);
-  }
-};
 
 
   // Delete tender locally from state (no backend delete in your code yet)
