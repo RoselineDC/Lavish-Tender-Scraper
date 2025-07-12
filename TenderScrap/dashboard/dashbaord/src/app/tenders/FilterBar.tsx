@@ -1,38 +1,26 @@
 "use client";
 
-import {
-  useState,
-  useEffect,
-  JSXElementConstructor,
-  Key,
-  ReactElement,
-  ReactNode,
-  ReactPortal,
-} from "react";
-import { FaChevronDown } from "react-icons/fa";
+import React, { useState, useEffect, Key } from "react";
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
-import TableWithPagination from "../dashboard/TableWithPagination";
 import { parse } from "date-fns";
-import HandleTransnetTenders from "./HandleTransnetApproved";
 
-// Define the TenderType interface
+// Define Tender type (adjust as needed)
 export interface TenderType {
   id: number;
-  institutionName: string;
+  institutionName?: string;
   tender_number: string;
   description: string;
   published_date: string;
   closing_date: string;
-  briefing_date: string;
+  briefing_date?: string;
   location: string;
-  tender_document_url: string;
+  tender_document_url?: string;
   tender_category: string;
-  tender_type: string;
+  tender_type?: string;
   tender_status: "Open" | "Closed" | "Approved";
-  contact_person: string;
-  contact_email: string;
-  rowKey?: string;
+  contact_person?: string;
+  contact_email?: string;
 }
 
 const filters = {
@@ -55,58 +43,30 @@ export default function FilterBar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
   const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  // ✅ FETCH tenders from backend
   const [tenders, setTenders] = useState<TenderType[]>([]);
-
-  // const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
-  const [selected, setSelected] = useState({
-    institutionName: filters.institutionName[0],
-    tender_category: filters.tender_category[0],
-    published_date_filter: filters.published_date_filter[0],
-  });
-
-  const applyFilters = (filters: string[]) => {
-    if (filters.length === 0) {
-      setFilteredTenders(tenders);
-      return;
-    }
-
-    const filtered = tenders.filter((tender) =>
-      filters.includes(tender.tender_category)
-    );
-    setFilteredTenders(filtered);
-  };
-
-  const handleChange = (key: string, value: string) => {
-    setSelected({ ...selected, [key]: value });
-  };
-
-  const toggleDropdown = () => setShowDropdown((prev) => !prev);
-
-  const handleFilterChange = (category: string) => {
-    let updatedFilters = [...checkedFilters];
-
-    if (updatedFilters.includes(category)) {
-      updatedFilters = updatedFilters.filter((c) => c !== category);
-    } else {
-      updatedFilters.push(category);
-    }
-
-    setCheckedFilters(updatedFilters);
-    applyFilters(updatedFilters);
-  };
-  const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
-  const [deletedTenders, setDeletedTenders] = useState<TenderType[]>([]);
+  const [loading, setLoading] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
 
-  const handleDropdownToggle = (index: number) => {
-    setOpenDropdown((prev) => (prev === index ? null : index));
+  // Fetch tenders from backend on mount
+  useEffect(() => {
+    fetchTenders();
+  }, []);
+
+  // Fetch tenders function
+  const fetchTenders = async () => {
+    try {
+      const res = await fetch("http://localhost:8000/tenders");
+      if (!res.ok) throw new Error("Failed to fetch tenders");
+      const data = await res.json();
+      setTenders(data);
+      setFilteredTenders(data);
+    } catch (error) {
+      console.error("Error fetching tenders:", error);
+    }
   };
-  const sortByPublishedDateDesc = (tenders: TenderType[]) =>
-  [...tenders].sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
 
+  // Refresh tenders by triggering backend scraper & DB update
   const handleRefresh = async () => {
     try {
       setLoading(true);
@@ -116,7 +76,6 @@ export default function FilterBar() {
       const res = await fetch("http://localhost:8000/refresh-tenders", {
         method: "POST",
       });
-
       if (!res.ok) throw new Error("Failed to trigger scraper");
 
       const result = await res.json();
@@ -126,75 +85,71 @@ export default function FilterBar() {
         throw new Error("No tenders returned");
 
       setTenders(result.tenders);
-      
-      setApprovedTenders(result.tenders);
+      setFilteredTenders(result.tenders);
     } catch (err) {
       console.error("Error refreshing tenders:", err);
+      alert("Failed to refresh tenders, please try again later.");
     } finally {
       setLoading(false);
     }
   };
-  // ✅ Approve tenders
-  // This is your approved tenders state (somewhere higher in your app)
-  // Function to fetch updated approved tenders
-  const fetchApprovedTenders = () => {
-    fetch("http://localhost:8000/tenders/approved")
-      .then((res) => res.json())
-      .then((data) => setApprovedTenders(data));
-  };
 
-  // Call once to load approved tenders
-  useEffect(() => {
-    fetchApprovedTenders();
-  }, []);
-
-  // Approve tender handler
-  const handleApproveTender = (tenderNumber: string) => {
-    fetch(`http://localhost:8000/tenders/approve/${tenderNumber}`, {
-      method: "POST",
-    }).then(() => {
-      console.log("Approved tender:", tenderNumber);
-      fetchApprovedTenders(); // Refresh list after approving
-    });
-  };
-
-  // delete tenders
-  const handleDelete = (tender_number: string) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this tender?"
-    );
-    if (confirmed) {
-      const tenderToDelete = tenders.find(
-        (t) => t.tender_number === tender_number
-      );
-      if (tenderToDelete) {
-        setDeletedTenders((prev) => [...prev, tenderToDelete]);
-        setTenders((prev) =>
-          prev.filter((t) => t.tender_number !== tender_number)
-        );
-        setOpenDropdown(null);
-        console.log("Deleted tender number:", tender_number);
+  // Approve tender (using PATCH and tender.id)
+  const handleApproveTender = async (id: number) => {
+    try {
+      const res = await fetch(`http://localhost:8000/tenders/${id}/approve`, {
+        method: "PATCH",
+      });
+      if (!res.ok) {
+        alert("Failed to approve tender");
+        return;
       }
+      alert(`Tender ${id} approved successfully`);
+      fetchTenders();
+    } catch (error) {
+      console.error("Error approving tender:", error);
     }
   };
 
-  // ✅ Fetch tenders from FastAPI on mount
-  useEffect(() => {
-    const fetchTenders = async () => {
-      try {
-        const res = await fetch("http://localhost:8000/tenders");
-        const data = await res.json();
-        setTenders(data);
-        setFilteredTenders(data);
-      } catch (error) {
-        console.error("Error fetching tenders:", error);
-      }
-    };
+  // Delete tender locally from state (no backend delete in your code yet)
+  const handleDelete = (tender_number: string) => {
+    if (
+      window.confirm(
+        "Are you sure you want to delete this tender? This only removes it locally."
+      )
+    ) {
+      setTenders((prev) =>
+        prev.filter((t) => t.tender_number !== tender_number)
+      );
+      setFilteredTenders((prev) =>
+        prev.filter((t) => t.tender_number !== tender_number)
+      );
+      setOpenDropdown(null);
+      console.log("Deleted tender number:", tender_number);
+    }
+  };
 
-    fetchTenders();
-  }, []);
+  // Handle filter checkbox toggling
+  const handleFilterChange = (category: string) => {
+    let updatedFilters = [...checkedFilters];
+    if (updatedFilters.includes(category)) {
+      updatedFilters = updatedFilters.filter((c) => c !== category);
+    } else {
+      updatedFilters.push(category);
+    }
+    setCheckedFilters(updatedFilters);
 
-  // ✅ Dynamic search
+    if (updatedFilters.length === 0) {
+      setFilteredTenders(tenders);
+    } else {
+      const filtered = tenders.filter((t) =>
+        updatedFilters.includes(t.tender_category)
+      );
+      setFilteredTenders(filtered);
+    }
+  };
+
+  // Search tenders dynamically
   useEffect(() => {
     if (searchTerm.trim() === "") {
       setFilteredTenders(tenders);
@@ -204,43 +159,44 @@ export default function FilterBar() {
         tenders.filter(
           (t) =>
             (t.institutionName?.toLowerCase() || "").includes(term) ||
-            (t.tender_number?.toLowerCase() || "").includes(term) ||
-            (t.description?.toLowerCase() || "").includes(term) ||
-            (t.tender_category?.toLowerCase() || "").includes(term) ||
-            (t.location?.toLowerCase() || "").includes(term) ||
+            t.tender_number.toLowerCase().includes(term) ||
+            t.description.toLowerCase().includes(term) ||
+            t.tender_category.toLowerCase().includes(term) ||
+            t.location.toLowerCase().includes(term) ||
             (t.contact_person?.toLowerCase() || "").includes(term) ||
             (t.contact_email?.toLowerCase() || "").includes(term) ||
-            (t.tender_status?.toLowerCase() || "").includes(term)
+            t.tender_status.toLowerCase().includes(term)
         )
       );
     }
   }, [searchTerm, tenders]);
-  // DISPLAY CLOSSING EARLY FIRTS
-  const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
+
+  // Toggle dropdown for each tender row actions
+  const handleDropdownToggle = (index: number) => {
+    setOpenDropdown((prev) => (prev === index ? null : index));
+  };
+
+  // Sort tenders by published_date desc
   const sortedTenders = [...filteredTenders].sort((a, b) => {
-    const parseDate = (dateStr: string) => new Date(dateStr.replace(" ", "T"));
-
-    const dateA = parseDate(a.published_date);
-    const dateB = parseDate(b.published_date);
-
-    return dateB.getTime() - dateA.getTime(); // latest first
+    const dateA = new Date(a.published_date);
+    const dateB = new Date(b.published_date);
+    return dateB.getTime() - dateA.getTime();
   });
+
+  // Date formatter fallback
   const parseDateString = (dateStr: string) => {
-    try {
-      return parse(dateStr, "M/d/yyyy h:mm:ss a", new Date());
-    } catch (err) {
-      console.error("Failed to parse date:", dateStr, err);
-      return new Date(""); // Invalid Date
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) {
+      return new Date();
     }
+    return date;
   };
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
-      {/* ... Search & Filter UI (unchanged) ... */}
-      {/* [ KEEP all your search input, dropdown button, checkboxes etc here ] */}
-      {/* ... copy-paste your full existing JSX UI here ... */}
+      {/* Search & Filter Bar */}
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-        <div className="relative w-full">
+        <div className="relative w-full md:w-1/3">
           <input
             type="text"
             placeholder="Search tenders"
@@ -263,383 +219,118 @@ export default function FilterBar() {
             </svg>
           </div>
         </div>
-        <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-          <div className="flex items-center space-x-3 w-full md:w-auto">
+
+        <div className="flex space-x-3 items-center">
+          <button
+            id="refreshButton"
+            onClick={handleRefresh}
+            disabled={loading}
+            className="flex items-center justify-center py-2 px-4 text-sm font-bold text-white bg-green-500 rounded-lg border hover:bg-green-900 hover:text-primary-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            title="Refresh the table"
+          >
+            <RefreshCcw className="mr-2" />
+            {loading ? "Refreshing..." : "Refresh"}
+          </button>
+
+          <div className="relative inline-block text-left w-48">
             <button
-              id="refreshButton"
-              onClick={handleRefresh}
-              className=" md:w-auto flex items-center justify-center py-2 px-4 text-sm font-bold text-white focus:outline-none bg-green-500 rounded-lg border hover:bg-green-900 hover:text-primary-700"
+              id="filterDropdownButton"
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="w-full flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:outline-none focus:ring-4 focus:ring-gray-200"
               type="button"
-              title="Refresh the table"
             >
-              <RefreshCcw className="mr-2" />
-              Refresh
+              <TfiFilter className="mr-2" />
+              Filter
+              <svg
+                className="-mr-1 ml-1.5 w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+              >
+                <path
+                  clipRule="evenodd"
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                />
+              </svg>
             </button>
 
-            <div className="relative inline-block text-left w-full md:w-auto">
-              <button
-                id="filterDropdownButton"
-                onClick={toggleDropdown}
-                className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                type="button"
-              >
-                <TfiFilter className="mr-2" />
-                Filter
-                <svg
-                  className="-mr-1 ml-1.5 w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    clipRule="evenodd"
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  />
-                </svg>
-              </button>
-
-              {showDropdown && (
-                <div
-                  id="filterDropdown"
-                  className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow dark:bg-green-700 "
-                >
-                  <h6 className="mb-3 text-sm font-medium text-white dark:text-white p-2 bg-green-900 rounded-lg border hover:bg-green-900 hover:text-primary-700">
-                    CATEGORY
-                  </h6>
-                  <ul className="space-y-2 text-sm">
-                    {filters.tender_category.map((category) => (
-                      <li key={category} className="flex items-center">
-                        <input
-                          id={`filter-${category}`}
-                          type="checkbox"
-                          checked={checkedFilters.includes(category)}
-                          onChange={() => handleFilterChange(category)}
-                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
-                        />
-                        <label
-                          htmlFor={`filter-${category}`}
-                          className="ml-2 text-sm font-medium text-gray-900"
-                        >
-                          {category}
-                        </label>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+            {showDropdown && (
+              <div className="absolute right-0 z-10 mt-2 w-48 p-3 bg-white rounded-lg shadow border border-gray-200">
+                <h6 className="mb-3 text-sm font-medium p-2 bg-green-900 text-white rounded-lg">
+                  CATEGORY
+                </h6>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {filters.tender_category.map((category) => (
+                    <li key={category} className="flex items-center">
+                      <input
+                        id={`filter-${category}`}
+                        type="checkbox"
+                        checked={checkedFilters.includes(category)}
+                        onChange={() => handleFilterChange(category)}
+                        className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
+                      />
+                      <label
+                        htmlFor={`filter-${category}`}
+                        className="ml-2 font-medium cursor-pointer"
+                      >
+                        {category}
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
+      {/* Tender Table */}
       <div className="overflow-x-auto">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left text-gray-500">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
-              <th scope="col" className="px-2 py-3">
-                Institution Name
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Tender Number
-              </th>
-              <th scope="col" className="px-20 py-3">
-                Tender Description
-              </th>
-              <th scope="col" className="px-4 py-3">
-                published Date
-              </th>
+              <th className="px-2 py-3">Institution Name</th>
+              <th className="px-4 py-3">Tender Number</th>
+              <th className="px-20 py-3">Tender Description</th>
+              <th className="px-4 py-3">Published Date</th>
               <th
-                scope="col"
                 className="px-4 py-3 cursor-pointer"
                 onClick={() => setClosingDateSortAsc(!closingDateSortAsc)}
               >
                 Closing Date {closingDateSortAsc ? "↑" : "↓"}
               </th>
-              <th scope="col" className="px-4 py-3">
-                Location
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Tender Document
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Tender Category
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Tender Status
-              </th>
-              <th scope="col" className="px-4 py-3">
-                Actions
-              </th>
+              <th className="px-4 py-3">Location</th>
+              <th className="px-4 py-3">Tender Document</th>
+              <th className="px-4 py-3">Tender Category</th>
+              <th className="px-4 py-3">Tender Status</th>
+              <th className="px-4 py-3">Actions</th>
             </tr>
           </thead>
           <tbody>
             {filteredTenders.length === 0 ? (
               <tr>
-                <td
-                  colSpan={12}
-                  className="px-4 py-3 text-center text-gray-400"
-                >
+                <td colSpan={10} className="px-4 py-3 text-center text-gray-400">
                   No tenders found.
                 </td>
               </tr>
             ) : (
-              sortedTenders.map(
-                (
-                  tender: {
-                    institutionName:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    tender_number:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    description:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    published_date:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    closing_date:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    location:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    tender_document_url: string | undefined;
-                    tender_category:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    tender_status:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<
-                          unknown,
-                          string | JSXElementConstructor<any>
-                        >
-                      | Iterable<ReactNode>
-                      | Promise<
-                          | string
-                          | number
-                          | bigint
-                          | boolean
-                          | ReactPortal
-                          | ReactElement<
-                              unknown,
-                              string | JSXElementConstructor<any>
-                            >
-                          | Iterable<ReactNode>
-                          | null
-                          | undefined
-                        >
-                      | null
-                      | undefined;
-                    id: number;
-                  },
-                  index: Key | null | undefined
-                ) => (
-                  <tr key={index} className="border-b dark:border-gray-700">
-                    <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      {tender.institutionName}
-                    </td>
-                    <td className="px-4 py-3">{tender.tender_number}</td>
-                    <td className="px-4 py-3">{tender.description}</td>
-
-                    <td className="px-4 py-3">
-                      {typeof tender.published_date === "string"
-                        ? parseDateString(
-                            tender.published_date
-                          ).toLocaleDateString("en-ZA", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                          })
-                        : "N/A"}
-                    </td>
-
-                    <td className="px-4 py-3">
-                      {typeof tender.closing_date === "string"
-                        ? parseDateString(
-                            tender.closing_date
-                          ).toLocaleDateString("en-ZA", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                          })
-                        : "N/A"}
-                    </td>
-                    <td className="px-4 py-3">{tender.location}</td>
-                    <td className="px-4 py-3">
+              sortedTenders.map((tender, index) => (
+                <tr key={tender.id} className="border-b">
+                  <td className="px-4 py-3 font-medium whitespace-nowrap">
+                    {tender.institutionName || "N/A"}
+                  </td>
+                  <td className="px-4 py-3">{tender.tender_number}</td>
+                  <td className="px-4 py-3">{tender.description}</td>
+                  <td className="px-4 py-3">
+                    {new Date(tender.published_date).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-3">
+                    {new Date(tender.closing_date).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-3">{tender.location}</td>
+                  <td className="px-4 py-3">
+                    {tender.tender_document_url ? (
                       <a
                         href={tender.tender_document_url}
                         target="_blank"
@@ -648,69 +339,73 @@ export default function FilterBar() {
                       >
                         View
                       </a>
-                    </td>
-                    <td className="px-4 py-3">{tender.tender_category}</td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                          tender.tender_status === "Open"
-                            ? "bg-green-100 text-green-800"
-                            : "bg-red-100 text-red-800"
-                        }`}
+                    ) : (
+                      "N/A"
+                    )}
+                  </td>
+                  <td className="px-4 py-3">{tender.tender_category}</td>
+                  <td className="px-4 py-3">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                        tender.tender_status === "Open"
+                          ? "bg-green-100 text-green-800"
+                          : tender.tender_status === "Approved"
+                          ? "bg-blue-100 text-blue-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {tender.tender_status}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 flex items-center justify-end relative">
+                    <button
+                      onClick={() => handleDropdownToggle(index)}
+                      className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none"
+                      type="button"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
                       >
-                        {tender.tender_status}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 flex items-center justify-end relative">
-                      <button
-                        onClick={() => handleDropdownToggle(index)}
-                        className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none"
-                        type="button"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          aria-hidden="true"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                        </svg>
-                      </button>
+                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                      </svg>
+                    </button>
 
-                      <div
-                        className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${
-                          openDropdown === index ? "" : "hidden"
-                        }`}
-                      >
-                        <ul className="py-1 text-sm text-gray-700">
-                          <li>
-                            <button
-                              onClick={() =>
-                                handleApproveTender(tender.tender_number)
-                              }
-                              className="w-full text-left px-4 py-2 hover:bg-green-100"
-                            >
-                              ✅ Approve
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              onClick={() => handleDelete(tender.tender_number)}
-                              className="w-full text-left px-4 py-2 text-red-600 hover:bg-red-100"
-                            >
-                              ❌ Delete
-                            </button>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                )
-              )
+                    <div
+                      className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${
+                        openDropdown === index ? "" : "hidden"
+                      }`}
+                    >
+                      <ul className="py-1 text-sm text-gray-700">
+                        <li>
+                          <button
+                            onClick={() => {
+                              handleApproveTender(tender.id);
+                              setOpenDropdown(null);
+                            }}
+                            className="block w-full px-4 py-2 hover:bg-green-100"
+                          >
+                            ✅ Approve
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            onClick={() => handleDelete(tender.tender_number)}
+                            className="block w-full px-4 py-2 hover:bg-red-100 text-red-700"
+                          >
+                            🗑️ Delete
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              ))
             )}
           </tbody>
         </table>
-        <TableWithPagination />
       </div>
     </div>
   );
