@@ -73,5 +73,4 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
         if 'conn' in locals():
             conn.close()
 
-if __name__ == "__main__":
-    parse_csv_to_db()
+
