@@ -124,8 +124,12 @@ export default function FilterBar() {
 
       setTenders(result.tenders);
       setFilteredTenders(
-  [...result.tenders].sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime())
-);
+        [...result.tenders].sort(
+          (a, b) =>
+            new Date(b.published_date).getTime() -
+            new Date(a.published_date).getTime()
+        )
+      );
 
       setApprovedTenders(result.tenders);
     } catch (err) {
@@ -135,28 +139,28 @@ export default function FilterBar() {
     }
   };
   // ✅ Approve tenders
- // This is your approved tenders state (somewhere higher in your app)
-// Function to fetch updated approved tenders
-const fetchApprovedTenders = () => {
-  fetch("http://localhost:8000/tenders/approved")
-    .then(res => res.json())
-    .then(data => setApprovedTenders(data));
-};
+  // This is your approved tenders state (somewhere higher in your app)
+  // Function to fetch updated approved tenders
+  const fetchApprovedTenders = () => {
+    fetch("http://localhost:8000/tenders/approved")
+      .then((res) => res.json())
+      .then((data) => setApprovedTenders(data));
+  };
 
-// Call once to load approved tenders
-useEffect(() => {
-  fetchApprovedTenders();
-}, []);
+  // Call once to load approved tenders
+  useEffect(() => {
+    fetchApprovedTenders();
+  }, []);
 
-// Approve tender handler
-const handleApproveTender = (tenderNumber: string) => {
-  fetch(`http://localhost:8000/tenders/approve/${tenderNumber}`, { method: "POST" })
-    .then(() => {
+  // Approve tender handler
+  const handleApproveTender = (tenderNumber: string) => {
+    fetch(`http://localhost:8000/tenders/approve/${tenderNumber}`, {
+      method: "POST",
+    }).then(() => {
       console.log("Approved tender:", tenderNumber);
-      fetchApprovedTenders();  // Refresh list after approving
+      fetchApprovedTenders(); // Refresh list after approving
     });
-};
-
+  };
 
   // delete tenders
   const handleDelete = (tender_number: string) => {
