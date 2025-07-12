@@ -108,7 +108,7 @@ const fetchApprovedTenders = async () => {
 // ✅ Update this to use `tender.id` and ensure `fetchApprovedTenders` is in scope
 const handleApproveTender = async (tender_number: string | undefined) => {
   if (!tender_number) return;
-   alert("Tender number is undefined.");
+      alert("Tender number is undefined.");
 
   try {
     const encodedTenderNumber = encodeURIComponent(tender_number);
