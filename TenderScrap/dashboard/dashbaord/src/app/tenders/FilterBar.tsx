@@ -112,7 +112,7 @@ const handleApproveTender = async (tender_number: string | undefined) => {
   }
 
   try {
-    const res = await fetch(`http://localhost:8000/tenders/${id}/approve`, {
+    const res = await fetch(`http://localhost:8000/tenders/${tender_number}/approve`, {
       method: "PATCH",
     });
 
