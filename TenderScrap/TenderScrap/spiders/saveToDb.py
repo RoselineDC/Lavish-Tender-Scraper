@@ -42,8 +42,8 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
         # Insert each row from the CSV
         # Normalize date columns dynamically
         for date_col in ["Published Date", "Closing Date", "Briefing Date"]:
-                if date_col in df.columns:
-                    df[date_col] = pd.to_datetime(df[date_col], dayfirst=True, errors="coerce").dt.strftime('%Y-%m-%d')
+            If date_col in df.columns:
+                df[date_col] = pd.to_datetime(df[date_col], dayfirst=True, errors="coerce").dt.strftime('%Y-%m-%d')
 
                     for _, row in df.iterrows():
             cursor.execute(insert_query, (
