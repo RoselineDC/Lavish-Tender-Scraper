@@ -105,7 +105,7 @@ const fetchApprovedTenders = async () => {
 };
 
 // ✅ Update this to use `tender.id` and ensure `fetchApprovedTenders` is in scope
-const handleApproveTender = async (tender.tender_number: number | undefined) => {
+const handleApproveTender = async (tender_number: string | undefined) => {
   if (!id) {
     console.error("Tender ID is undefined.");
     return;
