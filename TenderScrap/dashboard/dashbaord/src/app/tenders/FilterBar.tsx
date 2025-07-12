@@ -398,7 +398,7 @@ const handleApproveTender = async (id: number | undefined) => {
                           <button
                             onClick={() => {
                               handleApproveTender(tender.id);
-                              s
+                              
                             }}
                             className="block w-full px-4 py-2 hover:bg-green-100"
                           >
