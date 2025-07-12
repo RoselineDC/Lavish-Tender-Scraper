@@ -40,11 +40,8 @@ class Tender(BaseModel):
 @app.post("/refresh-tenders")
 def refresh_tenders():
     # 1. Run Scrapy spider
-    spider_dir = os.path.dirname(os.path.abspath(__file__))
-    result = subprocess.run(
-        ["scrapy", "crawl", "transnet_tenders"], cwd=spider_dir
-    )
-    
+    subprocess.run(["scrapy", "crawl", "transnet_tenders"])
+    parse_csv_to_db("transnetTenders.csv", "transnetTenders.db")
     if result.returncode != 0:
         return JSONResponse(status_code=500, content={"error": "Scraper failed"})
 
