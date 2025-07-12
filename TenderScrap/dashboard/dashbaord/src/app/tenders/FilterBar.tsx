@@ -47,7 +47,7 @@ export default function FilterBar() {
   const [loading, setLoading] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
-  
+  const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
 
   // Fetch tenders from backend on mount
   useEffect(() => {
