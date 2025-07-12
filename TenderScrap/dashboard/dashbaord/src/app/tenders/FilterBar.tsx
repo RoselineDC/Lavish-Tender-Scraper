@@ -117,6 +117,8 @@ const handleApproveTender = async (tender_number: string | undefined) => {
     });
 
     if (!res.ok) throw new Error("Failed to approve tender");
+        alert(`✅ Tender ${tender_number} approved successfully!`);
+
 
     // Update the frontend state
     setTenders(prev => prev.filter(t => t.tender_number !== tender_number));
