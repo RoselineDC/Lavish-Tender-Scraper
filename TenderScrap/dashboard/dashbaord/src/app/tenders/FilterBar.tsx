@@ -93,6 +93,7 @@ export default function FilterBar() {
       setLoading(false);
     }
   };
+  
 
   // Approve tender (using PATCH and tender.id)
   const handleApproveTender = async (id: number | undefined) => {
