@@ -31,18 +31,19 @@ class TransnetTendersSpider(scrapy.Spider):
                 row_key = tender.get("rowKey")
                 tender_url = f"https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id={row_key}"
                 yield {
-                    "Tender Number": tender.get("tenderNumber", ""),
-                    "Description": tender.get("descriptionOfTender", ""),
-                    "Published Date": tender.get("publishedDate"),
-                    "Closing Date": tender.get("closingDate"),
-                    "Briefing Date": tender.get("briefingDate", ""),
-                    "Location": tender.get("locationOfService", ""),
-                    "Tender Document URL": tender.get("attachment", ""),
-                    "Tender Category": tender.get("tenderCategory", ""),
-                    "Tender Type": tender.get("tenderType", ""),
-                    "Tender Status": tender.get("tenderStatus", ""),
-                    "Contact Person": tender.get("contactPersonName", ""),
-                    "Contact Email": tender.get("contactPersonEmailAddress", ""),
+                    "tender_number": tender.get("tenderNumber", ""),
+                    "description": tender.get("descriptionOfTender", ""),
+                    "published_date": tender.get("publishedDate"),
+                    "closing_date": tender.get("closingDate"),
+                    "briefing_date": tender.get("briefingDate", ""),
+                    "location": tender.get("locationOfService", ""),
+                    "Ttender_document_url": tender.get("attachment", ""),
+                    "tender_category": tender.get("tenderCategory", ""),
+                    "tender_type": tender.get("tenderType", ""),
+                    "tender_status": tender.get("tenderStatus", ""),
+                    "contact_person": tender.get("contactPersonName", ""),
+                    "contact_email": tender.get("contactPersonEmailAddress", ""),
+                    "institution_name": tender.get("nameOfInstitution"),
                 }
         except Exception as e:
             self.logger.error(f"Failed to parse JSON: {e}")

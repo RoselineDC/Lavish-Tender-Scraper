@@ -43,25 +43,19 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
             INSERT OR REPLACE INTO tenders (
                 tender_number, description, published_date, closing_date, briefing_date,
                 location, tender_document_url, tender_category, tender_type,
-                tender_status, contact_person, contact_email
+                tender_status, contact_person, contact_email, institution_name
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
 
         for _, row in df.iterrows():
-            cursor.execute(insert_query, (
-                str(row.get("Tender Number", "")).strip(),
-                str(row.get("Description", "")).strip(),
-                str(row.get("Published Date", "")).strip(),
-                str(row.get("Closing Date", "")).strip(),
-                str(row.get("Briefing Date", "")).strip(),
-                str(row.get("Location", "")).strip(),
-                str(row.get("Tender Document URL", "")).strip(),
-                str(row.get("Tender Category", "")).strip(),
-                str(row.get("Tender Type", "")).strip(),
-                str(row.get("Tender Status", "Open")).strip(),
-                str(row.get("Contact Person", "")).strip(),
-                str(row.get("Contact Email", "")).strip()
-            ))
+            cursor.execute("""
+        INSERT INTO tenders (
+            tender_number, description, published_date, closing_date, briefing_date,
+            location, tender_document_url, tender_category, tender_type,
+            tender_status, contact_person, contact_email, institution_name
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, tuple(mapped.values()))
+
 
         conn.commit()
         print(f"✅ Data inserted into {db_name}")
