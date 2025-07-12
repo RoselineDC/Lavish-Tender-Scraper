@@ -104,6 +104,9 @@ export default function FilterBar() {
   const handleDropdownToggle = (index: number) => {
     setOpenDropdown((prev) => (prev === index ? null : index));
   };
+  const sortByPublishedDateDesc = (tenders: TenderType[]) =>
+  [...tenders].sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime());
+
   const handleRefresh = async () => {
     try {
       setLoading(true);
