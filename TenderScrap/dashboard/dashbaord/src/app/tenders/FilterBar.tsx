@@ -117,7 +117,7 @@ const handleApproveTender = async (tender_number: string | undefined) => {
     });
 
     if (!res.ok) throw new Error("Failed to approve tender");
-    console.log("Approved tender:", id);
+    console.log("Approved tender:", tender_number);
     fetchApprovedTenders(); // ✅ Call the refresh function
   } catch (err) {
     console.error("Error approving tender:", err);
