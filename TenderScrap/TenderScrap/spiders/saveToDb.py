@@ -7,6 +7,12 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
         # Read the CSV into a DataFrame
         df = pd.read_csv(csv_path)
 
+        # Normalize date columns dynamically
+        for date_col in ["Published Date", "Closing Date", "Briefing Date"]:
+            if date_col in df.columns:
+                df[date_col] = pd.to_datetime(df[date_col], dayfirst=True, errors="coerce")
+                df[date_col] = df[date_col].dt.strftime('%Y-%m-%d').fillna("")
+
         # Resolve absolute DB path
         db_path = os.path.abspath(db_name)
         conn = sqlite3.connect(db_path)
@@ -39,14 +45,6 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
 
-        # Insert each row from the CSV
-        # Normalize date columns dynamically
-        for date_col in ["Published Date", "Closing Date", "Briefing Date"]:
-            if date_col in df.columns:
-               df[date_col] = pd.to_datetime(df[date_col], dayfirst=True, errors="coerce")
-            df[date_col] = df[date_col].dt.strftime('%Y-%m-%d').fillna("")
-
-
         for _, row in df.iterrows():
             cursor.execute(insert_query, (
                 str(row.get("Tender Number", "")).strip(),
@@ -63,7 +61,6 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
                 str(row.get("Contact Email", "")).strip()
             ))
 
-        # Finalize
         conn.commit()
         print(f"✅ Data inserted into {db_name}")
 
