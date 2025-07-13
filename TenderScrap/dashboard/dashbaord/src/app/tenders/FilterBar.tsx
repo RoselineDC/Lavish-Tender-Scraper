@@ -24,7 +24,7 @@ export interface TenderType {
   contact_email?: string;
 }
 // check tender url and document url
-console.log("TenderType:", TenderType);
+console.log("TenderType:", );
 
 
 const filters = {
