@@ -76,18 +76,18 @@ def parse_csv_to_db(csv_path=CSV_PATH, db_name=DB_NAME):
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS approved_tenders (
     tender_number TEXT PRIMARY KEY,
-    description TEXT,
-    published_date TEXT,
-    closing_date TEXT,
-    briefing_date TEXT,
-    location TEXT,
-    tender_document_url TEXT,
-    tender_category TEXT,
-    tender_type TEXT,
-    tender_status TEXT,
-    contact_person TEXT,
-    contact_email TEXT
-)
+            description TEXT,
+            published_date TEXT,
+            closing_date TEXT,
+            briefing_date TEXT,
+            location TEXT,
+            tender_document_url TEXT,
+            tender_category TEXT,
+            tender_type TEXT,
+            tender_status TEXT,
+            contact_person TEXT,
+            contact_email TEXT
+        )
 
         """)
 
