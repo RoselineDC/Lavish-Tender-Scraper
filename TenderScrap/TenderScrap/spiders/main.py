@@ -204,6 +204,7 @@ def approve_tender(tender_number: str):
             contact_person, contact_email
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
+    
     cursor.execute(insert_query, tender)  # skip `id` field
 
     # Delete from general tenders
