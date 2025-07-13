@@ -323,6 +323,7 @@ const handleApproveTender = async (tender_number: string | undefined) => {
                 Closing Date {closingDateSortAsc ? "↑" : "↓"}
               </th>
               <th className="px-4 py-3">Location</th>
+              
               <th className="px-4 py-3">Tender Document</th>
               <th className="px-4 py-3">Tender Category</th>
               <th className="px-4 py-3">Tender Status</th>
