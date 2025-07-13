@@ -204,7 +204,19 @@ def approve_tender(tender_number: str):
             contact_person, contact_email
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
-    
+    values = [
+        tender_dict["tender_number"],
+        tender_dict["description"],
+        tender_dict["published_date"],
+        tender_dict["closing_date"],
+        tender_dict["briefing_date"],
+        tender_dict["location"],
+        tender_dict["tender_document_url"],
+        tender_dict["tender_category"],
+        tender_dict["tender_type"],
+        tender_dict["contact_person"],
+        tender_dict["contact_email"],
+    ]
     cursor.execute(insert_query, tender)  # skip `id` field
 
     # Delete from general tenders
