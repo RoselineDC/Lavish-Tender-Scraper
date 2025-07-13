@@ -366,6 +366,20 @@ const handleApproveTender = async (tender_number: string | undefined) => {
                       "N/A"
                     )}
                   </td>
+                  <td className="px-4 py-3">
+                    {tender.tender_document_url ? (
+                      <a
+                        href={tender.tender_document_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline"
+                      >
+                        View
+                      </a>
+                    ) : (
+                      "N/A"
+                    )}
+                  </td>
                   <td className="px-4 py-3">{tender.tender_category}</td>
                   <td className="px-4 py-3">
                     <span
