@@ -20,7 +20,7 @@ def parse_csv_to_db(csv_path='transnet.csv', db_name='transnetTenders.db'):
 
         # Fix missing comma after tender_url in SQL table definition
         cursor.execute("""
-           CREATE TABLE IF NOT EXISTS approvedtenders(
+           CREATE TABLE IF NOT EXISTS approvedenders(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 tender_number TEXT,
                 description TEXT,
