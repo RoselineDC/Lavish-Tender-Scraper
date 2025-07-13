@@ -51,6 +51,7 @@ export default function FilterBar() {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
+  
 
   // Fetch tenders from backend on mount
   useEffect(() => {
@@ -216,14 +217,7 @@ export default function FilterBar() {
     }
     return date;
   };
-  // check urls for tenders 
-  useEffect(() => {
-  // After fetching tenders, log their URLs for debugging
-  tenders.forEach((t) => {
-    console.log(`Tender #${t.tender_number} URL:`, t.tender_url);
-    console.log(`Tender #${t.tender_number} Document URL:`, t.tender_document_url);
-  });
-}, [tenders]);
+
 
 
   return (
