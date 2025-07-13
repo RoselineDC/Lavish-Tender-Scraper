@@ -181,7 +181,7 @@ def get_tenders():
 
     return [dict(row) for row in rows]
 
-@app.patch("/tenders/{tender_number}/approve")
+@app.patch("/tenders/{tender_number:}/approve")
 def approve_tender(tender_number: str):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
