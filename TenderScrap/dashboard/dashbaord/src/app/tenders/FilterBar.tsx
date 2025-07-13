@@ -23,7 +23,7 @@ export interface TenderType {
   contact_person?: string;
   contact_email?: string;
 }
-
+/
 
 
 const filters = {
