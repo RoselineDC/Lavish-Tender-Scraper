@@ -44,7 +44,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
             cursor.execute("""
                 INSERT OR REPLACE INTO approved_tenders (
                     tender_number, description, published_date, closing_date, briefing_date,
-                    location, tenderurl, tender_document_url, tender_category, tender_type,
+                    location, tender_url, tender_document_url, tender_category, tender_type,
                     tender_status, contact_person, contact_email, institution_name
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
