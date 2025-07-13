@@ -96,7 +96,7 @@ def parse_csv_to_db(csv_path=CSV_PATH, db_name=DB_NAME):
         insert_query = """
             INSERT OR REPLACE INTO tenders (
                 tender_number, description, published_date, closing_date, briefing_date,
-                location, tender_document_url, tender_category, tender_type,
+                location, tender_url, tender_document_url, tender_category, tender_type,
                 tender_status, contact_person, contact_email
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
