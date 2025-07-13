@@ -134,7 +134,7 @@ class Tender(BaseModel):
     closing_date: str
     briefing_date: str
     location: str
-    
+    tender_url: str
     tender_document_url: str
     tender_category: str
     tender_type: str
