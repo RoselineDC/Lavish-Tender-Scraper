@@ -106,7 +106,7 @@ def parse_csv_to_db(csv_path=CSV_PATH, db_name=DB_NAME):
         """
 
         for _, row in df.iterrows():
-            
+            rowKey = str(row.get("rowKey", "")).strip()
             cursor.execute(insert_query, (
                 str(row["Tender Number"]).strip(),
                 str(row["Description"]).strip(),
