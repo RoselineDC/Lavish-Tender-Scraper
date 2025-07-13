@@ -216,7 +216,15 @@ export default function FilterBar() {
     }
     return date;
   };
-  // check urls for te
+  // check urls for tenders 
+  useEffect(() => {
+  // After fetching tenders, log their URLs for debugging
+  tenders.forEach((t) => {
+    console.log(`Tender #${t.tender_number} URL:`, t.tender_url);
+    console.log(`Tender #${t.tender_number} Document URL:`, t.tender_document_url);
+  });
+}, [tenders]);
+
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
