@@ -38,13 +38,15 @@ class TransnetTendersSpider(scrapy.Spider):
                     "briefing_date": tender.get("briefingDate", ""),
                     "location": tender.get("locationOfService", ""),
                     "tender_url": tender_url,
-                    "Ttender_document_url": tender.get("attachment", ""),
+                    "tender_document_url": tender.get("attachment", ""),
                     "tender_category": tender.get("tenderCategory", ""),
                     "tender_type": tender.get("tenderType", ""),
                     "tender_status": tender.get("tenderStatus", ""),
                     "contact_person": tender.get("contactPersonName", ""),
                     "contact_email": tender.get("contactPersonEmailAddress", ""),
                     "institution_name": tender.get("nameOfInstitution"),
+                    "rowKey": row_key
+
                 }
         except Exception as e:
             self.logger.error(f"Failed to parse JSON: {e}")

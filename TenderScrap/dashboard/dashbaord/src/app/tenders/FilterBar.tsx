@@ -24,8 +24,6 @@ export interface TenderType {
   contact_email?: string;
 }
 
-
-
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
   tender_category: ["Goods", "Services", "Goods & Services"],
@@ -52,14 +50,15 @@ export default function FilterBar() {
   const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
 
-    // check urls for tenders 
-  useEffect(() => {
-  // After fetching tenders, log their URLs for debugging
+  // check urls for tenders
+ useEffect(() => {
   tenders.forEach((t) => {
-    console.log(`Tender #${t.tender_number} URL:`, t.tender_url);
-    console.log(`Tender #${t.tender_number} Document URL:`, t.tender_document_url);
+    console.log("Tender Number:", t.tender_number);
+    console.log("URL Raw:", t.tender_url);
+    console.log("URL Trimmed:", t.tender_url?.trim());
   });
 }, [tenders]);
+
 
   // Fetch tenders from backend on mount
   useEffect(() => {
@@ -203,7 +202,6 @@ export default function FilterBar() {
       );
     }
   }, [searchTerm, tenders]);
-  
 
   // Toggle dropdown for each tender row actions
   const handleDropdownToggle = (index: number) => {
@@ -225,8 +223,6 @@ export default function FilterBar() {
     }
     return date;
   };
-
-
 
   return (
     <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition">
@@ -369,21 +365,18 @@ export default function FilterBar() {
                     {new Date(tender.closing_date).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-3">{tender.location}</td>
-                  <td className="px-4 py-3">
-                    {tender.tender_url ? (
-                      <a
-                        href={tender.tender_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
-                      >
-                        Link
-                      </a>
-                    ) : (
-                      <span className="text-gray-500 italic">No link</span>
-                    )}
-
-                  </td>
+                  {tender.tender_url?.trim() ? (
+                    <a
+                      href={tender.tender_url.trim()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      Link
+                    </a>
+                  ) : (
+                    <span className="text-red-500 font-bold">No link</span>
+                  )}
 
                   <td className="px-4 py-3">
                     {tender.tender_document_url ? (
