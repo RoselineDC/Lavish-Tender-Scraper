@@ -28,7 +28,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
                 closing_date TEXT,
                 briefing_date TEXT,
                 location TEXT,
-                
+                tender_url TEXT
                 tender_document_url TEXT,
                 tender_category TEXT,
                 tender_type TEXT,
