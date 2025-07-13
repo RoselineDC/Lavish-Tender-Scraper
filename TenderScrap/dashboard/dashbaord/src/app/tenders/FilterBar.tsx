@@ -23,7 +23,8 @@ export interface TenderType {
   contact_person?: string;
   contact_email?: string;
 }
-// check tender 
+// check tender url and document url
+
 
 
 const filters = {
