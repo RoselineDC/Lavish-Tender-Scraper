@@ -2,7 +2,7 @@ import pandas as pd
 import sqlite3
 import os
 
-def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'):
+def parse_csv_to_db(csv_path='transnetTender.csv', db_name='transnetTenders.db'):
     try:
         # Read the CSV into a DataFrame
         df = pd.read_csv(csv_path)
