@@ -18,7 +18,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
 
-        # Create table if it doesn't exist
+        # Create approved_tenders table if it doesn't exist
         cursor.execute("""
            CREATE TABLE IF NOT EXISTS approved_tenders(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -35,28 +35,32 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
                 contact_person TEXT,
                 contact_email TEXT,
                 institution_name TEXT
-               )        
-
+           )
         """)
 
-        # Prepare the insert statement
-        insert_query = """
-            INSERT OR REPLACE INTO tenders (
-                tender_number, description, published_date, closing_date, briefing_date,
-                location, tender_document_url, tender_category, tender_type,
-                tender_status, contact_person, contact_email, institution_name
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """
-
+        # Insert rows into approved_tenders
         for _, row in df.iterrows():
             cursor.execute("""
-        INSERT INTO tenders (
-            tender_number, description, published_date, closing_date, briefing_date,
-            location, tender_document_url, tender_category, tender_type,
-            tender_status, contact_person, contact_email, institution_name
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, tuple(mapped.values()))
-
+                INSERT OR REPLACE INTO approved_tenders (
+                    tender_number, description, published_date, closing_date, briefing_date,
+                    location, tender_document_url, tender_category, tender_type,
+                    tender_status, contact_person, contact_email, institution_name
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                row.get("Tender Number", ""),
+                row.get("Description", ""),
+                row.get("Published Date", ""),
+                row.get("Closing Date", ""),
+                row.get("Briefing Date", ""),
+                row.get("Location of Service", ""),
+                row.get("Attachment", ""),
+                row.get("Tender Category", ""),
+                row.get("Tender Type", ""),
+                row.get("Tender Status", ""),
+                row.get("Contact Person Name", ""),
+                row.get("Contact Person Email Address", ""),
+                row.get("Name of Institution", "")
+            ))
 
         conn.commit()
         print(f"✅ Data inserted into {db_name}")
