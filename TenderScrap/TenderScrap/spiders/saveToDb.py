@@ -18,7 +18,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
 
-        # Create approved_tenders table if it doesn't exist
+        # Fix missing comma after tender_url in SQL table definition
         cursor.execute("""
            CREATE TABLE IF NOT EXISTS approved_tenders(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,7 +28,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
                 closing_date TEXT,
                 briefing_date TEXT,
                 location TEXT,
-                tender_url TEXT
+                tender_url TEXT,  -- <== comma was missing here
                 tender_document_url TEXT,
                 tender_category TEXT,
                 tender_type TEXT,
@@ -46,7 +46,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
                     tender_number, description, published_date, closing_date, briefing_date,
                     location, tender_url, tender_document_url, tender_category, tender_type,
                     tender_status, contact_person, contact_email, institution_name
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
                 row.get("Tender Number", ""),
                 row.get("Description", ""),
