@@ -197,7 +197,7 @@ def approve_tender(tender_number: str):
     insert_query = """
         INSERT INTO approved_tenders (
             tender_number, description, published_date, closing_date, briefing_date,
-            location, tender_document_url, tender_category, tender_type,
+            location, tender_url, tender_document_url, tender_category, tender_type,
             tender_status, contact_person, contact_email
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
