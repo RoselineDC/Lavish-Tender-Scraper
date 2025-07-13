@@ -78,7 +78,7 @@ def parse_csv_to_db(csv_path=CSV_PATH, db_name=DB_NAME):
 
         required_columns = [
             "Tender Number", "Description", "Published Date", "Closing Date",
-            "Briefing Date", "Location", "Tender Document URL", "Tender Category",
+            "Briefing Date", "Location", "Tender URL", "Tender Document URL", "Tender Category",
             "Tender Type", "Tender Status", "Contact Person", "Contact Email"
         ]
 
