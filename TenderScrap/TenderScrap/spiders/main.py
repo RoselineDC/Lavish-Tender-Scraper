@@ -40,6 +40,7 @@ def ensure_tables_exist():
             closing_date TEXT,
             briefing_date TEXT,
             location TEXT,
+            tender_url TEXT,
             tender_document_url TEXT,
             tender_category TEXT,
             tender_type TEXT,
