@@ -35,6 +35,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
                 contact_person TEXT,
                 contact_email TEXT,
                 institution_name TEXT
+                
 
         """)
 
