@@ -184,6 +184,7 @@ def get_tenders():
 @app.patch("/tenders/{tender_number:path}/approve")
 def approve_tender(tender_number: str):
     conn = sqlite3.connect(DB_NAME)
+    
     cursor = conn.cursor()
 
     # Fetch tender to move
