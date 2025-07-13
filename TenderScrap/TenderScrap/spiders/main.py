@@ -233,9 +233,10 @@ def get_approved_tenders():
     conn = sqlite3.connect(DB_NAME)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM tenders WHERE tender_status = 'Approved' ORDER BY published_date DESC")
+    cursor.execute("SELECT * FROM approved_tenders ORDER BY published_date DESC")
     rows = cursor.fetchall()
     cursor.close()
     conn.close()
 
     return [dict(row) for row in rows]
+
