@@ -20,7 +20,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
 
         # Create table if it doesn't exist
         cursor.execute("""
-           CREATE TABLE IF NOT EXISTS tenders (
+           CREATE TABLE IF NOT EXISTS approved_tenders(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 tender_number TEXT,
                 description TEXT,
