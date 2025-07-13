@@ -26,6 +26,8 @@ app.add_middleware(
 # ---------- Constants ----------
 DB_NAME = "transnetTenders.db"
 CSV_PATH = "transnetTenders.csv"
+BASE_URL = "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id="
+
 
 # ---------- Database Table Creation ----------
 def ensure_tables_exist():
