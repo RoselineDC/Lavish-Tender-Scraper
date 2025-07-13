@@ -353,9 +353,9 @@ const handleApproveTender = async (tender_number: string | undefined) => {
                   </td>
                   <td className="px-4 py-3">{tender.location}</td>
                   <td className="px-4 py-3">
-                    {tender.tender_document_url ? (
+                    {tender.tender_url ? (
                       <a
-                        href={tender.tender_document_url}
+                        href={tender.tender_documen_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
