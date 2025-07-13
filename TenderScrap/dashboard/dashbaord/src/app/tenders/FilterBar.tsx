@@ -195,7 +195,7 @@ export default function FilterBar() {
     }
   }, [searchTerm, tenders]);
   // check tender url and document url
-console.log("Tender URL:", tenders.tender_url);
+console.log("Tender URL:", tender.tender_url);
 console.log("Tender Document URL:", tender.tender_document_url);
 
   // Toggle dropdown for each tender row actions
