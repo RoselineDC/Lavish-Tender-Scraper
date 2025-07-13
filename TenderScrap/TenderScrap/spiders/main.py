@@ -109,6 +109,7 @@ def parse_csv_to_db(csv_path=CSV_PATH, db_name=DB_NAME):
                 str(row["Closing Date"]).strip(),
                 str(row["Briefing Date"]).strip(),
                 str(row["Location"]).strip(),
+                str(row["Tender URL"]).strip(),
                 str(row["Tender Document URL"]).strip(),
                 str(row["Tender Category"]).strip(),
                 str(row["Tender Type"]).strip(),
