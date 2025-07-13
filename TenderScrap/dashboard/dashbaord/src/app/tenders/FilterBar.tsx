@@ -368,7 +368,7 @@ export default function FilterBar() {
                     ) : (
                       <span className="text-gray-500 italic">No link</span>
                     )}
-                    
+
                   </td>
 
                   <td className="px-4 py-3">
