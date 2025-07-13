@@ -54,6 +54,7 @@ def parse_csv_to_db(csv_path='transnetTenders.csv', db_name='transnetTenders.db'
                 row.get("Closing Date", ""),
                 row.get("Briefing Date", ""),
                 row.get("Location of Service", ""),
+                
                 row.get("Attachment", ""),
                 row.get("Tender Category", ""),
                 row.get("Tender Type", ""),
