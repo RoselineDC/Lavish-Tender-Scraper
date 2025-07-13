@@ -217,7 +217,7 @@ def approve_tender(tender_number: str):
         tender_dict["contact_person"],
         tender_dict["contact_email"],
     ]
-    cursor.execute(insert_query, tender)  # skip `id` field
+    cursor.execute(insert_query, values)  # skip `id` field
 
     # Delete from general tenders
     cursor.execute("DELETE FROM tenders WHERE tender_number = ?", (tender_number,))
