@@ -194,7 +194,7 @@ def approve_tender(tender_number: str):
     if not tender:
         conn.close()
         raise HTTPException(status_code=404, detail="Tender not found")
-        
+    tender_dict = dict(tender)
 
     # Insert into approved_tenders
     insert_query = """
