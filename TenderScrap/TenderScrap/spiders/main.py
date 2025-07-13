@@ -201,7 +201,7 @@ def approve_tender(tender_number: str):
         INSERT INTO approved_tenders (
             tender_number, description, published_date, closing_date, briefing_date,
             location, tender_document_url, tender_category, tender_type,
-            contact_person, contact_email, institution_name
+            contact_person, contact_email, institution_
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
     cursor.execute(insert_query, tender)  # skip `id` field
