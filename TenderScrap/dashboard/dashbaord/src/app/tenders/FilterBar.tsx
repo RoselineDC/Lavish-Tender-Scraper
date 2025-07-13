@@ -24,6 +24,7 @@ export interface TenderType {
   contact_email?: string;
 }
 
+
 const filters = {
   institutionName: ["Transnet", "CSIR", "OTHERS"],
   tender_category: ["Goods", "Services", "Goods & Services"],
