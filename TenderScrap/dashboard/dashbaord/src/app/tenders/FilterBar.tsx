@@ -194,9 +194,7 @@ export default function FilterBar() {
       );
     }
   }, [searchTerm, tenders]);
-  // check tender url and document url
-console.log("Tender URL:", t.tender_url);
-console.log("Tender Document URL:", tenders.tender_document_url);
+  
 
   // Toggle dropdown for each tender row actions
   const handleDropdownToggle = (index: number) => {
