@@ -360,7 +360,7 @@ const handleApproveTender = async (tender_number: string | undefined) => {
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
                       >
-                        View
+                        Link
                       </a>
                     ) : (
                       "N/A"
