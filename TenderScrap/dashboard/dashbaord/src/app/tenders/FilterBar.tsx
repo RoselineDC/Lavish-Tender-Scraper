@@ -95,43 +95,43 @@ export default function FilterBar() {
       setLoading(false);
     }
   };
-// ✅ Place this above handleApproveTender
-const fetchApprovedTenders = async () => {
-  try {
-    const res = await fetch("http://localhost:8000/tenders/approved");
-    const data = await res.json();
-    setApprovedTenders(data);
-  } catch (error) {
-    console.error("Failed to fetch approved tenders:", error);
-  }
-};
+  // ✅ Place this above handleApproveTender
+  const fetchApprovedTenders = async () => {
+    try {
+      const res = await fetch("http://localhost:8000/tenders/approved");
+      const data = await res.json();
+      setApprovedTenders(data);
+    } catch (error) {
+      console.error("Failed to fetch approved tenders:", error);
+    }
+  };
 
-// ✅ Update this to use `tender.id` and ensure `fetchApprovedTenders` is in scope
-const handleApproveTender = async (tender_number: string | undefined) => {
-  if (!tender_number) return;
+  // ✅ Update this to use `tender.id` and ensure `fetchApprovedTenders` is in scope
+  const handleApproveTender = async (tender_number: string | undefined) => {
+    if (!tender_number) return;
 
-  try {
-    const encodedTenderNumber = encodeURIComponent(tender_number);
-    const res = await fetch(`http://localhost:8000/tenders/${encodedTenderNumber}/approve`, {
-      method: "PATCH",
-    });
+    try {
+      const encodedTenderNumber = encodeURIComponent(tender_number);
+      const res = await fetch(
+        `http://localhost:8000/tenders/${encodedTenderNumber}/approve`,
+        {
+          method: "PATCH",
+        }
+      );
 
-    if (!res.ok) throw new Error("Failed to approve tender");
-        alert(`✅ Tender ${tender_number} approved successfully!`);
+      if (!res.ok) throw new Error("Failed to approve tender");
+      alert(`✅ Tender ${tender_number} approved successfully!`);
 
+      // Update the frontend state
+      setTenders((prev) =>
+        prev.filter((t) => t.tender_number !== tender_number)
+      );
 
-    // Update the frontend state
-    setTenders(prev => prev.filter(t => t.tender_number !== tender_number));
-  
-    fetchApprovedTenders();  // Refresh approved tenders if needed
-  } catch (err) {
-    console.error("Error approving tender:", err);
-  }
-};
-
-
-
-
+      fetchApprovedTenders(); // Refresh approved tenders if needed
+    } catch (err) {
+      console.error("Error approving tender:", err);
+    }
+  };
 
   // Delete tender locally from state (no backend delete in your code yet)
   const handleDelete = (tender_number: string) => {
@@ -333,7 +333,10 @@ const handleApproveTender = async (tender_number: string | undefined) => {
           <tbody>
             {filteredTenders.length === 0 ? (
               <tr>
-                <td colSpan={10} className="px-4 py-3 text-center text-gray-400">
+                <td
+                  colSpan={10}
+                  className="px-4 py-3 text-center text-gray-400"
+                >
                   No tenders found.
                 </td>
               </tr>
@@ -421,7 +424,6 @@ const handleApproveTender = async (tender_number: string | undefined) => {
                           <button
                             onClick={() => {
                               handleApproveTender(tender.tender_number);
-                              
                             }}
                             className="block w-full px-4 py-2 hover:bg-green-100"
                           >
