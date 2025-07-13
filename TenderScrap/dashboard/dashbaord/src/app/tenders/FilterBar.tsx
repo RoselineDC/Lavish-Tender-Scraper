@@ -15,6 +15,7 @@ export interface TenderType {
   closing_date: string;
   briefing_date?: string;
   location: string;
+  
   tender_document_url?: string;
   tender_category: string;
   tender_type?: string;
