@@ -209,7 +209,7 @@ def approve_tender(tender_number: str):
         tender_dict["closing_date"],
         tender_dict["briefing_date"],
         tender_dict["location"],
-        tender_dict[""]
+        tender_dict["tender_url"],
         tender_dict["tender_document_url"],
         tender_dict["tender_category"],
         tender_dict["tender_type"],
