@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, Key } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
-import { parse } from "date-fns";
 
 // Define Tender type (adjust as needed)
 export interface TenderType {
@@ -49,16 +49,19 @@ export default function FilterBar() {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
+  
+  // Pagination state
+  const PAGE_SIZE = 11;
+  const [currentPage, setCurrentPage] = useState(1);
 
   // check urls for tenders
- useEffect(() => {
-  tenders.forEach((t) => {
-    console.log("Tender Number:", t.tender_number);
-    console.log("URL Raw:", t.tender_url);
-    console.log("URL Trimmed:", t.tender_url?.trim());
-  });
-}, [tenders]);
-
+  useEffect(() => {
+    tenders.forEach((t) => {
+      console.log("Tender Number:", t.tender_number);
+      console.log("URL Raw:", t.tender_url);
+      console.log("URL Trimmed:", t.tender_url?.trim());
+    });
+  }, [tenders]);
 
   // Fetch tenders from backend on mount
   useEffect(() => {
@@ -84,6 +87,7 @@ export default function FilterBar() {
       setLoading(true);
       setCheckedFilters([]);
       setSearchTerm("");
+      setCurrentPage(1); // reset pagination on refresh
 
       const res = await fetch("http://localhost:8000/refresh-tenders", {
         method: "POST",
@@ -105,7 +109,8 @@ export default function FilterBar() {
       setLoading(false);
     }
   };
-  // ✅ Place this above handleApproveTender
+
+  // Fetch approved tenders
   const fetchApprovedTenders = async () => {
     try {
       const res = await fetch("http://localhost:8000/tenders/approved");
@@ -116,7 +121,7 @@ export default function FilterBar() {
     }
   };
 
-  // ✅ Update this to use `tender.id` and ensure `fetchApprovedTenders` is in scope
+  // Approve tender
   const handleApproveTender = async (tender_number: string | undefined) => {
     if (!tender_number) return;
 
@@ -143,7 +148,7 @@ export default function FilterBar() {
     }
   };
 
-  // Delete tender locally from state (no backend delete in your code yet)
+  // Delete tender locally from state
   const handleDelete = (tender_number: string) => {
     if (
       window.confirm(
@@ -170,6 +175,7 @@ export default function FilterBar() {
       updatedFilters.push(category);
     }
     setCheckedFilters(updatedFilters);
+    setCurrentPage(1); // reset to first page on filter change
 
     if (updatedFilters.length === 0) {
       setFilteredTenders(tenders);
@@ -201,6 +207,7 @@ export default function FilterBar() {
         )
       );
     }
+    setCurrentPage(1); // reset page on search
   }, [searchTerm, tenders]);
 
   // Toggle dropdown for each tender row actions
@@ -209,19 +216,25 @@ export default function FilterBar() {
   };
 
   // Sort tenders by published_date desc
-  const sortedTenders = [...filteredTenders].sort((a, b) => {
-    const dateA = new Date(a.published_date);
-    const dateB = new Date(b.published_date);
-    return dateB.getTime() - dateA.getTime();
-  });
+  const sortedTenders = useMemo(() => {
+    return [...filteredTenders].sort((a, b) => {
+      const dateA = new Date(a.published_date);
+      const dateB = new Date(b.published_date);
+      return dateB.getTime() - dateA.getTime();
+    });
+  }, [filteredTenders]);
 
-  // Date formatter fallback
-  const parseDateString = (dateStr: string) => {
-    const date = new Date(dateStr);
-    if (isNaN(date.getTime())) {
-      return new Date();
-    }
-    return date;
+  // Pagination logic
+  const totalPages = Math.ceil(sortedTenders.length / PAGE_SIZE);
+
+  const paginatedTenders = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return sortedTenders.slice(start, start + PAGE_SIZE);
+  }, [sortedTenders, currentPage]);
+
+  const goToPage = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
   };
 
   return (
@@ -341,17 +354,17 @@ export default function FilterBar() {
             </tr>
           </thead>
           <tbody>
-            {filteredTenders.length === 0 ? (
+            {paginatedTenders.length === 0 ? (
               <tr>
                 <td
-                  colSpan={10}
+                  colSpan={11}
                   className="px-4 py-3 text-center text-gray-400"
                 >
                   No tenders found.
                 </td>
               </tr>
             ) : (
-              sortedTenders.map((tender, index) => (
+              paginatedTenders.map((tender, index) => (
                 <tr key={tender.tender_number} className="border-b">
                   <td className="px-4 py-3 font-medium whitespace-nowrap">
                     {tender.institutionName || "N/A"}
@@ -365,18 +378,20 @@ export default function FilterBar() {
                     {new Date(tender.closing_date).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-3">{tender.location}</td>
-                  {tender.tender_url?.trim() ? (
-                    <a
-                      href={tender.tender_url.trim()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      Link
-                    </a>
-                  ) : (
-                    <span className="text-red-500 font-bold">No link</span>
-                  )}
+                  <td className="px-4 py-3">
+                    {tender.tender_url?.trim() ? (
+                      <a
+                        href={tender.tender_url.trim()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline"
+                      >
+                        Link
+                      </a>
+                    ) : (
+                      <span className="text-red-500 font-bold">No link</span>
+                    )}
+                  </td>
 
                   <td className="px-4 py-3">
                     {tender.tender_document_url ? (
@@ -455,6 +470,41 @@ export default function FilterBar() {
           </tbody>
         </table>
       </div>
+
+      {/* Pagination controls */}
+      {totalPages > 1 && (
+        <div className="mt-4 flex justify-center space-x-2">
+          <button
+            onClick={() => goToPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+          >
+            Prev
+          </button>
+
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goToPage(i + 1)}
+              className={`px-3 py-1 rounded ${
+                currentPage === i + 1
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-200 hover:bg-gray-300"
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }

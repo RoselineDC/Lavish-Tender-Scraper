@@ -3,8 +3,9 @@ import subprocess
 import pandas as pd
 import sqlite3
 import logging
+import fastapi
 from fastapi.responses import JSONResponse
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -412,16 +413,34 @@ def refresh_tenders():
 
 
 @app.get("/tenders")
-def get_tenders():
+def get_tenders(page: int = Query(1, ge=1), page_size: int = Query(11, ge=1, le=100)):
+    offset = (page - 1) * page_size
+    
     conn = sqlite3.connect(DB_NAME)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM tenders ORDER BY published_date DESC")
+
+    cursor.execute("SELECT COUNT(*) FROM tenders")
+    total = cursor.fetchone()[0]
+
+    cursor.execute(
+        "SELECT * FROM tenders ORDER BY published_date DESC LIMIT ? OFFSET ?",
+        (page_size, offset)
+    )
     rows = cursor.fetchall()
+
     cursor.close()
     conn.close()
-    return [dict(row) for row in rows]
 
+    tenders = [dict(row) for row in rows]
+
+    return {
+        "page": page,
+        "page_size": page_size,
+        "total_tenders": total,
+        "total_pages": (total + page_size - 1) // page_size,
+        "tenders": tenders,
+    }
 
 @app.patch("/tenders/{tender_number:path}/approve")
 def approve_tender(tender_number: str):
