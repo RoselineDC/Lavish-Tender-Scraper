@@ -264,7 +264,7 @@ const NewIntents = () => {
                     <td className="px-4 py-3">{tender.location}</td>
                     <td className="px-4 py-3">
                       <a
-                        href={`/tenders/${tend`}
+                        href={`/tenders/${tender.id}`}
                         className="text-blue-600 hover:underline"
                       >
                         View Details
