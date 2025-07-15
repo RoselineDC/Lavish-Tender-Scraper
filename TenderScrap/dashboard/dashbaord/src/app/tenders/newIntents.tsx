@@ -133,7 +133,7 @@ const NewIntents = () => {
   const handleRfqRequest = (tenderNumber: string) => {
     console.log(tenderNumber)
   }
-  
+  // check if tender needs sub
     
 
 
