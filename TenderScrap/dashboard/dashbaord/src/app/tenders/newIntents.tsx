@@ -401,7 +401,7 @@ const NewIntents = () => {
                         </li>
                         <li>
                           <button
-                            onClick={() => handleD(tender.tender_number)}
+                            onClick={() => handleStatus(tender.tender_number)}
                             className="block w-full px-4 py-2 hover:bg-red-100 text-red-700"
                           >
                             🗑️ Delete
