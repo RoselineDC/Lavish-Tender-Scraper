@@ -144,6 +144,9 @@ const NewIntents = () => {
   }
   // check if tender needs submission
 
+
+  
+
     
 
 
