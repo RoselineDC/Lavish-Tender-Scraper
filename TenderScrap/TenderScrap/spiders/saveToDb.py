@@ -89,7 +89,7 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
             schema = cursor.fetchall()
             print("🧾 Table schema:", schema)
 
-            print(f"✅ Data inserted into {db_name,}")
+            print(f"✅ Data inserted into {db_name, 'transnet_Tenders'} table successfully.")
 
     except Exception as e:
         print(f"⚠️ Failed to parse and insert tenders: {e}")
