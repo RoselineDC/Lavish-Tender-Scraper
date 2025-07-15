@@ -395,7 +395,7 @@ const NewIntents = () => {
                             }}
                             className="block w-full px-4 py-2 hover:bg-green-100"
                           >
-                            ✅ RFQ
+                            ✅ Contact Su
                           </button>
                         </li>
                         <li>
