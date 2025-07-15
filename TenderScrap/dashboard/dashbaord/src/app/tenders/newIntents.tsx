@@ -245,8 +245,7 @@ const NewIntents = () => {
                   <th className="px-20 py-3">Tender Description</th>
                   <th className="px-4 py-3">Closing Date</th>
                   <th className="px-4 py-3">Location</th>
-                  <th className="px-4 py-3"> Tender Link</th>
-
+                  <th className="px-4 py-3"> Tender Link</th>                  
                   <th className="px-4 py-3">Tender Category</th>
                   <th className="px-4 py-3">Tender Status</th>
                 </tr>
