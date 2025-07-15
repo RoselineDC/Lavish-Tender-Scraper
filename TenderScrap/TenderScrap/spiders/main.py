@@ -390,7 +390,7 @@ class Tender(BaseModel):
 
 @app.post("/refresh-tenders")
 def refresh_tenders():
-    result = subprocess.run(["scrapy", "crawl", "transnetT"])
+    result = subprocess.run(["scrapy", "crawl", "transnetTenders"])
     if result.returncode != 0:
         return JSONResponse(status_code=500, content={"error": "Scraper failed"})
 
