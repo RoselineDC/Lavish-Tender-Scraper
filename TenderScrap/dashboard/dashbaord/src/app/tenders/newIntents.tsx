@@ -323,7 +323,7 @@ const NewIntents = () => {
                       <ul className="py-1 text-sm text-gray-700">
                         <li>
                           <button
-                            onClick={() => {h(tender.tender_number);
+                            onClick={() => {handleRfqRequest(tender.tender_number);
                             }}
                             className="block w-full px-4 py-2 hover:bg-green-100"
                           >
