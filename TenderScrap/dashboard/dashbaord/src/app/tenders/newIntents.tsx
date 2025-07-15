@@ -320,9 +320,7 @@ const NewIntents = () => {
                   </td>
                   <td className="px-4 py-3">{tender.tender_number}</td>
                   <td className="px-4 py-3">{tender.description}</td>
-                  <td className="px-4 py-3">
-                    {new Date(tender.published_date).toLocaleDateString()}
-                  </td>
+                  
                   <td className="px-4 py-3">
                     {new Date(tender.closing_date).toLocaleDateString()}
                   </td>
