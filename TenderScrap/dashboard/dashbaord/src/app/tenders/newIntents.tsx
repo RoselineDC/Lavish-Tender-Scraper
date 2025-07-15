@@ -271,16 +271,31 @@ const NewIntents = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredTenders.map((tender) => (
-                  <tr key={tender.id} className="border-b">
-                    <td className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
-                      {tender.institutionName}
-                    </td>
-                    <td className="px-4 py-3">{tender.tender_number}</td>
-                    <td className="px-4 py-3">{tender.description}</td>
-                    <td className="px-4 py-3">{tender.closing_date}</td>
-                    <td className="px-4 py-3">{tender.location}</td>
-                    <td className="px-4 py-3">
+            {paginatedTenders.length === 0 ? (
+              <tr>
+                <td
+                  colSpan={11}
+                  className="px-4 py-3 text-center text-gray-400"
+                >
+                  No tenders found.
+                </td>
+              </tr>
+            ) : (
+              paginatedTenders.map((tender, index) => (
+                <tr key={tender.tender_number} className="border-b">
+                  <td className="px-4 py-3 font-medium whitespace-nowrap">
+                    {tender.institutionName || "N/A"}
+                  </td>
+                  <td className="px-4 py-3">{tender.tender_number}</td>
+                  <td className="px-4 py-3">{tender.description}</td>
+                  <td className="px-4 py-3">
+                    {new Date(tender.published_date).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-3">
+                    {new Date(tender.closing_date).toLocaleDateString()}
+                  </td>
+                  <td className="px-4 py-3">{tender.location}</td>
+                  <td className="px-4 py-3">
                     {tender.tender_url?.trim() ? (
                       <a
                         href={tender.tender_url.trim()}
@@ -294,7 +309,9 @@ const NewIntents = () => {
                       <span className="text-red-500 font-bold">No link</span>
                     )}
                   </td>
-                    <td className="px-4 py-3">
+
+                  <td className="px-4 py-3">
+                    {tender.tender_document_url ? (
                       <a
                         href={tender.tender_document_url}
                         target="_blank"
@@ -303,20 +320,25 @@ const NewIntents = () => {
                       >
                         View
                       </a>
-                    </td>
-                    <td className="px-4 py-3">{tender.tender_category}</td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                          tender.tender_status === "Open"
-                            ? "bg-green-100 text-green-800"
-                            : "bg-red-100 text-red-800"
-                        }`}
-                      >
-                        {tender.tender_status}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 flex items-center justify-end relative">
+                    ) : (
+                      "N/A"
+                    )}
+                  </td>
+                  <td className="px-4 py-3">{tender.tender_category}</td>
+                  <td className="px-4 py-3">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                        tender.tender_status === "Open"
+                          ? "bg-green-100 text-green-800"
+                          : tender.tender_status === "Approved"
+                          ? "bg-blue-100 text-blue-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {tender.tender_status}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 flex items-center justify-end relative">
                     <button
                       onClick={() => handleDropdownToggle(index)}
                       className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none"
@@ -340,7 +362,8 @@ const NewIntents = () => {
                       <ul className="py-1 text-sm text-gray-700">
                         <li>
                           <button
-                            onClick={() => {handleRfqRequest(tender.tender_number);
+                            onClick={() => {
+                              handleApproveTender(tender.tender_number);
                             }}
                             className="block w-full px-4 py-2 hover:bg-green-100"
                           >
@@ -358,9 +381,10 @@ const NewIntents = () => {
                       </ul>
                     </div>
                   </td>
-                  </tr>
-                ))}
-              </tbody>
+                </tr>
+              ))
+            )}
+          </tbody>
             </table>
             <TableWithPagination />
           </div>
