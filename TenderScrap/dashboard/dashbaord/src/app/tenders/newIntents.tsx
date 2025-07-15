@@ -133,6 +133,7 @@ const NewIntents = () => {
   const handleRfqRequest = (tenderNumber: string) => {
     console.log(tenderNumber)
   }
+  
     
 
 
