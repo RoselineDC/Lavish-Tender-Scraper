@@ -365,7 +365,6 @@ const NewIntents = () => {
                           : tender.tender_status === "Approved"
                           ? "bg-blue-100 text-blue-800"
                           
-                          : "bg-red-100 text-red-800"
                       }`}
                     >
                       {tender.tender_status}
