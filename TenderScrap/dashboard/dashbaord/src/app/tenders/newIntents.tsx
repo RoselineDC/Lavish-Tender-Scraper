@@ -142,7 +142,8 @@ const NewIntents = () => {
   const handleRfqRequest = (tenderNumber: string) => {
     console.log(tenderNumber)
   }
-  // check if tender needs submis
+  // check status of tender
+  
 
 
   // Sort tenders by published_date desc
