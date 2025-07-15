@@ -129,6 +129,7 @@ const NewIntents = () => {
     }
     setCheckedCategories(updatedCategories);
   };
+  
 
   return (
     <div className="p-6">
