@@ -299,6 +299,7 @@ const NewIntents = () => {
                         {tender.tender_status}
                       </span>
                     </td>
+                    
                   </tr>
                 ))}
               </tbody>
