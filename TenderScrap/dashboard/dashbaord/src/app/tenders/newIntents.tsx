@@ -129,7 +129,9 @@ const NewIntents = () => {
     }
     setCheckedCategories(updatedCategories);
   };
-  
+  //  allow dropdown 
+  const handleDropdownToggle = (index: number) => {
+    
   // check is tender needs quotation
   const handleRfqRequest = (tenderNumber: string) => {
     console.log(tenderNumber)
