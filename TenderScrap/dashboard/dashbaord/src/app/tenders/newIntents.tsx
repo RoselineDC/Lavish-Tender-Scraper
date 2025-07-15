@@ -156,6 +156,10 @@ const NewIntents = () => {
   
     // Pagination logic
     
+      // Pagination state
+      const PAGE_SIZE = 11;
+      const [currentPage, setCurrentPage] = useState(1);
+    
     const totalPages = Math.ceil(sortedTenders.length / PAGE_SIZE);
   
     const paginatedTenders = useMemo(() => {
