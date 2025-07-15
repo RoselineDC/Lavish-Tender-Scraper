@@ -129,12 +129,13 @@ const NewIntents = () => {
     }
     setCheckedCategories(updatedCategories);
   };
+  
   // check is tender needs quotation
   const handleRfqRequest = (tenderNumber: string) => {
     console.log(tenderNumber)
   }
   // check if tender needs submission
-  
+
     
 
 
