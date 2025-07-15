@@ -263,13 +263,19 @@ const NewIntents = () => {
                     <td className="px-4 py-3">{tender.closing_date}</td>
                     <td className="px-4 py-3">{tender.location}</td>
                     <td className="px-4 py-3">
+                    {tender.tender_url?.trim() ? (
                       <a
-                        href={`/tenders/${tender.id}`}
+                        href={tender.tender_url.trim()}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
                       >
                         Link
                       </a>
-                    </td>
+                    ) : (
+                      <span className="text-red-500 font-bold">No link</span>
+                    )}
+                  </td>
                     <td className="px-4 py-3">
                       <a
                         href={tender.tender_document_url}
