@@ -415,7 +415,7 @@ const NewIntents = () => {
             )}
           </tbody>
             </table>
-            <TableWithPagination />
+            
           </div>
         ) : (
           <div className="text-center text-gray-400 py-6">
