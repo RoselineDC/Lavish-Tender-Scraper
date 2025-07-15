@@ -143,7 +143,9 @@ const NewIntents = () => {
     console.log(tenderNumber)
   }
   // check status of tender
-  
+  const handleStatus = (tenderNumber: string) => {
+    console.log(tenderNumber);
+  };
 
 
   // Sort tenders by published_date desc
