@@ -67,11 +67,9 @@ const NewIntents = () => {
   const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-    const [tenders, setTenders] = useState<TenderType[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [tenders, setTenders] = useState<TenderType[]>([]);
+  const [loading, setLoading] = useState(false);  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
     const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
-  
     
 
   useEffect(() => {
