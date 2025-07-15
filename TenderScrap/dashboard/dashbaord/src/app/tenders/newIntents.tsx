@@ -66,7 +66,7 @@ const NewIntents = () => {
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
   const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-    const [showDropdown, setShowDropdown] = useState(false);
+    c
     const [checkedFilters, setCheckedFilters] = useState<string[]>([]);
     const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
     const [tenders, setTenders] = useState<TenderType[]>([]);
