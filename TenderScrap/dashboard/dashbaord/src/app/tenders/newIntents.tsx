@@ -65,6 +65,7 @@ const NewIntents = () => {
   const [checkedCategories, setCheckedCategories] = useState<string[]>([]);
   const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
   const [filteredTenders, setFilteredTenders] = useState<TenderType[]>([]);
+  
 
   useEffect(() => {
     fetch("http://localhost:8000/tenders/approved")
