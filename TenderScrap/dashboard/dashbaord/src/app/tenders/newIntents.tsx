@@ -269,6 +269,7 @@ const NewIntents = () => {
                       >
                         View Details
                       </a>
+                    </td>
                     <td className="px-4 py-3">
                       <a
                         href={tender.tender_document_url}
