@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect,  } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
