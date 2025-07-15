@@ -71,7 +71,7 @@ const NewIntents = () => {
     const [loading, setLoading] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<number | null>(null);
     const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
-    const [approvedTenders, setApprovedTenders] = useState<TenderType[]>([]);
+  
     
 
   useEffect(() => {
