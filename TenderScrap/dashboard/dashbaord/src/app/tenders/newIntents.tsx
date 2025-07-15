@@ -299,7 +299,49 @@ const NewIntents = () => {
                         {tender.tender_status}
                       </span>
                     </td>
-                    
+                    <td className="px-4 py-3 flex items-center justify-end relative">
+                    <button
+                      onClick={() => handleDropdownToggle(index)}
+                      className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none"
+                      type="button"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                      </svg>
+                    </button>
+
+                    <div
+                      className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${
+                        openDropdown === index ? "" : "hidden"
+                      }`}
+                    >
+                      <ul className="py-1 text-sm text-gray-700">
+                        <li>
+                          <button
+                            onClick={() => {
+                              handleApproveTender(tender.tender_number);
+                            }}
+                            className="block w-full px-4 py-2 hover:bg-green-100"
+                          >
+                            ✅ Approve
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            onClick={() => handleDelete(tender.tender_number)}
+                            className="block w-full px-4 py-2 hover:bg-red-100 text-red-700"
+                          >
+                            🗑️ Delete
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
                   </tr>
                 ))}
               </tbody>
