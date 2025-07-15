@@ -131,10 +131,7 @@ const NewIntents = () => {
   };
   // check is tender needs quotation
   const handleRfqRequest = (tenderNumber: string) => {
-    const tender = tenders.find((t) => t.tender_number === tenderNumber);
-    if (tender) {
-      console.log("RFQ requested for tender:", tenderNumber);
-    }
+    cons
   }
     
 
