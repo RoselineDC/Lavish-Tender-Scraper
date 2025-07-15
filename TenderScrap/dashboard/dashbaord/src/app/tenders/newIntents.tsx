@@ -131,7 +131,7 @@ const NewIntents = () => {
   };
   // check is tender needs quotation
   const handleRfqRequest = (tenderNumber: string) => {
-    cons
+    console.log(tenderNumber)
   }
     
 
