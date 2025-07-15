@@ -129,7 +129,11 @@ const NewIntents = () => {
     }
     setCheckedCategories(updatedCategories);
   };
-  
+  // check is tender needs quotation
+  const handleRfqRequest = (tenderNumber: string) => {
+    fetch(`http://localhost:8000/tenders/rfq/${tenderNumber}`, {
+      method: "POST",
+        
 
   return (
     <div className="p-6">
