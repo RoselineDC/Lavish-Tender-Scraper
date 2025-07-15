@@ -392,7 +392,7 @@ const NewIntents = () => {
                         <li>
                           <button
                             onClick={() => {
-                              handleApproveTender(tender.tender_number);
+                              handleApproveT(tender.tender_number);
                             }}
                             className="block w-full px-4 py-2 hover:bg-green-100"
                           >
