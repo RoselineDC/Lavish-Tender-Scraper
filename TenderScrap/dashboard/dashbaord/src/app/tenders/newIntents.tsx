@@ -249,7 +249,7 @@ const NewIntents = () => {
                     <th className="px-4 py-3"> Tender Document</th>                
                   <th className="px-4 py-3">Tender Category</th>
                   <th className="px-4 py-3">Tender Status</th>
-                  
+                  <th className="px-4 py-3">Action</th>
                 </tr>
               </thead>
               <tbody>
