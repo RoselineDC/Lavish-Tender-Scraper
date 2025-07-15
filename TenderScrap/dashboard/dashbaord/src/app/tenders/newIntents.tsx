@@ -131,7 +131,8 @@ const NewIntents = () => {
   };
   //  allow dropdown 
   const handleDropdownToggle = (index: number) => {
-    
+    alert("Dropdown toggled for tender at index: " + index);
+  };
   // check is tender needs quotation
   const handleRfqRequest = (tenderNumber: string) => {
     console.log(tenderNumber)
