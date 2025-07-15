@@ -395,7 +395,7 @@ const NewIntents = () => {
                             }}
                             className="block w-full px-4 py-2 hover:bg-green-100"
                           >
-                            ✅ Contact Su
+                            ✅ Contact Supplier
                           </button>
                         </li>
                         <li>
@@ -403,7 +403,7 @@ const NewIntents = () => {
                             onClick={() => handleStatus(tender.tender_number)}
                             className="block w-full px-4 py-2 hover:bg-red-100 text-red-700"
                           >
-                            🗑️ 
+                            Submit For Bid
                           </button>
                         </li>
                       </ul>
