@@ -130,7 +130,7 @@ const NewIntents = () => {
     setCheckedCategories(updatedCategories);
   };
   //  allow dropdown 
-    const handleDropdownToggle = (index: number) => {
+  const handleDropdownToggle = (index: number) => {
     setOpenDropdown((prev) => (prev === index ? null : index));
   };
   // check is tender needs quotation
