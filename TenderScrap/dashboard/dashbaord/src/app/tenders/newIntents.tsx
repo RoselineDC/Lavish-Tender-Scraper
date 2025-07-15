@@ -145,6 +145,27 @@ const NewIntents = () => {
   // check if tender needs submission
 
 
+  // Sort tenders by published_date desc
+    const sortedTenders = useMemo(() => {
+      return [...filteredTenders].sort((a, b) => {
+        const dateA = new Date(a.published_date);
+        const dateB = new Date(b.published_date);
+        return dateB.getTime() - dateA.getTime();
+      });
+    }, [filteredTenders]);
+  
+    // Pagination logic
+    const totalPages = Math.ceil(sortedTenders.length / PAGE_SIZE);
+  
+    const paginatedTenders = useMemo(() => {
+      const start = (currentPage - 1) * PAGE_SIZE;
+      return sortedTenders.slice(start, start + PAGE_SIZE);
+    }, [sortedTenders, currentPage]);
+  
+    const goToPage = (page: number) => {
+      if (page < 1 || page > totalPages) return;
+      setCurrentPage(page);
+    };
   
 
     
