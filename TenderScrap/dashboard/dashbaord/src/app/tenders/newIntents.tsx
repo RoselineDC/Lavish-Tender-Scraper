@@ -159,7 +159,7 @@ const NewIntents = () => {
 
       <div className="bg-white rounded-xl p-4 shadow-md border-t-4 border-green-500 hover:shadow-lg transition mt-6">
         <div className="flex flex-col items-center">
-          <h2 className="text-2xl font-bold mb-4">TRANSNE APPROVED TENDERS</h2>
+          <h2 className="text-2xl font-bold mb-4">TRANSNET APPROVED TENDERS</h2>
           <p className="text-gray-600">View and manage Approved tenders for Transnet</p>
         </div>
 
