@@ -53,7 +53,7 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
                     row.get("description", ""),
                     row.get("published_date", ""),
                     row.get("closing_date", ""),
-                    row.get("Briefing Date", ""),
+                    row.get("briefing_date", ""),
                     row.get("location", ""),
                     row.get("tender_url", ""),
                     row.get("tender_document_url", ""),
