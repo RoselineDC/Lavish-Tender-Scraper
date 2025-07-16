@@ -55,13 +55,13 @@ export default function FilterBar() {
   const [currentPage, setCurrentPage] = useState(1);
 
   // check urls for tenders
-  useEffect(() => {
-    tenders.forEach((t) => {
-      console.log("Tender Number:", t.tender_number);
-      console.log("URL Raw:", t.tender_url);
-      console.log("URL Trimmed:", t.tender_url?.trim());
-    });
-  }, [tenders]);
+  // useEffect(() => {
+  //   tenders.forEach((t) => {
+  //     // console.log("Tender Number:", t.tender_number);
+  //     // console.log("URL Raw:", t.tender_url);
+  //     // console.log("URL Trimmed:", t.tender_url?.trim());
+  //   });
+  // }, [tenders]);
 
   // Fetch tenders from backend on mount
   useEffect(() => {

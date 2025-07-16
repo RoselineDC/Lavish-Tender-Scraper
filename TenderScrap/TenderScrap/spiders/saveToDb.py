@@ -11,15 +11,17 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
           
 
         # Normalize date columns dynamically
-         # Normalize date columns
         for date_col in ["published_date", "closing_date", "briefing_date"]:
-            df[date_col] = pd.to_datetime(df[date_col], errors='coerce').dt.strftime('%Y-%m-%d')
-            print(df[["published_date", "closing_date", "briefing_date"]])
+            df[date_col] = pd.to_datetime(df[date_col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce').dt.strftime('%Y-%m-%d')
+         # Normalize date columns
+        # for date_col in ["published_date", "closing_date", "briefing_date"]:
+        #     df[date_col] = pd.to_datetime(df[date_col], errors='coerce').dt.strftime('%Y-%m-%d')
+        #     print(df[["published_date", "closing_date", "briefing_date"]])
 
 
         db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "transnet_Tenders.db"))
 
-        print(f"🛢️ Using database at: {db_path}")
+       
 
 
         with sqlite3.connect(db_path, timeout=10) as conn:
@@ -78,7 +80,7 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, records)
             after = cursor.execute("SELECT COUNT(*) FROM transnet_Tenders").fetchone()[0]
-            print(f"✅ Inserted {after - before} new rows. Skipped {len(records) - (after - before)} duplicates.")
+           
 
             # Verification logs
             cursor.execute("SELECT COUNT(*) FROM transnet_Tenders")

@@ -2,7 +2,7 @@ import scrapy
 import json
 
 class TransnetTendersSpider(scrapy.Spider):
-    name = "transnet_tenders"
+    name = "transnetTenders"
     allowed_domains = ["transnetetenders.azurewebsites.net"]
     start_urls = ["https://transnetetenders.azurewebsites.net/Home/GetAdvertisedTenders"]
 

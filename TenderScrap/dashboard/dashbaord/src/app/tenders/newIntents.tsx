@@ -58,7 +58,7 @@ export interface TenderType {
   contact_email: string;
   rowKey?: string;
 }
-
+ 
 const NewIntents = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
