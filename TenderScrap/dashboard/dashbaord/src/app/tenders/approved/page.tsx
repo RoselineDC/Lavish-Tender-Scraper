@@ -1,7 +1,8 @@
 // /app/tenders/approved/page.tsx
 
 import React from "react";
-import NewIntents from "@/app/tenders/NewIntents"; // adjust the import path as needed
+import NewIntents from "../newIntents";
+
 
 export default function ApprovedTendersPage() {
   return <NewIntents />;

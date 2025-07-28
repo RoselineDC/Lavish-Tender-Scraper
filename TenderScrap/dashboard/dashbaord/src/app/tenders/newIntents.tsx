@@ -4,8 +4,8 @@ import { useState, useEffect, useMemo } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { RefreshCcw } from "lucide-react";
 import { TfiFilter } from "react-icons/tfi";
-import TableWithPagination from "../dashboard/TableWithPagination";
 import Link from "next/link";
+import Suppliers from "../suppliers/page";
 
 const colorMap: Record<string, { border: string; bg: string }> = {
   blue: { border: "border-blue-900", bg: "bg-blue-900" },
@@ -57,6 +57,8 @@ export interface TenderType {
   contact_person: string;
   contact_email: string;
   rowKey?: string;
+  supplier_name?: string;
+  supplier_contact?: string;
 }
  
 const NewIntents = () => {
@@ -296,8 +298,8 @@ const NewIntents = () => {
                   <th className="px-4 py-3">Closing Date</th>
                   <th className="px-4 py-3">Location</th>
                   <th className="px-4 py-3"> Tender Link</th>
-                    <th className="px-4 py-3"> Tender Document</th>                
-                  <th className="px-4 py-3">Tender Category</th>
+                    <th className="px-4 py-3"> Suppliers Name</th>                
+                  <th className="px-4 py-3">Supplier Contact</th>
                   <th className="px-4 py-3">Tender Status</th>
                   <th className="px-4 py-3">Action</th>
                 </tr>
@@ -341,20 +343,22 @@ const NewIntents = () => {
                   </td>
 
                   <td className="px-4 py-3">
-                    {tender.tender_document_url ? (
+                    { tender.supplier_name ? (
                       <a
-                        href={tender.tender_document_url}
+                        href={tender.supplier_name}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:underline"
                       >
-                        View
+                        <Suppliers />
                       </a>
                     ) : (
                       "N/A"
                     )}
                   </td>
-                  <td className="px-4 py-3">{tender.tender_category}</td>
+                  <td className="px-4 py-3">{tender.supplier_contact}
+                    <Suppliers />
+                  </td>
                   <td className="px-4 py-3">
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-semibold ${

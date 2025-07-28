@@ -2,27 +2,21 @@ import pandas as pd
 import sqlite3
 import os
 
-def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db'):
+def parse_csv_to_db(csv_path='transnet_tenders.csv', db_name='transnet_Tenders.db'):
     try:
         # Read the CSV into a DataFrame
         df = pd.read_csv(csv_path, on_bad_lines='skip')
-        print(df.shape)
+        print("📊 CSV Loaded:", df.shape)
+        print("📝 Columns in DataFrame:", df.columns.tolist())
         print(df.head())
-          
 
-        # Normalize date columns dynamically
+        # Normalize date columns dynamically and safely
         for date_col in ["published_date", "closing_date", "briefing_date"]:
-            df[date_col] = pd.to_datetime(df[date_col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce').dt.strftime('%Y-%m-%d')
-         # Normalize date columns
-        # for date_col in ["published_date", "closing_date", "briefing_date"]:
-        #     df[date_col] = pd.to_datetime(df[date_col], errors='coerce').dt.strftime('%Y-%m-%d')
-        #     print(df[["published_date", "closing_date", "briefing_date"]])
+            if date_col in df.columns:
+                df[date_col] = pd.to_datetime(df[date_col], format="%m/%d/%Y %I:%M:%S %p", errors='coerce').dt.strftime('%Y-%m-%d')
 
-
-        db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "transnet_Tenders.db"))
-
-       
-
+        # Construct absolute database path
+        db_path = os.path.abspath(os.path.join(os.path.dirname(__file__), db_name))
 
         with sqlite3.connect(db_path, timeout=10) as conn:
             cursor = conn.cursor()
@@ -48,7 +42,7 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
                 )
             """)
 
-            # Prepare records
+            # Prepare records for insertion using .get()
             records = [
                 (
                     row.get("tender_number", ""),
@@ -69,9 +63,9 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
                 for _, row in df.iterrows()
             ]
 
-            # Insert records
             before = cursor.execute("SELECT COUNT(*) FROM transnet_Tenders").fetchone()[0]
 
+            # Insert or replace into table
             cursor.executemany("""
                 INSERT OR REPLACE INTO transnet_Tenders (
                     tender_number, description, published_date, closing_date, briefing_date,
@@ -79,19 +73,12 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
                     tender_status, contact_person, contact_email, institution_name
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, records)
+
             after = cursor.execute("SELECT COUNT(*) FROM transnet_Tenders").fetchone()[0]
-           
 
-            # Verification logs
-            cursor.execute("SELECT COUNT(*) FROM transnet_Tenders")
-            count = cursor.fetchone()[0]
-            print(f"✅ Rows in table after insert: {count}")
-
-            cursor.execute("PRAGMA table_info(transnet_Tenders)")
-            schema = cursor.fetchall()
-            print("🧾 Table schema:", schema)
-
-            print(f"✅ Data inserted into {db_name, 'transnet_Tenders'} table successfully.")
+            print(f"✅ Records before: {before} → after: {after}")
+            print("🧾 Table schema:", cursor.execute("PRAGMA table_info(transnet_Tenders)").fetchall())
+            print(f"✅ Data inserted into '{db_name}' successfully.")
 
     except Exception as e:
         print(f"⚠️ Failed to parse and insert tenders: {e}")
@@ -101,7 +88,6 @@ def parse_csv_to_db(csv_path='transnet_enders.csv', db_name='transnet_Tenders.db
             cursor.close()
         if 'conn' in locals():
             conn.close()
-
 
 if __name__ == "__main__":
     parse_csv_to_db()

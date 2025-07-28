@@ -7,9 +7,8 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-# IMPORT SPIDERS
-from TenderScrap.spiders.saveToDb import SaveToDbSpider
-from TenderScrap.spiders.saveToCsv import SaveToCsvSpider
+# # IMPORT SPIDERS
+
 
 
 # ---------- Logging Setup ----------
@@ -29,7 +28,7 @@ app.add_middleware(
 
 # ---------- Constants ----------
 DB_NAME = "transnetTenders.db"
-CSV_PATH = "transnetTenders.csv"
+CSV_PATH = "transnetAdvertised.csv"
 BASE_URL = "https://transnetetenders.azurewebsites.net/Home/TenderDetails?Id="
 
 # ---------- Database Table Creation ----------
