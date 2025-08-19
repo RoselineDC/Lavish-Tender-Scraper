@@ -1,8 +1,16 @@
+'use client'
+
 import React from 'react'
+import SuppliersDatabase from './suppliers'
 
 const Suppliers = () => {
   return (
-    <div>Suppliers</div>
+    // contents from suppliers.tsx file
+    <>
+    <SuppliersDatabase />
+    </>
+    
+    
   )
 }
 

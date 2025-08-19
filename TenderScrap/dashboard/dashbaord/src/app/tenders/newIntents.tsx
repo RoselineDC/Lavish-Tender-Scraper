@@ -60,7 +60,7 @@ export interface TenderType {
   supplier_name?: string;
   supplier_contact?: string;
 }
- 
+
 const NewIntents = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -71,7 +71,7 @@ const NewIntents = () => {
   const [loading, setLoading] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [closingDateSortAsc, setClosingDateSortAsc] = useState(true);
-    
+
 
   useEffect(() => {
     fetch("http://localhost:8000/tenders/approved")
@@ -81,7 +81,7 @@ const NewIntents = () => {
       })
       .then((data) => {
         setApprovedTenders(data);
-        setFilteredTenders(data); // Initially show all approved tenders
+        setFilteredTenders(data);
       })
       .catch((err) => {
         console.error("Error fetching tenders:", err);
@@ -151,34 +151,34 @@ const NewIntents = () => {
 
 
   // Sort tenders by published_date desc
-    const sortedTenders = useMemo(() => {
-      return [...filteredTenders].sort((a, b) => {
-        const dateA = new Date(a.published_date);
-        const dateB = new Date(b.published_date);
-        return dateB.getTime() - dateA.getTime();
-      });
-    }, [filteredTenders]);
-  
-    // Pagination logic
-    
-      // Pagination state
-      const PAGE_SIZE = 11;
-      const [currentPage, setCurrentPage] = useState(1);
-    
-    const totalPages = Math.ceil(sortedTenders.length / PAGE_SIZE);
-  
-    const paginatedTenders = useMemo(() => {
-      const start = (currentPage - 1) * PAGE_SIZE;
-      return sortedTenders.slice(start, start + PAGE_SIZE);
-    }, [sortedTenders, currentPage]);
-  
-    const goToPage = (page: number) => {
-      if (page < 1 || page > totalPages) return;
-      setCurrentPage(page);
-    };
-  
+  const sortedTenders = useMemo(() => {
+    return [...filteredTenders].sort((a, b) => {
+      const dateA = new Date(a.published_date);
+      const dateB = new Date(b.published_date);
+      return dateB.getTime() - dateA.getTime();
+    });
+  }, [filteredTenders]);
 
-    
+  // Pagination logic
+
+  // Pagination state
+  const PAGE_SIZE = 11;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(sortedTenders.length / PAGE_SIZE);
+
+  const paginatedTenders = useMemo(() => {
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return sortedTenders.slice(start, start + PAGE_SIZE);
+  }, [sortedTenders, currentPage]);
+
+  const goToPage = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+  };
+
+
+
 
 
   return (
@@ -298,51 +298,51 @@ const NewIntents = () => {
                   <th className="px-4 py-3">Closing Date</th>
                   <th className="px-4 py-3">Location</th>
                   <th className="px-4 py-3"> Tender Link</th>
-                    <th className="px-4 py-3"> Suppliers Name</th>                
-                  <th className="px-4 py-3">Supplier Contact</th>
+                  {/* <th className="px-4 py-3"> Suppliers Name</th>                
+                  <th className="px-4 py-3">Supplier Contact</th> */}
                   <th className="px-4 py-3">Tender Status</th>
                   <th className="px-4 py-3">Action</th>
                 </tr>
               </thead>
               <tbody>
-            {paginatedTenders.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={11}
-                  className="px-4 py-3 text-center text-gray-400"
-                >
-                  No tenders found.
-                </td>
-              </tr>
-            ) : (
-              paginatedTenders.map((tender, index) => (
-                <tr key={tender.tender_number} className="border-b">
-                  <td className="px-4 py-3 font-medium whitespace-nowrap">
-                    {tender.institutionName || "N/A"}
-                  </td>
-                  <td className="px-4 py-3">{tender.tender_number}</td>
-                  <td className="px-4 py-3">{tender.description}</td>
-                  
-                  <td className="px-4 py-3">
-                    {new Date(tender.closing_date).toLocaleDateString()}
-                  </td>
-                  <td className="px-4 py-3">{tender.location}</td>
-                  <td className="px-4 py-3">
-                    {tender.tender_url?.trim() ? (
-                      <a
-                        href={tender.tender_url.trim()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline"
-                      >
-                        Link
-                      </a>
-                    ) : (
-                      <span className="text-red-500 font-bold">No link</span>
-                    )}
-                  </td>
+                {paginatedTenders.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan={11}
+                      className="px-4 py-3 text-center text-gray-400"
+                    >
+                      No tenders found.
+                    </td>
+                  </tr>
+                ) : (
+                  paginatedTenders.map((tender, index) => (
+                    <tr key={tender.tender_number} className="border-b">
+                      <td className="px-4 py-3 font-medium whitespace-nowrap">
+                        {tender.institutionName || "N/A"}
+                      </td>
+                      <td className="px-4 py-3">{tender.tender_number}</td>
+                      <td className="px-4 py-3">{tender.description}</td>
 
-                  <td className="px-4 py-3">
+                      <td className="px-4 py-3">
+                        {new Date(tender.closing_date).toLocaleDateString()}
+                      </td>
+                      <td className="px-4 py-3">{tender.location}</td>
+                      <td className="px-4 py-3">
+                        {tender.tender_url?.trim() ? (
+                          <a
+                            href={tender.tender_url.trim()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline"
+                          >
+                            Link
+                          </a>
+                        ) : (
+                          <span className="text-red-500 font-bold">No link</span>
+                        )}
+                      </td>
+
+                      {/* <td className="px-4 py-3">
                     { tender.supplier_name ? (
                       <a
                         href={tender.supplier_name}
@@ -355,103 +355,102 @@ const NewIntents = () => {
                     ) : (
                       "N/A"
                     )}
-                  </td>
-                  <td className="px-4 py-3">{tender.supplier_contact}
+                  </td> */}
+                      {/* <td className="px-4 py-3">{tender.supplier_contact}
                     <Suppliers />
-                  </td>
-                  <td className="px-4 py-3">
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                        tender.tender_status === "Open"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {tender.tender_status}
-                    </span>
-                  </td>
-                  <td className="px-4 py-3 flex items-center justify-end relative">
-                    <button
-                      onClick={() => handleDropdownToggle(index)} // Call handleDropdownToggle()
-                      className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none"
-                      type="button"
-                    >
-                      <svg
-                        className="w-5 h-5"
-                        aria-hidden="true"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                      </svg>
-                    </button>
+                  </td> */}
+                      <td className="px-4 py-3">
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-semibold ${tender.tender_status === "Open"
+                              ? "bg-green-100 text-green-800"
+                              : "bg-red-100 text-red-800"
+                            }`}
+                        >
+                          {tender.tender_status}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 flex items-center justify-end relative">
+                        <button
+                          onClick={() => handleDropdownToggle(index)} // Call handleDropdownToggle()
+                          className="inline-flex items-center p-0.5 text-sm font-medium text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none"
+                          type="button"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                          </svg>
+                        </button>
 
-                    <div
-                      className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${
-                        openDropdown === index ? "" : "hidden"
-                      }`}
-                    >
-                      <ul className="py-1 text-sm text-gray-700">
-                        <li>
-                          <button
-                            onClick={() => {
-                              handleRfqRequest(tender.tender_number);
-                            }}
-                            className="block w-full px-4 py-2 hover:bg-green-100"
-                          >
-                            Contact Supplier
-                          </button>
-                        </li>
-                        <li>
-                          <button
-                            onClick={() => handleStatus(tender.tender_number)}
-                            className="block w-full px-4 py-2 hover:bg-red-100 text-red-700"
-                          >
-                            Submit For Bid
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
+                        <div
+                          className={`absolute z-10 top-full right-0 mt-2 w-40 bg-white divide-y divide-gray-100 rounded shadow border border-gray-200 ${openDropdown === index ? "" : "hidden"
+                            }`}
+                        >
+                          <ul className="py-1 text-sm text-gray-700">
+                            <li>
+                              <button
+                                onClick={() => {
+                                  handleRfqRequest(tender.tender_number);
+                                  window.location.href = "/suppliers"; 
+                                }}
+                                className="block w-full px-4 py-2 hover:bg-green-100"
+                              >
+                                Contact Supplier
+                              </button>
+                            </li>
+
+                            <li>
+                              <button
+                                onClick={() => handleStatus(tender.tender_number)}
+                                className="block w-full px-4 py-2 hover:bg-red-100 text-red-700"
+                              >
+                                Submit For Bid
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
             </table>
-             {/* Pagination controls */}
-      {totalPages > 1 && (
-        <div className="mt-4 flex justify-center space-x-2">
-          <button
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
-          >
-            Prev
-          </button>
+            {/* Pagination controls */}
+            {totalPages > 1 && (
+              <div className="mt-4 flex justify-center space-x-2">
+                <button
+                  onClick={() => goToPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+                >
+                  Prev
+                </button>
 
-          {[...Array(totalPages)].map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goToPage(i + 1)}
-              className={`px-3 py-1 rounded ${
-                currentPage === i + 1
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-200 hover:bg-gray-300"
-              }`}
-            >
-              {i + 1}
-            </button>
-          ))}
+                {[...Array(totalPages)].map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goToPage(i + 1)}
+                    className={`px-3 py-1 rounded ${currentPage === i + 1
+                        ? "bg-blue-600 text-white"
+                        : "bg-gray-200 hover:bg-gray-300"
+                      }`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
 
-          <button
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
-          >
-            Next
-          </button>
-        </div>
-      )}
+                <button
+                  onClick={() => goToPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
+                >
+                  Next
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="text-center text-gray-400 py-6">

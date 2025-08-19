@@ -19,7 +19,7 @@ def clean_and_sort_csv(file_path='etendersGov.csv'):
         print("✅ CSV cleaned, deduplicated and sorted.")
 
         try:
-            df.to_excel("advert.xlsx", index=False, header=True)
+            df.to_excel("etendersadvert.xlsx", index=False, header=True)
             print("✅ Also saved as advert.xlsx")
         except Exception as e:
             print(f"⚠️ Excel export failed: {e}")
